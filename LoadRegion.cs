@@ -203,59 +203,6 @@ namespace Origins_Editor
             }
         }
 
-        private void SearchFilters_SelectedChanged(object sender, EventArgs e)
-        {
-            string select = "SELECT * FROM regions";
-            bool add = false; ;
-            if (this.SearchRegionIDtextBox.Text != "")
-            {
-                select += " where regionid='" + this.SearchRegionIDtextBox.Text + "'";
-                add = true;
-            }
-
-            if (this.SearchByRegionNametextBox.Text != "")
-            {
-                if (add)
-                    select += " and Description like '%" + this.SearchByRegionNametextBox.Text + "%'";
-                else
-                {
-                    select += " where Description like '%" + this.SearchByRegionNametextBox.Text + "%'";
-                    add = true;
-                }
-            }
-
-            string ClassType = " All";
-            if (ClassTypeSearchcomboBox.Text != null && ClassTypeSearchcomboBox.Text != "")
-                ClassType = this.ClassTypeSearchcomboBox.Text.ToString(); //ClassID
-
-            if (ClassType != " All")
-            {
-                if (add)
-                    select += " and ClassType='" + ClassType + "'";
-                else
-                {
-                    select += " where ClassType='" + ClassType + "'";
-                    add = true;
-                }
-            }
-
-            string Frontiers = " All";
-            if (SearchFrontierscomboBox.Text != null && SearchFrontierscomboBox.Text != "")
-                Frontiers = this.SearchFrontierscomboBox.Text.ToString();
-            if (Frontiers != " All")
-            {
-                if (add)
-                    select += " and IsFrontier ='" + Util.Find_Bool_Value(Frontiers) + "'";
-                else
-                {
-                    select += " where IsFrontier ='" + Util.Find_Bool_Value(Frontiers) + "'";
-                    add = true;
-                }
-            }
-
-            GetData(select);
-        }
-
         private void SaveNewRegion_Click(object sender, EventArgs e)
         {
             #region Check Box Value
@@ -453,6 +400,59 @@ namespace Origins_Editor
                 this.ControlMenu.Visible = false;
                 this.RegionIDtextBox.Text = Util.Find_Free_Region_ID().ToString();
             }
+        }
+
+        private void Searchbutton_Click(object sender, EventArgs e)
+        {
+            string select = "SELECT * FROM regions";
+            bool add = false; ;
+            if (this.SearchRegionIDtextBox.Text != "")
+            {
+                select += " where regionid='" + this.SearchRegionIDtextBox.Text + "'";
+                add = true;
+            }
+
+            if (this.SearchByRegionNametextBox.Text != "")
+            {
+                if (add)
+                    select += " and Description like '%" + this.SearchByRegionNametextBox.Text + "%'";
+                else
+                {
+                    select += " where Description like '%" + this.SearchByRegionNametextBox.Text + "%'";
+                    add = true;
+                }
+            }
+
+            string ClassType = " All";
+            if (ClassTypeSearchcomboBox.Text != null && ClassTypeSearchcomboBox.Text != "")
+                ClassType = this.ClassTypeSearchcomboBox.Text.ToString(); //ClassID
+
+            if (ClassType != " All")
+            {
+                if (add)
+                    select += " and ClassType='" + ClassType + "'";
+                else
+                {
+                    select += " where ClassType='" + ClassType + "'";
+                    add = true;
+                }
+            }
+
+            string Frontiers = " All";
+            if (SearchFrontierscomboBox.Text != null && SearchFrontierscomboBox.Text != "")
+                Frontiers = this.SearchFrontierscomboBox.Text.ToString();
+            if (Frontiers != " All")
+            {
+                if (add)
+                    select += " and IsFrontier ='" + Util.Find_Bool_Value(Frontiers) + "'";
+                else
+                {
+                    select += " where IsFrontier ='" + Util.Find_Bool_Value(Frontiers) + "'";
+                    add = true;
+                }
+            }
+
+            GetData(select);
         }
     }
 }

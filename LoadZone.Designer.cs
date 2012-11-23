@@ -114,6 +114,7 @@ namespace Origins_Editor
             this.AddZoneButton = new System.Windows.Forms.Button();
             this.ZoneListingButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ZonebindingNavigator)).BeginInit();
             this.ZonebindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ZonebindingSource)).BeginInit();
@@ -233,6 +234,7 @@ namespace Origins_Editor
             // 
             // ControlMenu
             // 
+            this.ControlMenu.Controls.Add(this.button1);
             this.ControlMenu.Controls.Add(this.label3);
             this.ControlMenu.Controls.Add(this.label2);
             this.ControlMenu.Controls.Add(this.ZoneRealmSearchcomboBox);
@@ -249,7 +251,7 @@ namespace Origins_Editor
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(286, 16);
+            this.label3.Location = new System.Drawing.Point(224, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 13);
             this.label3.TabIndex = 7;
@@ -258,7 +260,7 @@ namespace Origins_Editor
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(184, 16);
+            this.label2.Location = new System.Drawing.Point(132, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 11;
@@ -273,17 +275,16 @@ namespace Origins_Editor
             "Albion",
             "Midgard",
             "Hibernia"});
-            this.ZoneRealmSearchcomboBox.Location = new System.Drawing.Point(56, 12);
+            this.ZoneRealmSearchcomboBox.Location = new System.Drawing.Point(40, 12);
             this.ZoneRealmSearchcomboBox.MaxDropDownItems = 15;
             this.ZoneRealmSearchcomboBox.Name = "ZoneRealmSearchcomboBox";
-            this.ZoneRealmSearchcomboBox.Size = new System.Drawing.Size(121, 21);
+            this.ZoneRealmSearchcomboBox.Size = new System.Drawing.Size(89, 21);
             this.ZoneRealmSearchcomboBox.TabIndex = 3;
-            this.ZoneRealmSearchcomboBox.SelectedIndexChanged += new System.EventHandler(this.SearchFilters_SelectedChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 16);
+            this.label4.Location = new System.Drawing.Point(4, 16);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 9;
@@ -291,19 +292,17 @@ namespace Origins_Editor
             // 
             // SearchByZoneNametextBox
             // 
-            this.SearchByZoneNametextBox.Location = new System.Drawing.Point(355, 13);
+            this.SearchByZoneNametextBox.Location = new System.Drawing.Point(289, 13);
             this.SearchByZoneNametextBox.Name = "SearchByZoneNametextBox";
             this.SearchByZoneNametextBox.Size = new System.Drawing.Size(123, 20);
             this.SearchByZoneNametextBox.TabIndex = 14;
-            this.SearchByZoneNametextBox.TextChanged += new System.EventHandler(this.SearchFilters_SelectedChanged);
             // 
             // SearchZoneIDtextBox
             // 
-            this.SearchZoneIDtextBox.Location = new System.Drawing.Point(236, 12);
+            this.SearchZoneIDtextBox.Location = new System.Drawing.Point(178, 12);
             this.SearchZoneIDtextBox.Name = "SearchZoneIDtextBox";
             this.SearchZoneIDtextBox.Size = new System.Drawing.Size(44, 20);
             this.SearchZoneIDtextBox.TabIndex = 12;
-            this.SearchZoneIDtextBox.TextChanged += new System.EventHandler(this.SearchFilters_SelectedChanged);
             // 
             // SaveNewbutton
             // 
@@ -708,6 +707,16 @@ namespace Origins_Editor
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(418, 13);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(59, 23);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Search";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Searchbutton_Click);
+            // 
             // LoadZone
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -799,5 +808,6 @@ namespace Origins_Editor
         private Button AddZoneButton;
         private Button ZoneListingButton;
         private GroupBox groupBox2;
+        private Button button1;
     }
 }

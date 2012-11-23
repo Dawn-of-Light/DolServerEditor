@@ -107,7 +107,7 @@ namespace Origins_Editor
                     select += " and Name like '%" + this.SearchByZoneNametextBox.Text + "%'";
                 else
                 {
-                    select += " where Name like '%" + this.SearchZoneIDtextBox.Text + "%'";
+                    select += " where Name like '%" + this.SearchByZoneNametextBox.Text + "%'";
                     add = true;
                 }
             }
@@ -289,7 +289,7 @@ namespace Origins_Editor
                         select += " and Name like '%" + this.SearchByZoneNametextBox.Text + "%'";
                     else
                     {
-                        select += " where Name like '%" + this.SearchZoneIDtextBox.Text + "%'";
+                        select += " where Name like '%" + this.SearchByZoneNametextBox.Text + "%'";
                         add = true;
                     }
                 }
@@ -327,61 +327,6 @@ namespace Origins_Editor
 
                 GetData(select);
             }
-        }
-        
-        private void SearchFilters_SelectedChanged(object sender, EventArgs e)
-        {
-            string select = "SELECT * FROM zones";
-            bool add = false; ;
-            if (this.SearchZoneIDtextBox.Text != "")
-            {
-                select += " where zoneid='" + this.SearchZoneIDtextBox.Text + "'";
-                add = true;
-            }
-
-            if (this.SearchByZoneNametextBox.Text != "")
-            {
-                if (add)
-                    select += " and Name like '%" + this.SearchByZoneNametextBox.Text + "%'";
-                else
-                {
-                    select += " where Name like '%" + this.SearchZoneIDtextBox.Text + "%'";
-                    add = true;
-                }
-            }
-
-            int RealmID = 0;
-            if (ZoneRealmSearchcomboBox.Text != null)
-            {
-                switch (ZoneRealmSearchcomboBox.Text)
-                {
-                    case " All":
-                        break;
-                    case "Albion":
-                        RealmID = 1;
-                        break;
-                    case "Midgard":
-                        RealmID = 2;
-                        break;
-                    case "Hibernia":
-                        RealmID = 3;
-                        break;
-                }
-
-            }
-
-            if (RealmID != 0)
-            {
-                if (add)
-                    select += " and realm='" + RealmID + "'";
-                else
-                {
-                    select += " where realm='" + RealmID + "'";
-                    add = true;
-                }
-            }
-
-            GetData(select);
         }
 
         private void SaveLoadedZone_Click(object sender, EventArgs e)
@@ -455,6 +400,63 @@ namespace Origins_Editor
                 this.ZoneListingButton.Visible = true;
                 this.ControlMenu.Visible = false;
                 this.ZoneIDtextBox.Text = Util.Find_Free_Zone_ID().ToString();
+            }
+        }
+
+        private void Searchbutton_Click(object sender, EventArgs e)
+        {
+            {
+                string select = "SELECT * FROM zones";
+                bool add = false; ;
+                if (this.SearchZoneIDtextBox.Text != "")
+                {
+                    select += " where zoneid='" + this.SearchZoneIDtextBox.Text + "'";
+                    add = true;
+                }
+
+                if (this.SearchByZoneNametextBox.Text != "")
+                {
+                    if (add)
+                        select += " and Name like '%" + this.SearchByZoneNametextBox.Text + "%'";
+                    else
+                    {
+                        select += " where Name like '%" + this.SearchByZoneNametextBox.Text + "%'";
+                        add = true;
+                    }
+                }
+
+                int RealmID = 0;
+                if (ZoneRealmSearchcomboBox.Text != null)
+                {
+                    switch (ZoneRealmSearchcomboBox.Text)
+                    {
+                        case " All":
+                            break;
+                        case "Albion":
+                            RealmID = 1;
+                            break;
+                        case "Midgard":
+                            RealmID = 2;
+                            break;
+                        case "Hibernia":
+                            RealmID = 3;
+                            break;
+                    }
+
+                }
+
+                if (RealmID != 0)
+                {
+                    if (add)
+                        select += " and realm='" + RealmID + "'";
+                    else
+                    {
+                        select += " where realm='" + RealmID + "'";
+                        add = true;
+                    }
+                }
+
+                GetData(select);
             }
         }
     }

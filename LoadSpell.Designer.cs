@@ -224,6 +224,7 @@ namespace Origins_Editor
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.AddNewSpellButton = new System.Windows.Forms.Button();
             this.SpellListingButton = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.ControlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SpellbindingNavigator)).BeginInit();
             this.SpellbindingNavigator.SuspendLayout();
@@ -393,18 +394,17 @@ namespace Origins_Editor
             "Way of the Moon",
             "Way of the Sun",
             "Witchcraft"});
-            this.LineNameSpellSearchcomboBox.Location = new System.Drawing.Point(67, 13);
+            this.LineNameSpellSearchcomboBox.Location = new System.Drawing.Point(60, 13);
             this.LineNameSpellSearchcomboBox.MaxDropDownItems = 15;
             this.LineNameSpellSearchcomboBox.Name = "LineNameSpellSearchcomboBox";
             this.LineNameSpellSearchcomboBox.Size = new System.Drawing.Size(121, 21);
             this.LineNameSpellSearchcomboBox.Sorted = true;
             this.LineNameSpellSearchcomboBox.TabIndex = 3;
-            this.LineNameSpellSearchcomboBox.SelectedIndexChanged += new System.EventHandler(this.SearchFilters_SelectedChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 16);
+            this.label3.Location = new System.Drawing.Point(3, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 7;
@@ -643,18 +643,17 @@ namespace Origins_Editor
             "WarlockSpeedDecrease",
             "WaterBreathing",
             "WeaponSkillBuff"});
-            this.SpellHandlerSearchcomboBox.Location = new System.Drawing.Point(267, 13);
+            this.SpellHandlerSearchcomboBox.Location = new System.Drawing.Point(250, 13);
             this.SpellHandlerSearchcomboBox.MaxDropDownItems = 15;
             this.SpellHandlerSearchcomboBox.Name = "SpellHandlerSearchcomboBox";
             this.SpellHandlerSearchcomboBox.Size = new System.Drawing.Size(112, 21);
             this.SpellHandlerSearchcomboBox.Sorted = true;
             this.SpellHandlerSearchcomboBox.TabIndex = 8;
-            this.SpellHandlerSearchcomboBox.SelectedIndexChanged += new System.EventHandler(this.SearchFilters_SelectedChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(194, 18);
+            this.label4.Location = new System.Drawing.Point(182, 18);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 13);
             this.label4.TabIndex = 9;
@@ -663,7 +662,7 @@ namespace Origins_Editor
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(391, 16);
+            this.label2.Location = new System.Drawing.Point(364, 17);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 11;
@@ -671,16 +670,15 @@ namespace Origins_Editor
             // 
             // SearchSpellIDtextBox
             // 
-            this.SearchSpellIDtextBox.Location = new System.Drawing.Point(438, 14);
+            this.SearchSpellIDtextBox.Location = new System.Drawing.Point(408, 15);
             this.SearchSpellIDtextBox.Name = "SearchSpellIDtextBox";
             this.SearchSpellIDtextBox.Size = new System.Drawing.Size(44, 20);
             this.SearchSpellIDtextBox.TabIndex = 12;
-            this.SearchSpellIDtextBox.TextChanged += new System.EventHandler(this.SearchFilters_SelectedChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(488, 16);
+            this.label5.Location = new System.Drawing.Point(452, 17);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 13);
             this.label5.TabIndex = 13;
@@ -688,14 +686,14 @@ namespace Origins_Editor
             // 
             // SearchBySpellNametextBox
             // 
-            this.SearchBySpellNametextBox.Location = new System.Drawing.Point(554, 14);
+            this.SearchBySpellNametextBox.Location = new System.Drawing.Point(513, 15);
             this.SearchBySpellNametextBox.Name = "SearchBySpellNametextBox";
             this.SearchBySpellNametextBox.Size = new System.Drawing.Size(143, 20);
             this.SearchBySpellNametextBox.TabIndex = 14;
-            this.SearchBySpellNametextBox.TextChanged += new System.EventHandler(this.SearchFilters_SelectedChanged);
             // 
             // ControlMenu
             // 
+            this.ControlMenu.Controls.Add(this.button2);
             this.ControlMenu.Controls.Add(this.label3);
             this.ControlMenu.Controls.Add(this.label2);
             this.ControlMenu.Controls.Add(this.SpellbindingNavigator);
@@ -707,7 +705,7 @@ namespace Origins_Editor
             this.ControlMenu.Controls.Add(this.SearchSpellIDtextBox);
             this.ControlMenu.Location = new System.Drawing.Point(7, 1);
             this.ControlMenu.Name = "ControlMenu";
-            this.ControlMenu.Size = new System.Drawing.Size(713, 67);
+            this.ControlMenu.Size = new System.Drawing.Size(772, 67);
             this.ControlMenu.TabIndex = 17;
             this.ControlMenu.TabStop = false;
             // 
@@ -2573,6 +2571,16 @@ namespace Origins_Editor
             this.SpellListingButton.UseVisualStyleBackColor = true;
             this.SpellListingButton.Click += new System.EventHandler(this.SpellListing_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(691, 14);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(59, 23);
+            this.button2.TabIndex = 22;
+            this.button2.Text = "Search";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Searchbutton_Click);
+            // 
             // LoadSpell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2796,6 +2804,7 @@ namespace Origins_Editor
         private GroupBox groupBox1;
         private Button AddNewSpellButton;
         private Button SpellListingButton;
+        private Button button2;
 
     }
 }

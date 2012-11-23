@@ -69,6 +69,8 @@ namespace Origins_Editor
             this.IsCharmablecomboBox.SelectedIndex = 0;
             this.ReplaceMobValuescomboBox.SelectedIndex = 0;
 
+            this.flags = 0X00;
+
             ToolTip toolTip1 = new ToolTip();
             toolTip1.SetToolTip(this.StrengthtextBox, "0 Strength Means SetAutoStats.");
             toolTip1.SetToolTip(this.groupBox11, "Level, Size and Models Can be Multiple.");
@@ -440,7 +442,7 @@ namespace Origins_Editor
                         this.AddNPCTemplateButton.Visible = true;
                         this.NPCTemplateListingButton.Visible = false;
                         this.SaveNewbutton.Hide();
-                        this.flags = 0;
+                        this.flags = 0X00;
                         loaded = false;
 
                         string select = "SELECT * FROM npctemplate";
@@ -985,6 +987,8 @@ namespace Origins_Editor
 
                 this.MaxSpeedtextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["MaxSpeed"].Value.ToString();
                 this.EquipmentTemplateIDtextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["EquipmentTemplateID"].Value.ToString();
+
+                this.flags = 0X00;
                 this.flags = (Util.eFlags)Convert.ToUInt32(this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Flags"].Value);
 
                 if ((flags & Util.eFlags.CANTTARGET) == Util.eFlags.CANTTARGET)
@@ -1070,58 +1074,6 @@ namespace Origins_Editor
                 this.SaveNewbutton.Hide();
                 this.Savebutton.Show();
             }
-        }
-
-        private void SearchFilters_SelectedChanged(object sender, EventArgs e)
-        {
-            string select = "SELECT * FROM npctemplate";
-            bool add = false; ;
-            if (this.SearchNPCTemplateIDtextBox.Text != "")
-            {
-                select += " where Templateid='" + this.SearchNPCTemplateIDtextBox.Text + "'";
-                add = true;
-            }
-
-            if (this.SearchByNPCTemplateNametextBox.Text != "")
-            {
-                if (add)
-                    select += " and Name like '%" + this.SearchByNPCTemplateNametextBox.Text + "%'";
-                else
-                {
-                    select += " where Name like '%" + this.SearchByNPCTemplateNametextBox.Text + "%'";
-                    add = true;
-                }
-            }
-            string PackageID = " All";
-            if (this.PackageIDSearchcomboBox.Text != null)
-                PackageID = this.PackageIDSearchcomboBox.Text.ToString(); //PackageID
-
-            if (PackageID != " All")
-            {
-                if (add)
-                    select += " and packageid='" + PackageID + "'";
-                else
-                {
-                    select += " where packageid='" + PackageID + "'";
-                    add = true;
-                }
-            }
-            string ClassType = " All";
-            if (this.ClassTypeSearchcomboBox.Text != null)
-                ClassType = this.ClassTypeSearchcomboBox.Text.ToString(); //ClassType
-
-            if (ClassType != " All")
-            {
-                if (add)
-                    select += " and classtype='" + ClassType + "'";
-                else
-                {
-                    select += " where classtype='" + ClassType + "'";
-                    add = true;
-                }
-            }
-
-            GetNPCTemplateItemData(select);
         }
 
         private void VisibleWeaponSlots_CheckedChanged(object sender, EventArgs e)
@@ -1255,6 +1207,58 @@ namespace Origins_Editor
                 MessageBox.Show("Maximum Level can't be inferior to Minimum Level");
                 nud.Value = LowLevelnumericUpDown.Value;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string select = "SELECT * FROM npctemplate";
+            bool add = false; ;
+            if (this.SearchNPCTemplateIDtextBox.Text != "")
+            {
+                select += " where Templateid='" + this.SearchNPCTemplateIDtextBox.Text + "'";
+                add = true;
+            }
+
+            if (this.SearchByNPCTemplateNametextBox.Text != "")
+            {
+                if (add)
+                    select += " and Name like '%" + this.SearchByNPCTemplateNametextBox.Text + "%'";
+                else
+                {
+                    select += " where Name like '%" + this.SearchByNPCTemplateNametextBox.Text + "%'";
+                    add = true;
+                }
+            }
+            string PackageID = " All";
+            if (this.PackageIDSearchcomboBox.Text != null)
+                PackageID = this.PackageIDSearchcomboBox.Text.ToString(); //PackageID
+
+            if (PackageID != " All")
+            {
+                if (add)
+                    select += " and packageid='" + PackageID + "'";
+                else
+                {
+                    select += " where packageid='" + PackageID + "'";
+                    add = true;
+                }
+            }
+            string ClassType = " All";
+            if (this.ClassTypeSearchcomboBox.Text != null)
+                ClassType = this.ClassTypeSearchcomboBox.Text.ToString(); //ClassType
+
+            if (ClassType != " All")
+            {
+                if (add)
+                    select += " and classtype='" + ClassType + "'";
+                else
+                {
+                    select += " where classtype='" + ClassType + "'";
+                    add = true;
+                }
+            }
+
+            GetNPCTemplateItemData(select);
         }
     }
 }

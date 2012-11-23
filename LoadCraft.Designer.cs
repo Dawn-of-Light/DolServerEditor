@@ -113,6 +113,7 @@ namespace Origins_Editor
             this.CraftingSkillTypeSearchcomboBox = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CraftedItembindingNavigator)).BeginInit();
             this.CraftedItembindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CraftedItembindingSource)).BeginInit();
@@ -579,6 +580,7 @@ namespace Origins_Editor
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.button4);
             this.groupBox3.Controls.Add(this.CraftingLevelSearchtextBox);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.Id_nbSearchtextBox);
@@ -596,16 +598,15 @@ namespace Origins_Editor
             // 
             // CraftingLevelSearchtextBox
             // 
-            this.CraftingLevelSearchtextBox.Location = new System.Drawing.Point(719, 14);
+            this.CraftingLevelSearchtextBox.Location = new System.Drawing.Point(668, 14);
             this.CraftingLevelSearchtextBox.Name = "CraftingLevelSearchtextBox";
             this.CraftingLevelSearchtextBox.Size = new System.Drawing.Size(80, 20);
             this.CraftingLevelSearchtextBox.TabIndex = 23;
-            this.CraftingLevelSearchtextBox.TextChanged += new System.EventHandler(this.SearchFilters_SelectedChanged);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(626, 17);
+            this.label13.Location = new System.Drawing.Point(595, 17);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(72, 13);
             this.label13.TabIndex = 22;
@@ -613,16 +614,15 @@ namespace Origins_Editor
             // 
             // Id_nbSearchtextBox
             // 
-            this.Id_nbSearchtextBox.Location = new System.Drawing.Point(462, 14);
+            this.Id_nbSearchtextBox.Location = new System.Drawing.Point(436, 14);
             this.Id_nbSearchtextBox.Name = "Id_nbSearchtextBox";
             this.Id_nbSearchtextBox.Size = new System.Drawing.Size(158, 20);
             this.Id_nbSearchtextBox.TabIndex = 21;
-            this.Id_nbSearchtextBox.TextChanged += new System.EventHandler(this.SearchFilters_SelectedChanged);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(423, 16);
+            this.label12.Location = new System.Drawing.Point(401, 16);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(34, 13);
             this.label12.TabIndex = 20;
@@ -630,16 +630,15 @@ namespace Origins_Editor
             // 
             // CraftedItemIDSearchtextBox
             // 
-            this.CraftedItemIDSearchtextBox.Location = new System.Drawing.Point(341, 13);
+            this.CraftedItemIDSearchtextBox.Location = new System.Drawing.Point(324, 13);
             this.CraftedItemIDSearchtextBox.Name = "CraftedItemIDSearchtextBox";
             this.CraftedItemIDSearchtextBox.Size = new System.Drawing.Size(76, 20);
             this.CraftedItemIDSearchtextBox.TabIndex = 19;
-            this.CraftedItemIDSearchtextBox.TextChanged += new System.EventHandler(this.SearchFilters_SelectedChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(263, 16);
+            this.label11.Location = new System.Drawing.Point(251, 16);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(72, 13);
             this.label11.TabIndex = 18;
@@ -664,17 +663,16 @@ namespace Origins_Editor
             "SpellCrafting",
             "Tailoring",
             "WeaponCrafting"});
-            this.CraftingSkillTypeSearchcomboBox.Location = new System.Drawing.Point(99, 13);
+            this.CraftingSkillTypeSearchcomboBox.Location = new System.Drawing.Point(91, 13);
             this.CraftingSkillTypeSearchcomboBox.Name = "CraftingSkillTypeSearchcomboBox";
             this.CraftingSkillTypeSearchcomboBox.Size = new System.Drawing.Size(158, 21);
             this.CraftingSkillTypeSearchcomboBox.Sorted = true;
             this.CraftingSkillTypeSearchcomboBox.TabIndex = 8;
-            this.CraftingSkillTypeSearchcomboBox.SelectedIndexChanged += new System.EventHandler(this.SearchFilters_SelectedChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 16);
+            this.label9.Location = new System.Drawing.Point(1, 16);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(89, 13);
             this.label9.TabIndex = 7;
@@ -689,6 +687,16 @@ namespace Origins_Editor
             this.button1.Text = "Load selected crafteditem Ingredients";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.LoadCraftedXitem_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(768, 12);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(59, 23);
+            this.button4.TabIndex = 24;
+            this.button4.Text = "Search";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.Searchbutton_Click);
             // 
             // LoadCraft
             // 
@@ -785,5 +793,6 @@ namespace Origins_Editor
         private Label label12;
         private TextBox CraftedItemIDSearchtextBox;
         private Label label11;
+        private Button button4;
     }
 }

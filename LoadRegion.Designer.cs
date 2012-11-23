@@ -130,6 +130,7 @@ namespace Origins_Editor
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.RegionListingButton = new System.Windows.Forms.Button();
             this.AddRegionButton = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.EditRegionControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.Translationgroupbox.SuspendLayout();
@@ -768,6 +769,7 @@ namespace Origins_Editor
             // 
             // ControlMenu
             // 
+            this.ControlMenu.Controls.Add(this.button2);
             this.ControlMenu.Controls.Add(this.label2);
             this.ControlMenu.Controls.Add(this.SearchByRegionNametextBox);
             this.ControlMenu.Controls.Add(this.Classlabel);
@@ -779,14 +781,14 @@ namespace Origins_Editor
             this.ControlMenu.Controls.Add(this.SearchFrontierscomboBox);
             this.ControlMenu.Location = new System.Drawing.Point(11, -2);
             this.ControlMenu.Name = "ControlMenu";
-            this.ControlMenu.Size = new System.Drawing.Size(490, 89);
+            this.ControlMenu.Size = new System.Drawing.Size(521, 89);
             this.ControlMenu.TabIndex = 18;
             this.ControlMenu.TabStop = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(317, 15);
+            this.label2.Location = new System.Drawing.Point(285, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 11;
@@ -794,17 +796,16 @@ namespace Origins_Editor
             // 
             // SearchByRegionNametextBox
             // 
-            this.SearchByRegionNametextBox.Location = new System.Drawing.Point(386, 37);
+            this.SearchByRegionNametextBox.Location = new System.Drawing.Point(342, 36);
             this.SearchByRegionNametextBox.Name = "SearchByRegionNametextBox";
             this.SearchByRegionNametextBox.Size = new System.Drawing.Size(100, 20);
             this.SearchByRegionNametextBox.TabIndex = 14;
             this.SearchByRegionNametextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.SearchByRegionNametextBox.TextChanged += new System.EventHandler(this.SearchFilters_SelectedChanged);
             // 
             // Classlabel
             // 
             this.Classlabel.AutoSize = true;
-            this.Classlabel.Location = new System.Drawing.Point(6, 13);
+            this.Classlabel.Location = new System.Drawing.Point(2, 13);
             this.Classlabel.Name = "Classlabel";
             this.Classlabel.Size = new System.Drawing.Size(56, 13);
             this.Classlabel.TabIndex = 7;
@@ -813,7 +814,7 @@ namespace Origins_Editor
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(317, 39);
+            this.label5.Location = new System.Drawing.Point(270, 39);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 13);
             this.label5.TabIndex = 13;
@@ -824,28 +825,26 @@ namespace Origins_Editor
             this.ClassTypeSearchcomboBox.DisplayMember = "All";
             this.ClassTypeSearchcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ClassTypeSearchcomboBox.FormattingEnabled = true;
-            this.ClassTypeSearchcomboBox.Location = new System.Drawing.Point(62, 10);
+            this.ClassTypeSearchcomboBox.Location = new System.Drawing.Point(58, 10);
             this.ClassTypeSearchcomboBox.MaxDropDownItems = 15;
             this.ClassTypeSearchcomboBox.Name = "ClassTypeSearchcomboBox";
             this.ClassTypeSearchcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ClassTypeSearchcomboBox.Size = new System.Drawing.Size(121, 21);
             this.ClassTypeSearchcomboBox.Sorted = true;
             this.ClassTypeSearchcomboBox.TabIndex = 3;
-            this.ClassTypeSearchcomboBox.SelectedIndexChanged += new System.EventHandler(this.SearchFilters_SelectedChanged);
             // 
             // SearchRegionIDtextBox
             // 
-            this.SearchRegionIDtextBox.Location = new System.Drawing.Point(386, 10);
+            this.SearchRegionIDtextBox.Location = new System.Drawing.Point(342, 10);
             this.SearchRegionIDtextBox.Name = "SearchRegionIDtextBox";
             this.SearchRegionIDtextBox.Size = new System.Drawing.Size(51, 20);
             this.SearchRegionIDtextBox.TabIndex = 12;
             this.SearchRegionIDtextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.SearchRegionIDtextBox.TextChanged += new System.EventHandler(this.SearchFilters_SelectedChanged);
             // 
             // Speclabel
             // 
             this.Speclabel.AutoSize = true;
-            this.Speclabel.Location = new System.Drawing.Point(188, 14);
+            this.Speclabel.Location = new System.Drawing.Point(181, 14);
             this.Speclabel.Name = "Speclabel";
             this.Speclabel.Size = new System.Drawing.Size(47, 13);
             this.Speclabel.TabIndex = 9;
@@ -859,13 +858,12 @@ namespace Origins_Editor
             " All",
             "False",
             "True"});
-            this.SearchFrontierscomboBox.Location = new System.Drawing.Point(237, 11);
+            this.SearchFrontierscomboBox.Location = new System.Drawing.Point(230, 11);
             this.SearchFrontierscomboBox.MaxDropDownItems = 15;
             this.SearchFrontierscomboBox.Name = "SearchFrontierscomboBox";
             this.SearchFrontierscomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.SearchFrontierscomboBox.Size = new System.Drawing.Size(52, 21);
             this.SearchFrontierscomboBox.TabIndex = 8;
-            this.SearchFrontierscomboBox.SelectedIndexChanged += new System.EventHandler(this.SearchFilters_SelectedChanged);
             // 
             // SaveNewbutton
             // 
@@ -918,6 +916,16 @@ namespace Origins_Editor
             this.AddRegionButton.Text = "Add new region";
             this.AddRegionButton.UseVisualStyleBackColor = true;
             this.AddRegionButton.Click += new System.EventHandler(this.AddNewRegion_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(456, 11);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(59, 23);
+            this.button2.TabIndex = 23;
+            this.button2.Text = "Search";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Searchbutton_Click);
             // 
             // LoadRegion
             // 
@@ -1033,5 +1041,6 @@ namespace Origins_Editor
         private GroupBox groupBox2;
         private Button RegionListingButton;
         private Button AddRegionButton;
+        private Button button2;
     }
 }

@@ -168,6 +168,7 @@ namespace Origins_Editor
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.StyleListingButton = new System.Windows.Forms.Button();
             this.StyleAddButton = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.ControlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
@@ -262,19 +263,18 @@ namespace Origins_Editor
             "Warlock",
             "Warrior",
             "Wizard"});
-            this.ClassIDSearchcomboBox.Location = new System.Drawing.Point(43, 11);
+            this.ClassIDSearchcomboBox.Location = new System.Drawing.Point(36, 11);
             this.ClassIDSearchcomboBox.MaxDropDownItems = 15;
             this.ClassIDSearchcomboBox.Name = "ClassIDSearchcomboBox";
             this.ClassIDSearchcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ClassIDSearchcomboBox.Size = new System.Drawing.Size(121, 21);
             this.ClassIDSearchcomboBox.Sorted = true;
             this.ClassIDSearchcomboBox.TabIndex = 3;
-            this.ClassIDSearchcomboBox.SelectedIndexChanged += new System.EventHandler(this.SearchFilters_SelectedChanged);
             // 
             // Classlabel
             // 
             this.Classlabel.AutoSize = true;
-            this.Classlabel.Location = new System.Drawing.Point(5, 14);
+            this.Classlabel.Location = new System.Drawing.Point(3, 14);
             this.Classlabel.Name = "Classlabel";
             this.Classlabel.Size = new System.Drawing.Size(32, 13);
             this.Classlabel.TabIndex = 7;
@@ -313,18 +313,17 @@ namespace Origins_Editor
             "Sword",
             "Thrust",
             "Two Handed"});
-            this.StyleSearchKeyNamecomboBox.Location = new System.Drawing.Point(213, 11);
+            this.StyleSearchKeyNamecomboBox.Location = new System.Drawing.Point(191, 13);
             this.StyleSearchKeyNamecomboBox.MaxDropDownItems = 15;
             this.StyleSearchKeyNamecomboBox.Name = "StyleSearchKeyNamecomboBox";
             this.StyleSearchKeyNamecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StyleSearchKeyNamecomboBox.Size = new System.Drawing.Size(132, 21);
             this.StyleSearchKeyNamecomboBox.TabIndex = 8;
-            this.StyleSearchKeyNamecomboBox.SelectedIndexChanged += new System.EventHandler(this.SearchFilters_SelectedChanged);
             // 
             // Speclabel
             // 
             this.Speclabel.AutoSize = true;
-            this.Speclabel.Location = new System.Drawing.Point(175, 14);
+            this.Speclabel.Location = new System.Drawing.Point(159, 16);
             this.Speclabel.Name = "Speclabel";
             this.Speclabel.Size = new System.Drawing.Size(32, 13);
             this.Speclabel.TabIndex = 9;
@@ -333,7 +332,7 @@ namespace Origins_Editor
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(351, 16);
+            this.label2.Location = new System.Drawing.Point(324, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 11;
@@ -341,17 +340,16 @@ namespace Origins_Editor
             // 
             // SearchStyleIDtextBox
             // 
-            this.SearchStyleIDtextBox.Location = new System.Drawing.Point(401, 12);
+            this.SearchStyleIDtextBox.Location = new System.Drawing.Point(369, 14);
             this.SearchStyleIDtextBox.Name = "SearchStyleIDtextBox";
-            this.SearchStyleIDtextBox.Size = new System.Drawing.Size(70, 20);
+            this.SearchStyleIDtextBox.Size = new System.Drawing.Size(48, 20);
             this.SearchStyleIDtextBox.TabIndex = 12;
             this.SearchStyleIDtextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.SearchStyleIDtextBox.TextChanged += new System.EventHandler(this.SearchFilters_SelectedChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(477, 16);
+            this.label5.Location = new System.Drawing.Point(419, 18);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 13);
             this.label5.TabIndex = 13;
@@ -359,15 +357,15 @@ namespace Origins_Editor
             // 
             // SearchByStyleNametextBox
             // 
-            this.SearchByStyleNametextBox.Location = new System.Drawing.Point(538, 13);
+            this.SearchByStyleNametextBox.Location = new System.Drawing.Point(480, 15);
             this.SearchByStyleNametextBox.Name = "SearchByStyleNametextBox";
-            this.SearchByStyleNametextBox.Size = new System.Drawing.Size(149, 20);
+            this.SearchByStyleNametextBox.Size = new System.Drawing.Size(125, 20);
             this.SearchByStyleNametextBox.TabIndex = 14;
             this.SearchByStyleNametextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.SearchByStyleNametextBox.TextChanged += new System.EventHandler(this.SearchFilters_SelectedChanged);
             // 
             // ControlMenu
             // 
+            this.ControlMenu.Controls.Add(this.button2);
             this.ControlMenu.Controls.Add(this.label2);
             this.ControlMenu.Controls.Add(this.bindingNavigator1);
             this.ControlMenu.Controls.Add(this.SearchByStyleNametextBox);
@@ -1468,6 +1466,16 @@ namespace Origins_Editor
             this.StyleAddButton.UseVisualStyleBackColor = true;
             this.StyleAddButton.Click += new System.EventHandler(this.AddNewStyle_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(628, 13);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(59, 23);
+            this.button2.TabIndex = 21;
+            this.button2.Text = "Search";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Searchbutton_Click);
+            // 
             // LoadStyle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1632,6 +1640,7 @@ namespace Origins_Editor
         private Button StyleAddButton;
         private ComboBox OpeningRequirementValuecomboBox;
         private ComboBox ClassIDcomboBox;
+        private Button button2;
 
     }
 }

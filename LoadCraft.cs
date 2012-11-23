@@ -416,7 +416,7 @@ namespace Origins_Editor
             }
         }
 
-        private void SearchFilters_SelectedChanged(object sender, EventArgs e)
+        private void Searchbutton_Click(object sender, EventArgs e)
         {
             string select = "SELECT * FROM crafteditem";
             bool add = false; ;

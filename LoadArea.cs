@@ -114,36 +114,6 @@ namespace Origins_Editor
             }
         }
 
-
-        private void SearchFilters_SelectedChanged(object sender, EventArgs e)
-        {
-            string select = "SELECT * FROM area";
-            bool add = false; ;
-            if (this.SearchByDescriptiontextBox.Text != "")
-            {
-                select += " where Description like '%" + this.SearchByDescriptiontextBox.Text + "%'";
-                add = true;
-            }
-
-            string ClassType = "All";
-            if (ClassTypeSearchcomboBox.Text != null && ClassTypeSearchcomboBox.Text != "")
-                ClassType = this.ClassTypeSearchcomboBox.Text.ToString();
-
-            if (ClassType != "All")
-            {
-                if (add)
-                    select += " and ClassType='" + ClassType + "'";
-                else
-                {
-                    select += " where ClassType='" + ClassType + "'";
-                    add = true;
-                }
-            }
-
-
-            GetData(select);
-        }
-
         private void LanguageAreadataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             this.Validate();
@@ -568,6 +538,35 @@ namespace Origins_Editor
                     System.Windows.MessageBox.Show(s.Message);
                 }
             }
+        }
+
+        private void Searchbutton_Click(object sender, EventArgs e)
+        {
+            string select = "SELECT * FROM area";
+            bool add = false; ;
+            if (this.SearchByDescriptiontextBox.Text != "")
+            {
+                select += " where Description like '%" + this.SearchByDescriptiontextBox.Text + "%'";
+                add = true;
+            }
+
+            string ClassType = "All";
+            if (ClassTypeSearchcomboBox.Text != null && ClassTypeSearchcomboBox.Text != "")
+                ClassType = this.ClassTypeSearchcomboBox.Text.ToString();
+
+            if (ClassType != "All")
+            {
+                if (add)
+                    select += " and ClassType='" + ClassType + "'";
+                else
+                {
+                    select += " where ClassType='" + ClassType + "'";
+                    add = true;
+                }
+            }
+
+
+            GetData(select);
         }
     }
 }

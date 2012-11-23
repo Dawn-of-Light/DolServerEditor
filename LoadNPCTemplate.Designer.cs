@@ -54,7 +54,7 @@ namespace Origins_Editor
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoadNPCTemplate));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.NPCTemplatebindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.NPCTemplatebindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -230,6 +230,7 @@ namespace Origins_Editor
             this.FRNamelabel = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.NPCTemplatebindingNavigator)).BeginInit();
             this.NPCTemplatebindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NPCTemplatebindingSource)).BeginInit();
@@ -374,14 +375,14 @@ namespace Origins_Editor
             this.NPCTemplatedataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.NPCTemplatedataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.NPCTemplatedataGridView.DataSource = this.NPCTemplatebindingSource;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.NPCTemplatedataGridView.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.NPCTemplatedataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.NPCTemplatedataGridView.Location = new System.Drawing.Point(12, 74);
             this.NPCTemplatedataGridView.MultiSelect = false;
             this.NPCTemplatedataGridView.Name = "NPCTemplatedataGridView";
@@ -394,6 +395,7 @@ namespace Origins_Editor
             // 
             // ControlMenu
             // 
+            this.ControlMenu.Controls.Add(this.button2);
             this.ControlMenu.Controls.Add(this.label45);
             this.ControlMenu.Controls.Add(this.PackageIDSearchcomboBox);
             this.ControlMenu.Controls.Add(this.label42);
@@ -412,7 +414,7 @@ namespace Origins_Editor
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(268, 16);
+            this.label45.Location = new System.Drawing.Point(236, 18);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(61, 13);
             this.label45.TabIndex = 20;
@@ -423,14 +425,13 @@ namespace Origins_Editor
             this.PackageIDSearchcomboBox.DisplayMember = "All";
             this.PackageIDSearchcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PackageIDSearchcomboBox.FormattingEnabled = true;
-            this.PackageIDSearchcomboBox.Location = new System.Drawing.Point(335, 12);
+            this.PackageIDSearchcomboBox.Location = new System.Drawing.Point(303, 14);
             this.PackageIDSearchcomboBox.MaxDropDownItems = 15;
             this.PackageIDSearchcomboBox.Name = "PackageIDSearchcomboBox";
             this.PackageIDSearchcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.PackageIDSearchcomboBox.Size = new System.Drawing.Size(209, 21);
+            this.PackageIDSearchcomboBox.Size = new System.Drawing.Size(162, 21);
             this.PackageIDSearchcomboBox.Sorted = true;
             this.PackageIDSearchcomboBox.TabIndex = 19;
-            this.PackageIDSearchcomboBox.SelectedIndexChanged += new System.EventHandler(this.SearchFilters_SelectedChanged);
             // 
             // label42
             // 
@@ -448,7 +449,6 @@ namespace Origins_Editor
             this.SearchByNPCTemplateNametextBox.Size = new System.Drawing.Size(172, 20);
             this.SearchByNPCTemplateNametextBox.TabIndex = 18;
             this.SearchByNPCTemplateNametextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.SearchByNPCTemplateNametextBox.TextChanged += new System.EventHandler(this.SearchFilters_SelectedChanged);
             // 
             // label44
             // 
@@ -466,12 +466,11 @@ namespace Origins_Editor
             this.SearchNPCTemplateIDtextBox.Size = new System.Drawing.Size(58, 20);
             this.SearchNPCTemplateIDtextBox.TabIndex = 16;
             this.SearchNPCTemplateIDtextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.SearchNPCTemplateIDtextBox.TextChanged += new System.EventHandler(this.SearchFilters_SelectedChanged);
             // 
             // Classlabel
             // 
             this.Classlabel.AutoSize = true;
-            this.Classlabel.Location = new System.Drawing.Point(4, 16);
+            this.Classlabel.Location = new System.Drawing.Point(2, 16);
             this.Classlabel.Name = "Classlabel";
             this.Classlabel.Size = new System.Drawing.Size(56, 13);
             this.Classlabel.TabIndex = 11;
@@ -482,14 +481,13 @@ namespace Origins_Editor
             this.ClassTypeSearchcomboBox.DisplayMember = "All";
             this.ClassTypeSearchcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ClassTypeSearchcomboBox.FormattingEnabled = true;
-            this.ClassTypeSearchcomboBox.Location = new System.Drawing.Point(60, 13);
+            this.ClassTypeSearchcomboBox.Location = new System.Drawing.Point(58, 13);
             this.ClassTypeSearchcomboBox.MaxDropDownItems = 15;
             this.ClassTypeSearchcomboBox.Name = "ClassTypeSearchcomboBox";
             this.ClassTypeSearchcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ClassTypeSearchcomboBox.Size = new System.Drawing.Size(205, 21);
+            this.ClassTypeSearchcomboBox.Size = new System.Drawing.Size(177, 21);
             this.ClassTypeSearchcomboBox.Sorted = true;
             this.ClassTypeSearchcomboBox.TabIndex = 10;
-            this.ClassTypeSearchcomboBox.SelectedIndexChanged += new System.EventHandler(this.SearchFilters_SelectedChanged);
             // 
             // groupBox2
             // 
@@ -2037,6 +2035,16 @@ namespace Origins_Editor
             this.label14.TabIndex = 13;
             this.label14.Text = "GuildName";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(486, 13);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(59, 23);
+            this.button2.TabIndex = 23;
+            this.button2.Text = "Search";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // LoadNPCTemplate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2273,5 +2281,6 @@ namespace Origins_Editor
         private Label label61;
         private Label label31;
         private Label label15;
+        private Button button2;
     }
 }

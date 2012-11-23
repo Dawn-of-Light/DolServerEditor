@@ -180,61 +180,6 @@ namespace Origins_Editor
         }
 
         /// <summary>
-        /// Each change on Filter occurs an update.
-        /// </summary>
-        private void SearchFilters_SelectedChanged(object sender, EventArgs e)
-        {
-            string select = "SELECT * FROM style";
-            bool add = false; ;
-            if (this.SearchStyleIDtextBox.Text != "")
-            {
-                select += " where id='" + this.SearchStyleIDtextBox.Text + "'";
-                add = true;
-            }
-
-            if (this.SearchByStyleNametextBox.Text != "")
-            {
-                if (add)
-                    select += " and Name like '%" + this.SearchByStyleNametextBox.Text + "%'";
-                else
-                {
-                    select += " where Name like '%" + this.SearchByStyleNametextBox.Text + "%'";
-                    add = true;
-                }
-            }
-            string ClassID = " All";
-            if (ClassIDSearchcomboBox.Text != null)
-                ClassID = Util.ClassNameToID(this.ClassIDSearchcomboBox.Text.ToString()); //ClassID
-
-            if (ClassID != " All")
-            {
-                if (add)
-                    select += " and classid='" + ClassID + "'";
-                else
-                {
-                    select += " where classid='" + ClassID + "'";
-                    add = true;
-                }
-            }
-            string SpecName = " All";
-            if (StyleSearchKeyNamecomboBox.Text != null)
-                SpecName = this.StyleSearchKeyNamecomboBox.Text.ToString(); //Spec Key Name
-
-            if (SpecName != " All")
-            {
-                if (add)
-                    select += " and speckeyname='" + SpecName + "'";
-                else
-                {
-                    select += " where speckeyname='" + SpecName + "'";
-                    add = true;
-                }
-            }
-
-            GetData(select);
-        }
-
-        /// <summary>
         /// Load a style with confirmation in editing form.
         /// </summary>
         private void StyledataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -872,6 +817,58 @@ namespace Origins_Editor
         {
             GetStyleXSpellData("SELECT * FROM stylexspell WHERE styleid ='" + this.StyleIDtextBox.Text + "' and (classid = '0' or classid ='" + Util.ClassNameToID(this.ClassIDcomboBox.Text) + "')");
             GetStyleRequirementComboBoxValue("SELECT * FROM style WHERE SpecKeyName ='" + this.SpecKeyNamecomboBox.Text + "' and (classid = '0' or classid ='" + Util.ClassNameToID(this.ClassIDcomboBox.Text) + "')");
+        }
+
+        private void Searchbutton_Click(object sender, EventArgs e)
+        {
+            string select = "SELECT * FROM style";
+            bool add = false; ;
+            if (this.SearchStyleIDtextBox.Text != "")
+            {
+                select += " where id='" + this.SearchStyleIDtextBox.Text + "'";
+                add = true;
+            }
+
+            if (this.SearchByStyleNametextBox.Text != "")
+            {
+                if (add)
+                    select += " and Name like '%" + this.SearchByStyleNametextBox.Text + "%'";
+                else
+                {
+                    select += " where Name like '%" + this.SearchByStyleNametextBox.Text + "%'";
+                    add = true;
+                }
+            }
+            string ClassID = " All";
+            if (ClassIDSearchcomboBox.Text != null)
+                ClassID = Util.ClassNameToID(this.ClassIDSearchcomboBox.Text.ToString()); //ClassID
+
+            if (ClassID != " All")
+            {
+                if (add)
+                    select += " and classid='" + ClassID + "'";
+                else
+                {
+                    select += " where classid='" + ClassID + "'";
+                    add = true;
+                }
+            }
+            string SpecName = " All";
+            if (StyleSearchKeyNamecomboBox.Text != null)
+                SpecName = this.StyleSearchKeyNamecomboBox.Text.ToString(); //Spec Key Name
+
+            if (SpecName != " All")
+            {
+                if (add)
+                    select += " and speckeyname='" + SpecName + "'";
+                else
+                {
+                    select += " where speckeyname='" + SpecName + "'";
+                    add = true;
+                }
+            }
+
+            GetData(select);
         }
     }
 }
