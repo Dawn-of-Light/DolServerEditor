@@ -151,24 +151,35 @@ namespace Origins_Editor
 
             this.dataGridSpell.Columns["Spell_ID"].Visible = false;
             this.spellIDtextBox.Enabled = false;
-            MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
 
-            connection.Open();
+            try
+            {
 
-            //PackageID Datatable
-            MySqlDataAdapter PackageIDdataAdapter = new MySqlDataAdapter("select distinct packageid from spell ORDER BY packageid ASC", connection);
-            MySqlCommandBuilder PackageIDDatacommandBuilder = new MySqlCommandBuilder(PackageIDdataAdapter);
-            DataTable PackageIDData = new DataTable();
-            PackageIDdataAdapter.Fill(PackageIDData);
-            this.PackageIDcomboBox.DisplayMember = "PackageID";
-            this.PackageIDcomboBox.DataSource = PackageIDData;
 
-            DataTable PackageIDLineXSpellAddData = new DataTable();
-            PackageIDdataAdapter.Fill(PackageIDLineXSpellAddData);
-            this.PackageIDAddLineXSpellcomboBox.DisplayMember = "PackageID";
-            this.PackageIDAddLineXSpellcomboBox.DataSource = PackageIDLineXSpellAddData;
+                MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
 
-            connection.Close();
+                connection.Open();
+
+                //PackageID Datatable
+                MySqlDataAdapter PackageIDdataAdapter = new MySqlDataAdapter("select distinct packageid from spell ORDER BY packageid ASC", connection);
+                MySqlCommandBuilder PackageIDDatacommandBuilder = new MySqlCommandBuilder(PackageIDdataAdapter);
+                DataTable PackageIDData = new DataTable();
+                PackageIDdataAdapter.Fill(PackageIDData);
+                this.PackageIDcomboBox.DisplayMember = "PackageID";
+                this.PackageIDcomboBox.DataSource = PackageIDData;
+
+                DataTable PackageIDLineXSpellAddData = new DataTable();
+                PackageIDdataAdapter.Fill(PackageIDLineXSpellAddData);
+                this.PackageIDAddLineXSpellcomboBox.DisplayMember = "PackageID";
+                this.PackageIDAddLineXSpellcomboBox.DataSource = PackageIDLineXSpellAddData;
+
+                connection.Close();
+
+            }
+            catch (MySqlException s)
+            {
+                System.Windows.MessageBox.Show(s.Message);
+            }
 
             if (DolEditor.Properties.Settings.Default.OriginsSettings)
             {
@@ -662,7 +673,15 @@ namespace Origins_Editor
 
                 this.Validate();
                 this.SpellbindingSource.EndEdit();
-                SpelldataAdapter.Update(SpellDatatable);
+
+                try
+                {
+                    SpelldataAdapter.Update(SpellDatatable);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
 
                 this.dataGridSpell.ReadOnly = true;
                 this.Savebutton.Hide();
@@ -681,148 +700,157 @@ namespace Origins_Editor
 
             if (MessageBox.Show("Save this new spell?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                // user clicked yes
-                MySqlDataAdapter NewSpellVerifdataAdapter = new MySqlDataAdapter();
-                MySqlConnection connection15 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-                string selectCommand = "select * from spell  where spellid = '" + spellIDtextBox.Text.ToString() + "'";
-                // Create a new data adapter based on the specified query.
-                NewSpellVerifdataAdapter = new MySqlDataAdapter(selectCommand, connection15);
-                // Create a command builder to generate SQL update, insert, and 
-                // delete commands based on selectCommand. These are used to 
-                // update the database.
-                MySqlCommandBuilder commandBuilderSpellIDData = new MySqlCommandBuilder(NewSpellVerifdataAdapter);
-                DataTable SpellIDData = new DataTable();
-                SpellIDData.Clear();
-                // Populate a new data table.
-                SpellIDData.Locale = System.Globalization.CultureInfo.InvariantCulture;
-                NewSpellVerifdataAdapter.Fill(SpellIDData);
-                if (SpellIDData.Rows.Count > 0)
+
+                try
                 {
-                    this.spellIDtextBox.Text = Util.Find_Free_SpellID().ToString();
-                    MessageBox.Show("The SpellID defined for this spell is not anymore free.Your data was not updated. You need to save your spell again.");
+
+                    // user clicked yes
+                    MySqlDataAdapter NewSpellVerifdataAdapter = new MySqlDataAdapter();
+                    MySqlConnection connection15 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
+                    string selectCommand = "select * from spell  where spellid = '" + spellIDtextBox.Text.ToString() + "'";
+                    // Create a new data adapter based on the specified query.
+                    NewSpellVerifdataAdapter = new MySqlDataAdapter(selectCommand, connection15);
+                    // Create a command builder to generate SQL update, insert, and 
+                    // delete commands based on selectCommand. These are used to 
+                    // update the database.
+                    MySqlCommandBuilder commandBuilderSpellIDData = new MySqlCommandBuilder(NewSpellVerifdataAdapter);
+                    DataTable SpellIDData = new DataTable();
+                    SpellIDData.Clear();
+                    // Populate a new data table.
+                    SpellIDData.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                    NewSpellVerifdataAdapter.Fill(SpellIDData);
+                    if (SpellIDData.Rows.Count > 0)
+                    {
+                        this.spellIDtextBox.Text = Util.Find_Free_SpellID().ToString();
+                        MessageBox.Show("The SpellID defined for this spell is not anymore free.Your data was not updated. You need to save your spell again.");
+                    }
+                    else
+                    {
+
+                        long i = 1;
+                        foreach (byte b in Guid.NewGuid().ToByteArray())
+                        {
+                            i *= ((int)b + 1);
+                        }
+                        i -= DateTime.Now.Ticks;
+
+                        string str = "Origins_Editor_" + i.ToString();
+
+                        DataRow datarow = SpellDatatable.NewRow();
+
+                        datarow["Spell_ID"] = str;
+                        datarow["SpellID"] = spellIDtextBox.Text;
+                        datarow["ClientEffect"] = ClientEffecttextBox.Text;
+                        datarow["Icon"] = IcontextBox.Text;
+                        datarow["Name"] = NametextBox.Text;
+                        datarow["Description"] = DescriptionTextBox.Text;
+                        datarow["Target"] = TargetcomboBox.Text;
+                        datarow["Range"] = RangetextBox.Text;
+                        datarow["Power"] = PowertextBox.Text;
+                        datarow["CastTime"] = CastTimetextBox.Text;
+                        datarow["Damage"] = DamagetextBox.Text;
+                        datarow["DamageType"] = DamageTypetextBox.Text;
+                        datarow["Type"] = SpellTypecomboBox.Text;
+                        datarow["Duration"] = DurationtextBox.Text;
+                        datarow["Frequency"] = FrequencytextBox.Text;
+                        datarow["Pulse"] = PulsetextBox.Text;
+                        datarow["PulsePower"] = PulsePowertextBox.Text;
+                        datarow["Radius"] = RadiustextBox.Text;
+                        datarow["RecastDelay"] = RecastDelaytextBox.Text;
+                        datarow["ResurrectHealth"] = ResurrectHealthtextBox.Text;
+                        datarow["ResurrectMana"] = ResurrectManatextBox.Text;
+                        datarow["Value"] = ValuetextBox.Text;
+                        datarow["Concentration"] = ConcentrationtextBox.Text;
+                        datarow["LifeDrainReturn"] = LifeDrainReturntextBox.Text;
+                        datarow["AmnesiaChance"] = AmnesiaChancetextBox.Text;
+                        datarow["Message1"] = Message1richTextBox.Text;
+                        datarow["Message2"] = Message2richTextBox.Text;
+                        datarow["Message3"] = Message3richTextBox.Text;
+                        datarow["Message4"] = Message4richTextBox.Text;
+                        datarow["InstrumentRequirement"] = InstrumentRequirementtextBox.Text;
+                        datarow["SpellGroup"] = SpellGrouptextBox.Text;
+                        datarow["EffectGroup"] = EffectGrouptextBox.Text;
+                        datarow["SubSpellID"] = SubSpellIDtextBox.Text;
+                        datarow["MoveCast"] = Util.Find_Bool_Value(MoveCastcomboBox.Text);
+                        datarow["Uninterruptible"] = Util.Find_Bool_Value(UninterruptiblecomboBox.Text);
+                        datarow["IsPrimary"] = Util.Find_Bool_Value(IsPrimarycomboBox.Text);
+                        datarow["IsSecondary"] = Util.Find_Bool_Value(IsSecondarycomboBox.Text);
+                        datarow["AllowBolt"] = Util.Find_Bool_Value(AllowBoltcomboBox.Text);
+                        datarow["SharedTimerGroup"] = SharedTimerGrouptextBox.Text;
+                        datarow["PackageID"] = PackageIDcomboBox.Text;
+                        datarow["IsFocus"] = Util.Find_Bool_Value(IsFocuscomboBox.Text);
+
+                        if (DolEditor.Properties.Settings.Default.OriginsSettings)
+                            datarow["TranslationId"] = TranslationIDtextBox.Text;
+
+                        SpellDatatable.Rows.Add(datarow);
+
+                        this.Validate();
+                        this.SpellbindingSource.EndEdit();
+                        this.SpelldataAdapter.Update(SpellDatatable);
+
+                        this.SpellListingButton.Visible = false;
+                        this.AddNewSpellButton.Visible = true;
+                        this.ControlMenu.Visible = true;
+                        this.Savebutton.Hide();
+                        this.SaveNewbutton.Hide();
+                        this.tabControl1.Hide();
+                        this.dataGridSpell.Show();
+
+                        string select = "SELECT * FROM spell";
+                        bool add = false; ;
+                        if (this.SearchSpellIDtextBox.Text != "")
+                        {
+                            select += " where spellid='" + this.SearchSpellIDtextBox.Text + "'";
+                            add = true;
+                        }
+
+                        if (this.SearchBySpellNametextBox.Text != "")
+                        {
+                            if (add)
+                                select += " and Name like '%" + this.SearchBySpellNametextBox.Text + "%'";
+                            else
+                            {
+                                select += " where Name like '%" + this.SearchBySpellNametextBox.Text + "%'";
+                                add = true;
+                            }
+                        }
+                        string SpellHandler = " All";
+                        if (this.SpellHandlerSearchcomboBox.Text != null)
+                            SpellHandler = this.SpellHandlerSearchcomboBox.Text.ToString(); //SpellHandler
+
+                        if (SpellHandler != " All")
+                        {
+                            if (add)
+                                select += " and type='" + SpellHandler + "'";
+                            else
+                            {
+                                select += " where type='" + SpellHandler + "'";
+                                add = true;
+                            }
+                        }
+                        string LineID = " All";
+                        if (LineNameSpellSearchcomboBox.Text != null)
+                            LineID = this.LineNameSpellSearchcomboBox.Text.ToString(); //Spec Key Name
+
+                        if (LineID != " All")
+                        {
+                            if (add)
+                                select += " and spell.spellid IN (SELECT spellid FROM linexspell WHERE linename='" + LineID + "')";
+                            else
+                            {
+                                select += " where spell.spellid IN (SELECT spellid FROM linexspell WHERE linename='" + LineID + "')";
+                                add = true;
+                            }
+                        }
+
+                        GetData(select);
+
+                    }
                 }
-                else
+                catch (MySqlException s)
                 {
-
-                    long i = 1;
-                    foreach (byte b in Guid.NewGuid().ToByteArray())
-                    {
-                        i *= ((int)b + 1);
-                    }
-                    i -= DateTime.Now.Ticks;
-
-                    string str = "Origins_Editor_" + i.ToString();
-
-                    DataRow datarow = SpellDatatable.NewRow();
-
-                    datarow["Spell_ID"] = str;
-                    datarow["SpellID"] = spellIDtextBox.Text;
-                    datarow["ClientEffect"] = ClientEffecttextBox.Text;
-                    datarow["Icon"] = IcontextBox.Text;
-                    datarow["Name"] = NametextBox.Text;
-                    datarow["Description"] = DescriptionTextBox.Text;
-                    datarow["Target"] = TargetcomboBox.Text;
-                    datarow["Range"] = RangetextBox.Text;
-                    datarow["Power"] = PowertextBox.Text;
-                    datarow["CastTime"] = CastTimetextBox.Text;
-                    datarow["Damage"] = DamagetextBox.Text;
-                    datarow["DamageType"] = DamageTypetextBox.Text;
-                    datarow["Type"] = SpellTypecomboBox.Text;
-                    datarow["Duration"] = DurationtextBox.Text;
-                    datarow["Frequency"] = FrequencytextBox.Text;
-                    datarow["Pulse"] = PulsetextBox.Text;
-                    datarow["PulsePower"] = PulsePowertextBox.Text;
-                    datarow["Radius"] = RadiustextBox.Text;
-                    datarow["RecastDelay"] = RecastDelaytextBox.Text;
-                    datarow["ResurrectHealth"] = ResurrectHealthtextBox.Text;
-                    datarow["ResurrectMana"] = ResurrectManatextBox.Text;
-                    datarow["Value"] = ValuetextBox.Text;
-                    datarow["Concentration"] = ConcentrationtextBox.Text;
-                    datarow["LifeDrainReturn"] = LifeDrainReturntextBox.Text;
-                    datarow["AmnesiaChance"] = AmnesiaChancetextBox.Text;
-                    datarow["Message1"] = Message1richTextBox.Text;
-                    datarow["Message2"] = Message2richTextBox.Text;
-                    datarow["Message3"] = Message3richTextBox.Text;
-                    datarow["Message4"] = Message4richTextBox.Text;
-                    datarow["InstrumentRequirement"] = InstrumentRequirementtextBox.Text;
-                    datarow["SpellGroup"] = SpellGrouptextBox.Text;
-                    datarow["EffectGroup"] = EffectGrouptextBox.Text;
-                    datarow["SubSpellID"] = SubSpellIDtextBox.Text;
-                    datarow["MoveCast"] = Util.Find_Bool_Value(MoveCastcomboBox.Text);
-                    datarow["Uninterruptible"] = Util.Find_Bool_Value(UninterruptiblecomboBox.Text);
-                    datarow["IsPrimary"] = Util.Find_Bool_Value(IsPrimarycomboBox.Text);
-                    datarow["IsSecondary"] = Util.Find_Bool_Value(IsSecondarycomboBox.Text);
-                    datarow["AllowBolt"] = Util.Find_Bool_Value(AllowBoltcomboBox.Text);
-                    datarow["SharedTimerGroup"] = SharedTimerGrouptextBox.Text;
-                    datarow["PackageID"] = PackageIDcomboBox.Text;
-                    datarow["IsFocus"] = Util.Find_Bool_Value(IsFocuscomboBox.Text);
-
-                    if (DolEditor.Properties.Settings.Default.OriginsSettings)
-                        datarow["TranslationId"] = TranslationIDtextBox.Text;
-
-                    SpellDatatable.Rows.Add(datarow);
-
-                    this.Validate();
-                    this.SpellbindingSource.EndEdit();
-                    this.SpelldataAdapter.Update(SpellDatatable);
-
-                    this.SpellListingButton.Visible = false;
-                    this.AddNewSpellButton.Visible = true;
-                    this.ControlMenu.Visible = true;
-                    this.Savebutton.Hide();
-                    this.SaveNewbutton.Hide();
-                    this.tabControl1.Hide();
-                    this.dataGridSpell.Show();
-
-                    string select = "SELECT * FROM spell";
-                    bool add = false; ;
-                    if (this.SearchSpellIDtextBox.Text != "")
-                    {
-                        select += " where spellid='" + this.SearchSpellIDtextBox.Text + "'";
-                        add = true;
-                    }
-
-                    if (this.SearchBySpellNametextBox.Text != "")
-                    {
-                        if (add)
-                            select += " and Name like '%" + this.SearchBySpellNametextBox.Text + "%'";
-                        else
-                        {
-                            select += " where Name like '%" + this.SearchBySpellNametextBox.Text + "%'";
-                            add = true;
-                        }
-                    }
-                    string SpellHandler = " All";
-                    if (this.SpellHandlerSearchcomboBox.Text != null)
-                        SpellHandler = this.SpellHandlerSearchcomboBox.Text.ToString(); //SpellHandler
-
-                    if (SpellHandler != " All")
-                    {
-                        if (add)
-                            select += " and type='" + SpellHandler + "'";
-                        else
-                        {
-                            select += " where type='" + SpellHandler + "'";
-                            add = true;
-                        }
-                    }
-                    string LineID = " All";
-                    if (LineNameSpellSearchcomboBox.Text != null)
-                        LineID = this.LineNameSpellSearchcomboBox.Text.ToString(); //Spec Key Name
-
-                    if (LineID != " All")
-                    {
-                        if (add)
-                            select += " and spell.spellid IN (SELECT spellid FROM linexspell WHERE linename='" + LineID + "')";
-                        else
-                        {
-                            select += " where spell.spellid IN (SELECT spellid FROM linexspell WHERE linename='" + LineID + "')";
-                            add = true;
-                        }
-                    }
-
-                    GetData(select);
-
+                    System.Windows.MessageBox.Show(s.Message);
                 }
             }
         }
@@ -887,8 +915,15 @@ namespace Origins_Editor
 
                 this.Validate();
                 this.LineXSpellbindingSource.EndEdit();
-                LineXSpelldataAdapter.Update(linexspell);
 
+                try
+                {
+                    LineXSpelldataAdapter.Update(linexspell);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
 
                 GetLineXSpellData("select * from linexspell where spellid='" + spellIDtextBox.Text.ToString() + "'");
             }
@@ -900,7 +935,15 @@ namespace Origins_Editor
             {
                 this.Validate();
                 this.LineXSpellbindingSource.EndEdit();
-                LineXSpelldataAdapter.Update(linexspell);
+
+                try
+                {
+                    LineXSpelldataAdapter.Update(linexspell);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
             }
             GetLineXSpellData("select * from linexspell where spellid='" + spellIDtextBox.Text.ToString() + "'");
         }
@@ -993,7 +1036,15 @@ namespace Origins_Editor
 
                 this.Validate();
                 this.LanguageSpellbindingSource.EndEdit();
-                LanguageSpelldataAdapter.Update(languagespell);
+
+                try
+                {
+                    LanguageSpelldataAdapter.Update(languagespell);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
             }
             GetLanguageSpellData("select * from languagespell where translationid='" + TranslationIDtextBox.Text.ToString() + "'");
         }
@@ -1007,7 +1058,15 @@ namespace Origins_Editor
             {
                 this.Validate();
                 this.LanguageSpellbindingSource.EndEdit();
-                LanguageSpelldataAdapter.Update(languagespell);
+
+                try
+                {
+                    LanguageSpelldataAdapter.Update(languagespell);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
             }
             GetLanguageSpellData("select * from languagespell where translationid='" + TranslationIDtextBox.Text.ToString() + "'");
         }
@@ -1016,7 +1075,15 @@ namespace Origins_Editor
         {
             this.Validate();
             this.LineXSpellbindingSource.EndEdit();
-            LineXSpelldataAdapter.Update(linexspell);
+
+            try
+            {
+                LineXSpelldataAdapter.Update(linexspell);
+            }
+            catch (MySqlException s)
+            {
+                System.Windows.MessageBox.Show(s.Message);
+            }
         }
 
         private void LanguageSpelldataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -1026,7 +1093,15 @@ namespace Origins_Editor
 
             this.Validate();
             this.LanguageSpellbindingSource.EndEdit();
-            this.LanguageSpelldataAdapter.Update(languagespell);
+
+            try
+            {
+                LanguageSpelldataAdapter.Update(languagespell);
+            }
+            catch (MySqlException s)
+            {
+                System.Windows.MessageBox.Show(s.Message);
+            }
         }
 
         private void SpellNavigatorDeleteItem_Click(object sender, EventArgs e)
@@ -1036,7 +1111,15 @@ namespace Origins_Editor
                 SpellbindingSource.RemoveCurrent();
                 this.Validate();
                 this.SpellbindingSource.EndEdit();
-                this.SpelldataAdapter.Update(SpellDatatable);
+
+                try
+                {
+                    this.SpelldataAdapter.Update(SpellDatatable);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
             }
 
             string select = "SELECT * FROM spell";

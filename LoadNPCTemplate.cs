@@ -81,51 +81,58 @@ namespace Origins_Editor
 
 
             MySqlConnection connection3 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-                   
-            MySqlDataAdapter RacedataAdapter = new MySqlDataAdapter("select * from race", connection3);
-            MySqlCommandBuilder commandBuilderRace = new MySqlCommandBuilder(RacedataAdapter);
-            DataTable RaceDatatable = new DataTable();
-            RacedataAdapter.Fill(RaceDatatable);
-            this.RacebindingSource.DataSource = RaceDatatable;
-            this.RacecomboBox.ValueMember = "ID";
-            this.RacecomboBox.DisplayMember = "Name";
 
-            MySqlDataAdapter ClassTypeSearchdataAdapter = new MySqlDataAdapter("select distinct classtype from npctemplate ORDER BY classtype ASC", connection3);
-            MySqlCommandBuilder commandBuilderClassTypeSearch = new MySqlCommandBuilder(ClassTypeSearchdataAdapter);
-            DataTable ClassTypeSearchDatatable = new DataTable();
-            ClassTypeSearchdataAdapter.Fill(ClassTypeSearchDatatable);
-            this.ClassTypeSearchcomboBox.DataSource = ClassTypeSearchDatatable;
+            try
+            {
 
-            DataRow ClassTypeSearchdatarow = ClassTypeSearchDatatable.NewRow();
-            ClassTypeSearchdatarow["ClassType"] = " All";
-            ClassTypeSearchDatatable.Rows.Add(ClassTypeSearchdatarow);
+                MySqlDataAdapter RacedataAdapter = new MySqlDataAdapter("select * from race", connection3);
+                MySqlCommandBuilder commandBuilderRace = new MySqlCommandBuilder(RacedataAdapter);
+                DataTable RaceDatatable = new DataTable();
+                RacedataAdapter.Fill(RaceDatatable);
+                this.RacebindingSource.DataSource = RaceDatatable;
+                this.RacecomboBox.ValueMember = "ID";
+                this.RacecomboBox.DisplayMember = "Name";
 
-            this.ClassTypeSearchcomboBox.ValueMember = "ClassType";
-            this.ClassTypeSearchcomboBox.DisplayMember = "ClassType";
-            this.ClassTypeSearchcomboBox.Text = " All";
+                MySqlDataAdapter ClassTypeSearchdataAdapter = new MySqlDataAdapter("select distinct classtype from npctemplate ORDER BY classtype ASC", connection3);
+                MySqlCommandBuilder commandBuilderClassTypeSearch = new MySqlCommandBuilder(ClassTypeSearchdataAdapter);
+                DataTable ClassTypeSearchDatatable = new DataTable();
+                ClassTypeSearchdataAdapter.Fill(ClassTypeSearchDatatable);
+                this.ClassTypeSearchcomboBox.DataSource = ClassTypeSearchDatatable;
 
-            DataTable ClassTypeDatatable = new DataTable();
-            ClassTypeSearchdataAdapter.Fill(ClassTypeDatatable);
-            this.ClassTypecomboBox.DataSource = ClassTypeDatatable;
+                DataRow ClassTypeSearchdatarow = ClassTypeSearchDatatable.NewRow();
+                ClassTypeSearchdatarow["ClassType"] = " All";
+                ClassTypeSearchDatatable.Rows.Add(ClassTypeSearchdatarow);
 
-            this.ClassTypecomboBox.ValueMember = "ClassType";
-            this.ClassTypecomboBox.DisplayMember = "ClassType";
+                this.ClassTypeSearchcomboBox.ValueMember = "ClassType";
+                this.ClassTypeSearchcomboBox.DisplayMember = "ClassType";
+                this.ClassTypeSearchcomboBox.Text = " All";
+
+                DataTable ClassTypeDatatable = new DataTable();
+                ClassTypeSearchdataAdapter.Fill(ClassTypeDatatable);
+                this.ClassTypecomboBox.DataSource = ClassTypeDatatable;
+
+                this.ClassTypecomboBox.ValueMember = "ClassType";
+                this.ClassTypecomboBox.DisplayMember = "ClassType";
 
 
-            MySqlDataAdapter PackageIDSearchdataAdapter = new MySqlDataAdapter("select distinct packageid from npctemplate ORDER BY packageid ASC", connection3);
-            MySqlCommandBuilder commandBuilderPackageIDSearch = new MySqlCommandBuilder(PackageIDSearchdataAdapter);
-            DataTable PackageIDSearchDatatable = new DataTable();
-            PackageIDSearchdataAdapter.Fill(PackageIDSearchDatatable);
-            this.PackageIDSearchcomboBox.DataSource = PackageIDSearchDatatable;
+                MySqlDataAdapter PackageIDSearchdataAdapter = new MySqlDataAdapter("select distinct packageid from npctemplate ORDER BY packageid ASC", connection3);
+                MySqlCommandBuilder commandBuilderPackageIDSearch = new MySqlCommandBuilder(PackageIDSearchdataAdapter);
+                DataTable PackageIDSearchDatatable = new DataTable();
+                PackageIDSearchdataAdapter.Fill(PackageIDSearchDatatable);
+                this.PackageIDSearchcomboBox.DataSource = PackageIDSearchDatatable;
 
-            DataRow datarow = PackageIDSearchDatatable.NewRow();
-            datarow["PackageID"] = " All";
-            PackageIDSearchDatatable.Rows.Add(datarow);
+                DataRow datarow = PackageIDSearchDatatable.NewRow();
+                datarow["PackageID"] = " All";
+                PackageIDSearchDatatable.Rows.Add(datarow);
 
-            this.PackageIDSearchcomboBox.ValueMember = "PackageID";
-            this.PackageIDSearchcomboBox.DisplayMember = "PackageID";
-            this.PackageIDSearchcomboBox.Text = " All";
-
+                this.PackageIDSearchcomboBox.ValueMember = "PackageID";
+                this.PackageIDSearchcomboBox.DisplayMember = "PackageID";
+                this.PackageIDSearchcomboBox.Text = " All";
+            }
+            catch (MySqlException s)
+            {
+                System.Windows.MessageBox.Show(s.Message);
+            }
         }
 
         private void GetNPCTemplateItemData(string selectCommand)
@@ -292,196 +299,204 @@ namespace Origins_Editor
 
             if (MessageBox.Show("Save this new npctemplate?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                // user clicked yes
-                MySqlDataAdapter NewNPCTemplateVerifdataAdapter = new MySqlDataAdapter();
-                MySqlConnection connection15 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-                string selectCommand = "select * from npctemplate  where templateid = '" + TemplateIDtextBox.Text.ToString() + "'";
-                // Create a new data adapter based on the specified query.
-                NewNPCTemplateVerifdataAdapter = new MySqlDataAdapter(selectCommand, connection15);
-                // Create a command builder to generate SQL update, insert, and 
-                // delete commands based on selectCommand. These are used to 
-                // update the database.
-                MySqlCommandBuilder commandBuilderNPCTemplateIDData = new MySqlCommandBuilder(NewNPCTemplateVerifdataAdapter);
-                DataTable NPCTemplateIDData = new DataTable();
-                NPCTemplateIDData.Clear();
-                // Populate a new data table.
-                NPCTemplateIDData.Locale = System.Globalization.CultureInfo.InvariantCulture;
-                NewNPCTemplateVerifdataAdapter.Fill(NPCTemplateIDData);
-                if (NPCTemplateIDData.Rows.Count > 0)
+
+                try
                 {
-                    this.TemplateIDtextBox.Text = Util.Find_Free_NPCTemplateID().ToString();
-                    MessageBox.Show("The npctemplate was not updated because the template is not anymore free. You need to save your spell again.");
+                    // user clicked yes
+                    MySqlDataAdapter NewNPCTemplateVerifdataAdapter = new MySqlDataAdapter();
+                    MySqlConnection connection15 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
+                    string selectCommand = "select * from npctemplate  where templateid = '" + TemplateIDtextBox.Text.ToString() + "'";
+                    // Create a new data adapter based on the specified query.
+                    NewNPCTemplateVerifdataAdapter = new MySqlDataAdapter(selectCommand, connection15);
+                    // Create a command builder to generate SQL update, insert, and 
+                    // delete commands based on selectCommand. These are used to 
+                    // update the database.
+                    MySqlCommandBuilder commandBuilderNPCTemplateIDData = new MySqlCommandBuilder(NewNPCTemplateVerifdataAdapter);
+                    DataTable NPCTemplateIDData = new DataTable();
+                    NPCTemplateIDData.Clear();
+                    // Populate a new data table.
+                    NPCTemplateIDData.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                    NewNPCTemplateVerifdataAdapter.Fill(NPCTemplateIDData);
+                    if (NPCTemplateIDData.Rows.Count > 0)
+                    {
+                        this.TemplateIDtextBox.Text = Util.Find_Free_NPCTemplateID().ToString();
+                        MessageBox.Show("The npctemplate was not updated because the template is not anymore free. You need to save your spell again.");
+                    }
+                    else
+                    {
+
+                        long i = 1;
+                        foreach (byte b in Guid.NewGuid().ToByteArray())
+                        {
+                            i *= ((int)b + 1);
+                        }
+                        i -= DateTime.Now.Ticks;
+                        string str = "Origins_Editor_" + i.ToString();
+
+                        DataRow datarow = this.NPCTemplateDatatable.NewRow();
+
+                        datarow["NPCTemplate_ID"] = str;
+                        datarow["TemplateID"] = TemplateIDtextBox.Text;
+                        datarow["Name"] = NametextBox.Text;
+                        datarow["FRName"] = FRNametextBox.Text;
+                        datarow["GuildName"] = GuildNametextBox.Text;
+                        datarow["Model"] = ModeltextBox.Text;
+
+                        string size = "";
+
+                        if (LowSizenumericUpDown.Value == HightSizenumericUpDown.Value)
+                            size = LowSizenumericUpDown.Value.ToString();
+                        else
+                        {
+                            size = LowSizenumericUpDown.Value.ToString() + "-" + HightSizenumericUpDown.Value.ToString();
+                        }
+
+                        datarow["Size"] = size;
+                        datarow["MaxSpeed"] = MaxSpeedtextBox.Text;
+                        datarow["EquipmentTemplateID"] = EquipmentTemplateIDtextBox.Text;
+
+                        uint flagsToSet = 0;
+                        if (GhostcheckBox.Checked == true)
+                            flagsToSet ^= 0x01;
+                        if (StealthcheckBox.Checked == true)
+                            flagsToSet ^= 0x02;
+                        if (DontShowNamecheckBox.Checked == true)
+                            flagsToSet ^= 0x04;
+                        if (CantTargetcheckBox.Checked == true)
+                            flagsToSet ^= 0x08;
+                        if (PeacecheckBox.Checked == true)
+                            flagsToSet ^= 0x10;
+                        if (FlyingcheckBox.Checked == true)
+                            flagsToSet ^= 0x20;
+                        if (TorchcheckBox.Checked == true)
+                            flagsToSet ^= 0x40;
+                        if (StatuecheckBox.Checked == true)
+                            flagsToSet ^= 0x80;
+                        if (SwimmingcheckBox.Checked == true)
+                            flagsToSet ^= 0x100;
+
+                        datarow["Flags"] = flagsToSet;
+                        datarow["MeleeDamageType"] = Util.Find_DamageType_Value(MeleeDamageTypecomboBox.Text);
+                        datarow["ParryChance"] = ParryChancetextBox.Text;
+                        datarow["EvadeChance"] = EvadeChancetextBox.Text;
+                        datarow["BlockChance"] = BlockChancetextBox.Text;
+                        datarow["LeftHandSwingChance"] = LeftHandSwingChancetextBox.Text;
+                        datarow["Spells"] = SpellsrichTextBox.Text;
+                        datarow["Styles"] = StylesrichTextBox.Text;
+                        datarow["Strength"] = StrengthtextBox.Text;
+                        datarow["Constitution"] = ConstitutiontextBox.Text;
+                        datarow["Dexterity"] = DexteritytextBox.Text;
+                        datarow["Quickness"] = QuicknesstextBox.Text;
+                        datarow["Intelligence"] = IntelligencetextBox.Text;
+                        datarow["Piety"] = PietytextBox.Text;
+                        datarow["Charisma"] = CharismatextBox.Text;
+                        datarow["Empathy"] = EmpathytextBox.Text;
+                        datarow["Abilities"] = AbilitiesrichTextBox.Text;
+                        datarow["AggroLevel"] = AggroLeveltextBox.Text;
+                        datarow["AggroRange"] = AggroRangetextBox.Text;
+                        datarow["ClassType"] = ClassTypecomboBox.Text;
+
+                        string level = "";
+
+                        if (LowLevelnumericUpDown.Value == HightLevelnumericUpDown.Value)
+                            level = LowLevelnumericUpDown.Value.ToString();
+                        else
+                        {
+                            level = LowLevelnumericUpDown.Value.ToString() + "-" + HightLevelnumericUpDown.Value.ToString();
+                        }
+
+                        datarow["Level"] = level;
+                        datarow["Race"] = RacecomboBox.SelectedValue != null ? RacecomboBox.SelectedValue : "0";
+                        datarow["BodyType"] = Util.Find_BodyType_Value(BodyTypecomboBox.Text);
+                        datarow["MaxDistance"] = MaxDistancetextBox.Text;
+                        datarow["TetherRange"] = TetherRangetextBox.Text;
+                        datarow["PackageID"] = PackageIDtextBox.Text;
+                        datarow["VisibleWeaponSlots"] = VisibleWeaponSlotstextBox.Text;
+                        datarow["ReplaceMobValues"] = Util.Find_Bool_Value(ReplaceMobValuescomboBox.Text);
+                        datarow["ItemsListTemplateID"] = ItemsListTemplateIDtextBox.Text;
+
+                        if (DolEditor.Properties.Settings.Default.OriginsSettings)
+                            datarow["IsCharmable"] = Util.Find_Bool_Value(IsCharmablecomboBox.Text);
+
+                        datarow["TranslationId"] = TranslationIDtextBox.Text;
+                        datarow["Suffix"] = SuffixtextBox.Text;
+                        datarow["ExamineArticle"] = ExamineArticletextBox.Text;
+                        datarow["MessageArticle"] = MessageArticletextBox.Text;
+
+                        this.NPCTemplateDatatable.Rows.Add(datarow);
+
+                        if (MobsChoiceOpen != null)
+                        {
+                            MobsChoiceOpen.Close();
+                            MobsChoiceOpen = null;
+                        }
+
+                        this.Validate();
+                        this.NPCTemplatebindingSource.EndEdit();
+
+                        this.ControlEditor.Hide();
+                        this.NPCTemplatedataGridView.Show();
+                        this.ControlMenu.Visible = true;
+                        this.AddNPCTemplateButton.Visible = true;
+                        this.NPCTemplateListingButton.Visible = false;
+                        this.SaveNewbutton.Hide();
+                        this.flags = 0;
+                        loaded = false;
+
+                        string select = "SELECT * FROM npctemplate";
+                        bool add = false; ;
+                        if (this.SearchNPCTemplateIDtextBox.Text != "")
+                        {
+                            select += " where Templateid='" + this.SearchNPCTemplateIDtextBox.Text + "'";
+                            add = true;
+                        }
+
+                        if (this.SearchByNPCTemplateNametextBox.Text != "")
+                        {
+                            if (add)
+                                select += " and Name like '%" + this.SearchByNPCTemplateNametextBox.Text + "%'";
+                            else
+                            {
+                                select += " where Name like '%" + this.SearchByNPCTemplateNametextBox.Text + "%'";
+                                add = true;
+                            }
+                        }
+                        string PackageID = " All";
+                        if (this.PackageIDSearchcomboBox.Text != null)
+                            PackageID = this.PackageIDSearchcomboBox.Text.ToString(); //PackageID
+
+                        if (PackageID != " All")
+                        {
+                            if (add)
+                                select += " and packageid='" + PackageID + "'";
+                            else
+                            {
+                                select += " where packageid='" + PackageID + "'";
+                                add = true;
+                            }
+                        }
+                        string ClassType = " All";
+                        if (ClassTypeSearchcomboBox.Text != null)
+                            ClassType = this.ClassTypeSearchcomboBox.Text.ToString(); //ClassType
+
+                        if (ClassType != " All")
+                        {
+                            if (add)
+                                select += " and classtype='" + ClassType + "')";
+                            else
+                            {
+                                select += " where classtype='" + ClassType + "')";
+                                add = true;
+                            }
+                        }
+
+                        GetNPCTemplateItemData(select);
+                    }
+
                 }
-                else
+                catch (MySqlException s)
                 {
-
-                    long i = 1;
-                    foreach (byte b in Guid.NewGuid().ToByteArray())
-                    {
-                        i *= ((int)b + 1);
-                    }
-                    i -= DateTime.Now.Ticks;
-                    string str = "Origins_Editor_" + i.ToString();
-
-                    DataRow datarow = this.NPCTemplateDatatable.NewRow();
-
-                    datarow["NPCTemplate_ID"] = str;
-                    datarow["TemplateID"] = TemplateIDtextBox.Text;
-                    datarow["Name"] = NametextBox.Text;
-                    datarow["FRName"] = FRNametextBox.Text;
-                    datarow["GuildName"] = GuildNametextBox.Text;
-                    datarow["Model"] = ModeltextBox.Text;
-
-                    string size = "";
-
-                    if (LowSizenumericUpDown.Value == HightSizenumericUpDown.Value)
-                        size = LowSizenumericUpDown.Value.ToString();
-                    else
-                    {
-                        size = LowSizenumericUpDown.Value.ToString() + "-" + HightSizenumericUpDown.Value.ToString();
-                    }
-
-                    datarow["Size"] = size;
-                    datarow["MaxSpeed"] = MaxSpeedtextBox.Text;
-                    datarow["EquipmentTemplateID"] = EquipmentTemplateIDtextBox.Text;
-
-                    uint flagsToSet = 0;
-                    if (GhostcheckBox.Checked == true)
-                        flagsToSet ^= 0x01;
-                    if (StealthcheckBox.Checked == true)
-                        flagsToSet ^= 0x02;
-                    if (DontShowNamecheckBox.Checked == true)
-                        flagsToSet ^= 0x04;
-                    if (CantTargetcheckBox.Checked == true)
-                        flagsToSet ^= 0x08;
-                    if (PeacecheckBox.Checked == true)
-                        flagsToSet ^= 0x10;
-                    if (FlyingcheckBox.Checked == true)
-                        flagsToSet ^= 0x20;
-                    if (TorchcheckBox.Checked == true)
-                        flagsToSet ^= 0x40;
-                    if (StatuecheckBox.Checked == true)
-                        flagsToSet ^= 0x80;
-                    if (SwimmingcheckBox.Checked == true)
-                        flagsToSet ^= 0x100;
-
-                    datarow["Flags"] = flagsToSet;
-                    datarow["MeleeDamageType"] = Util.Find_DamageType_Value(MeleeDamageTypecomboBox.Text);
-                    datarow["ParryChance"] = ParryChancetextBox.Text;
-                    datarow["EvadeChance"] = EvadeChancetextBox.Text;
-                    datarow["BlockChance"] = BlockChancetextBox.Text;
-                    datarow["LeftHandSwingChance"] = LeftHandSwingChancetextBox.Text;
-                    datarow["Spells"] = SpellsrichTextBox.Text;
-                    datarow["Styles"] = StylesrichTextBox.Text;
-                    datarow["Strength"] = StrengthtextBox.Text;
-                    datarow["Constitution"] = ConstitutiontextBox.Text;
-                    datarow["Dexterity"] = DexteritytextBox.Text;
-                    datarow["Quickness"] = QuicknesstextBox.Text;
-                    datarow["Intelligence"] = IntelligencetextBox.Text;
-                    datarow["Piety"] = PietytextBox.Text;
-                    datarow["Charisma"] = CharismatextBox.Text;
-                    datarow["Empathy"] = EmpathytextBox.Text;
-                    datarow["Abilities"] = AbilitiesrichTextBox.Text;
-                    datarow["AggroLevel"] = AggroLeveltextBox.Text;
-                    datarow["AggroRange"] = AggroRangetextBox.Text;
-                    datarow["ClassType"] = ClassTypecomboBox.Text;
-
-                    string level = "";
-
-                    if (LowLevelnumericUpDown.Value == HightLevelnumericUpDown.Value)
-                        level = LowLevelnumericUpDown.Value.ToString();
-                    else
-                    {
-                        level = LowLevelnumericUpDown.Value.ToString() + "-" + HightLevelnumericUpDown.Value.ToString();
-                    }
-
-                    datarow["Level"] = level;
-                    datarow["Race"] = RacecomboBox.SelectedValue != null ? RacecomboBox.SelectedValue : "0";
-                    datarow["BodyType"] = Util.Find_BodyType_Value(BodyTypecomboBox.Text);
-                    datarow["MaxDistance"] = MaxDistancetextBox.Text;
-                    datarow["TetherRange"] = TetherRangetextBox.Text;
-                    datarow["PackageID"] = PackageIDtextBox.Text;
-                    datarow["VisibleWeaponSlots"] = VisibleWeaponSlotstextBox.Text;
-                    datarow["ReplaceMobValues"] = Util.Find_Bool_Value(ReplaceMobValuescomboBox.Text);
-                    datarow["ItemsListTemplateID"] = ItemsListTemplateIDtextBox.Text;
-
-                    if (DolEditor.Properties.Settings.Default.OriginsSettings)
-                        datarow["IsCharmable"] = Util.Find_Bool_Value(IsCharmablecomboBox.Text);
-
-                    datarow["TranslationId"] = TranslationIDtextBox.Text;
-                    datarow["Suffix"] = SuffixtextBox.Text;
-                    datarow["ExamineArticle"] = ExamineArticletextBox.Text;
-                    datarow["MessageArticle"] = MessageArticletextBox.Text;
-
-                    this.NPCTemplateDatatable.Rows.Add(datarow);
-
-                    if (MobsChoiceOpen != null)
-                    {
-                        MobsChoiceOpen.Close();
-                        MobsChoiceOpen = null;
-                    }
-
-                    this.Validate();
-                    this.NPCTemplatebindingSource.EndEdit();
-                    NPCTemplatedataAdapter.Update(this.NPCTemplateDatatable);
-
-                    this.ControlEditor.Hide();
-                    this.NPCTemplatedataGridView.Show();
-                    this.ControlMenu.Visible = true;
-                    this.AddNPCTemplateButton.Visible = true;
-                    this.NPCTemplateListingButton.Visible = false;
-                    this.SaveNewbutton.Hide();
-                    this.flags = 0;
-                    loaded = false;
-
-                    string select = "SELECT * FROM npctemplate";
-                    bool add = false; ;
-                    if (this.SearchNPCTemplateIDtextBox.Text != "")
-                    {
-                        select += " where Templateid='" + this.SearchNPCTemplateIDtextBox.Text + "'";
-                        add = true;
-                    }
-
-                    if (this.SearchByNPCTemplateNametextBox.Text != "")
-                    {
-                        if (add)
-                            select += " and Name like '%" + this.SearchByNPCTemplateNametextBox.Text + "%'";
-                        else
-                        {
-                            select += " where Name like '%" + this.SearchByNPCTemplateNametextBox.Text + "%'";
-                            add = true;
-                        }
-                    }
-                    string PackageID = " All";
-                    if (this.PackageIDSearchcomboBox.Text != null)
-                        PackageID = this.PackageIDSearchcomboBox.Text.ToString(); //PackageID
-
-                    if (PackageID != " All")
-                    {
-                        if (add)
-                            select += " and packageid='" + PackageID + "'";
-                        else
-                        {
-                            select += " where packageid='" + PackageID + "'";
-                            add = true;
-                        }
-                    }
-                    string ClassType = " All";
-                    if (ClassTypeSearchcomboBox.Text != null)
-                        ClassType = this.ClassTypeSearchcomboBox.Text.ToString(); //ClassType
-
-                    if (ClassType != " All")
-                    {
-                        if (add)
-                            select += " and classtype='" + ClassType + "')";
-                        else
-                        {
-                            select += " where classtype='" + ClassType + "')";
-                            add = true;
-                        }
-                    }
-
-                    GetNPCTemplateItemData(select);
+                    System.Windows.MessageBox.Show(s.Message);
                 }
             }
         }
@@ -594,7 +609,15 @@ namespace Origins_Editor
 
                 this.Validate();
                 this.NPCTemplatebindingSource.EndEdit();
-                NPCTemplatedataAdapter.Update(this.NPCTemplateDatatable);
+
+                try
+                {
+                    NPCTemplatedataAdapter.Update(this.NPCTemplateDatatable);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
 
                 this.NPCTemplatedataGridView.ReadOnly = true;
                 this.Savebutton.Hide();
@@ -1145,7 +1168,15 @@ namespace Origins_Editor
             {
                 this.Validate();
                 this.TranslationbindingSource.EndEdit();
-                this.NPCTemplateTranslationdataAdapter.Update(TranslationDatatable);
+
+                try
+                {
+                    this.NPCTemplateTranslationdataAdapter.Update(TranslationDatatable);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
             }
 
             GetNPCTemplateTranslationItemData("select * from languagenpc where translationid='" + TranslationIDtextBox.Text + "'");
@@ -1175,7 +1206,15 @@ namespace Origins_Editor
         {
             this.Validate();
             this.TranslationbindingSource.EndEdit();
-            this.NPCTemplateTranslationdataAdapter.Update(this.TranslationDatatable);
+
+            try
+            {
+                this.NPCTemplateTranslationdataAdapter.Update(TranslationDatatable);
+            }
+            catch (MySqlException s)
+            {
+                System.Windows.MessageBox.Show(s.Message);
+            }
         }
 
         private void LowSizenumericUpDown_ValueChanged(object sender, EventArgs e)

@@ -258,7 +258,15 @@ namespace Origins_Editor
 
                 this.Validate();
                 this.ZonebindingSource.EndEdit();
-                ZonesdataAdapter.Update(ZonesDatatable);
+
+                try
+                {
+                    ZonesdataAdapter.Update(ZonesDatatable);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
 
                 this.EditZoneControl.Hide();
                 this.ZonedataGridView.Show();
@@ -403,7 +411,15 @@ namespace Origins_Editor
                 
                 this.Validate();
                 this.ZonebindingSource.EndEdit();
-                ZonesdataAdapter.Update(ZonesDatatable);
+
+                try
+                {
+                    ZonesdataAdapter.Update(ZonesDatatable);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
 
                 this.ZonedataGridView.ReadOnly = true;
                 this.EditZoneControl.Hide();

@@ -148,7 +148,15 @@ namespace Origins_Editor
         {
             this.Validate();
             this.AreaLanguagebindingSource.EndEdit();
-            this.AreaLanguagedataAdapter.Update(this.AreaLanguageDatatable);
+
+            try
+            {
+                this.AreaLanguagedataAdapter.Update(this.AreaLanguageDatatable);
+            }
+            catch (MySqlException s)
+            {
+                System.Windows.MessageBox.Show(s.Message);
+            }
         }
 
         private void AreadataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -207,7 +215,15 @@ namespace Origins_Editor
 
                 this.Validate();
                 this.AreabindingSource.EndEdit();
-                this.AreadataAdapter.Update(AreaDatatable);
+
+                try
+                {
+                    this.AreadataAdapter.Update(AreaDatatable);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
 
                 this.AreadataGridView.ReadOnly = true;
                 this.EditAreaControl.Hide();
@@ -362,7 +378,15 @@ namespace Origins_Editor
 
                 this.Validate();
                 this.AreabindingSource.EndEdit();
-                this.AreadataAdapter.Update(AreaDatatable);
+
+                try
+                {
+                    this.AreadataAdapter.Update(AreaDatatable);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
 
                 this.EditAreaControl.Hide();
                 this.AreadataGridView.Show();
@@ -379,7 +403,15 @@ namespace Origins_Editor
             {
                 this.Validate();
                 this.AreabindingSource.EndEdit();
-                this.AreadataAdapter.Update(AreaDatatable);
+
+                try
+                {
+                    this.AreadataAdapter.Update(AreaDatatable);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
             }
 
             string select = "SELECT * FROM area";
@@ -462,7 +494,15 @@ namespace Origins_Editor
 
                 this.Validate();
                 this.AreaLanguagebindingSource.EndEdit();
-                this.AreaLanguagedataAdapter.Update(this.AreaLanguageDatatable);
+
+                try
+                {
+                    this.AreaLanguagedataAdapter.Update(this.AreaLanguageDatatable);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
             }
         }
 
@@ -472,7 +512,15 @@ namespace Origins_Editor
             {
                 this.Validate();
                 this.AreaLanguagebindingSource.EndEdit();
-                this.AreaLanguagedataAdapter.Update(AreaLanguageDatatable);
+
+                try
+                {
+                    this.AreaLanguagedataAdapter.Update(this.AreaLanguageDatatable);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
             }
             this.GetAreaLanguageData("SELECT * FROM languagearea WHERE translationid='" + this.TranslationIDtextBox.Text.ToString() + "'");
         }
@@ -510,7 +558,15 @@ namespace Origins_Editor
             {
                 this.Validate();
                 this.AreaLanguagebindingSource.EndEdit();
-                this.AreaLanguagedataAdapter.Update(AreaLanguageDatatable);
+
+                try
+                {
+                    this.AreaLanguagedataAdapter.Update(this.AreaLanguageDatatable);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
             }
         }
     }

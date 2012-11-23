@@ -310,7 +310,15 @@ namespace Origins_Editor
 
                 this.Validate();
                 this.bindingSource1.EndEdit();
-                dataAdapterbindingsource1.Update(StyleDataTable);
+
+                try
+                {
+                    dataAdapterbindingsource1.Update(StyleDataTable);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
 
                 this.dataGridStyle.ReadOnly = true;
                 this.EditStyleControl.Hide();
@@ -478,6 +486,7 @@ namespace Origins_Editor
 
             return true;
         }
+
         private void SaveNewStyle_Click(object sender, EventArgs e)
         {
             if (!ValidStyleData())
@@ -524,7 +533,15 @@ namespace Origins_Editor
 
                 this.Validate();
                 this.bindingSource1.EndEdit();
-                dataAdapterbindingsource1.Update(StyleDataTable);
+
+                try
+                {
+                    dataAdapterbindingsource1.Update(StyleDataTable);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
 
                 this.EditStyleControl.Hide();
                 this.dataGridStyle.Show();
@@ -541,7 +558,15 @@ namespace Origins_Editor
             {           
                 this.Validate();
                 this.bindingSource2.EndEdit();
-                this.dataAdapterbindingsource2.Update(StyleXSpell);
+
+                try
+                {
+                    this.dataAdapterbindingsource2.Update(StyleXSpell);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
             }
 
             GetStyleXSpellData("SELECT * FROM stylexspell WHERE styleid ='" + this.StyleIDtextBox.Text + "' and (classid = '0' or classid ='" + Util.ClassNameToID(this.ClassIDcomboBox.Text) + "')");
@@ -553,7 +578,15 @@ namespace Origins_Editor
             {         
                 this.Validate();
                 this.bindingSource1.EndEdit();
-                this.dataAdapterbindingsource1.Update(StyleDataTable);
+
+                try
+                {
+                    this.dataAdapterbindingsource1.Update(StyleDataTable);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
             }
 
             string select = "SELECT * FROM style";
@@ -669,7 +702,15 @@ namespace Origins_Editor
                 StyleXSpell.Rows.Add(datarow);
                 this.Validate();
                 this.bindingSource2.EndEdit();
-                this.dataAdapterbindingsource2.Update(StyleXSpell);
+
+                try
+                {
+                    this.dataAdapterbindingsource2.Update(StyleXSpell);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
 
                 GetStyleXSpellData("SELECT * FROM stylexspell WHERE styleid ='" + this.StyleIDtextBox.Text + "' and (classid = '0' or classid ='" + Util.ClassNameToID(this.ClassIDcomboBox.Text) + "')");
             }
@@ -733,7 +774,15 @@ namespace Origins_Editor
 
                 this.Validate();
                 this.bindingSource3.EndEdit();
-                this.LanguageStyledataAdapter.Update(languagestyle);
+
+                try
+                {
+                    this.LanguageStyledataAdapter.Update(languagestyle);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
 
                 GetLanguageStyleData("SELECT * FROM languagestyle WHERE TranslationId ='" + this.TranslationIDtextBox.Text + "'");
             }
@@ -748,7 +797,15 @@ namespace Origins_Editor
             {
                 this.Validate();
                 this.bindingSource3.EndEdit();
-                this.LanguageStyledataAdapter.Update(languagestyle);
+
+                try
+                {
+                    this.LanguageStyledataAdapter.Update(languagestyle);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
             }
             GetLanguageStyleData("SELECT * FROM languagestyle WHERE TranslationId ='" + this.TranslationIDtextBox.Text + "'");
         }
@@ -760,14 +817,30 @@ namespace Origins_Editor
 
             this.Validate();
             this.bindingSource3.EndEdit();
-            this.LanguageStyledataAdapter.Update(languagestyle);
+
+            try
+            {
+                this.LanguageStyledataAdapter.Update(languagestyle);
+            }
+            catch (MySqlException s)
+            {
+                System.Windows.MessageBox.Show(s.Message);
+            }
         }
 
         private void StyleXSpelldataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             this.Validate();
             this.bindingSource2.EndEdit();
-            this.dataAdapterbindingsource2.Update(StyleXSpell);
+
+            try
+            {
+                this.dataAdapterbindingsource2.Update(StyleXSpell);
+            }
+            catch (MySqlException s)
+            {
+                System.Windows.MessageBox.Show(s.Message);
+            }
         }
 
         private void StyleListing_Click(object sender, EventArgs e)

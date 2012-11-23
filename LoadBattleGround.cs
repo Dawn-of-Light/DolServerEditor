@@ -84,7 +84,15 @@ namespace Origins_Editor
             {
                 this.Validate();
                 this.BattleGroundbindingSource.EndEdit();
-                this.BattleGrounddataAdapter.Update(this.BattlegroundDatatable);
+
+                try
+                {
+                    this.BattleGrounddataAdapter.Update(this.BattlegroundDatatable);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
             }
             GetData("select * from battleground");
         }
@@ -221,7 +229,15 @@ namespace Origins_Editor
 
                 this.Validate();
                 this.BattleGroundbindingSource.EndEdit();
-                this.BattleGrounddataAdapter.Update(this.BattlegroundDatatable);
+
+                try
+                {
+                    this.BattleGrounddataAdapter.Update(this.BattlegroundDatatable);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
 
                 this.ZoneListingButton.Visible = false;
                 this.AddBattleGroundButton.Visible = true;
@@ -250,7 +266,15 @@ namespace Origins_Editor
 
                 this.Validate();
                 this.BattleGroundbindingSource.EndEdit();
-                this.BattleGrounddataAdapter.Update(this.BattlegroundDatatable);
+
+                try
+                {
+                    this.BattleGrounddataAdapter.Update(this.BattlegroundDatatable);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
 
                 this.BattlegrounddataGridView.ReadOnly = true;
                 this.Savebutton.Hide();

@@ -84,24 +84,33 @@ namespace Origins_Editor
             GetData("select * from regions");
 
             this.RegiondataGridView.Columns["Regions_ID"].Visible = false;
-            MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
 
-            connection.Open();
-            MySqlDataAdapter ClassTypeAdddataAdapter = new MySqlDataAdapter("select distinct ClassType from regions ORDER BY ClassType ASC", connection);
-            MySqlCommandBuilder ClassTypeDatacommandBuilder = new MySqlCommandBuilder(ClassTypeAdddataAdapter);
-            DataTable ClassTypeComboData = new DataTable();
-            ClassTypeAdddataAdapter.Fill(ClassTypeComboData);            
-            this.ClassTypeSearchcomboBox.DataSource = ClassTypeComboData;
-            this.ClassTypeSearchcomboBox.ValueMember = "ClassType";
-            this.ClassTypeSearchcomboBox.DisplayMember = "ClassType";
+            try
+            {
+                MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
 
-            DataRow ClassTypedatarow = ClassTypeComboData.NewRow();
-            ClassTypedatarow["ClassType"] = " All";
-            ClassTypeComboData.Rows.Add(ClassTypedatarow);
+                connection.Open();
+                MySqlDataAdapter ClassTypeAdddataAdapter = new MySqlDataAdapter("select distinct ClassType from regions ORDER BY ClassType ASC", connection);
+                MySqlCommandBuilder ClassTypeDatacommandBuilder = new MySqlCommandBuilder(ClassTypeAdddataAdapter);
+                DataTable ClassTypeComboData = new DataTable();
+                ClassTypeAdddataAdapter.Fill(ClassTypeComboData);
+                this.ClassTypeSearchcomboBox.DataSource = ClassTypeComboData;
+                this.ClassTypeSearchcomboBox.ValueMember = "ClassType";
+                this.ClassTypeSearchcomboBox.DisplayMember = "ClassType";
+
+                DataRow ClassTypedatarow = ClassTypeComboData.NewRow();
+                ClassTypedatarow["ClassType"] = " All";
+                ClassTypeComboData.Rows.Add(ClassTypedatarow);
 
 
-            this.ClassTypeSearchcomboBox.Text = " All";
-            connection.Close();
+                this.ClassTypeSearchcomboBox.Text = " All";
+                connection.Close();
+
+            }
+            catch (MySqlException s)
+            {
+                System.Windows.MessageBox.Show(s.Message);
+            }
         }
 
         private void RegionNavigatorDeleteItem_Click(object sender, EventArgs e)
@@ -320,7 +329,15 @@ namespace Origins_Editor
 
                 this.Validate();
                 this.RegionbindingSource.EndEdit();
-                this.RegiondataAdapter.Update(RegionDatatable);
+
+                try
+                {
+                    this.RegiondataAdapter.Update(RegionDatatable);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
 
                 this.RegiondataGridView.ReadOnly = true;
                 this.EditRegionControl.Hide();
@@ -393,7 +410,15 @@ namespace Origins_Editor
 
                 this.Validate();
                 this.RegionbindingSource.EndEdit();
-                RegiondataAdapter.Update(RegionDatatable);
+
+                try
+                {
+                    this.RegiondataAdapter.Update(RegionDatatable);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
 
                 this.RegiondataGridView.ReadOnly = true;
                 this.EditRegionControl.Hide();

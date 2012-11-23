@@ -222,7 +222,15 @@ namespace Origins_Editor
 
                 this.Validate();
                 this.CraftedItembindingSource.EndEdit();
-                this.CraftedItemdataAdapter.Update(this.CraftedItemDatatable);
+
+                try
+                {
+                    this.CraftedItemdataAdapter.Update(this.CraftedItemDatatable);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
             }
         }
 
@@ -286,7 +294,15 @@ namespace Origins_Editor
 
                 this.Validate();
                 this.CraftedXItembindingSource.EndEdit();
-                this.CraftedXItemdataAdapter.Update(this.CraftedXItemDatatable);
+
+                try
+                {
+                    this.CraftedXItemdataAdapter.Update(this.CraftedXItemDatatable);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
             }
         }
 
@@ -296,7 +312,15 @@ namespace Origins_Editor
             {
                 this.Validate();
                 this.CraftedItembindingSource.EndEdit();
-                this.CraftedItemdataAdapter.Update(this.CraftedItemDatatable);
+
+                try
+                {
+                    this.CraftedItemdataAdapter.Update(this.CraftedItemDatatable);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
             }
 
             string select = "SELECT * FROM crafteditem";
@@ -348,7 +372,15 @@ namespace Origins_Editor
             {
                 this.Validate();
                 this.CraftedXItembindingSource.EndEdit();
-                this.CraftedXItemdataAdapter.Update(this.CraftedXItemDatatable);
+
+                try
+                {
+                    this.CraftedXItemdataAdapter.Update(this.CraftedXItemDatatable);
+                }
+                catch (MySqlException s)
+                {
+                    System.Windows.MessageBox.Show(s.Message);
+                }
             }
 
             this.GetCraftedXItemData("select * from craftedxitem where CraftedItemId_nb='" + id_nb + "'");
@@ -358,14 +390,30 @@ namespace Origins_Editor
         {
             this.Validate();
             this.CraftedItembindingSource.EndEdit();
-            this.CraftedItemdataAdapter.Update(this.CraftedItemDatatable);
+
+            try
+            {
+                this.CraftedItemdataAdapter.Update(this.CraftedItemDatatable);
+            }
+            catch (MySqlException s)
+            {
+                System.Windows.MessageBox.Show(s.Message);
+            }
         }
 
         private void CraftedXItemdataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             this.Validate();
             this.CraftedXItembindingSource.EndEdit();
-            this.CraftedXItemdataAdapter.Update(this.CraftedXItemDatatable);
+
+            try
+            {
+                this.CraftedXItemdataAdapter.Update(this.CraftedXItemDatatable);
+            }
+            catch (MySqlException s)
+            {
+                System.Windows.MessageBox.Show(s.Message);
+            }
         }
 
         private void SearchFilters_SelectedChanged(object sender, EventArgs e)
