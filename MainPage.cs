@@ -136,108 +136,116 @@ namespace Origins_Editor
                 return;
             }
             MySqlConnection thisConnection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-            
+
+            int MobrowsAffected = 0;
+            int MobxAmbientBehaviourrowsAffected = 0;
+            int DataquestrowsAffected = 0;
+            int DropTemplateXItemTemplaterowsAffected = 0;
+            int MobDropTemplaterowsAffected = 0;
+            int NPCTemplaterowsAffected = 0;
+            int InventoryCreatorrowsAffected = 0;
+            int LootTemplaterowsAffected = 0;
+            int MobXLootTemplaterowsAffected = 0;
+            int LootOTDrowsAffected = 0;
+            int LootGeneratorAffected = 0;
+
             try
             {
                 thisConnection.Open();
 
                 MySqlCommand MobCommand = thisConnection.CreateCommand();
-                //Need to solve ' in string
-                int MobrowsAffected = 0;
-                MobCommand.CommandText = "update Mob set name='" + ChangedNametextBox.Text + "' where name ='" + OriginalNametextBox.Text + "'";
+
+                MobCommand.CommandText = "update Mob set name='" + ChangedNametextBox.Text.Replace("'", "''") +"' where name ='" + OriginalNametextBox.Text.Replace("'", "''") +"'";
                 MobrowsAffected = MobCommand.ExecuteNonQuery();
 
-                int MobxAmbientBehaviourrowsAffected = 0;
                 if (UpdateMobxAmbientBehaviourcheckBox.Checked)
                 {
 
                     MySqlCommand MobxAmbientBehaviourCommand = thisConnection.CreateCommand();
 
-                    MobxAmbientBehaviourCommand.CommandText = "update MobxAmbientBehaviour set source='" + ChangedNametextBox.Text + "' where source ='" + OriginalNametextBox.Text + "'";
+                    MobxAmbientBehaviourCommand.CommandText = "update MobxAmbientBehaviour set source='" + ChangedNametextBox.Text.Replace("'", "''") + "' where source ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
                     MobxAmbientBehaviourrowsAffected = MobxAmbientBehaviourCommand.ExecuteNonQuery();
                 }
-                int DataquestrowsAffected = 0;
+
                 if (UpdateDataquestcheckBox.Checked)
                 {
 
                     MySqlCommand DataquestCommand = thisConnection.CreateCommand();
 
-                    DataquestCommand.CommandText = "update dataquest set startname='" + ChangedNametextBox.Text + "' where startname ='" + OriginalNametextBox.Text + "'";
+                    DataquestCommand.CommandText = "update dataquest set startname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where startname ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
                     DataquestrowsAffected = DataquestCommand.ExecuteNonQuery();
 
-                    //Todo remplacer sourcename aussi
+                    //Todo replace sourcename too
                 }
-                int DropTemplateXItemTemplaterowsAffected = 0;
-                int MobDropTemplaterowsAffected = 0;
+
                 if (UpdateDropTemplateXItemTemplatecheckBox.Checked)
                 {
                     MySqlCommand DropTemplateXItemTemplateCommand = thisConnection.CreateCommand();
 
-                    DropTemplateXItemTemplateCommand.CommandText = "update DropTemplateXItemTemplate set templatename='" + ChangedNametextBox.Text + "' where templatename ='" + OriginalNametextBox.Text + "'";
+                    DropTemplateXItemTemplateCommand.CommandText = "update DropTemplateXItemTemplate set templatename='" + ChangedNametextBox.Text.Replace("'", "''") + "' where templatename ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
                     DropTemplateXItemTemplaterowsAffected = DropTemplateXItemTemplateCommand.ExecuteNonQuery();
 
                     MySqlCommand MobDropTemplateCommand = thisConnection.CreateCommand();
 
-                    MobDropTemplateCommand.CommandText = "update MobDropTemplate set mobname='" + ChangedNametextBox.Text + "' where mobname ='" + OriginalNametextBox.Text + "'";
+                    MobDropTemplateCommand.CommandText = "update MobDropTemplate set mobname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where mobname ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
                     MobDropTemplaterowsAffected = MobDropTemplateCommand.ExecuteNonQuery();
 
                     MySqlCommand MobDropTemplateCommand2 = thisConnection.CreateCommand();
 
-                    MobDropTemplateCommand2.CommandText = "update MobDropTemplate set loottemplatename='" + ChangedNametextBox.Text + "' where loottemplatename ='" + OriginalNametextBox.Text + "'";
+                    MobDropTemplateCommand2.CommandText = "update MobDropTemplate set loottemplatename='" + ChangedNametextBox.Text.Replace("'", "''") + "' where loottemplatename ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
                     MobDropTemplateCommand2.ExecuteNonQuery();
 
                 }
-                int NPCTemplaterowsAffected = 0;
+
                 if (UpdateNPCTemplatecheckBox.Checked)
                 {
                     MySqlCommand NPCTemplateCommand = thisConnection.CreateCommand();
 
-                    NPCTemplateCommand.CommandText = "update npctemplate set name='" + ChangedNametextBox.Text + "' where name ='" + OriginalNametextBox.Text + "'";
+                    NPCTemplateCommand.CommandText = "update npctemplate set name='" + ChangedNametextBox.Text.Replace("'", "''") + "' where name ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
                     NPCTemplaterowsAffected = NPCTemplateCommand.ExecuteNonQuery();
 
                 }
-                int InventoryCreatorrowsAffected = 0;
+
                 if (UpdateInventoryCreatorcheckBox.Checked)
                 {
 
                     MySqlCommand InventoryCreatorCommand = thisConnection.CreateCommand();
 
-                    InventoryCreatorCommand.CommandText = "update inventory set creator='" + ChangedNametextBox.Text + "' where creator ='" + OriginalNametextBox.Text + "'";
+                    InventoryCreatorCommand.CommandText = "update inventory set creator='" + ChangedNametextBox.Text.Replace("'", "''") + "' where creator ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
                     InventoryCreatorrowsAffected = InventoryCreatorCommand.ExecuteNonQuery();
                 }
-                int LootTemplaterowsAffected = 0;
-                int MobXLootTemplaterowsAffected = 0;
+
                 if (UpdateMobXLootTemplatecheckBox.Checked)
                 {
                     MySqlCommand DropTemplateXItemTemplateCommand = thisConnection.CreateCommand();
 
-                    DropTemplateXItemTemplateCommand.CommandText = "update loottemplate set templatename='" + ChangedNametextBox.Text + "' where templatename ='" + OriginalNametextBox.Text + "'";
+                    DropTemplateXItemTemplateCommand.CommandText = "update loottemplate set templatename='" + ChangedNametextBox.Text.Replace("'", "''") + "' where templatename ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
                     LootTemplaterowsAffected = DropTemplateXItemTemplateCommand.ExecuteNonQuery();
 
                     MySqlCommand MobXLootTemplateCommand = thisConnection.CreateCommand();
 
-                    MobXLootTemplateCommand.CommandText = "update MobXLootTemplate set mobname='" + ChangedNametextBox.Text + "' where mobname ='" + OriginalNametextBox.Text + "'";
+                    MobXLootTemplateCommand.CommandText = "update MobXLootTemplate set mobname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where mobname ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
                     MobXLootTemplaterowsAffected = MobXLootTemplateCommand.ExecuteNonQuery();
 
                     MySqlCommand MobXLootTemplateCommand2 = thisConnection.CreateCommand();
 
-                    MobXLootTemplateCommand2.CommandText = "update MobXLootTemplate set loottemplatename='" + ChangedNametextBox.Text + "' where loottemplatename ='" + OriginalNametextBox.Text + "'";
+                    MobXLootTemplateCommand2.CommandText = "update MobXLootTemplate set loottemplatename='" + ChangedNametextBox.Text.Replace("'", "''") + "' where loottemplatename ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
                     MobXLootTemplateCommand2.ExecuteNonQuery();
                 }
-                int LootOTDrowsAffected = 0;
+
                 if (UpdateLootOTDcheckBox.Checked)
                 {
                     MySqlCommand LootOTDCommand = thisConnection.CreateCommand();
 
-                    LootOTDCommand.CommandText = "update loototd set mobname='" + ChangedNametextBox.Text + "' where mobname ='" + OriginalNametextBox.Text + "'";
+                    LootOTDCommand.CommandText = "update loototd set mobname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where mobname ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
                     LootOTDrowsAffected = LootOTDCommand.ExecuteNonQuery();
                 }
-                int LootGeneratorAffected = 0;
+
                 if (UpdateLootGeneratorcheckBox.Checked)
                 {
                     MySqlCommand LootGeneratorCommand = thisConnection.CreateCommand();
 
-                    LootGeneratorCommand.CommandText = "update lootgenerator set mobname='" + ChangedNametextBox.Text + "' where mobname ='" + OriginalNametextBox.Text + "'";
+                    LootGeneratorCommand.CommandText = "update lootgenerator set mobname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where mobname ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
                     LootGeneratorAffected = LootGeneratorCommand.ExecuteNonQuery();
                 }
 
@@ -248,7 +256,9 @@ namespace Origins_Editor
             {
                 System.Windows.MessageBox.Show(s.Message);
             }
-            MessageBox.Show("Count remplaced templates");
+
+            MessageBox.Show(string.Format(" Table Mob rows affected: {0}\n Table MobxAmbientBehaviour rows affected: {1}\n Table Dataquest rows affected: {2}\n Table DropTemplateXItemTemplate rows affected: {3}\n Table MobDropTemplate rows affected: {4}\n Table NPCTemplate rows affected: {5}\n Table Inventory rows affected: {6}\n Table LootTemplate rows affected: {7}\n Table MobXLootTemplate rows affected: {8}\n Table LootOTD rows affected: {9}\n Table LootGenerator rows affected: {10}\n ", 
+                MobrowsAffected, MobxAmbientBehaviourrowsAffected, DataquestrowsAffected, DropTemplateXItemTemplaterowsAffected, MobDropTemplaterowsAffected, NPCTemplaterowsAffected, InventoryCreatorrowsAffected, LootTemplaterowsAffected, MobXLootTemplaterowsAffected, LootOTDrowsAffected, LootGeneratorAffected));
         }
     }
 }
