@@ -92,6 +92,10 @@ namespace Origins_Editor
                 DataTable RaceDatatable = new DataTable();
                 RacedataAdapter.Fill(RaceDatatable);
                 this.RacebindingSource.DataSource = RaceDatatable;
+                DataRow Racedatarow = RaceDatatable.NewRow();
+                Racedatarow["Name"] = "None";
+                Racedatarow["ID"] = "0";
+                RaceDatatable.Rows.Add(Racedatarow);
                 this.RacecomboBox.ValueMember = "ID";
                 this.RacecomboBox.DisplayMember = "Name";
 
@@ -408,7 +412,7 @@ namespace Origins_Editor
                         }
 
                         datarow["Level"] = level;
-                        datarow["Race"] = RacecomboBox.SelectedValue != null ? RacecomboBox.SelectedValue : "0";
+                        datarow["Race"] = RacecomboBox.SelectedValue != null && RacecomboBox.SelectedText != "None" ? RacecomboBox.SelectedValue : "0";
                         datarow["BodyType"] = Util.Find_BodyType_Value(BodyTypecomboBox.Text);
                         datarow["MaxDistance"] = MaxDistancetextBox.Text;
                         datarow["TetherRange"] = TetherRangetextBox.Text;
@@ -586,7 +590,7 @@ namespace Origins_Editor
                 }
 
                 this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Level"].Value = level;
-                this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Race"].Value = RacecomboBox.SelectedValue != null ? RacecomboBox.SelectedValue : "0";
+                this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Race"].Value = RacecomboBox.SelectedValue != null && RacecomboBox.SelectedText != "None" ? RacecomboBox.SelectedValue : "0";
                 this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["BodyType"].Value = Util.Find_BodyType_Value(BodyTypecomboBox.Text);
                 this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["MaxDistance"].Value = MaxDistancetextBox.Text;
                 this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["TetherRange"].Value = TetherRangetextBox.Text;
@@ -964,8 +968,6 @@ namespace Origins_Editor
                 
                 this.GuildNametextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["GuildName"].Value.ToString();
                 this.ModeltextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Model"].Value.ToString();
-                
-                //this.SizetextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Size"].Value.ToString();
 
                 byte lowSize = 0;
                 if (!Util.IsEmpty(this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Size"].Value.ToString()))
@@ -989,29 +991,46 @@ namespace Origins_Editor
                 this.EquipmentTemplateIDtextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["EquipmentTemplateID"].Value.ToString();
 
                 this.flags = 0X00;
-                this.flags = (Util.eFlags)Convert.ToUInt32(this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Flags"].Value);
+                if (!Util.IsEmpty(this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Flags"].Value.ToString()))
+                    this.flags = (Util.eFlags)Convert.ToByte(this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Flags"].Value);
 
                 if ((flags & Util.eFlags.CANTTARGET) == Util.eFlags.CANTTARGET)
                     CantTargetcheckBox.Checked = true;
+                else
+                    CantTargetcheckBox.Checked = false;
                 if ((flags & Util.eFlags.DONTSHOWNAME) == Util.eFlags.DONTSHOWNAME)
                     DontShowNamecheckBox.Checked = true;
+                else
+                    DontShowNamecheckBox.Checked = false;
                 if ((flags & Util.eFlags.FLYING) == Util.eFlags.FLYING)
                     FlyingcheckBox.Checked = true;
+                else
+                    FlyingcheckBox.Checked = false;
                 if ((flags & Util.eFlags.GHOST) == Util.eFlags.GHOST)
                     GhostcheckBox.Checked = true;
+                else
+                    GhostcheckBox.Checked = false;
                 if ((flags & Util.eFlags.PEACE) == Util.eFlags.PEACE)
                     PeacecheckBox.Checked = true;
+                else
+                    PeacecheckBox.Checked = false;
                 if ((flags & Util.eFlags.STATUE) == Util.eFlags.STATUE)
                     StatuecheckBox.Checked = true;
+                else
+                    StatuecheckBox.Checked = false;
                 if ((flags & Util.eFlags.STEALTH) == Util.eFlags.STEALTH)
                     StealthcheckBox.Checked = true;
+                else
+                    StealthcheckBox.Checked = false;
                 if ((flags & Util.eFlags.SWIMMING) == Util.eFlags.SWIMMING)
                     SwimmingcheckBox.Checked = true;
+                else
+                    SwimmingcheckBox.Checked = false;
                 if ((flags & Util.eFlags.TORCH) == Util.eFlags.TORCH)
                     TorchcheckBox.Checked = true;
-                {
-                    // do stuff
-                }
+                else
+                    TorchcheckBox.Checked = false;
+
                 this.MeleeDamageTypecomboBox.Text = Util.Find_DamageType_String_Value(this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["MeleeDamageType"].Value.ToString());
                 this.ParryChancetextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["ParryChance"].Value.ToString();
                 this.EvadeChancetextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["EvadeChance"].Value.ToString();
@@ -1050,9 +1069,11 @@ namespace Origins_Editor
                 if (hightLevel > 0)
                     HightLevelnumericUpDown.Text = hightLevel.ToString();
 
+                if (!Util.IsEmpty(this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Race"].Value.ToString()))
+                    this.RacecomboBox.SelectedValue = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Race"].Value.ToString();
+                else
+                    this.RacecomboBox.SelectedText = "None";
 
-                //this.LeveltextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Level"].Value.ToString();
-                this.RacecomboBox.SelectedValue = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Race"].Value.ToString();
                 this.BodyTypecomboBox.Text = Util.Find_BodyType_String_Value(this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["BodyType"].Value.ToString());
                 this.MaxDistancetextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["MaxDistance"].Value.ToString();
                 this.TetherRangetextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["TetherRange"].Value.ToString();
