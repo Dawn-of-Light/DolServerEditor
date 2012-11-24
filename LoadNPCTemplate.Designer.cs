@@ -54,7 +54,7 @@ namespace Origins_Editor
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoadNPCTemplate));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.NPCTemplatebindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.NPCTemplatebindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -69,6 +69,7 @@ namespace Origins_Editor
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.NPCTemplatedataGridView = new System.Windows.Forms.DataGridView();
             this.ControlMenu = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.label45 = new System.Windows.Forms.Label();
             this.PackageIDSearchcomboBox = new System.Windows.Forms.ComboBox();
             this.label42 = new System.Windows.Forms.Label();
@@ -175,13 +176,13 @@ namespace Origins_Editor
             this.label11 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.AggroLevelUpDown = new System.Windows.Forms.NumericUpDown();
             this.MeleeDamageTypecomboBox = new System.Windows.Forms.ComboBox();
             this.IsCharmablecomboBox = new System.Windows.Forms.ComboBox();
             this.IsCharmablelabel = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.BodyTypecomboBox = new System.Windows.Forms.ComboBox();
             this.AggroRangetextBox = new System.Windows.Forms.TextBox();
-            this.AggroLeveltextBox = new System.Windows.Forms.TextBox();
             this.TetherRangetextBox = new System.Windows.Forms.TextBox();
             this.MaxDistancetextBox = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
@@ -230,7 +231,6 @@ namespace Origins_Editor
             this.FRNamelabel = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.NPCTemplatebindingNavigator)).BeginInit();
             this.NPCTemplatebindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NPCTemplatebindingSource)).BeginInit();
@@ -256,6 +256,7 @@ namespace Origins_Editor
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RacebindingSource)).BeginInit();
             this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AggroLevelUpDown)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -375,14 +376,14 @@ namespace Origins_Editor
             this.NPCTemplatedataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.NPCTemplatedataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.NPCTemplatedataGridView.DataSource = this.NPCTemplatebindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.NPCTemplatedataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.NPCTemplatedataGridView.DefaultCellStyle = dataGridViewCellStyle1;
             this.NPCTemplatedataGridView.Location = new System.Drawing.Point(12, 74);
             this.NPCTemplatedataGridView.MultiSelect = false;
             this.NPCTemplatedataGridView.Name = "NPCTemplatedataGridView";
@@ -410,6 +411,16 @@ namespace Origins_Editor
             this.ControlMenu.Size = new System.Drawing.Size(551, 69);
             this.ControlMenu.TabIndex = 2;
             this.ControlMenu.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(486, 13);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(59, 23);
+            this.button2.TabIndex = 23;
+            this.button2.Text = "Search";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label45
             // 
@@ -1494,13 +1505,13 @@ namespace Origins_Editor
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.AggroLevelUpDown);
             this.groupBox7.Controls.Add(this.MeleeDamageTypecomboBox);
             this.groupBox7.Controls.Add(this.IsCharmablecomboBox);
             this.groupBox7.Controls.Add(this.IsCharmablelabel);
             this.groupBox7.Controls.Add(this.label8);
             this.groupBox7.Controls.Add(this.BodyTypecomboBox);
             this.groupBox7.Controls.Add(this.AggroRangetextBox);
-            this.groupBox7.Controls.Add(this.AggroLeveltextBox);
             this.groupBox7.Controls.Add(this.TetherRangetextBox);
             this.groupBox7.Controls.Add(this.MaxDistancetextBox);
             this.groupBox7.Controls.Add(this.label38);
@@ -1513,6 +1524,23 @@ namespace Origins_Editor
             this.groupBox7.Size = new System.Drawing.Size(200, 178);
             this.groupBox7.TabIndex = 47;
             this.groupBox7.TabStop = false;
+            // 
+            // AggroLevelUpDown
+            // 
+            this.AggroLevelUpDown.Location = new System.Drawing.Point(108, 131);
+            this.AggroLevelUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.AggroLevelUpDown.Name = "AggroLevelUpDown";
+            this.AggroLevelUpDown.Size = new System.Drawing.Size(65, 20);
+            this.AggroLevelUpDown.TabIndex = 49;
+            this.AggroLevelUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // MeleeDamageTypecomboBox
             // 
@@ -1594,13 +1622,6 @@ namespace Origins_Editor
             this.AggroRangetextBox.Name = "AggroRangetextBox";
             this.AggroRangetextBox.Size = new System.Drawing.Size(65, 20);
             this.AggroRangetextBox.TabIndex = 42;
-            // 
-            // AggroLeveltextBox
-            // 
-            this.AggroLeveltextBox.Location = new System.Drawing.Point(108, 130);
-            this.AggroLeveltextBox.Name = "AggroLeveltextBox";
-            this.AggroLeveltextBox.Size = new System.Drawing.Size(65, 20);
-            this.AggroLeveltextBox.TabIndex = 41;
             // 
             // TetherRangetextBox
             // 
@@ -2035,16 +2056,6 @@ namespace Origins_Editor
             this.label14.TabIndex = 13;
             this.label14.Text = "GuildName";
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(486, 13);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(59, 23);
-            this.button2.TabIndex = 23;
-            this.button2.Text = "Search";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // LoadNPCTemplate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2093,6 +2104,7 @@ namespace Origins_Editor
             ((System.ComponentModel.ISupportInitialize)(this.RacebindingSource)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AggroLevelUpDown)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -2165,7 +2177,6 @@ namespace Origins_Editor
         private Label label40;
         private GroupBox groupBox7;
         private TextBox AggroRangetextBox;
-        private TextBox AggroLeveltextBox;
         private TextBox TetherRangetextBox;
         private TextBox MaxDistancetextBox;
         private Label label38;
@@ -2282,5 +2293,6 @@ namespace Origins_Editor
         private Label label31;
         private Label label15;
         private Button button2;
+        private NumericUpDown AggroLevelUpDown;
     }
 }

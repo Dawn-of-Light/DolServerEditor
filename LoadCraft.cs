@@ -126,7 +126,7 @@ namespace Origins_Editor
 
             try
             {
-                if (this.CraftedItemIDtextBox.Text == null || this.CraftedItemIDtextBox.Text == "")
+                if (Util.IsEmpty(this.CraftedItemIDtextBox.Text))
                 {
                     MessageBox.Show("You need to specify a CraftedItemId for this crafteditem.");
                     return false;
@@ -163,7 +163,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (this.id_nbtextBox.Text == null || this.id_nbtextBox.Text == "")
+            if (Util.IsEmpty(this.id_nbtextBox.Text))
             {
                 MessageBox.Show("You need to specify a id_nbt for this crafteditem.");
                 return false;
@@ -173,7 +173,7 @@ namespace Origins_Editor
 
             try
             {
-                if (this.CraftingLeveltextBox.Text == null || this.CraftingLeveltextBox.Text == "")
+                if (Util.IsEmpty(this.CraftingLeveltextBox.Text))
                 {
                     MessageBox.Show("You need to specify a Crafting Level for this crafteditem.");
                     return false;
@@ -186,7 +186,7 @@ namespace Origins_Editor
                 MessageBox.Show(" WARNING: CraftingLevel value is not suitable.");
                 return false;
             }
-            if (this.CraftingSkillTypecomboBox.Text == null || this.CraftingSkillTypecomboBox.Text == "")
+            if (Util.IsEmpty(this.CraftingSkillTypecomboBox.Text))
             {
                 MessageBox.Show("You need to specify a CraftingSkill Type for this crafteditem.");
                 return false;

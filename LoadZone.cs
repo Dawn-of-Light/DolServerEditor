@@ -181,7 +181,7 @@ namespace Origins_Editor
 
         private bool ValidateNewZone()
         {
-            if (this.ZoneIDtextBox.Text == "" || this.ZoneIDtextBox.Text == null)
+            if (Util.IsEmpty(this.ZoneIDtextBox.Text))
             {
                 MessageBox.Show("You need to specify a ZoneID value.");
                 return false;
@@ -193,7 +193,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (this.RegionIDtextBox.Text == "" || this.RegionIDtextBox.Text == null)
+            if (Util.IsEmpty(this.RegionIDtextBox.Text))
             {
                 MessageBox.Show("You need to specify a RegionID value.");
                 return false;
@@ -205,7 +205,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (this.WaterLeveltextBox.Text == "" || this.WaterLeveltextBox.Text == null)
+            if (Util.IsEmpty(this.WaterLeveltextBox.Text))
             {
                 this.WaterLeveltextBox.Text = "0";
             }

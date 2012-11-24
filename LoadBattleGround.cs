@@ -123,7 +123,7 @@ namespace Origins_Editor
         private bool ValidBattleGroundData()
         {
 
-            if (RegionIDtextBox.Text == null || RegionIDtextBox.Text == "")
+            if (Util.IsEmpty(RegionIDtextBox.Text))
             {
                 MessageBox.Show("WARNING: You need to provide a RegionID value.");
                 return false;
@@ -142,7 +142,7 @@ namespace Origins_Editor
                 }
             }
 
-            if (MinLeveltextBox.Text == null || MinLeveltextBox.Text == "")
+            if (Util.IsEmpty(MinLeveltextBox.Text))
             {
                 MessageBox.Show("WARNING: You need to provide a Minimum Level value.");
                 return false;
@@ -161,7 +161,7 @@ namespace Origins_Editor
                 }
             }
 
-            if (MaxLeveltextBox.Text == null || MaxLeveltextBox.Text == "")
+            if (Util.IsEmpty(MaxLeveltextBox.Text))
             {
                 MessageBox.Show("WARNING: You need to provide a Maximum Level value.");
                 return false;
@@ -180,7 +180,7 @@ namespace Origins_Editor
                 }
             }
 
-            if (MaxRealmLeveltextBox.Text == null || MaxRealmLeveltextBox.Text == "")
+            if (Util.IsEmpty(MaxRealmLeveltextBox.Text))
             {
                 MessageBox.Show("WARNING: You need to provide a Maximum Realm Level value.");
                 return false;

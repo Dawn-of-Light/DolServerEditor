@@ -192,7 +192,7 @@ namespace Origins_Editor
         private bool ValidSpellData()
         {
 
-            if (ClientEffecttextBox.Text.ToString() == "" || ClientEffecttextBox.Text == null)
+            if (Util.IsEmpty(ClientEffecttextBox.Text))
             {
                 ClientEffecttextBox.Text = "0";
             }
@@ -203,7 +203,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (IcontextBox.Text.ToString() == "" || IcontextBox.Text == null)
+            if (Util.IsEmpty(IcontextBox.Text))
             {
                 IcontextBox.Text = "0";
             }
@@ -214,7 +214,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (RangetextBox.Text.ToString() == "" || RangetextBox.Text == null)
+            if (Util.IsEmpty(RangetextBox.Text))
             {
                 RangetextBox.Text = "0";
             }
@@ -225,7 +225,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (PowertextBox.Text.ToString() == "" || PowertextBox.Text == null)
+            if (Util.IsEmpty(PowertextBox.Text))
             {
                 PowertextBox.Text = "0";
             }
@@ -236,7 +236,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (CastTimetextBox.Text.ToString() == "" || CastTimetextBox.Text == null)
+            if (Util.IsEmpty(CastTimetextBox.Text))
             {
                 CastTimetextBox.Text = "0";
             }
@@ -247,7 +247,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (DamagetextBox.Text.ToString() == "" || DamagetextBox.Text == null)
+            if (Util.IsEmpty(DamagetextBox.Text))
             {
                 DamagetextBox.Text = "0";
             }
@@ -258,7 +258,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (DamageTypetextBox.Text.ToString() == "" || DamageTypetextBox.Text == null)
+            if (Util.IsEmpty(DamageTypetextBox.Text))
             {
                 DamageTypetextBox.Text = "0";
             }
@@ -269,7 +269,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (DurationtextBox.Text.ToString() == "" || DurationtextBox.Text == null)
+            if (Util.IsEmpty(DurationtextBox.Text))
             {
                 DurationtextBox.Text = "0";
             }
@@ -280,7 +280,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (FrequencytextBox.Text.ToString() == "" || FrequencytextBox.Text == null)
+            if (Util.IsEmpty(FrequencytextBox.Text))
             {
                 FrequencytextBox.Text = "0";
             }
@@ -291,7 +291,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (PulsetextBox.Text.ToString() == "" || PulsetextBox.Text == null)
+            if (Util.IsEmpty(PulsetextBox.Text))
             {
                 PulsetextBox.Text = "0";
             }
@@ -302,7 +302,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (PulsePowertextBox.Text.ToString() == "" || PulsePowertextBox.Text == null)
+            if (Util.IsEmpty(PulsePowertextBox.Text))
             {
                 PulsePowertextBox.Text = "0";
             }
@@ -313,7 +313,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (RadiustextBox.Text.ToString() == "" || RadiustextBox.Text == null)
+            if (Util.IsEmpty(RadiustextBox.Text))
             {
                 RadiustextBox.Text = "0";
             }
@@ -324,7 +324,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (RecastDelaytextBox.Text.ToString() == "" || RecastDelaytextBox.Text == null)
+            if (Util.IsEmpty(RecastDelaytextBox.Text))
             {
                 RecastDelaytextBox.Text = "0";
             }
@@ -335,7 +335,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (ResurrectHealthtextBox.Text.ToString() == "" || ResurrectHealthtextBox.Text == null)
+            if (Util.IsEmpty(ResurrectHealthtextBox.Text))
             {
                 ResurrectHealthtextBox.Text = "0";
             }
@@ -346,7 +346,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (ResurrectManatextBox.Text.ToString() == "" || ResurrectManatextBox.Text == null)
+            if (Util.IsEmpty(ResurrectManatextBox.Text))
             {
                 ResurrectManatextBox.Text = "0";
             }
@@ -357,7 +357,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (ValuetextBox.Text.ToString() == "" || ValuetextBox.Text == null)
+            if (Util.IsEmpty(ValuetextBox.Text))
             {
                 ValuetextBox.Text = "0";
             }
@@ -368,7 +368,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (ConcentrationtextBox.Text.ToString() == "" || ConcentrationtextBox.Text == null)
+            if (Util.IsEmpty(ConcentrationtextBox.Text))
             {
                 ConcentrationtextBox.Text = "0";
             }
@@ -379,7 +379,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (LifeDrainReturntextBox.Text.ToString() == "" || LifeDrainReturntextBox.Text == null)
+            if (Util.IsEmpty(LifeDrainReturntextBox.Text))
             {
                 LifeDrainReturntextBox.Text = "0";
             }
@@ -390,7 +390,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (AmnesiaChancetextBox.Text.ToString() == "" || AmnesiaChancetextBox.Text == null)
+            if (Util.IsEmpty(AmnesiaChancetextBox.Text))
             {
                 AmnesiaChancetextBox.Text = "0";
             }
@@ -401,7 +401,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (InstrumentRequirementtextBox.Text.ToString() == "" || InstrumentRequirementtextBox.Text == null)
+            if (Util.IsEmpty(InstrumentRequirementtextBox.Text))
             {
                 InstrumentRequirementtextBox.Text = "0";
             }
@@ -412,7 +412,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (SpellGrouptextBox.Text.ToString() == "" || SpellGrouptextBox.Text == null)
+            if (Util.IsEmpty(SpellGrouptextBox.Text))
             {
                 SpellGrouptextBox.Text = "0";
             }
@@ -423,7 +423,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (EffectGrouptextBox.Text.ToString() == "" || EffectGrouptextBox.Text == null)
+            if (Util.IsEmpty(EffectGrouptextBox.Text))
             {
                 EffectGrouptextBox.Text = "0";
             }
@@ -434,7 +434,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (SubSpellIDtextBox.Text.ToString() == "" || SubSpellIDtextBox.Text == null)
+            if (Util.IsEmpty(SubSpellIDtextBox.Text))
             {
                 SubSpellIDtextBox.Text = "0";
             }
@@ -445,7 +445,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (SharedTimerGrouptextBox.Text.ToString() == "" || SharedTimerGrouptextBox.Text == null)
+            if (Util.IsEmpty(SharedTimerGrouptextBox.Text))
             {
                 SharedTimerGrouptextBox.Text = "0";
             }
@@ -455,38 +455,38 @@ namespace Origins_Editor
                 MessageBox.Show("You need to specify a numeric value for SharedTimerGroup.");
                 return false;
             }
-            if (NametextBox.Text.ToString() == "" || NametextBox.Text == null)
+            if (Util.IsEmpty(NametextBox.Text))
             {
                 MessageBox.Show("You need to specify a name for this spell.");
                 return false;
             }
-            if (DescriptionTextBox.Text.ToString() == "" || DescriptionTextBox.Text == null)
+            if (Util.IsEmpty(DescriptionTextBox.Text))
             {
                 DescriptionTextBox.Text = "";
             }
-            if (Message1richTextBox.Text.ToString() == "" || Message1richTextBox.Text == null)
+            if (Util.IsEmpty(Message1richTextBox.Text))
             {
                 Message1richTextBox.Text = "";
             }
-            if (Message2richTextBox.Text.ToString() == "" || Message2richTextBox.Text == null)
+            if (Util.IsEmpty(Message2richTextBox.Text))
             {
                 Message2richTextBox.Text = "";
             }
-            if (Message3richTextBox.Text.ToString() == "" || Message3richTextBox.Text == null)
+            if (Util.IsEmpty(Message3richTextBox.Text))
             {
                 Message3richTextBox.Text = "";
             }
-            if (Message4richTextBox.Text.ToString() == "" || Message4richTextBox.Text == null)
+            if (Util.IsEmpty(Message4richTextBox.Text))
             {
                 Message4richTextBox.Text = "";
             }
-            if (PackageIDcomboBox.Text.ToString() == "" || PackageIDcomboBox.Text == null)
+            if (Util.IsEmpty(PackageIDcomboBox.Text))
             {
                 PackageIDcomboBox.Text = "";
             }
             if (DolEditor.Properties.Settings.Default.OriginsSettings)
             {
-                if (TranslationIDtextBox.Text.ToString() == "" || TranslationIDtextBox.Text == null)
+                if (Util.IsEmpty(TranslationIDtextBox.Text))
                 {
                     TranslationIDtextBox.Text = "";
                 }
@@ -806,18 +806,18 @@ namespace Origins_Editor
         private bool ValidLineXSpellData()
         {
 
-            if (LineNameAddLineXSpellcomboBox.Text.ToString() == "" || LineNameAddLineXSpellcomboBox.Text == null)
+            if (Util.IsEmpty(LineNameAddLineXSpellcomboBox.Text))
             {
                 MessageBox.Show("You need to select a LineName.");
                 return false; ;
             }
-            if (spellIDtextBox.Text.ToString() == "" || spellIDtextBox.Text == null)
+            if (Util.IsEmpty(spellIDtextBox.Text))
             {
                 MessageBox.Show("You need to specify a SpellID on the selected spell.");
                 return false;
             }
 
-            if (LinexSpellAddLeveltextBox.Text.ToString() == "" || LinexSpellAddLeveltextBox.Text == null)
+            if (Util.IsEmpty(LinexSpellAddLeveltextBox.Text))
             {
                 MessageBox.Show("You need to specify a Level for this LineXSpell.");
                 return false;
@@ -910,42 +910,42 @@ namespace Origins_Editor
             if (!DolEditor.Properties.Settings.Default.OriginsSettings)
                 return false;
 
-            if (LanguageSpellLAnguageChoicecomboBox.Text.ToString() == "" || LanguageSpellLAnguageChoicecomboBox.Text == null)
+            if (Util.IsEmpty(LanguageSpellLAnguageChoicecomboBox.Text))
             {
                 MessageBox.Show("You need to specify a Language for this languagespell.");
                 return false;
             }
-            if (TranslationIDtextBox.Text.ToString() == "" || TranslationIDtextBox.Text == null)
+            if (Util.IsEmpty(TranslationIDtextBox.Text))
             {
                 MessageBox.Show("The loaded spell don't have a translationid defined.");
                 return false;
             }
-            if (LanguageSpellNametextBox.Text.ToString() == "" || LanguageSpellNametextBox.Text == null)
+            if (Util.IsEmpty(LanguageSpellNametextBox.Text))
             {
                 MessageBox.Show("You need to specify a Name for this languagespell.");
                 return false;
             }
-            if (LanguageSpellDescriptionrichTextBox.Text == null || LanguageSpellDescriptionrichTextBox.Text == "")
+            if (Util.IsEmpty(LanguageSpellDescriptionrichTextBox.Text))
             {
                 LanguageSpellDescriptionrichTextBox.Text = "";
             }
-            if (LanguageSpellMessage1richTextBox.Text == null || LanguageSpellMessage1richTextBox.Text == "")
+            if (Util.IsEmpty(LanguageSpellMessage1richTextBox.Text))
             {
                 LanguageSpellMessage1richTextBox.Text = "";
             }
-            if (LanguageSpellMessage2richTextBox.Text == null || LanguageSpellMessage2richTextBox.Text == "")
+            if (Util.IsEmpty(LanguageSpellMessage2richTextBox.Text))
             {
                 LanguageSpellMessage2richTextBox.Text = "";
             }
-            if (LanguageSpellMessage3richTextBox.Text == null || LanguageSpellMessage3richTextBox.Text == "")
+            if (Util.IsEmpty(LanguageSpellMessage3richTextBox.Text))
             {
                 LanguageSpellMessage3richTextBox.Text = "";
             }
-            if (LanguageSpellMessage4richTextBox.Text == null || LanguageSpellMessage4richTextBox.Text == "")
+            if (Util.IsEmpty(LanguageSpellMessage4richTextBox.Text))
             {
                 LanguageSpellMessage4richTextBox.Text = "";
             }
-            if (LanguageSpellTagtextBox.Text == null || LanguageSpellTagtextBox.Text == "")
+            if (Util.IsEmpty(LanguageSpellTagtextBox.Text))
             {
                 LanguageSpellMessage3richTextBox.Text = "";
             }

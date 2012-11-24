@@ -587,22 +587,22 @@ namespace Origins_Editor
         private void AddStyleXSpell_Click(object sender, EventArgs e)
         {
 
-            if (ClassIDcomboBox.Text.ToString() == "" || ClassIDcomboBox.Text == null)
+            if (Util.IsEmpty(ClassIDcomboBox.Text))
             {
                 MessageBox.Show("The loaded spell don't have a ClassID defined.");
                 return;
             }
-            if (StyleIDtextBox.Text.ToString() == "" || StyleIDtextBox.Text == null)
+            if (Util.IsEmpty(StyleIDtextBox.Text))
             {
                 MessageBox.Show("The loaded spell don't have a spellid defined.");
                 return;
             }
-            if (SpellIDStyleXSpelltextBox.Text.ToString() == "" || SpellIDStyleXSpelltextBox.Text == null)
+            if (Util.IsEmpty(SpellIDStyleXSpelltextBox.Text))
             {
                 MessageBox.Show("You need to specify a SpellID for this StyleXSpell.");
                 return;
             }
-            if (ChancetextBox.Text.ToString() == "" || ChancetextBox.Text == null)
+            if (Util.IsEmpty(ChancetextBox.Text))
             {
                 MessageBox.Show("You need to specify a % chance for this StyleXSpell.");
                 return;
@@ -673,26 +673,26 @@ namespace Origins_Editor
             if (!DolEditor.Properties.Settings.Default.OriginsSettings)
                 return;
 
-            if (LanguageChoicecomboBox.Text.ToString() == "" || LanguageChoicecomboBox.Text == null)
+            if (Util.IsEmpty(LanguageChoicecomboBox.Text))
             {
                 MessageBox.Show("You need to specify a Language for this languagestyle.");
                 return;
             }
-            if (TranslationIDtextBox.Text.ToString() == "" || TranslationIDtextBox.Text == null)
+            if (Util.IsEmpty(TranslationIDtextBox.Text))
             {
                 MessageBox.Show("The loaded style don't have a translationid defined.");
                 return;
             }
-            if (NameLanguageStyletextBox.Text.ToString() == "" || NameLanguageStyletextBox.Text == null)
+            if (Util.IsEmpty(NameLanguageStyletextBox.Text))
             {
                 MessageBox.Show("You need to specify a Name for this languagestyle.");
                 return;
             }
-            if (DescriptionLanguageStylerichTextBox.Text == null)
+            if (Util.IsEmpty(DescriptionLanguageStylerichTextBox.Text))
             {
                 DescriptionLanguageStylerichTextBox.Text = "";
             }
-            if (TagLanguagueStyletextBox.Text == null)
+            if (Util.IsEmpty(TagLanguagueStyletextBox.Text))
             {
                 TagLanguagueStyletextBox.Text = "";
             }

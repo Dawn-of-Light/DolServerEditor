@@ -207,7 +207,7 @@ namespace Origins_Editor
         {
             #region Check Box Value
 
-            if (this.RegionIDtextBox.Text == "" || this.RegionIDtextBox.Text == null)
+            if (Util.IsEmpty(this.RegionIDtextBox.Text))
             {
                 MessageBox.Show("You need to specify a RegionID value.");
                 return;
@@ -219,13 +219,13 @@ namespace Origins_Editor
                 return;
             }
 
-            if (this.IPtextBox.Text == "" || this.IPtextBox.Text == null)
+            if (Util.IsEmpty(this.IPtextBox.Text))
             {
                 MessageBox.Show("You need to specify a IPtextBox value.");
                 return;
             }
 
-            if (this.PorttextBox.Text == "" || this.PorttextBox.Text == null)
+            if (Util.IsEmpty(this.PorttextBox.Text))
             {
                 MessageBox.Show("You need to specify a Port value.");
                 return;
@@ -237,6 +237,11 @@ namespace Origins_Editor
                 return;
             }
 
+            if (Util.IsEmpty(this.WaterLeveltextBox.Text))
+            {
+                MessageBox.Show("You need to specify a WaterLevel value.");
+                return;
+            }
             int waterLevel;
             if (!Int32.TryParse(WaterLeveltextBox.Text.ToString(), out waterLevel))
             {

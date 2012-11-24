@@ -207,12 +207,12 @@ namespace Origins_Editor
 
         private bool ValidAreaData()
         {
-            if (DescriptiontextBox.Text == null || DescriptiontextBox.Text == "")
+            if (Util.IsEmpty(DescriptiontextBox.Text))
             {
                 MessageBox.Show("WARNING: You need to provide a Description value.");
                 return false;
             }
-            if (XtextBox.Text == null || XtextBox.Text == "")
+            if (Util.IsEmpty(XtextBox.Text))
             {
                 MessageBox.Show("WARNING: You need to provide a X value.");
                 return false;
@@ -230,7 +230,7 @@ namespace Origins_Editor
                     return false;
                 }
             }
-            if (YtextBox.Text == null || YtextBox.Text == "")
+            if (Util.IsEmpty(YtextBox.Text))
             {
                 MessageBox.Show("WARNING: You need to provide a Y value.");
                 return false;
@@ -248,7 +248,7 @@ namespace Origins_Editor
                     return false;
                 }
             }
-            if (ZtextBox.Text == null || ZtextBox.Text == "")
+            if (Util.IsEmpty(ZtextBox.Text))
             {
                 MessageBox.Show("WARNING: You need to provide a Z value.");
                 return false;
@@ -266,7 +266,7 @@ namespace Origins_Editor
                     return false;
                 }
             }
-            if (RadiustextBox.Text == null || RadiustextBox.Text == "")
+            if (Util.IsEmpty(RadiustextBox.Text))
             {
                 MessageBox.Show("WARNING: You need to provide a radius value.");
                 return false;
@@ -284,7 +284,7 @@ namespace Origins_Editor
                     return false;
                 }
             }
-            if (RegiontextBox.Text == null || RegiontextBox.Text == "")
+            if (Util.IsEmpty(RegiontextBox.Text))
             {
                 MessageBox.Show("WARNING: You need to provide a Region value.");
                 return false;
@@ -302,7 +302,7 @@ namespace Origins_Editor
                     return false;
                 }
             }
-            if (ClassTypecomboBox.Text == null || ClassTypecomboBox.Text == "")
+            if (Util.IsEmpty(ClassTypecomboBox.Text))
             {
                 MessageBox.Show("WARNING: You need to provide a ClassType value.");
                 return false;
@@ -420,26 +420,26 @@ namespace Origins_Editor
 
         private void LanguageAreaSaveNew_Click(object sender, EventArgs e)
         {
-            if (this.LanguagecomboBox.Text.ToString() == "" || this.LanguagecomboBox.Text == null)
+            if (Util.IsEmpty(this.LanguagecomboBox.Text))
             {
                 MessageBox.Show("You need to specify a Language for this language area.");
                 return;
             }
-            if (this.TranslationIDtextBox.Text.ToString() == "" || this.TranslationIDtextBox.Text == null)
+            if (Util.IsEmpty(this.TranslationIDtextBox.Text))
             {
                 MessageBox.Show("The loaded area don't have a translationid defined.");
                 return;
             }
-            if (this.DescriptionLanguageAreatextBox.Text.ToString() == "" || this.DescriptionLanguageAreatextBox.Text == null)
+            if (Util.IsEmpty(this.DescriptionLanguageAreatextBox.Text))
             {
                 MessageBox.Show("You need to specify a Description for this area.");
                 return;
             }
-            if (this.ScreenDescriptiontextBox.Text == null)
+            if (Util.IsEmpty(this.ScreenDescriptiontextBox.Text))
             {
                 this.ScreenDescriptiontextBox.Text = "";
             }
-            if (this.TagtextBox.Text == null)
+            if (Util.IsEmpty(this.TagtextBox.Text))
             {
                 this.TagtextBox.Text = "";
             }

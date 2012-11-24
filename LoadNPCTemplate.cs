@@ -74,6 +74,7 @@ namespace Origins_Editor
             ToolTip toolTip1 = new ToolTip();
             toolTip1.SetToolTip(this.StrengthtextBox, "0 Strength Means SetAutoStats.");
             toolTip1.SetToolTip(this.groupBox11, "Level, Size and Models Can be Multiple.");
+            toolTip1.SetToolTip(this.AggroLevelUpDown, "0 -> 25 Amical | 26 -> 50 Neutral | 51 -> 75 Hostile | 76 -> 100 Agressive");
 
             this.GetNPCTemplateItemData("select * from npctemplate");
 
@@ -398,7 +399,7 @@ namespace Origins_Editor
                         datarow["Charisma"] = CharismatextBox.Text;
                         datarow["Empathy"] = EmpathytextBox.Text;
                         datarow["Abilities"] = AbilitiesrichTextBox.Text;
-                        datarow["AggroLevel"] = AggroLeveltextBox.Text;
+                        datarow["AggroLevel"] = AggroLevelUpDown.Text;
                         datarow["AggroRange"] = AggroRangetextBox.Text;
                         datarow["ClassType"] = ClassTypecomboBox.Text;
 
@@ -576,7 +577,7 @@ namespace Origins_Editor
                 this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Charisma"].Value = CharismatextBox.Text;
                 this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Empathy"].Value = EmpathytextBox.Text;
                 this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Abilities"].Value = AbilitiesrichTextBox.Text;
-                this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["AggroLevel"].Value = AggroLeveltextBox.Text;
+                this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["AggroLevel"].Value = AggroLevelUpDown.Text;
                 this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["AggroRange"].Value = AggroRangetextBox.Text;
                 this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["ClassType"].Value = ClassTypecomboBox.Text;
 
@@ -648,7 +649,7 @@ namespace Origins_Editor
             if (GuildNametextBox.Text.Length > 47)
                 MessageBox.Show("WARNING: name length=" + GuildNametextBox.Text.Length + " but only first 47 chars will be shown.");
 
-            if (StrengthtextBox.Text == null || StrengthtextBox.Text == "")
+            if (Util.IsEmpty(StrengthtextBox.Text))
                 StrengthtextBox.Text = "0";
             else
             {
@@ -664,7 +665,7 @@ namespace Origins_Editor
                 }
             }
 
-            if (ConstitutiontextBox.Text == null || ConstitutiontextBox.Text == "")
+            if (Util.IsEmpty(ConstitutiontextBox.Text))
                 ConstitutiontextBox.Text = "0";
             else
             {
@@ -680,7 +681,7 @@ namespace Origins_Editor
                 }
             }
 
-            if (DexteritytextBox.Text == null || DexteritytextBox.Text == "")
+            if (Util.IsEmpty(DexteritytextBox.Text))
                 DexteritytextBox.Text = "0";
             else
             {
@@ -696,7 +697,7 @@ namespace Origins_Editor
                 }
             }
 
-            if (QuicknesstextBox.Text == null || QuicknesstextBox.Text == "")
+            if (Util.IsEmpty(QuicknesstextBox.Text))
                 QuicknesstextBox.Text = "0";
             else
             {
@@ -712,7 +713,7 @@ namespace Origins_Editor
                 }
             }
 
-            if (IntelligencetextBox.Text == null || IntelligencetextBox.Text == "")
+            if (Util.IsEmpty(IntelligencetextBox.Text))
                 IntelligencetextBox.Text = "0";
             else
             {
@@ -728,7 +729,7 @@ namespace Origins_Editor
                 }
             }
 
-            if (PietytextBox.Text == null || PietytextBox.Text == "")
+            if (Util.IsEmpty(PietytextBox.Text))
                 PietytextBox.Text = "0";
             else
             {
@@ -744,7 +745,7 @@ namespace Origins_Editor
                 }
             }
 
-            if (EmpathytextBox.Text == null || EmpathytextBox.Text == "")
+            if (Util.IsEmpty(EmpathytextBox.Text))
                 EmpathytextBox.Text = "0";
             else
             {
@@ -760,7 +761,7 @@ namespace Origins_Editor
                 }
             }
 
-            if (CharismatextBox.Text == null || CharismatextBox.Text == "")
+            if (Util.IsEmpty(CharismatextBox.Text))
                 CharismatextBox.Text = "0";
             else
             {
@@ -776,14 +777,14 @@ namespace Origins_Editor
                 }
             }
 
-            if (AggroLeveltextBox.Text == null || AggroLeveltextBox.Text == "")
-                AggroLeveltextBox.Text = "0";
+            if (Util.IsEmpty(AggroLevelUpDown.Text))
+                AggroLevelUpDown.Text = "-1";
             else
             {
                 try
                 {
                     byte aggroLevel;
-                    aggroLevel = Convert.ToByte(AggroLeveltextBox.Text);
+                    aggroLevel = Convert.ToByte(AggroLevelUpDown.Text);
                 }
                 catch (Exception)
                 {
@@ -792,7 +793,7 @@ namespace Origins_Editor
                 }
             }
 
-            if (AggroRangetextBox.Text == null || AggroRangetextBox.Text == "")
+            if (Util.IsEmpty(AggroRangetextBox.Text))
                 AggroRangetextBox.Text = "0";
             else
             {
@@ -819,7 +820,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (ParryChancetextBox.Text == null || ParryChancetextBox.Text == "")
+            if (Util.IsEmpty(ParryChancetextBox.Text))
                 ParryChancetextBox.Text = "0";
             else
             {
@@ -835,7 +836,7 @@ namespace Origins_Editor
                 }
             }
 
-            if (EvadeChancetextBox.Text == null || EvadeChancetextBox.Text == "")
+            if (Util.IsEmpty(EvadeChancetextBox.Text))
                 EvadeChancetextBox.Text = "0";
             else
             {
@@ -851,7 +852,7 @@ namespace Origins_Editor
                 }
             }
 
-            if (BlockChancetextBox.Text == null || BlockChancetextBox.Text == "")
+            if (Util.IsEmpty(BlockChancetextBox.Text))
                 BlockChancetextBox.Text = "0";
             else
             {
@@ -867,7 +868,7 @@ namespace Origins_Editor
                 }
             }
 
-            if (LeftHandSwingChancetextBox.Text == null || LeftHandSwingChancetextBox.Text == "")
+            if (Util.IsEmpty(LeftHandSwingChancetextBox.Text))
                 LeftHandSwingChancetextBox.Text = "0";
             else
             {
@@ -910,7 +911,7 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (MaxDistancetextBox.Text == null || MaxDistancetextBox.Text == "")
+            if (Util.IsEmpty(MaxDistancetextBox.Text))
                 MaxDistancetextBox.Text = "0";
             else
             {
@@ -926,7 +927,7 @@ namespace Origins_Editor
                 }
             }
 
-            if (MaxSpeedtextBox.Text == null || MaxSpeedtextBox.Text == "")
+            if (Util.IsEmpty(MaxSpeedtextBox.Text))
                 MaxSpeedtextBox.Text = "0";
             else
             {
@@ -1047,7 +1048,7 @@ namespace Origins_Editor
                 this.CharismatextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Charisma"].Value.ToString();
                 this.EmpathytextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Empathy"].Value.ToString();
                 this.AbilitiesrichTextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Abilities"].Value.ToString();
-                this.AggroLeveltextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["AggroLevel"].Value.ToString();
+                this.AggroLevelUpDown.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["AggroLevel"].Value.ToString();
                 this.AggroRangetextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["AggroRange"].Value.ToString();
                 this.ClassTypecomboBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["ClassType"].Value.ToString();
 
