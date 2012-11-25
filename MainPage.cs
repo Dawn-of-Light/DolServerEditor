@@ -375,7 +375,7 @@ namespace Origins_Editor
                 System.Windows.MessageBox.Show(s.Message);
             }
 
-            MessageBox.Show(string.Format(" Table Mob rows affected: {0}}\n Table NPCTemplate Aggro rows affected: {0}\n Table Mob Aggro rows affected: {1}",
+            MessageBox.Show(string.Format(" Table Mob rows affected: {0}\n Table NPCTemplate Aggro rows affected: {1}\n Table Mob Aggro rows affected: {2}",
                 MobrowsAffected, FactionAggroNPCTemplaterowsAffected, FactionAggroMobrowsAffected));
         }
 
@@ -398,14 +398,14 @@ namespace Origins_Editor
 
                 MySqlCommand MobCommand = thisConnection.CreateCommand();
 
-                MobCommand.CommandText = "update Mob set faction='" + RacecomboBox.SelectedValue + "' where name ='" + MobNameMassRacetextBox.Text.Replace("'", "''") + "'";
+                MobCommand.CommandText = "update Mob set race='" + RacecomboBox.SelectedValue + "' where name ='" + MobNameMassRacetextBox.Text.Replace("'", "''") + "'";
                 MobrowsAffected = MobCommand.ExecuteNonQuery();
 
                 if (UpdateMassRaceNPCTemplatecheckBox.Checked)
                 {
                     MySqlCommand RaceCommand = thisConnection.CreateCommand();
 
-                    RaceCommand.CommandText = "update npctemplate set race='" + RacecomboBox.Text == "None" ? "" : RacecomboBox.SelectedValue + "' where name ='" + MobNameMassRacetextBox.Text.Replace("'", "''") + "'";
+                    RaceCommand.CommandText = "update npctemplate set race='" + RacecomboBox.SelectedValue + "' where name ='" + MobNameMassRacetextBox.Text.Replace("'", "''") + "'";
                     NPCTemplaterowsAffected = RaceCommand.ExecuteNonQuery();
 
                 }
