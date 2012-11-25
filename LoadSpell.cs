@@ -682,7 +682,7 @@ namespace Origins_Editor
                         }
                         i -= DateTime.Now.Ticks;
 
-                        string str = "Origins_Editor_" + i.ToString();
+                        string str = "Dol_Server_Editor_" + i.ToString();
 
                         DataRow datarow = SpellDatatable.NewRow();
 
@@ -849,7 +849,7 @@ namespace Origins_Editor
                     i *= ((int)b + 1);
                 }
                 i -= DateTime.Now.Ticks;
-                string str = "Origins_Editor_" + i.ToString();
+                string str = "Dol_Server_Editor_" + i.ToString();
 
                 DataRow datarow = linexspell.NewRow();
 
@@ -965,7 +965,7 @@ namespace Origins_Editor
                     i *= ((int)b + 1);
                 }
                 i -= DateTime.Now.Ticks;
-                string str = "Origins_Editor_" + i.ToString();
+                string str = "Dol_Server_Editor_" + i.ToString();
 
                 DataRow datarow = languagespell.NewRow();
 
@@ -1148,7 +1148,7 @@ namespace Origins_Editor
                     i *= ((int)b + 1);
                 }
                 i -= DateTime.Now.Ticks;
-                string str = "cdu" + i.ToString();
+                string str = "Dol_Server_Editor_" + i.ToString();
                 this.spellIDtextBox.Text = Util.Find_Free_SpellID().ToString();
                 this.tabControl1.Show();
                 this.Savebutton.Hide();

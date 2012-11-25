@@ -232,7 +232,7 @@ namespace Origins_Editor
                     i *= ((int)b + 1);
                 }
                 i -= DateTime.Now.Ticks;
-                string str = "Origins_Editor_" + i.ToString();
+                string str = "Dol_Server_Editor_" + i.ToString();
 
                 DataRow datarow = ZonesDatatable.NewRow();
 

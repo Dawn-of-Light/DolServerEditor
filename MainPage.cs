@@ -20,11 +20,7 @@
 using System;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using System.Net;
-using System.ComponentModel;
-using System.IO;
-using System.Windows.Threading;
-using System.Threading;
+using System.Data;
 
 namespace Origins_Editor
 {
@@ -61,8 +57,79 @@ namespace Origins_Editor
                     fm.Show();
                 }
             }
+            this.Load += new EventHandler(Form1_Load);
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            GetRaceComboBoxValue("select * from race ORDER BY name ASC");
+            GetFactionComboBoxValue("select * from faction ORDER BY name ASC");
+            this.FactioncomboBox.Text = "None";
+            this.RacecomboBox.Text = "None";
+            ToolTip toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(this.SetAggroLevelto0checkBox, "0 AggroLevel for take advantage of Faction Aggro.");
+        }
+
+        private void GetFactionComboBoxValue(string selectCommand)
+        {
+            try
+            {
+
+                MySqlConnection connection3 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
+
+                MySqlDataAdapter FactiondataAdapter = new MySqlDataAdapter(selectCommand, connection3);
+                MySqlCommandBuilder commandBuilderRace = new MySqlCommandBuilder(FactiondataAdapter);
+                DataTable FactionDatatable = new DataTable();
+                FactiondataAdapter.Fill(FactionDatatable);
+                this.FactionbindingSource.DataSource = FactionDatatable;
+
+                DataRow Factiondatarow = FactionDatatable.NewRow();
+
+                Factiondatarow["Name"] = "None";
+                Factiondatarow["ID"] = "0";
+
+                FactionDatatable.Rows.Add(Factiondatarow);
+
+                this.FactioncomboBox.ValueMember = "ID";
+                this.FactioncomboBox.DisplayMember = "Name";
+
+            }
+            catch (MySqlException s)
+            {
+                System.Windows.MessageBox.Show(s.Message);
+            }
+        }
+
+        private void GetRaceComboBoxValue(string selectCommand)
+        {
+            try
+            {
+
+                MySqlConnection connection3 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
+
+                MySqlDataAdapter RacedataAdapter = new MySqlDataAdapter(selectCommand, connection3);
+                MySqlCommandBuilder commandBuilderRace = new MySqlCommandBuilder(RacedataAdapter);
+                DataTable RaceDatatable = new DataTable();
+                RacedataAdapter.Fill(RaceDatatable);
+                this.RacebindingSource.DataSource = RaceDatatable;
+
+                DataRow Racedatarow = RaceDatatable.NewRow();
+
+                Racedatarow["Name"] = "None";
+                Racedatarow["ID"] = "0";
+
+                RaceDatatable.Rows.Add(Racedatarow);
+
+                this.RacecomboBox.ValueMember = "ID";
+                this.RacecomboBox.DisplayMember = "Name";
+
+            }
+            catch (MySqlException s)
+            {
+                System.Windows.MessageBox.Show(s.Message);
+            }
+        }
+    
         void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LoadPreferences fm = new LoadPreferences();
@@ -259,6 +326,97 @@ namespace Origins_Editor
 
             MessageBox.Show(string.Format(" Table Mob rows affected: {0}\n Table MobxAmbientBehaviour rows affected: {1}\n Table Dataquest rows affected: {2}\n Table DropTemplateXItemTemplate rows affected: {3}\n Table MobDropTemplate rows affected: {4}\n Table NPCTemplate rows affected: {5}\n Table Inventory rows affected: {6}\n Table LootTemplate rows affected: {7}\n Table MobXLootTemplate rows affected: {8}\n Table LootOTD rows affected: {9}\n Table LootGenerator rows affected: {10}\n ", 
                 MobrowsAffected, MobxAmbientBehaviourrowsAffected, DataquestrowsAffected, DropTemplateXItemTemplaterowsAffected, MobDropTemplaterowsAffected, NPCTemplaterowsAffected, InventoryCreatorrowsAffected, LootTemplaterowsAffected, MobXLootTemplaterowsAffected, LootOTDrowsAffected, LootGeneratorAffected));
+        }
+
+        private void UpdateMassFactionbutton_Click(object sender, EventArgs e)
+        {
+            if (Util.IsEmpty(MobNameMassFactiontextBox.Text))
+            {
+                MessageBox.Show(" WARNING: Name to assign this faction can't be null.");
+                return;
+            }
+
+            MySqlConnection thisConnection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
+
+            int MobrowsAffected = 0;
+            int FactionAggroNPCTemplaterowsAffected = 0;
+            int FactionAggroMobrowsAffected = 0;
+
+            try
+            {
+                thisConnection.Open();
+
+                MySqlCommand MobCommand = thisConnection.CreateCommand();
+
+                MobCommand.CommandText = "update Mob set factionid='" + FactioncomboBox.SelectedValue + "' where name ='" + MobNameMassFactiontextBox.Text.Replace("'", "''") + "'";
+                MobrowsAffected = MobCommand.ExecuteNonQuery();
+
+                if (SetAggroLevelto0checkBox.Checked)
+                {
+                    MySqlCommand FactionNPCtemplateAggroCommand = thisConnection.CreateCommand();
+
+                    FactionNPCtemplateAggroCommand.CommandText = "update npctemplate set aggrolevel='0' where name ='" + MobNameMassFactiontextBox.Text.Replace("'", "''") + "'";
+                    FactionAggroNPCTemplaterowsAffected = FactionNPCtemplateAggroCommand.ExecuteNonQuery();
+
+                }
+
+                if (SetAggroLevelto0checkBox.Checked)
+                {
+                    MySqlCommand FactionMobAggroCommand = thisConnection.CreateCommand();
+
+                    FactionMobAggroCommand.CommandText = "update mob set aggrolevel='0' where name ='" + MobNameMassFactiontextBox.Text.Replace("'", "''") + "'";
+                    FactionAggroMobrowsAffected = FactionMobAggroCommand.ExecuteNonQuery();
+
+                }
+                thisConnection.Close();
+            }
+            catch (MySqlException s)
+            {
+                System.Windows.MessageBox.Show(s.Message);
+            }
+
+            MessageBox.Show(string.Format(" Table Mob rows affected: {0}}\n Table NPCTemplate Aggro rows affected: {0}\n Table Mob Aggro rows affected: {1}",
+                MobrowsAffected, FactionAggroNPCTemplaterowsAffected, FactionAggroMobrowsAffected));
+        }
+
+        private void RaceMassUpdatebutton_Click(object sender, EventArgs e)
+        {
+            if (Util.IsEmpty(MobNameMassRacetextBox.Text))
+            {
+                MessageBox.Show(" WARNING: Name to assign this race can't be null.");
+                return;
+            }
+
+            MySqlConnection thisConnection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
+
+            int MobrowsAffected = 0;
+            int NPCTemplaterowsAffected = 0;
+
+            try
+            {
+                thisConnection.Open();
+
+                MySqlCommand MobCommand = thisConnection.CreateCommand();
+
+                MobCommand.CommandText = "update Mob set faction='" + RacecomboBox.SelectedValue + "' where name ='" + MobNameMassRacetextBox.Text.Replace("'", "''") + "'";
+                MobrowsAffected = MobCommand.ExecuteNonQuery();
+
+                if (UpdateMassRaceNPCTemplatecheckBox.Checked)
+                {
+                    MySqlCommand RaceCommand = thisConnection.CreateCommand();
+
+                    RaceCommand.CommandText = "update npctemplate set race='" + RacecomboBox.Text == "None" ? "" : RacecomboBox.SelectedValue + "' where name ='" + MobNameMassRacetextBox.Text.Replace("'", "''") + "'";
+                    NPCTemplaterowsAffected = RaceCommand.ExecuteNonQuery();
+
+                }
+                thisConnection.Close();
+            }
+            catch (MySqlException s)
+            {
+                System.Windows.MessageBox.Show(s.Message);
+            }
+
+            MessageBox.Show(string.Format(" Table Mob rows affected: {0}\n Table NPCTemplate rows affected: {1}\n ", MobrowsAffected, NPCTemplaterowsAffected));
         }
     }
 }

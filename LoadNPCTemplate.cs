@@ -266,7 +266,7 @@ namespace Origins_Editor
                     i *= ((int)b + 1);
                 }
                 i -= DateTime.Now.Ticks;
-                string str = "cdu" + i.ToString();
+                string str = "Dol_Server_Editor_" + i.ToString();
                 this.TemplateIDtextBox.Text = Util.Find_Free_NPCTemplateID().ToString();
 
                 this.ControlEditor.Show();
@@ -338,7 +338,7 @@ namespace Origins_Editor
                             i *= ((int)b + 1);
                         }
                         i -= DateTime.Now.Ticks;
-                        string str = "Origins_Editor_" + i.ToString();
+                        string str = "Dol_Server_Editor_" + i.ToString();
 
                         DataRow datarow = this.NPCTemplateDatatable.NewRow();
 
