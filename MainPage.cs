@@ -64,11 +64,45 @@ namespace Origins_Editor
         {
             GetRaceComboBoxValue("select * from race ORDER BY name ASC");
             GetFactionComboBoxValue("select * from faction ORDER BY name ASC");
+            GetNPCTemplateComboBoxValue("select * from npctemplate ORDER BY name ASC");
+
             this.FactioncomboBox.Text = "None";
             this.RacecomboBox.Text = "None";
             this.BodyTypecomboBox.Text = "None";
+            this.NPCTemplatecomboBox.Text = "None";
+
             ToolTip toolTip1 = new ToolTip();
             toolTip1.SetToolTip(this.SetAggroLevelto0checkBox, "0 AggroLevel for take advantage of Faction Aggro.");
+        }
+
+        private void GetNPCTemplateComboBoxValue(string selectCommand)
+        {
+            try
+            {
+
+                MySqlConnection connection3 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
+
+                MySqlDataAdapter NPCTemplatedataAdapter = new MySqlDataAdapter(selectCommand, connection3);
+                MySqlCommandBuilder commandBuilderNPCTemplate = new MySqlCommandBuilder(NPCTemplatedataAdapter);
+                DataTable NPCTemplateDatatable = new DataTable();
+                NPCTemplatedataAdapter.Fill(NPCTemplateDatatable);
+                this.NPCTemplatebindingSource.DataSource = NPCTemplateDatatable;
+
+                DataRow NPCTemplatedatarow = NPCTemplateDatatable.NewRow();
+
+                NPCTemplatedatarow["Name"] = "None";
+                NPCTemplatedatarow["templateid"] = "-1";
+
+                NPCTemplateDatatable.Rows.Add(NPCTemplatedatarow);
+
+                this.NPCTemplatecomboBox.ValueMember = "templateid";
+                this.NPCTemplatecomboBox.DisplayMember = "Name";
+
+            }
+            catch (MySqlException s)
+            {
+                System.Windows.MessageBox.Show(s.Message);
+            }
         }
 
         private void GetFactionComboBoxValue(string selectCommand)
@@ -458,6 +492,36 @@ namespace Origins_Editor
             }
 
             MessageBox.Show(string.Format(" Table Mob rows affected: {0}\n Table NPCTemplate rows affected: {1}\n ", MobrowsAffected, NPCTemplaterowsAffected));
+        }
+
+        private void UpdateMassNPCTemplatebutton_Click(object sender, EventArgs e)
+        {
+            if (Util.IsEmpty(MobNameMassNPCTemplatetextBox.Text))
+            {
+                MessageBox.Show(" WARNING: Name to assign this npctemplate can't be null.");
+                return;
+            }
+
+            MySqlConnection thisConnection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
+
+            int MobrowsAffected = 0;
+
+            try
+            {
+                thisConnection.Open();
+                MySqlCommand MobCommand = thisConnection.CreateCommand();
+
+                MobCommand.CommandText = "update Mob set npctemplateid='" + NPCTemplatecomboBox.SelectedValue + "' where name ='" + MobNameMassNPCTemplatetextBox.Text.Replace("'", "''") + "'";
+                MobrowsAffected = MobCommand.ExecuteNonQuery();
+
+                thisConnection.Close();
+            }
+            catch (MySqlException s)
+            {
+                System.Windows.MessageBox.Show(s.Message);
+            }
+
+            MessageBox.Show(string.Format(" Table Mob rows affected: {0}", MobrowsAffected));
         }
     }
 }
