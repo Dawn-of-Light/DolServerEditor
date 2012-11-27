@@ -66,6 +66,7 @@ namespace Origins_Editor
             GetFactionComboBoxValue("select * from faction ORDER BY name ASC");
             this.FactioncomboBox.Text = "None";
             this.RacecomboBox.Text = "None";
+            this.BodyTypecomboBox.Text = "None";
             ToolTip toolTip1 = new ToolTip();
             toolTip1.SetToolTip(this.SetAggroLevelto0checkBox, "0 AggroLevel for take advantage of Faction Aggro.");
         }
@@ -406,6 +407,46 @@ namespace Origins_Editor
                     MySqlCommand RaceCommand = thisConnection.CreateCommand();
 
                     RaceCommand.CommandText = "update npctemplate set race='" + RacecomboBox.SelectedValue + "' where name ='" + MobNameMassRacetextBox.Text.Replace("'", "''") + "'";
+                    NPCTemplaterowsAffected = RaceCommand.ExecuteNonQuery();
+
+                }
+                thisConnection.Close();
+            }
+            catch (MySqlException s)
+            {
+                System.Windows.MessageBox.Show(s.Message);
+            }
+
+            MessageBox.Show(string.Format(" Table Mob rows affected: {0}\n Table NPCTemplate rows affected: {1}\n ", MobrowsAffected, NPCTemplaterowsAffected));
+        }
+
+        private void UpdateMassBodyTypebutton_Click(object sender, EventArgs e)
+        {
+            if (Util.IsEmpty(MobNameUpdateMassBodyTypetextBox.Text))
+            {
+                MessageBox.Show(" WARNING: Name to assign this bodytype can't be null.");
+                return;
+            }
+
+            MySqlConnection thisConnection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
+
+            int MobrowsAffected = 0;
+            int NPCTemplaterowsAffected = 0;
+
+            try
+            {
+                thisConnection.Open();
+
+                MySqlCommand MobCommand = thisConnection.CreateCommand();
+
+                MobCommand.CommandText = "update Mob set bodytype='" + Util.Find_BodyType_Value(BodyTypecomboBox.Text) + "' where name ='" + MobNameUpdateMassBodyTypetextBox.Text.Replace("'", "''") + "'";
+                MobrowsAffected = MobCommand.ExecuteNonQuery();
+
+                if (UpdateMassNPCTemplateBodyTypecheckBox.Checked)
+                {
+                    MySqlCommand RaceCommand = thisConnection.CreateCommand();
+
+                    RaceCommand.CommandText = "update npctemplate set bodytype='" + Util.Find_BodyType_Value(BodyTypecomboBox.Text) + "' where name ='" + MobNameUpdateMassBodyTypetextBox.Text.Replace("'", "''") + "'";
                     NPCTemplaterowsAffected = RaceCommand.ExecuteNonQuery();
 
                 }

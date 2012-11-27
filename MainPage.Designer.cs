@@ -83,7 +83,15 @@ namespace Origins_Editor
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.UpdateMassBodyTypebutton = new System.Windows.Forms.Button();
+            this.MobNameUpdateMassBodyTypetextBox = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.BodyTypecomboBox = new System.Windows.Forms.ComboBox();
+            this.FactionbindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.UpdateMassRaceNPCTemplatecheckBox = new System.Windows.Forms.CheckBox();
             this.RacecomboBox = new System.Windows.Forms.ComboBox();
             this.RacebindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button4 = new System.Windows.Forms.Button();
@@ -111,28 +119,28 @@ namespace Origins_Editor
             this.MobNameMassNPCTemplatetextBox = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.SetAggroLevelto0checkBox = new System.Windows.Forms.CheckBox();
             this.UpdateMassFactionbutton = new System.Windows.Forms.Button();
             this.MobNameMassFactiontextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.FactioncomboBox = new System.Windows.Forms.ComboBox();
-            this.FactionbindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.UpdateMassRaceNPCTemplatecheckBox = new System.Windows.Forms.CheckBox();
-            this.SetAggroLevelto0checkBox = new System.Windows.Forms.CheckBox();
+            this.UpdateMassNPCTemplateBodyTypecheckBox = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FactionbindingSource)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RacebindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FactionbindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -380,7 +388,7 @@ namespace Origins_Editor
             this.tabControl1.Location = new System.Drawing.Point(0, 25);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(721, 425);
+            this.tabControl1.Size = new System.Drawing.Size(721, 466);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -391,7 +399,7 @@ namespace Origins_Editor
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(713, 399);
+            this.tabPage1.Size = new System.Drawing.Size(713, 440);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Mass Mobs Control";
             // 
@@ -399,15 +407,16 @@ namespace Origins_Editor
             // 
             this.tabControl2.Controls.Add(this.tabPage4);
             this.tabControl2.Controls.Add(this.tabPage5);
-            this.tabControl2.Location = new System.Drawing.Point(6, 2);
+            this.tabControl2.Location = new System.Drawing.Point(1, 2);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(702, 370);
+            this.tabControl2.Size = new System.Drawing.Size(707, 433);
             this.tabControl2.TabIndex = 0;
             // 
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabPage4.Controls.Add(this.groupBox5);
             this.tabPage4.Controls.Add(this.groupBox4);
             this.tabPage4.Controls.Add(this.groupBox1);
             this.tabPage4.Controls.Add(this.groupBox3);
@@ -415,9 +424,82 @@ namespace Origins_Editor
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(694, 344);
+            this.tabPage4.Size = new System.Drawing.Size(699, 407);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "Database Attributions";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox5.Controls.Add(this.UpdateMassNPCTemplateBodyTypecheckBox);
+            this.groupBox5.Controls.Add(this.UpdateMassBodyTypebutton);
+            this.groupBox5.Controls.Add(this.MobNameUpdateMassBodyTypetextBox);
+            this.groupBox5.Controls.Add(this.label9);
+            this.groupBox5.Controls.Add(this.label10);
+            this.groupBox5.Controls.Add(this.BodyTypecomboBox);
+            this.groupBox5.Location = new System.Drawing.Point(6, 325);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(682, 64);
+            this.groupBox5.TabIndex = 4;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Body Type Attribution";
+            // 
+            // UpdateMassBodyTypebutton
+            // 
+            this.UpdateMassBodyTypebutton.Location = new System.Drawing.Point(601, 10);
+            this.UpdateMassBodyTypebutton.Name = "UpdateMassBodyTypebutton";
+            this.UpdateMassBodyTypebutton.Size = new System.Drawing.Size(75, 38);
+            this.UpdateMassBodyTypebutton.TabIndex = 5;
+            this.UpdateMassBodyTypebutton.Text = "Update Database";
+            this.UpdateMassBodyTypebutton.UseVisualStyleBackColor = true;
+            this.UpdateMassBodyTypebutton.Click += new System.EventHandler(this.UpdateMassBodyTypebutton_Click);
+            // 
+            // MobNameUpdateMassBodyTypetextBox
+            // 
+            this.MobNameUpdateMassBodyTypetextBox.Location = new System.Drawing.Point(356, 20);
+            this.MobNameUpdateMassBodyTypetextBox.Name = "MobNameUpdateMassBodyTypetextBox";
+            this.MobNameUpdateMassBodyTypetextBox.Size = new System.Drawing.Size(239, 20);
+            this.MobNameUpdateMassBodyTypetextBox.TabIndex = 4;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 22);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(58, 13);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Body Type";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(279, 23);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(71, 13);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "to Mob Name";
+            // 
+            // BodyTypecomboBox
+            // 
+            this.BodyTypecomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.BodyTypecomboBox.FormattingEnabled = true;
+            this.BodyTypecomboBox.Items.AddRange(new object[] {
+            "None",
+            "Animal",
+            "Demon",
+            "Dragon",
+            "Elemental",
+            "Giant",
+            "Humanoid",
+            "Insect",
+            "Magical",
+            "Reptile",
+            "Plant",
+            "Undead"});
+            this.BodyTypecomboBox.Location = new System.Drawing.Point(70, 19);
+            this.BodyTypecomboBox.Name = "BodyTypecomboBox";
+            this.BodyTypecomboBox.Size = new System.Drawing.Size(203, 21);
+            this.BodyTypecomboBox.TabIndex = 0;
             // 
             // groupBox4
             // 
@@ -434,6 +516,18 @@ namespace Origins_Editor
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Race Attribution";
+            // 
+            // UpdateMassRaceNPCTemplatecheckBox
+            // 
+            this.UpdateMassRaceNPCTemplatecheckBox.AutoSize = true;
+            this.UpdateMassRaceNPCTemplatecheckBox.Checked = true;
+            this.UpdateMassRaceNPCTemplatecheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.UpdateMassRaceNPCTemplatecheckBox.Location = new System.Drawing.Point(420, 41);
+            this.UpdateMassRaceNPCTemplatecheckBox.Name = "UpdateMassRaceNPCTemplatecheckBox";
+            this.UpdateMassRaceNPCTemplatecheckBox.Size = new System.Drawing.Size(175, 17);
+            this.UpdateMassRaceNPCTemplatecheckBox.TabIndex = 11;
+            this.UpdateMassRaceNPCTemplatecheckBox.Text = "Update Eventual NPCTemplate";
+            this.UpdateMassRaceNPCTemplatecheckBox.UseVisualStyleBackColor = true;
             // 
             // RacecomboBox
             // 
@@ -713,6 +807,18 @@ namespace Origins_Editor
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Factions Attribution";
             // 
+            // SetAggroLevelto0checkBox
+            // 
+            this.SetAggroLevelto0checkBox.AutoSize = true;
+            this.SetAggroLevelto0checkBox.Checked = true;
+            this.SetAggroLevelto0checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.SetAggroLevelto0checkBox.Location = new System.Drawing.Point(472, 46);
+            this.SetAggroLevelto0checkBox.Name = "SetAggroLevelto0checkBox";
+            this.SetAggroLevelto0checkBox.Size = new System.Drawing.Size(123, 17);
+            this.SetAggroLevelto0checkBox.TabIndex = 11;
+            this.SetAggroLevelto0checkBox.Text = "Set Aggro Level to 0";
+            this.SetAggroLevelto0checkBox.UseVisualStyleBackColor = true;
+            // 
             // UpdateMassFactionbutton
             // 
             this.UpdateMassFactionbutton.Location = new System.Drawing.Point(601, 10);
@@ -764,7 +870,7 @@ namespace Origins_Editor
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(694, 310);
+            this.tabPage5.Size = new System.Drawing.Size(699, 410);
             this.tabPage5.TabIndex = 1;
             this.tabPage5.Text = "Base Configuration";
             // 
@@ -774,7 +880,7 @@ namespace Origins_Editor
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(713, 346);
+            this.tabPage2.Size = new System.Drawing.Size(713, 447);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mass Items Control";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -785,34 +891,22 @@ namespace Origins_Editor
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(713, 346);
+            this.tabPage3.Size = new System.Drawing.Size(713, 447);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Mass Players Control";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // UpdateMassRaceNPCTemplatecheckBox
+            // UpdateMassNPCTemplateBodyTypecheckBox
             // 
-            this.UpdateMassRaceNPCTemplatecheckBox.AutoSize = true;
-            this.UpdateMassRaceNPCTemplatecheckBox.Checked = true;
-            this.UpdateMassRaceNPCTemplatecheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.UpdateMassRaceNPCTemplatecheckBox.Location = new System.Drawing.Point(420, 41);
-            this.UpdateMassRaceNPCTemplatecheckBox.Name = "UpdateMassRaceNPCTemplatecheckBox";
-            this.UpdateMassRaceNPCTemplatecheckBox.Size = new System.Drawing.Size(175, 17);
-            this.UpdateMassRaceNPCTemplatecheckBox.TabIndex = 11;
-            this.UpdateMassRaceNPCTemplatecheckBox.Text = "Update Eventual NPCTemplate";
-            this.UpdateMassRaceNPCTemplatecheckBox.UseVisualStyleBackColor = true;
-            // 
-            // SetAggroLevelto0checkBox
-            // 
-            this.SetAggroLevelto0checkBox.AutoSize = true;
-            this.SetAggroLevelto0checkBox.Checked = true;
-            this.SetAggroLevelto0checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.SetAggroLevelto0checkBox.Location = new System.Drawing.Point(472, 46);
-            this.SetAggroLevelto0checkBox.Name = "SetAggroLevelto0checkBox";
-            this.SetAggroLevelto0checkBox.Size = new System.Drawing.Size(123, 17);
-            this.SetAggroLevelto0checkBox.TabIndex = 11;
-            this.SetAggroLevelto0checkBox.Text = "Set Aggro Level to 0";
-            this.SetAggroLevelto0checkBox.UseVisualStyleBackColor = true;
+            this.UpdateMassNPCTemplateBodyTypecheckBox.AutoSize = true;
+            this.UpdateMassNPCTemplateBodyTypecheckBox.Checked = true;
+            this.UpdateMassNPCTemplateBodyTypecheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.UpdateMassNPCTemplateBodyTypecheckBox.Location = new System.Drawing.Point(420, 43);
+            this.UpdateMassNPCTemplateBodyTypecheckBox.Name = "UpdateMassNPCTemplateBodyTypecheckBox";
+            this.UpdateMassNPCTemplateBodyTypecheckBox.Size = new System.Drawing.Size(175, 17);
+            this.UpdateMassNPCTemplateBodyTypecheckBox.TabIndex = 12;
+            this.UpdateMassNPCTemplateBodyTypecheckBox.Text = "Update Eventual NPCTemplate";
+            this.UpdateMassNPCTemplateBodyTypecheckBox.UseVisualStyleBackColor = true;
             // 
             // MainPageEditor
             // 
@@ -820,7 +914,7 @@ namespace Origins_Editor
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(721, 425);
+            this.ClientSize = new System.Drawing.Size(721, 492);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -835,6 +929,9 @@ namespace Origins_Editor
             this.tabPage1.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FactionbindingSource)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RacebindingSource)).EndInit();
@@ -844,7 +941,6 @@ namespace Origins_Editor
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FactionbindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -926,6 +1022,13 @@ namespace Origins_Editor
         private System.Windows.Forms.BindingSource FactionbindingSource;
         private System.Windows.Forms.CheckBox UpdateMassRaceNPCTemplatecheckBox;
         private System.Windows.Forms.CheckBox SetAggroLevelto0checkBox;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button UpdateMassBodyTypebutton;
+        private System.Windows.Forms.TextBox MobNameUpdateMassBodyTypetextBox;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox BodyTypecomboBox;
+        private System.Windows.Forms.CheckBox UpdateMassNPCTemplateBodyTypecheckBox;
 
 
 
