@@ -40,7 +40,9 @@ namespace Origins_Editor
         public LoadNPCTemplate()
         {
             InitializeComponent();
+
             this.Load += new EventHandler(Form1_Load);
+
             if (DolEditor.Properties.Settings.Default.OriginsSettings)
             {
                 IsCharmablecomboBox.Visible = true;
@@ -168,7 +170,7 @@ namespace Origins_Editor
             try
             {
                 // Create a new data adapter based on the specified query.
-                NPCTemplateTranslationdataAdapter = new MySqlDataAdapter("select * from languagenpc where translationid = '" + this.TranslationIDtextBox.Text + "'", connection);
+                NPCTemplateTranslationdataAdapter = new MySqlDataAdapter(selectCommand, connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.

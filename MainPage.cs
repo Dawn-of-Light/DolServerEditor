@@ -248,8 +248,32 @@ namespace Origins_Editor
             {
                 connection.Open();
 
-                MySqlCommand MobCommand = connection.CreateCommand();
+                MySqlDataAdapter MobNameVerifdataAdapter = new MySqlDataAdapter();
+                string selectCommand = "select * from mob  where name = '" + ChangedNametextBox.Text.Replace("'", "''") + "'";
+                // Create a new data adapter based on the specified query.
+                MobNameVerifdataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                // Create a command builder to generate SQL update, insert, and 
+                // delete commands based on selectCommand. These are used to 
+                // update the database.
+                MySqlCommandBuilder commandBuilderMobNameVerif = new MySqlCommandBuilder(MobNameVerifdataAdapter);
+                DataTable MobNameVerifData = new DataTable();
+                MobNameVerifData.Clear();
+                // Populate a new data table.
+                MobNameVerifData.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                MobNameVerifdataAdapter.Fill(MobNameVerifData);
 
+                if (MobNameVerifData.Rows.Count > 0)
+                {
+                if (MessageBox.Show(MobNameVerifData.Rows.Count + " Mobs already have this name? Ignore and rename it?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                    {
+                        connection.Close();
+                        return;
+                    }
+                }
+
+                MySqlCommand MobCommand = connection.CreateCommand();
+                MobCommand.CommandType = CommandType.Text;
+                
                 MobCommand.CommandText = "update Mob set name='" + ChangedNametextBox.Text.Replace("'", "''") +"' where name ='" + OriginalNametextBox.Text.Replace("'", "''") +"'";
                 MobrowsAffected = MobCommand.ExecuteNonQuery();
 

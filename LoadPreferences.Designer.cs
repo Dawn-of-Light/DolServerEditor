@@ -88,9 +88,9 @@ namespace Origins_Editor
             this.groupBox2.Controls.Add(this.DatabaseNamelabel);
             this.groupBox2.Controls.Add(this.ServerIPtextBox);
             this.groupBox2.Controls.Add(this.serveriplabel);
-            this.groupBox2.Location = new System.Drawing.Point(12, 12);
+            this.groupBox2.Location = new System.Drawing.Point(7, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(239, 145);
+            this.groupBox2.Size = new System.Drawing.Size(209, 145);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Server connection";
@@ -117,7 +117,7 @@ namespace Origins_Editor
             // 
             this.DatabasePWDtextBox.Location = new System.Drawing.Point(93, 97);
             this.DatabasePWDtextBox.Name = "DatabasePWDtextBox";
-            this.DatabasePWDtextBox.Size = new System.Drawing.Size(141, 20);
+            this.DatabasePWDtextBox.Size = new System.Drawing.Size(110, 20);
             this.DatabasePWDtextBox.TabIndex = 18;
             this.DatabasePWDtextBox.Text = global::DolEditor.Properties.Settings.Default.Password;
             this.DatabasePWDtextBox.UseSystemPasswordChar = true;
@@ -126,7 +126,7 @@ namespace Origins_Editor
             // 
             this.DatabaseUsertextBox.Location = new System.Drawing.Point(93, 73);
             this.DatabaseUsertextBox.Name = "DatabaseUsertextBox";
-            this.DatabaseUsertextBox.Size = new System.Drawing.Size(141, 20);
+            this.DatabaseUsertextBox.Size = new System.Drawing.Size(110, 20);
             this.DatabaseUsertextBox.TabIndex = 17;
             this.DatabaseUsertextBox.Text = global::DolEditor.Properties.Settings.Default.Username;
             // 
@@ -134,7 +134,7 @@ namespace Origins_Editor
             // 
             this.DatabaseNametextBox.Location = new System.Drawing.Point(93, 47);
             this.DatabaseNametextBox.Name = "DatabaseNametextBox";
-            this.DatabaseNametextBox.Size = new System.Drawing.Size(141, 20);
+            this.DatabaseNametextBox.Size = new System.Drawing.Size(110, 20);
             this.DatabaseNametextBox.TabIndex = 16;
             this.DatabaseNametextBox.Text = global::DolEditor.Properties.Settings.Default.DatabaseName;
             // 
@@ -169,7 +169,7 @@ namespace Origins_Editor
             // 
             this.ServerIPtextBox.Location = new System.Drawing.Point(93, 23);
             this.ServerIPtextBox.Name = "ServerIPtextBox";
-            this.ServerIPtextBox.Size = new System.Drawing.Size(121, 20);
+            this.ServerIPtextBox.Size = new System.Drawing.Size(110, 20);
             this.ServerIPtextBox.TabIndex = 11;
             this.ServerIPtextBox.Text = global::DolEditor.Properties.Settings.Default.ServerIP;
             // 
@@ -184,9 +184,9 @@ namespace Origins_Editor
             // 
             // saveconfigurationbutton
             // 
-            this.saveconfigurationbutton.Location = new System.Drawing.Point(114, 162);
+            this.saveconfigurationbutton.Location = new System.Drawing.Point(109, 162);
             this.saveconfigurationbutton.Name = "saveconfigurationbutton";
-            this.saveconfigurationbutton.Size = new System.Drawing.Size(138, 23);
+            this.saveconfigurationbutton.Size = new System.Drawing.Size(107, 23);
             this.saveconfigurationbutton.TabIndex = 3;
             this.saveconfigurationbutton.Text = "Save Configuration";
             this.saveconfigurationbutton.UseVisualStyleBackColor = true;
@@ -194,7 +194,7 @@ namespace Origins_Editor
             // 
             // TestConnectionbutton
             // 
-            this.TestConnectionbutton.Location = new System.Drawing.Point(12, 162);
+            this.TestConnectionbutton.Location = new System.Drawing.Point(7, 162);
             this.TestConnectionbutton.Name = "TestConnectionbutton";
             this.TestConnectionbutton.Size = new System.Drawing.Size(96, 23);
             this.TestConnectionbutton.TabIndex = 4;
@@ -207,7 +207,7 @@ namespace Origins_Editor
             this.AcceptButton = this.saveconfigurationbutton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(263, 191);
+            this.ClientSize = new System.Drawing.Size(224, 191);
             this.Controls.Add(this.TestConnectionbutton);
             this.Controls.Add(this.saveconfigurationbutton);
             this.Controls.Add(this.groupBox2);
