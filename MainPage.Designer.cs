@@ -99,6 +99,8 @@ namespace Origins_Editor
             this.label8 = new System.Windows.Forms.Label();
             this.MobNameMassRacetextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.MobNamecomboBox = new System.Windows.Forms.ComboBox();
+            this.MobNamebindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.ChangedNametextBox = new System.Windows.Forms.TextBox();
             this.UpdateMobXLootTemplatecheckBox = new System.Windows.Forms.CheckBox();
@@ -110,7 +112,6 @@ namespace Origins_Editor
             this.UpdateDataquestcheckBox = new System.Windows.Forms.CheckBox();
             this.UpdateMobxAmbientBehaviourcheckBox = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.OriginalNametextBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.NPCTemplatecomboBox = new System.Windows.Forms.ComboBox();
@@ -139,6 +140,7 @@ namespace Origins_Editor
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RacebindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MobNamebindingSource)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NPCTemplatebindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -593,6 +595,7 @@ namespace Origins_Editor
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox1.Controls.Add(this.MobNamecomboBox);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.ChangedNametextBox);
             this.groupBox1.Controls.Add(this.UpdateMobXLootTemplatecheckBox);
@@ -604,7 +607,6 @@ namespace Origins_Editor
             this.groupBox1.Controls.Add(this.UpdateDataquestcheckBox);
             this.groupBox1.Controls.Add(this.UpdateMobxAmbientBehaviourcheckBox);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.OriginalNametextBox);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
@@ -612,6 +614,16 @@ namespace Origins_Editor
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Change Name";
+            // 
+            // MobNamecomboBox
+            // 
+            this.MobNamecomboBox.DataSource = this.MobNamebindingSource;
+            this.MobNamecomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MobNamecomboBox.FormattingEnabled = true;
+            this.MobNamecomboBox.Location = new System.Drawing.Point(70, 16);
+            this.MobNamecomboBox.Name = "MobNamecomboBox";
+            this.MobNamecomboBox.Size = new System.Drawing.Size(203, 21);
+            this.MobNamecomboBox.TabIndex = 14;
             // 
             // label3
             // 
@@ -733,13 +745,6 @@ namespace Origins_Editor
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Name";
-            // 
-            // OriginalNametextBox
-            // 
-            this.OriginalNametextBox.Location = new System.Drawing.Point(70, 17);
-            this.OriginalNametextBox.Name = "OriginalNametextBox";
-            this.OriginalNametextBox.Size = new System.Drawing.Size(203, 20);
-            this.OriginalNametextBox.TabIndex = 1;
             // 
             // button1
             // 
@@ -946,6 +951,7 @@ namespace Origins_Editor
             ((System.ComponentModel.ISupportInitialize)(this.RacebindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MobNamebindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NPCTemplatebindingSource)).EndInit();
@@ -1007,7 +1013,6 @@ namespace Origins_Editor
         private System.Windows.Forms.CheckBox UpdateDataquestcheckBox;
         private System.Windows.Forms.CheckBox UpdateMobxAmbientBehaviourcheckBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox OriginalNametextBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -1041,6 +1046,8 @@ namespace Origins_Editor
         private System.Windows.Forms.ComboBox NPCTemplatecomboBox;
         private System.Windows.Forms.BindingSource NPCTemplatebindingSource;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox MobNamecomboBox;
+        private System.Windows.Forms.BindingSource MobNamebindingSource;
 
 
 

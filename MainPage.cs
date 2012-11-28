@@ -28,6 +28,8 @@ namespace Origins_Editor
     public partial class MainPageEditor : Form
     {
         public MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
+        private DataTable MobNameDatatable = new DataTable();
+        private DataTable NPCTemplateDatatable = new DataTable();
 
         public MainPageEditor()
         {
@@ -67,6 +69,7 @@ namespace Origins_Editor
             GetRaceComboBoxValue("select * from race ORDER BY name ASC");
             GetFactionComboBoxValue("select * from faction ORDER BY name ASC");
             GetNPCTemplateComboBoxValue("select * from npctemplate ORDER BY name ASC");
+            GetMobNameComboBoxValue("select distinct name from mob ORDER BY name ASC");
 
             this.FactioncomboBox.Text = "None";
             this.RacecomboBox.Text = "None";
@@ -77,6 +80,28 @@ namespace Origins_Editor
             toolTip1.SetToolTip(this.SetAggroLevelto0checkBox, "0 AggroLevel for take advantage of Faction Aggro.");
         }
 
+        private void GetMobNameComboBoxValue(string selectCommand)
+        {
+            try
+            {
+
+                MySqlDataAdapter MobNamedataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                MySqlCommandBuilder commandBuilderMobName = new MySqlCommandBuilder(MobNamedataAdapter);
+                MobNameDatatable = new DataTable();
+                MobNameDatatable.Clear();
+                MobNamedataAdapter.Fill(MobNameDatatable);
+                this.MobNamebindingSource.DataSource = MobNameDatatable;
+
+                this.MobNamecomboBox.ValueMember = "Name";
+                this.MobNamecomboBox.DisplayMember = "Name";
+
+            }
+            catch (MySqlException s)
+            {
+                MessageBox.Show(s.Message);
+            }
+        }
+
         private void GetNPCTemplateComboBoxValue(string selectCommand)
         {
             try
@@ -84,7 +109,8 @@ namespace Origins_Editor
 
                 MySqlDataAdapter NPCTemplatedataAdapter = new MySqlDataAdapter(selectCommand, connection);
                 MySqlCommandBuilder commandBuilderNPCTemplate = new MySqlCommandBuilder(NPCTemplatedataAdapter);
-                DataTable NPCTemplateDatatable = new DataTable();
+                NPCTemplateDatatable = new DataTable();
+                NPCTemplateDatatable.Clear();
                 NPCTemplatedataAdapter.Fill(NPCTemplateDatatable);
                 this.NPCTemplatebindingSource.DataSource = NPCTemplateDatatable;
 
@@ -221,7 +247,7 @@ namespace Origins_Editor
 
         private void UpdateMobNameButton_Click(object sender, EventArgs e)
         {
-            if (Util.IsEmpty(OriginalNametextBox.Text))
+            if (Util.IsEmpty(MobNamecomboBox.Text))
             {
                 MessageBox.Show(" WARNING: Name to be Changed can't be null.");
                 return;
@@ -264,7 +290,7 @@ namespace Origins_Editor
 
                 if (MobNameVerifData.Rows.Count > 0)
                 {
-                if (MessageBox.Show(MobNameVerifData.Rows.Count + " Mobs already have this name? Ignore and rename it?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                    if (MessageBox.Show(MobNameVerifData.Rows.Count + " Mobs already have this name. Ignore and rename it?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                     {
                         connection.Close();
                         return;
@@ -272,9 +298,8 @@ namespace Origins_Editor
                 }
 
                 MySqlCommand MobCommand = connection.CreateCommand();
-                MobCommand.CommandType = CommandType.Text;
-                
-                MobCommand.CommandText = "update Mob set name='" + ChangedNametextBox.Text.Replace("'", "''") +"' where name ='" + OriginalNametextBox.Text.Replace("'", "''") +"'";
+
+                MobCommand.CommandText = "update Mob set name='" + ChangedNametextBox.Text.Replace("'", "''") + "' where name ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                 MobrowsAffected = MobCommand.ExecuteNonQuery();
 
                 if (UpdateMobxAmbientBehaviourcheckBox.Checked)
@@ -282,7 +307,7 @@ namespace Origins_Editor
 
                     MySqlCommand MobxAmbientBehaviourCommand = connection.CreateCommand();
 
-                    MobxAmbientBehaviourCommand.CommandText = "update MobxAmbientBehaviour set source='" + ChangedNametextBox.Text.Replace("'", "''") + "' where source ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
+                    MobxAmbientBehaviourCommand.CommandText = "update MobxAmbientBehaviour set source='" + ChangedNametextBox.Text.Replace("'", "''") + "' where source ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     MobxAmbientBehaviourrowsAffected = MobxAmbientBehaviourCommand.ExecuteNonQuery();
                 }
 
@@ -291,7 +316,7 @@ namespace Origins_Editor
 
                     MySqlCommand DataquestCommand = connection.CreateCommand();
 
-                    DataquestCommand.CommandText = "update dataquest set startname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where startname ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
+                    DataquestCommand.CommandText = "update dataquest set startname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where startname ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     DataquestrowsAffected = DataquestCommand.ExecuteNonQuery();
 
                     //Todo replace sourcename too
@@ -301,17 +326,17 @@ namespace Origins_Editor
                 {
                     MySqlCommand DropTemplateXItemTemplateCommand = connection.CreateCommand();
 
-                    DropTemplateXItemTemplateCommand.CommandText = "update DropTemplateXItemTemplate set templatename='" + ChangedNametextBox.Text.Replace("'", "''") + "' where templatename ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
+                    DropTemplateXItemTemplateCommand.CommandText = "update DropTemplateXItemTemplate set templatename='" + ChangedNametextBox.Text.Replace("'", "''") + "' where templatename ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     DropTemplateXItemTemplaterowsAffected = DropTemplateXItemTemplateCommand.ExecuteNonQuery();
 
                     MySqlCommand MobDropTemplateCommand = connection.CreateCommand();
 
-                    MobDropTemplateCommand.CommandText = "update MobDropTemplate set mobname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where mobname ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
+                    MobDropTemplateCommand.CommandText = "update MobDropTemplate set mobname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where mobname ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     MobDropTemplaterowsAffected = MobDropTemplateCommand.ExecuteNonQuery();
 
                     MySqlCommand MobDropTemplateCommand2 = connection.CreateCommand();
 
-                    MobDropTemplateCommand2.CommandText = "update MobDropTemplate set loottemplatename='" + ChangedNametextBox.Text.Replace("'", "''") + "' where loottemplatename ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
+                    MobDropTemplateCommand2.CommandText = "update MobDropTemplate set loottemplatename='" + ChangedNametextBox.Text.Replace("'", "''") + "' where loottemplatename ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     MobDropTemplateCommand2.ExecuteNonQuery();
 
                 }
@@ -320,7 +345,7 @@ namespace Origins_Editor
                 {
                     MySqlCommand NPCTemplateCommand = connection.CreateCommand();
 
-                    NPCTemplateCommand.CommandText = "update npctemplate set name='" + ChangedNametextBox.Text.Replace("'", "''") + "' where name ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
+                    NPCTemplateCommand.CommandText = "update npctemplate set name='" + ChangedNametextBox.Text.Replace("'", "''") + "' where name ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     NPCTemplaterowsAffected = NPCTemplateCommand.ExecuteNonQuery();
 
                 }
@@ -330,7 +355,7 @@ namespace Origins_Editor
 
                     MySqlCommand InventoryCreatorCommand = connection.CreateCommand();
 
-                    InventoryCreatorCommand.CommandText = "update inventory set creator='" + ChangedNametextBox.Text.Replace("'", "''") + "' where creator ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
+                    InventoryCreatorCommand.CommandText = "update inventory set creator='" + ChangedNametextBox.Text.Replace("'", "''") + "' where creator ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     InventoryCreatorrowsAffected = InventoryCreatorCommand.ExecuteNonQuery();
                 }
 
@@ -338,17 +363,17 @@ namespace Origins_Editor
                 {
                     MySqlCommand DropTemplateXItemTemplateCommand = connection.CreateCommand();
 
-                    DropTemplateXItemTemplateCommand.CommandText = "update loottemplate set templatename='" + ChangedNametextBox.Text.Replace("'", "''") + "' where templatename ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
+                    DropTemplateXItemTemplateCommand.CommandText = "update loottemplate set templatename='" + ChangedNametextBox.Text.Replace("'", "''") + "' where templatename ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     LootTemplaterowsAffected = DropTemplateXItemTemplateCommand.ExecuteNonQuery();
 
                     MySqlCommand MobXLootTemplateCommand = connection.CreateCommand();
 
-                    MobXLootTemplateCommand.CommandText = "update MobXLootTemplate set mobname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where mobname ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
+                    MobXLootTemplateCommand.CommandText = "update MobXLootTemplate set mobname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where mobname ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     MobXLootTemplaterowsAffected = MobXLootTemplateCommand.ExecuteNonQuery();
 
                     MySqlCommand MobXLootTemplateCommand2 = connection.CreateCommand();
 
-                    MobXLootTemplateCommand2.CommandText = "update MobXLootTemplate set loottemplatename='" + ChangedNametextBox.Text.Replace("'", "''") + "' where loottemplatename ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
+                    MobXLootTemplateCommand2.CommandText = "update MobXLootTemplate set loottemplatename='" + ChangedNametextBox.Text.Replace("'", "''") + "' where loottemplatename ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     MobXLootTemplateCommand2.ExecuteNonQuery();
                 }
 
@@ -356,7 +381,7 @@ namespace Origins_Editor
                 {
                     MySqlCommand LootOTDCommand = connection.CreateCommand();
 
-                    LootOTDCommand.CommandText = "update loototd set mobname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where mobname ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
+                    LootOTDCommand.CommandText = "update loototd set mobname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where mobname ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     LootOTDrowsAffected = LootOTDCommand.ExecuteNonQuery();
                 }
 
@@ -364,7 +389,7 @@ namespace Origins_Editor
                 {
                     MySqlCommand LootGeneratorCommand = connection.CreateCommand();
 
-                    LootGeneratorCommand.CommandText = "update lootgenerator set mobname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where mobname ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
+                    LootGeneratorCommand.CommandText = "update lootgenerator set mobname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where mobname ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     LootGeneratorAffected = LootGeneratorCommand.ExecuteNonQuery();
                 }
 
@@ -374,6 +399,24 @@ namespace Origins_Editor
             catch (MySqlException s)
             {
                 MessageBox.Show(s.Message);
+            }
+
+            //Update combobox value
+            foreach (DataRow myRow in MobNameDatatable.Rows)
+            {
+                if (myRow["name"].ToString() == MobNamecomboBox.Text.ToString())
+                    myRow["name"] = ChangedNametextBox.Text;
+            }
+
+            MobNamecomboBox.SelectedText = ChangedNametextBox.Text;
+
+            if (UpdateNPCTemplatecheckBox.Checked)
+            {
+                foreach (DataRow myRow in NPCTemplateDatatable.Rows)
+                {
+                    if (myRow["name"].ToString() == MobNamecomboBox.Text.ToString())
+                        myRow["name"] = ChangedNametextBox.Text;
+                }
             }
 
             MessageBox.Show(string.Format(" Table Mob rows affected: {0}\n Table MobxAmbientBehaviour rows affected: {1}\n Table Dataquest rows affected: {2}\n Table DropTemplateXItemTemplate rows affected: {3}\n Table MobDropTemplate rows affected: {4}\n Table NPCTemplate rows affected: {5}\n Table Inventory rows affected: {6}\n Table LootTemplate rows affected: {7}\n Table MobXLootTemplate rows affected: {8}\n Table LootOTD rows affected: {9}\n Table LootGenerator rows affected: {10}\n ", 
