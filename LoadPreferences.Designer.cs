@@ -61,18 +61,16 @@ namespace Origins_Editor
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.OriginsDatabaseSettingscheckBox = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.DatabaseUserlabel = new System.Windows.Forms.Label();
-            this.DatabaseUserPWDlabel = new System.Windows.Forms.Label();
-            this.DatabaseNamelabel = new System.Windows.Forms.Label();
-            this.serverporttextBox = new System.Windows.Forms.TextBox();
-            this.serveriplabel = new System.Windows.Forms.Label();
-            this.serverportlabel = new System.Windows.Forms.Label();
-            this.saveconfigurationbutton = new System.Windows.Forms.Button();
-            this.TestConnectionbutton = new System.Windows.Forms.Button();
             this.DatabasePWDtextBox = new System.Windows.Forms.TextBox();
             this.DatabaseUsertextBox = new System.Windows.Forms.TextBox();
             this.DatabaseNametextBox = new System.Windows.Forms.TextBox();
+            this.DatabaseUserlabel = new System.Windows.Forms.Label();
+            this.DatabaseUserPWDlabel = new System.Windows.Forms.Label();
+            this.DatabaseNamelabel = new System.Windows.Forms.Label();
             this.ServerIPtextBox = new System.Windows.Forms.TextBox();
+            this.serveriplabel = new System.Windows.Forms.Label();
+            this.saveconfigurationbutton = new System.Windows.Forms.Button();
+            this.TestConnectionbutton = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,22 +86,20 @@ namespace Origins_Editor
             this.groupBox2.Controls.Add(this.DatabaseUserlabel);
             this.groupBox2.Controls.Add(this.DatabaseUserPWDlabel);
             this.groupBox2.Controls.Add(this.DatabaseNamelabel);
-            this.groupBox2.Controls.Add(this.serverporttextBox);
             this.groupBox2.Controls.Add(this.ServerIPtextBox);
             this.groupBox2.Controls.Add(this.serveriplabel);
-            this.groupBox2.Controls.Add(this.serverportlabel);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(239, 178);
+            this.groupBox2.Size = new System.Drawing.Size(239, 145);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Server connection";
             // 
-            // OriginsDatabseSettingscheckBox
+            // OriginsDatabaseSettingscheckBox
             // 
             this.OriginsDatabaseSettingscheckBox.AutoSize = true;
-            this.OriginsDatabaseSettingscheckBox.Location = new System.Drawing.Point(147, 151);
-            this.OriginsDatabaseSettingscheckBox.Name = "OriginsDatabseSettingscheckBox";
+            this.OriginsDatabaseSettingscheckBox.Location = new System.Drawing.Point(147, 121);
+            this.OriginsDatabaseSettingscheckBox.Name = "OriginsDatabaseSettingscheckBox";
             this.OriginsDatabaseSettingscheckBox.Size = new System.Drawing.Size(15, 14);
             this.OriginsDatabaseSettingscheckBox.TabIndex = 20;
             this.OriginsDatabaseSettingscheckBox.UseVisualStyleBackColor = true;
@@ -111,16 +107,41 @@ namespace Origins_Editor
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 152);
+            this.label1.Location = new System.Drawing.Point(12, 123);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(132, 13);
             this.label1.TabIndex = 19;
             this.label1.Text = "Origins Database Settings:";
             // 
+            // DatabasePWDtextBox
+            // 
+            this.DatabasePWDtextBox.Location = new System.Drawing.Point(93, 97);
+            this.DatabasePWDtextBox.Name = "DatabasePWDtextBox";
+            this.DatabasePWDtextBox.Size = new System.Drawing.Size(141, 20);
+            this.DatabasePWDtextBox.TabIndex = 18;
+            this.DatabasePWDtextBox.Text = global::DolEditor.Properties.Settings.Default.Password;
+            this.DatabasePWDtextBox.UseSystemPasswordChar = true;
+            // 
+            // DatabaseUsertextBox
+            // 
+            this.DatabaseUsertextBox.Location = new System.Drawing.Point(93, 73);
+            this.DatabaseUsertextBox.Name = "DatabaseUsertextBox";
+            this.DatabaseUsertextBox.Size = new System.Drawing.Size(141, 20);
+            this.DatabaseUsertextBox.TabIndex = 17;
+            this.DatabaseUsertextBox.Text = global::DolEditor.Properties.Settings.Default.Username;
+            // 
+            // DatabaseNametextBox
+            // 
+            this.DatabaseNametextBox.Location = new System.Drawing.Point(93, 47);
+            this.DatabaseNametextBox.Name = "DatabaseNametextBox";
+            this.DatabaseNametextBox.Size = new System.Drawing.Size(141, 20);
+            this.DatabaseNametextBox.TabIndex = 16;
+            this.DatabaseNametextBox.Text = global::DolEditor.Properties.Settings.Default.DatabaseName;
+            // 
             // DatabaseUserlabel
             // 
             this.DatabaseUserlabel.AutoSize = true;
-            this.DatabaseUserlabel.Location = new System.Drawing.Point(12, 105);
+            this.DatabaseUserlabel.Location = new System.Drawing.Point(12, 76);
             this.DatabaseUserlabel.Name = "DatabaseUserlabel";
             this.DatabaseUserlabel.Size = new System.Drawing.Size(81, 13);
             this.DatabaseUserlabel.TabIndex = 15;
@@ -129,7 +150,7 @@ namespace Origins_Editor
             // DatabaseUserPWDlabel
             // 
             this.DatabaseUserPWDlabel.AutoSize = true;
-            this.DatabaseUserPWDlabel.Location = new System.Drawing.Point(12, 129);
+            this.DatabaseUserPWDlabel.Location = new System.Drawing.Point(12, 100);
             this.DatabaseUserPWDlabel.Name = "DatabaseUserPWDlabel";
             this.DatabaseUserPWDlabel.Size = new System.Drawing.Size(81, 13);
             this.DatabaseUserPWDlabel.TabIndex = 14;
@@ -138,19 +159,19 @@ namespace Origins_Editor
             // DatabaseNamelabel
             // 
             this.DatabaseNamelabel.AutoSize = true;
-            this.DatabaseNamelabel.Location = new System.Drawing.Point(6, 79);
+            this.DatabaseNamelabel.Location = new System.Drawing.Point(6, 50);
             this.DatabaseNamelabel.Name = "DatabaseNamelabel";
             this.DatabaseNamelabel.Size = new System.Drawing.Size(87, 13);
             this.DatabaseNamelabel.TabIndex = 13;
             this.DatabaseNamelabel.Text = "Database Name:";
             // 
-            // serverporttextBox
+            // ServerIPtextBox
             // 
-            this.serverporttextBox.Location = new System.Drawing.Point(93, 49);
-            this.serverporttextBox.Name = "serverporttextBox";
-            this.serverporttextBox.Size = new System.Drawing.Size(66, 20);
-            this.serverporttextBox.TabIndex = 12;
-            this.serverporttextBox.Text = "3306";
+            this.ServerIPtextBox.Location = new System.Drawing.Point(93, 23);
+            this.ServerIPtextBox.Name = "ServerIPtextBox";
+            this.ServerIPtextBox.Size = new System.Drawing.Size(121, 20);
+            this.ServerIPtextBox.TabIndex = 11;
+            this.ServerIPtextBox.Text = global::DolEditor.Properties.Settings.Default.ServerIP;
             // 
             // serveriplabel
             // 
@@ -161,18 +182,9 @@ namespace Origins_Editor
             this.serveriplabel.TabIndex = 10;
             this.serveriplabel.Text = "IP:";
             // 
-            // serverportlabel
-            // 
-            this.serverportlabel.AutoSize = true;
-            this.serverportlabel.Location = new System.Drawing.Point(30, 52);
-            this.serverportlabel.Name = "serverportlabel";
-            this.serverportlabel.Size = new System.Drawing.Size(63, 13);
-            this.serverportlabel.TabIndex = 8;
-            this.serverportlabel.Text = "Server Port:";
-            // 
             // saveconfigurationbutton
             // 
-            this.saveconfigurationbutton.Location = new System.Drawing.Point(114, 196);
+            this.saveconfigurationbutton.Location = new System.Drawing.Point(114, 162);
             this.saveconfigurationbutton.Name = "saveconfigurationbutton";
             this.saveconfigurationbutton.Size = new System.Drawing.Size(138, 23);
             this.saveconfigurationbutton.TabIndex = 3;
@@ -182,7 +194,7 @@ namespace Origins_Editor
             // 
             // TestConnectionbutton
             // 
-            this.TestConnectionbutton.Location = new System.Drawing.Point(12, 196);
+            this.TestConnectionbutton.Location = new System.Drawing.Point(12, 162);
             this.TestConnectionbutton.Name = "TestConnectionbutton";
             this.TestConnectionbutton.Size = new System.Drawing.Size(96, 23);
             this.TestConnectionbutton.TabIndex = 4;
@@ -190,45 +202,12 @@ namespace Origins_Editor
             this.TestConnectionbutton.UseVisualStyleBackColor = true;
             this.TestConnectionbutton.Click += new System.EventHandler(this.VerifyConnectivity_Tick);
             // 
-            // DatabasePWDtextBox
-            // 
-            this.DatabasePWDtextBox.Location = new System.Drawing.Point(93, 126);
-            this.DatabasePWDtextBox.Name = "DatabasePWDtextBox";
-            this.DatabasePWDtextBox.Size = new System.Drawing.Size(141, 20);
-            this.DatabasePWDtextBox.TabIndex = 18;
-            this.DatabasePWDtextBox.Text = global::DolEditor.Properties.Settings.Default.Password;
-            this.DatabasePWDtextBox.UseSystemPasswordChar = true;
-            // 
-            // DatabaseUsertextBox
-            // 
-            this.DatabaseUsertextBox.Location = new System.Drawing.Point(93, 102);
-            this.DatabaseUsertextBox.Name = "DatabaseUsertextBox";
-            this.DatabaseUsertextBox.Size = new System.Drawing.Size(141, 20);
-            this.DatabaseUsertextBox.TabIndex = 17;
-            this.DatabaseUsertextBox.Text = global::DolEditor.Properties.Settings.Default.Username;
-            // 
-            // DatabaseNametextBox
-            // 
-            this.DatabaseNametextBox.Location = new System.Drawing.Point(93, 76);
-            this.DatabaseNametextBox.Name = "DatabaseNametextBox";
-            this.DatabaseNametextBox.Size = new System.Drawing.Size(141, 20);
-            this.DatabaseNametextBox.TabIndex = 16;
-            this.DatabaseNametextBox.Text = global::DolEditor.Properties.Settings.Default.DatabaseName;
-            // 
-            // ServerIPtextBox
-            // 
-            this.ServerIPtextBox.Location = new System.Drawing.Point(93, 23);
-            this.ServerIPtextBox.Name = "ServerIPtextBox";
-            this.ServerIPtextBox.Size = new System.Drawing.Size(121, 20);
-            this.ServerIPtextBox.TabIndex = 11;
-            this.ServerIPtextBox.Text = global::DolEditor.Properties.Settings.Default.ServerIP;
-            // 
             // LoadPreferences
             // 
             this.AcceptButton = this.saveconfigurationbutton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(263, 226);
+            this.ClientSize = new System.Drawing.Size(263, 191);
             this.Controls.Add(this.TestConnectionbutton);
             this.Controls.Add(this.saveconfigurationbutton);
             this.Controls.Add(this.groupBox2);
@@ -247,8 +226,6 @@ namespace Origins_Editor
 
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label serveriplabel;
-        private System.Windows.Forms.Label serverportlabel;
-        private System.Windows.Forms.TextBox serverporttextBox;
         private System.Windows.Forms.TextBox ServerIPtextBox;
         private System.Windows.Forms.Label DatabaseUserlabel;
         private System.Windows.Forms.Label DatabaseUserPWDlabel;

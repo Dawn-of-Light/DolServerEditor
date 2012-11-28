@@ -13,23 +13,21 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
-    <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>ftp://daoc-origins.net/www/OriginsEditor/</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Web</InstallFrom>
-    <UpdateEnabled>true</UpdateEnabled>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>ftp://daoc.net/</PublishUrl>
+    <Install>false</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
     <UpdateMode>Background</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>true</UpdateRequired>
+    <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://daoc-origins.net/OriginsEditor/</InstallUrl>
-    <UpdateUrl>http://daoc-origins.servegame.com/OriginsEditor/</UpdateUrl>
-    <SupportUrl>http://daoc-origins.net/</SupportUrl>
+    <SupportUrl>http://www.dolserver.net/viewtopic.php%3ff=69&amp;t=21083</SupportUrl>
     <TargetCulture>en-US</TargetCulture>
-    <ProductName>Origins Editor</ProductName>
-    <PublisherName>Origins</PublisherName>
+    <ProductName>Dol Server Editor</ProductName>
+    <PublisherName>Dawn of Light</PublisherName>
     <MinimumRequiredVersion>1.0.0.1</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>

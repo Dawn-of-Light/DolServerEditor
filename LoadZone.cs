@@ -266,7 +266,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
 
                 this.EditZoneControl.Hide();
@@ -364,7 +364,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
 
                 this.ZonedataGridView.ReadOnly = true;

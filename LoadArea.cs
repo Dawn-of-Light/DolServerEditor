@@ -122,7 +122,7 @@ namespace Origins_Editor
             }
             catch (MySqlException s)
             {
-                System.Windows.MessageBox.Show(s.Message);
+                MessageBox.Show(s.Message);
             }
         }
 
@@ -189,7 +189,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
 
                 this.AreadataGridView.ReadOnly = true;
@@ -350,7 +350,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
 
                 this.EditAreaControl.Hide();
@@ -375,7 +375,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
             }
 
@@ -466,7 +466,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
             }
         }
@@ -484,7 +484,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
             }
             this.GetAreaLanguageData("SELECT * FROM languagearea WHERE translationid='" + this.TranslationIDtextBox.Text.ToString() + "'");
@@ -530,7 +530,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
             }
         }

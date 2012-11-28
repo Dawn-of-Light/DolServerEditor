@@ -90,7 +90,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
             }
             GetData("select * from battleground");
@@ -235,7 +235,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
 
                 this.ZoneListingButton.Visible = false;
@@ -272,7 +272,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
 
                 this.BattlegrounddataGridView.ReadOnly = true;

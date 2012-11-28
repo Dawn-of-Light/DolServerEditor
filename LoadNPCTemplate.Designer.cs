@@ -384,12 +384,12 @@ namespace Origins_Editor
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.NPCTemplatedataGridView.DefaultCellStyle = dataGridViewCellStyle1;
-            this.NPCTemplatedataGridView.Location = new System.Drawing.Point(12, 74);
+            this.NPCTemplatedataGridView.Location = new System.Drawing.Point(12, 313);
             this.NPCTemplatedataGridView.MultiSelect = false;
             this.NPCTemplatedataGridView.Name = "NPCTemplatedataGridView";
             this.NPCTemplatedataGridView.ReadOnly = true;
             this.NPCTemplatedataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.NPCTemplatedataGridView.Size = new System.Drawing.Size(838, 607);
+            this.NPCTemplatedataGridView.Size = new System.Drawing.Size(838, 368);
             this.NPCTemplatedataGridView.TabIndex = 1;
             this.NPCTemplatedataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.NPCTemplatedataGridView_CellContentClick);
             this.NPCTemplatedataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.TranslationdataGridView__CellValueChanged);
@@ -2206,7 +2206,7 @@ namespace Origins_Editor
         private TextBox EvadeChancetextBox;
         private TextBox ParryChancetextBox;
         private TextBox MaxSpeedtextBox;
-        private TextBox ModeltextBox;
+        public TextBox ModeltextBox;
         private GroupBox groupBox1;
         private TextBox GuildNametextBox;
         private TextBox FRNametextBox;

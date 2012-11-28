@@ -26,17 +26,27 @@ namespace Origins_Editor
 {
     public partial class LoadPreferences : Form
     {
+        private bool connectionState = false;
+
         public LoadPreferences()
         {
             InitializeComponent();
+
             if (DolEditor.Properties.Settings.Default.OriginsSettings)
                 this.OriginsDatabaseSettingscheckBox.Checked = true;
             else
                 this.OriginsDatabaseSettingscheckBox.Checked = false;
 
+            if (VerifyConnectivity())
+                connectionState = true;
         }
 
         private void VerifyConnectivity_Tick(object sender, EventArgs e)
+        {
+            VerifyConnectivity();
+        }
+
+        private bool VerifyConnectivity()
         {
             bool Flag = false;
             try
@@ -49,8 +59,8 @@ namespace Origins_Editor
             catch (MySqlException s)
             {
                 Flag = true;
-                TestConnectionbutton.BackColor = Color.Red;
-                MessageBox.Show("Error " + s.Message); 
+                TestConnectionbutton.BackColor = Color.Red; 
+                MessageBox.Show(s.Message);
             }
             finally
             {
@@ -59,7 +69,11 @@ namespace Origins_Editor
                     TestConnectionbutton.BackColor = Color.Green;
                 }
             }
-        } 
+            if (Flag == false)
+                return true;
+
+            return false;
+        }
 
         private void SavePreferences_Click(object sender, EventArgs e)
         {
@@ -71,14 +85,6 @@ namespace Origins_Editor
             if (this.ServerIPtextBox.Text != DolEditor.Properties.Settings.Default.ServerIP)
                 DolEditor.Properties.Settings.Default.ServerIP = this.ServerIPtextBox.Text;
 
-            if (this.serverporttextBox.Text != DolEditor.Properties.Settings.Default.PortNumber.ToString())
-            {
-                int port = Convert.ToInt16(serverporttextBox.Text);
-                if (port > 0)
-                {
-                    DolEditor.Properties.Settings.Default.PortNumber = port;
-                }
-            }
             if (this.DatabaseNametextBox.Text != DolEditor.Properties.Settings.Default.DatabaseName)
                 DolEditor.Properties.Settings.Default.DatabaseName = this.DatabaseNametextBox.Text;
 
@@ -91,6 +97,15 @@ namespace Origins_Editor
             DolEditor.Properties.Settings.Default.Save();
 
             this.Close();
+
+            if (!connectionState && VerifyConnectivity())
+            {
+                if (MessageBox.Show("Dol Editor Need to be restarted", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Exclamation) == DialogResult.OK)
+                {
+                    Application.Restart();
+                    Environment.Exit(Environment.ExitCode);
+                }
+            }
         }
     }
 }

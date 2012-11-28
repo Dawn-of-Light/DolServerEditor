@@ -67,18 +67,24 @@ namespace Origins_Editor
             {
                 string rowvalue = this.dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells["ID"].Value.ToString();
 
-                if (form.Text.Contains(rowvalue))
+                var split = Util.SplitCSV(loadNPCTemplateWindow.ModeltextBox.Text.ToString(), false); ;
+                foreach (var spl in split)
                 {
-                    MessageBox.Show("The NPCTemplate already contains this model.");
-                    return;
+                    int id = 0;
+                    int.TryParse(spl, out id);
+                    if (id.ToString() == rowvalue)
+                    {
+                        MessageBox.Show("The NPCTemplate already contains this model.");
+                        return;
+                    }
                 }
                 string value = "";
-                if (form.Text != null && form.Text != "")
-                   value += ";" + rowvalue;
+                if (loadNPCTemplateWindow.ModeltextBox.Text != null && loadNPCTemplateWindow.ModeltextBox.Text != "")
+                    value += ";" + rowvalue;
                 else
                     value = rowvalue;
 
-                form.Text += value;
+                loadNPCTemplateWindow.ModeltextBox.Text += value;
             }
         }
 

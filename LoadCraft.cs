@@ -225,7 +225,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
             }
         }
@@ -297,7 +297,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
             }
         }
@@ -315,7 +315,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
             }
 
@@ -375,7 +375,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
             }
 
@@ -393,7 +393,7 @@ namespace Origins_Editor
             }
             catch (MySqlException s)
             {
-                System.Windows.MessageBox.Show(s.Message);
+                MessageBox.Show(s.Message);
             }
         }
 
@@ -408,7 +408,7 @@ namespace Origins_Editor
             }
             catch (MySqlException s)
             {
-                System.Windows.MessageBox.Show(s.Message);
+                MessageBox.Show(s.Message);
             }
         }
 

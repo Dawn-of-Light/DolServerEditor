@@ -45,7 +45,7 @@ namespace Origins_Editor
             }
             catch (MySqlException s)
             {
-                System.Windows.MessageBox.Show(s.Message);
+                //MessageBox.Show(s.Message);
                 Flag = true;
             }
             finally
@@ -57,8 +57,9 @@ namespace Origins_Editor
                     fm.TopMost = true;
                     fm.Show();
                 }
+                else
+                    this.Load += new EventHandler(Form1_Load);
             }
-            this.Load += new EventHandler(Form1_Load);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -100,7 +101,7 @@ namespace Origins_Editor
             }
             catch (MySqlException s)
             {
-                System.Windows.MessageBox.Show(s.Message);
+                MessageBox.Show(s.Message);
             }
         }
 
@@ -127,7 +128,7 @@ namespace Origins_Editor
             }
             catch (MySqlException s)
             {
-                System.Windows.MessageBox.Show(s.Message);
+                MessageBox.Show(s.Message);
             }
         }
 
@@ -154,7 +155,7 @@ namespace Origins_Editor
             }
             catch (MySqlException s)
             {
-                System.Windows.MessageBox.Show(s.Message);
+                MessageBox.Show(s.Message);
             }
         }
     
@@ -348,7 +349,7 @@ namespace Origins_Editor
             }
             catch (MySqlException s)
             {
-                System.Windows.MessageBox.Show(s.Message);
+                MessageBox.Show(s.Message);
             }
 
             MessageBox.Show(string.Format(" Table Mob rows affected: {0}\n Table MobxAmbientBehaviour rows affected: {1}\n Table Dataquest rows affected: {2}\n Table DropTemplateXItemTemplate rows affected: {3}\n Table MobDropTemplate rows affected: {4}\n Table NPCTemplate rows affected: {5}\n Table Inventory rows affected: {6}\n Table LootTemplate rows affected: {7}\n Table MobXLootTemplate rows affected: {8}\n Table LootOTD rows affected: {9}\n Table LootGenerator rows affected: {10}\n ", 
@@ -397,7 +398,7 @@ namespace Origins_Editor
             }
             catch (MySqlException s)
             {
-                System.Windows.MessageBox.Show(s.Message);
+                MessageBox.Show(s.Message);
             }
 
             MessageBox.Show(string.Format(" Table Mob rows affected: {0}\n Table NPCTemplate Aggro rows affected: {1}\n Table Mob Aggro rows affected: {2}",
@@ -436,7 +437,7 @@ namespace Origins_Editor
             }
             catch (MySqlException s)
             {
-                System.Windows.MessageBox.Show(s.Message);
+                MessageBox.Show(s.Message);
             }
 
             MessageBox.Show(string.Format(" Table Mob rows affected: {0}\n Table NPCTemplate rows affected: {1}\n ", MobrowsAffected, NPCTemplaterowsAffected));
@@ -474,7 +475,7 @@ namespace Origins_Editor
             }
             catch (MySqlException s)
             {
-                System.Windows.MessageBox.Show(s.Message);
+                MessageBox.Show(s.Message);
             }
 
             MessageBox.Show(string.Format(" Table Mob rows affected: {0}\n Table NPCTemplate rows affected: {1}\n ", MobrowsAffected, NPCTemplaterowsAffected));
@@ -502,7 +503,7 @@ namespace Origins_Editor
             }
             catch (MySqlException s)
             {
-                System.Windows.MessageBox.Show(s.Message);
+                MessageBox.Show(s.Message);
             }
 
             MessageBox.Show(string.Format(" Table Mob rows affected: {0}", MobrowsAffected));

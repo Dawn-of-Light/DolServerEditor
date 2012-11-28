@@ -168,7 +168,7 @@ namespace Origins_Editor
             }
             catch (MySqlException s)
             {
-                System.Windows.MessageBox.Show(s.Message);
+                MessageBox.Show(s.Message);
             }
 
             if (DolEditor.Properties.Settings.Default.OriginsSettings)
@@ -618,7 +618,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
 
                 this.dataGridSpell.ReadOnly = true;
@@ -787,7 +787,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
             }
         }
@@ -859,7 +859,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
 
                 GetLineXSpellData("select * from linexspell where spellid='" + spellIDtextBox.Text.ToString() + "'");
@@ -879,7 +879,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
             }
             GetLineXSpellData("select * from linexspell where spellid='" + spellIDtextBox.Text.ToString() + "'");
@@ -980,7 +980,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
             }
             GetLanguageSpellData("select * from languagespell where translationid='" + TranslationIDtextBox.Text.ToString() + "'");
@@ -1002,7 +1002,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
             }
             GetLanguageSpellData("select * from languagespell where translationid='" + TranslationIDtextBox.Text.ToString() + "'");
@@ -1019,7 +1019,7 @@ namespace Origins_Editor
             }
             catch (MySqlException s)
             {
-                System.Windows.MessageBox.Show(s.Message);
+                MessageBox.Show(s.Message);
             }
         }
 
@@ -1037,7 +1037,7 @@ namespace Origins_Editor
             }
             catch (MySqlException s)
             {
-                System.Windows.MessageBox.Show(s.Message);
+                MessageBox.Show(s.Message);
             }
         }
 
@@ -1055,7 +1055,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
             }
 

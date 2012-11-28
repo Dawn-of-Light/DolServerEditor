@@ -74,8 +74,9 @@ namespace Origins_Editor
 
             ToolTip toolTip1 = new ToolTip();
             toolTip1.SetToolTip(this.StrengthtextBox, "0 Strength Means SetAutoStats.");
-            toolTip1.SetToolTip(this.groupBox11, "Level, Size and Models Can be Multiple.");
+            toolTip1.SetToolTip(this.groupBox11, "Level, Size and Models can be multiple.");
             toolTip1.SetToolTip(this.AggroLevelUpDown, "0 -> 25 Amical | 26 -> 50 Neutral | 51 -> 75 Hostile | 76 -> 100 Agressive");
+            toolTip1.SetToolTip(this.TranslationIDtextBox, "Change this value automatically update the translation block.");
 
             this.GetNPCTemplateItemData("select * from npctemplate");
 
@@ -86,7 +87,7 @@ namespace Origins_Editor
             try
             {
 
-                MySqlDataAdapter RacedataAdapter = new MySqlDataAdapter("select * from race", connection);
+                MySqlDataAdapter RacedataAdapter = new MySqlDataAdapter("select * from race ORDER BY name ASC", connection);
                 MySqlCommandBuilder commandBuilderRace = new MySqlCommandBuilder(RacedataAdapter);
                 DataTable RaceDatatable = new DataTable();
                 RacedataAdapter.Fill(RaceDatatable);
@@ -136,7 +137,7 @@ namespace Origins_Editor
             }
             catch (MySqlException s)
             {
-                System.Windows.MessageBox.Show(s.Message);
+                MessageBox.Show(s.Message);
             }
         }
 
@@ -496,7 +497,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
             }
         }
@@ -616,7 +617,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
 
                 this.NPCTemplatedataGridView.ReadOnly = true;
@@ -1142,7 +1143,7 @@ namespace Origins_Editor
                 }
                 catch (MySqlException s)
                 {
-                    System.Windows.MessageBox.Show(s.Message);
+                    MessageBox.Show(s.Message);
                 }
             }
 
@@ -1165,6 +1166,7 @@ namespace Origins_Editor
 
                 MobsModelChoice fm = new MobsModelChoice(this, ModeltextBox);
                 MobsChoiceOpen = fm;
+                fm.TopMost = true;
                 fm.Show();
             }
         }
@@ -1180,7 +1182,7 @@ namespace Origins_Editor
             }
             catch (MySqlException s)
             {
-                System.Windows.MessageBox.Show(s.Message);
+                MessageBox.Show(s.Message);
             }
         }
 
