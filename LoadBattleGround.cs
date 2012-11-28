@@ -34,7 +34,8 @@ namespace Origins_Editor
         MySqlDataAdapter BattleGrounddataAdapter = new MySqlDataAdapter();
         MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder();
         DataTable BattlegroundDatatable = new DataTable();
-
+        private MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
+           
         public LoadBattleGround()
         {
             InitializeComponent();
@@ -58,10 +59,8 @@ namespace Origins_Editor
         {
             try
             {
-                MySqlConnection connection3 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
                 // Create a new data adapter based on the specified query.
-                this.BattleGrounddataAdapter = new MySqlDataAdapter(selectCommand, connection3);
+                this.BattleGrounddataAdapter = new MySqlDataAdapter(selectCommand, connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.

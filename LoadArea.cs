@@ -31,7 +31,8 @@ namespace Origins_Editor
         MySqlCommandBuilder AreacommandBuilder = new MySqlCommandBuilder();
         MySqlDataAdapter AreaLanguagedataAdapter = new MySqlDataAdapter();
         MySqlCommandBuilder AreaLanguagecommandBuilder = new MySqlCommandBuilder();
-
+        private MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
+           
         public LoadArea()
         {
             InitializeComponent();
@@ -69,10 +70,8 @@ namespace Origins_Editor
         {
             try
             {
-                MySqlConnection connection3 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
                 // Create a new data adapter based on the specified query.
-                this.AreadataAdapter = new MySqlDataAdapter(selectCommand, connection3);
+                this.AreadataAdapter = new MySqlDataAdapter(selectCommand, connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -94,10 +93,8 @@ namespace Origins_Editor
         {
             try
             {
-                MySqlConnection connection3 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
                 // Create a new data adapter based on the specified query.
-                this.AreaLanguagedataAdapter = new MySqlDataAdapter(selectCommand, connection3);
+                this.AreaLanguagedataAdapter = new MySqlDataAdapter(selectCommand, connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -318,8 +315,6 @@ namespace Origins_Editor
             if (MessageBox.Show("Save this new area?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 // user clicked yes
-                MySqlConnection connection15 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
                 long i = 1;
                 foreach (byte b in Guid.NewGuid().ToByteArray())
                 {

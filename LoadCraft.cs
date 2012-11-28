@@ -34,7 +34,8 @@ namespace Origins_Editor
         MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder();
         MySqlDataAdapter CraftedItemdataAdapter;
         MySqlDataAdapter CraftedXItemdataAdapter;
-
+        private MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
+           
         public LoadCraft()
         {
             InitializeComponent();
@@ -61,10 +62,8 @@ namespace Origins_Editor
         {
             try
             {
-                MySqlConnection connection3 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
                 // Create a new data adapter based on the specified query.
-                this.CraftedItemdataAdapter = new MySqlDataAdapter(selectCommand, connection3);
+                this.CraftedItemdataAdapter = new MySqlDataAdapter(selectCommand, connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -85,10 +84,8 @@ namespace Origins_Editor
         {
             try
             {
-                MySqlConnection connection3 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
                 // Create a new data adapter based on the specified query.
-                this.CraftedXItemdataAdapter = new MySqlDataAdapter(selectCommand, connection3);
+                this.CraftedXItemdataAdapter = new MySqlDataAdapter(selectCommand, connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -137,10 +134,9 @@ namespace Origins_Editor
                 if (CraftedItemID > 0)
                 {
                     MySqlDataAdapter CraftedItemIDdataAdapter = new MySqlDataAdapter();
-                    MySqlConnection connection15 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
                     string selectCommand = "select * from crafteditem  where crafteditemid = '" + CraftedItemIDtextBox.Text.ToString() + "'";
                     // Create a new data adapter based on the specified query.
-                    CraftedItemIDdataAdapter = new MySqlDataAdapter(selectCommand, connection15);
+                    CraftedItemIDdataAdapter = new MySqlDataAdapter(selectCommand, connection);
                     // Create a command builder to generate SQL update, insert, and 
                     // delete commands based on selectCommand. These are used to 
                     // update the database.

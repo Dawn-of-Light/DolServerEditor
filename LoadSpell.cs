@@ -35,7 +35,8 @@ namespace Origins_Editor
         MySqlDataAdapter SpelldataAdapter;
         MySqlDataAdapter LineXSpelldataAdapter;
         MySqlDataAdapter LanguageSpelldataAdapter;
-
+        private MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
+           
         public LoadSpell()
         {
             InitializeComponent();
@@ -48,10 +49,8 @@ namespace Origins_Editor
             {
                 if (!DolEditor.Properties.Settings.Default.OriginsSettings)
                     return;
-                MySqlConnection connection3 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
                 // Create a new data adapter based on the specified query.
-                LanguageSpelldataAdapter = new MySqlDataAdapter(selectCommand, connection3);
+                LanguageSpelldataAdapter = new MySqlDataAdapter(selectCommand, connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -77,11 +76,8 @@ namespace Origins_Editor
         {
             try
             {
-                //LineXSpelldataAdapter = new MySqlDataAdapter();
-                MySqlConnection connection3 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
                 // Create a new data adapter based on the specified query.
-                LineXSpelldataAdapter = new MySqlDataAdapter(selectCommand, connection3);
+                LineXSpelldataAdapter = new MySqlDataAdapter(selectCommand, connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -106,10 +102,8 @@ namespace Origins_Editor
         {
             try
             {
-                MySqlConnection connection3 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
                 // Create a new data adapter based on the specified query.
-                SpelldataAdapter = new MySqlDataAdapter(selectCommand, connection3);
+                SpelldataAdapter = new MySqlDataAdapter(selectCommand, connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -154,10 +148,6 @@ namespace Origins_Editor
 
             try
             {
-
-
-                MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
                 connection.Open();
 
                 //PackageID Datatable
@@ -654,10 +644,9 @@ namespace Origins_Editor
 
                     // user clicked yes
                     MySqlDataAdapter NewSpellVerifdataAdapter = new MySqlDataAdapter();
-                    MySqlConnection connection15 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
                     string selectCommand = "select * from spell  where spellid = '" + spellIDtextBox.Text.ToString() + "'";
                     // Create a new data adapter based on the specified query.
-                    NewSpellVerifdataAdapter = new MySqlDataAdapter(selectCommand, connection15);
+                    NewSpellVerifdataAdapter = new MySqlDataAdapter(selectCommand, connection);
                     // Create a command builder to generate SQL update, insert, and 
                     // delete commands based on selectCommand. These are used to 
                     // update the database.

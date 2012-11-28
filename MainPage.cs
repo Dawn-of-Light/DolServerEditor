@@ -27,6 +27,7 @@ namespace Origins_Editor
 
     public partial class MainPageEditor : Form
     {
+        public MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
 
         public MainPageEditor()
         {
@@ -37,7 +38,7 @@ namespace Origins_Editor
 
             try
             {
-                using (MySqlConnection con = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + ""))
+                using (MySqlConnection con = connection)
                 {
                     con.Open();
                 }
@@ -80,9 +81,7 @@ namespace Origins_Editor
             try
             {
 
-                MySqlConnection connection3 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
-                MySqlDataAdapter NPCTemplatedataAdapter = new MySqlDataAdapter(selectCommand, connection3);
+                MySqlDataAdapter NPCTemplatedataAdapter = new MySqlDataAdapter(selectCommand, connection);
                 MySqlCommandBuilder commandBuilderNPCTemplate = new MySqlCommandBuilder(NPCTemplatedataAdapter);
                 DataTable NPCTemplateDatatable = new DataTable();
                 NPCTemplatedataAdapter.Fill(NPCTemplateDatatable);
@@ -109,10 +108,7 @@ namespace Origins_Editor
         {
             try
             {
-
-                MySqlConnection connection3 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
-                MySqlDataAdapter FactiondataAdapter = new MySqlDataAdapter(selectCommand, connection3);
+                MySqlDataAdapter FactiondataAdapter = new MySqlDataAdapter(selectCommand, connection);
                 MySqlCommandBuilder commandBuilderRace = new MySqlCommandBuilder(FactiondataAdapter);
                 DataTable FactionDatatable = new DataTable();
                 FactiondataAdapter.Fill(FactionDatatable);
@@ -139,10 +135,7 @@ namespace Origins_Editor
         {
             try
             {
-
-                MySqlConnection connection3 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
-                MySqlDataAdapter RacedataAdapter = new MySqlDataAdapter(selectCommand, connection3);
+                MySqlDataAdapter RacedataAdapter = new MySqlDataAdapter(selectCommand, connection);
                 MySqlCommandBuilder commandBuilderRace = new MySqlCommandBuilder(RacedataAdapter);
                 DataTable RaceDatatable = new DataTable();
                 RacedataAdapter.Fill(RaceDatatable);
@@ -237,7 +230,6 @@ namespace Origins_Editor
                 MessageBox.Show(" WARNING: Name to Set can't be null.");
                 return;
             }
-            MySqlConnection thisConnection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
 
             int MobrowsAffected = 0;
             int MobxAmbientBehaviourrowsAffected = 0;
@@ -253,9 +245,9 @@ namespace Origins_Editor
 
             try
             {
-                thisConnection.Open();
+                connection.Open();
 
-                MySqlCommand MobCommand = thisConnection.CreateCommand();
+                MySqlCommand MobCommand = connection.CreateCommand();
 
                 MobCommand.CommandText = "update Mob set name='" + ChangedNametextBox.Text.Replace("'", "''") +"' where name ='" + OriginalNametextBox.Text.Replace("'", "''") +"'";
                 MobrowsAffected = MobCommand.ExecuteNonQuery();
@@ -263,7 +255,7 @@ namespace Origins_Editor
                 if (UpdateMobxAmbientBehaviourcheckBox.Checked)
                 {
 
-                    MySqlCommand MobxAmbientBehaviourCommand = thisConnection.CreateCommand();
+                    MySqlCommand MobxAmbientBehaviourCommand = connection.CreateCommand();
 
                     MobxAmbientBehaviourCommand.CommandText = "update MobxAmbientBehaviour set source='" + ChangedNametextBox.Text.Replace("'", "''") + "' where source ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
                     MobxAmbientBehaviourrowsAffected = MobxAmbientBehaviourCommand.ExecuteNonQuery();
@@ -272,7 +264,7 @@ namespace Origins_Editor
                 if (UpdateDataquestcheckBox.Checked)
                 {
 
-                    MySqlCommand DataquestCommand = thisConnection.CreateCommand();
+                    MySqlCommand DataquestCommand = connection.CreateCommand();
 
                     DataquestCommand.CommandText = "update dataquest set startname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where startname ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
                     DataquestrowsAffected = DataquestCommand.ExecuteNonQuery();
@@ -282,17 +274,17 @@ namespace Origins_Editor
 
                 if (UpdateDropTemplateXItemTemplatecheckBox.Checked)
                 {
-                    MySqlCommand DropTemplateXItemTemplateCommand = thisConnection.CreateCommand();
+                    MySqlCommand DropTemplateXItemTemplateCommand = connection.CreateCommand();
 
                     DropTemplateXItemTemplateCommand.CommandText = "update DropTemplateXItemTemplate set templatename='" + ChangedNametextBox.Text.Replace("'", "''") + "' where templatename ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
                     DropTemplateXItemTemplaterowsAffected = DropTemplateXItemTemplateCommand.ExecuteNonQuery();
 
-                    MySqlCommand MobDropTemplateCommand = thisConnection.CreateCommand();
+                    MySqlCommand MobDropTemplateCommand = connection.CreateCommand();
 
                     MobDropTemplateCommand.CommandText = "update MobDropTemplate set mobname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where mobname ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
                     MobDropTemplaterowsAffected = MobDropTemplateCommand.ExecuteNonQuery();
 
-                    MySqlCommand MobDropTemplateCommand2 = thisConnection.CreateCommand();
+                    MySqlCommand MobDropTemplateCommand2 = connection.CreateCommand();
 
                     MobDropTemplateCommand2.CommandText = "update MobDropTemplate set loottemplatename='" + ChangedNametextBox.Text.Replace("'", "''") + "' where loottemplatename ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
                     MobDropTemplateCommand2.ExecuteNonQuery();
@@ -301,7 +293,7 @@ namespace Origins_Editor
 
                 if (UpdateNPCTemplatecheckBox.Checked)
                 {
-                    MySqlCommand NPCTemplateCommand = thisConnection.CreateCommand();
+                    MySqlCommand NPCTemplateCommand = connection.CreateCommand();
 
                     NPCTemplateCommand.CommandText = "update npctemplate set name='" + ChangedNametextBox.Text.Replace("'", "''") + "' where name ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
                     NPCTemplaterowsAffected = NPCTemplateCommand.ExecuteNonQuery();
@@ -311,7 +303,7 @@ namespace Origins_Editor
                 if (UpdateInventoryCreatorcheckBox.Checked)
                 {
 
-                    MySqlCommand InventoryCreatorCommand = thisConnection.CreateCommand();
+                    MySqlCommand InventoryCreatorCommand = connection.CreateCommand();
 
                     InventoryCreatorCommand.CommandText = "update inventory set creator='" + ChangedNametextBox.Text.Replace("'", "''") + "' where creator ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
                     InventoryCreatorrowsAffected = InventoryCreatorCommand.ExecuteNonQuery();
@@ -319,17 +311,17 @@ namespace Origins_Editor
 
                 if (UpdateMobXLootTemplatecheckBox.Checked)
                 {
-                    MySqlCommand DropTemplateXItemTemplateCommand = thisConnection.CreateCommand();
+                    MySqlCommand DropTemplateXItemTemplateCommand = connection.CreateCommand();
 
                     DropTemplateXItemTemplateCommand.CommandText = "update loottemplate set templatename='" + ChangedNametextBox.Text.Replace("'", "''") + "' where templatename ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
                     LootTemplaterowsAffected = DropTemplateXItemTemplateCommand.ExecuteNonQuery();
 
-                    MySqlCommand MobXLootTemplateCommand = thisConnection.CreateCommand();
+                    MySqlCommand MobXLootTemplateCommand = connection.CreateCommand();
 
                     MobXLootTemplateCommand.CommandText = "update MobXLootTemplate set mobname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where mobname ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
                     MobXLootTemplaterowsAffected = MobXLootTemplateCommand.ExecuteNonQuery();
 
-                    MySqlCommand MobXLootTemplateCommand2 = thisConnection.CreateCommand();
+                    MySqlCommand MobXLootTemplateCommand2 = connection.CreateCommand();
 
                     MobXLootTemplateCommand2.CommandText = "update MobXLootTemplate set loottemplatename='" + ChangedNametextBox.Text.Replace("'", "''") + "' where loottemplatename ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
                     MobXLootTemplateCommand2.ExecuteNonQuery();
@@ -337,7 +329,7 @@ namespace Origins_Editor
 
                 if (UpdateLootOTDcheckBox.Checked)
                 {
-                    MySqlCommand LootOTDCommand = thisConnection.CreateCommand();
+                    MySqlCommand LootOTDCommand = connection.CreateCommand();
 
                     LootOTDCommand.CommandText = "update loototd set mobname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where mobname ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
                     LootOTDrowsAffected = LootOTDCommand.ExecuteNonQuery();
@@ -345,14 +337,14 @@ namespace Origins_Editor
 
                 if (UpdateLootGeneratorcheckBox.Checked)
                 {
-                    MySqlCommand LootGeneratorCommand = thisConnection.CreateCommand();
+                    MySqlCommand LootGeneratorCommand = connection.CreateCommand();
 
                     LootGeneratorCommand.CommandText = "update lootgenerator set mobname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where mobname ='" + OriginalNametextBox.Text.Replace("'", "''") + "'";
                     LootGeneratorAffected = LootGeneratorCommand.ExecuteNonQuery();
                 }
 
 
-                thisConnection.Close();
+                connection.Close();
             }
             catch (MySqlException s)
             {
@@ -371,24 +363,22 @@ namespace Origins_Editor
                 return;
             }
 
-            MySqlConnection thisConnection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
             int MobrowsAffected = 0;
             int FactionAggroNPCTemplaterowsAffected = 0;
             int FactionAggroMobrowsAffected = 0;
 
             try
             {
-                thisConnection.Open();
+                connection.Open();
 
-                MySqlCommand MobCommand = thisConnection.CreateCommand();
+                MySqlCommand MobCommand = connection.CreateCommand();
 
                 MobCommand.CommandText = "update Mob set factionid='" + FactioncomboBox.SelectedValue + "' where name ='" + MobNameMassFactiontextBox.Text.Replace("'", "''") + "'";
                 MobrowsAffected = MobCommand.ExecuteNonQuery();
 
                 if (SetAggroLevelto0checkBox.Checked)
                 {
-                    MySqlCommand FactionNPCtemplateAggroCommand = thisConnection.CreateCommand();
+                    MySqlCommand FactionNPCtemplateAggroCommand = connection.CreateCommand();
 
                     FactionNPCtemplateAggroCommand.CommandText = "update npctemplate set aggrolevel='0' where name ='" + MobNameMassFactiontextBox.Text.Replace("'", "''") + "'";
                     FactionAggroNPCTemplaterowsAffected = FactionNPCtemplateAggroCommand.ExecuteNonQuery();
@@ -397,13 +387,13 @@ namespace Origins_Editor
 
                 if (SetAggroLevelto0checkBox.Checked)
                 {
-                    MySqlCommand FactionMobAggroCommand = thisConnection.CreateCommand();
+                    MySqlCommand FactionMobAggroCommand = connection.CreateCommand();
 
                     FactionMobAggroCommand.CommandText = "update mob set aggrolevel='0' where name ='" + MobNameMassFactiontextBox.Text.Replace("'", "''") + "'";
                     FactionAggroMobrowsAffected = FactionMobAggroCommand.ExecuteNonQuery();
 
                 }
-                thisConnection.Close();
+                connection.Close();
             }
             catch (MySqlException s)
             {
@@ -422,29 +412,27 @@ namespace Origins_Editor
                 return;
             }
 
-            MySqlConnection thisConnection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
             int MobrowsAffected = 0;
             int NPCTemplaterowsAffected = 0;
 
             try
             {
-                thisConnection.Open();
+                connection.Open();
 
-                MySqlCommand MobCommand = thisConnection.CreateCommand();
+                MySqlCommand MobCommand = connection.CreateCommand();
 
                 MobCommand.CommandText = "update Mob set race='" + RacecomboBox.SelectedValue + "' where name ='" + MobNameMassRacetextBox.Text.Replace("'", "''") + "'";
                 MobrowsAffected = MobCommand.ExecuteNonQuery();
 
                 if (UpdateMassRaceNPCTemplatecheckBox.Checked)
                 {
-                    MySqlCommand RaceCommand = thisConnection.CreateCommand();
+                    MySqlCommand RaceCommand = connection.CreateCommand();
 
                     RaceCommand.CommandText = "update npctemplate set race='" + RacecomboBox.SelectedValue + "' where name ='" + MobNameMassRacetextBox.Text.Replace("'", "''") + "'";
                     NPCTemplaterowsAffected = RaceCommand.ExecuteNonQuery();
 
                 }
-                thisConnection.Close();
+                connection.Close();
             }
             catch (MySqlException s)
             {
@@ -462,29 +450,27 @@ namespace Origins_Editor
                 return;
             }
 
-            MySqlConnection thisConnection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
             int MobrowsAffected = 0;
             int NPCTemplaterowsAffected = 0;
 
             try
             {
-                thisConnection.Open();
+                connection.Open();
 
-                MySqlCommand MobCommand = thisConnection.CreateCommand();
+                MySqlCommand MobCommand = connection.CreateCommand();
 
                 MobCommand.CommandText = "update Mob set bodytype='" + Util.Find_BodyType_Value(BodyTypecomboBox.Text) + "' where name ='" + MobNameUpdateMassBodyTypetextBox.Text.Replace("'", "''") + "'";
                 MobrowsAffected = MobCommand.ExecuteNonQuery();
 
                 if (UpdateMassNPCTemplateBodyTypecheckBox.Checked)
                 {
-                    MySqlCommand RaceCommand = thisConnection.CreateCommand();
+                    MySqlCommand RaceCommand = connection.CreateCommand();
 
                     RaceCommand.CommandText = "update npctemplate set bodytype='" + Util.Find_BodyType_Value(BodyTypecomboBox.Text) + "' where name ='" + MobNameUpdateMassBodyTypetextBox.Text.Replace("'", "''") + "'";
                     NPCTemplaterowsAffected = RaceCommand.ExecuteNonQuery();
 
                 }
-                thisConnection.Close();
+                connection.Close();
             }
             catch (MySqlException s)
             {
@@ -502,19 +488,17 @@ namespace Origins_Editor
                 return;
             }
 
-            MySqlConnection thisConnection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
             int MobrowsAffected = 0;
 
             try
             {
-                thisConnection.Open();
-                MySqlCommand MobCommand = thisConnection.CreateCommand();
+                connection.Open();
+                MySqlCommand MobCommand = connection.CreateCommand();
 
                 MobCommand.CommandText = "update Mob set npctemplateid='" + NPCTemplatecomboBox.SelectedValue + "' where name ='" + MobNameMassNPCTemplatetextBox.Text.Replace("'", "''") + "'";
                 MobrowsAffected = MobCommand.ExecuteNonQuery();
 
-                thisConnection.Close();
+                connection.Close();
             }
             catch (MySqlException s)
             {

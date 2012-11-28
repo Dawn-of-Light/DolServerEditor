@@ -33,7 +33,8 @@ namespace Origins_Editor
     {
         MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder();
         MySqlDataAdapter RegiondataAdapter;
-
+        private MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
+           
         public LoadRegion()
         {
             InitializeComponent();
@@ -44,10 +45,8 @@ namespace Origins_Editor
         {
             try
             {
-                MySqlConnection connection3 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
                 // Create a new data adapter based on the specified query.
-                RegiondataAdapter = new MySqlDataAdapter(selectCommand, connection3);
+                RegiondataAdapter = new MySqlDataAdapter(selectCommand, connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -87,8 +86,6 @@ namespace Origins_Editor
 
             try
             {
-                MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
                 connection.Open();
                 MySqlDataAdapter ClassTypeAdddataAdapter = new MySqlDataAdapter("select distinct ClassType from regions ORDER BY ClassType ASC", connection);
                 MySqlCommandBuilder ClassTypeDatacommandBuilder = new MySqlCommandBuilder(ClassTypeAdddataAdapter);

@@ -33,9 +33,10 @@ namespace Origins_Editor
         MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder();
         DataTable RaceDatatable = new DataTable();
         DataTable TranslationDatatable = new DataTable();
-        MobsModelChoice MobsChoiceOpen = null;
+        public MobsModelChoice MobsChoiceOpen = null;
         private bool loaded;
-
+        private MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
+           
         public LoadNPCTemplate()
         {
             InitializeComponent();
@@ -82,13 +83,10 @@ namespace Origins_Editor
 
             this.NPCTemplatedataGridView.DataSource = this.NPCTemplatebindingSource;
 
-
-            MySqlConnection connection3 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
             try
             {
 
-                MySqlDataAdapter RacedataAdapter = new MySqlDataAdapter("select * from race", connection3);
+                MySqlDataAdapter RacedataAdapter = new MySqlDataAdapter("select * from race", connection);
                 MySqlCommandBuilder commandBuilderRace = new MySqlCommandBuilder(RacedataAdapter);
                 DataTable RaceDatatable = new DataTable();
                 RacedataAdapter.Fill(RaceDatatable);
@@ -100,7 +98,7 @@ namespace Origins_Editor
                 this.RacecomboBox.ValueMember = "ID";
                 this.RacecomboBox.DisplayMember = "Name";
 
-                MySqlDataAdapter ClassTypeSearchdataAdapter = new MySqlDataAdapter("select distinct classtype from npctemplate ORDER BY classtype ASC", connection3);
+                MySqlDataAdapter ClassTypeSearchdataAdapter = new MySqlDataAdapter("select distinct classtype from npctemplate ORDER BY classtype ASC", connection);
                 MySqlCommandBuilder commandBuilderClassTypeSearch = new MySqlCommandBuilder(ClassTypeSearchdataAdapter);
                 DataTable ClassTypeSearchDatatable = new DataTable();
                 ClassTypeSearchdataAdapter.Fill(ClassTypeSearchDatatable);
@@ -122,7 +120,7 @@ namespace Origins_Editor
                 this.ClassTypecomboBox.DisplayMember = "ClassType";
 
 
-                MySqlDataAdapter PackageIDSearchdataAdapter = new MySqlDataAdapter("select distinct packageid from npctemplate ORDER BY packageid ASC", connection3);
+                MySqlDataAdapter PackageIDSearchdataAdapter = new MySqlDataAdapter("select distinct packageid from npctemplate ORDER BY packageid ASC", connection);
                 MySqlCommandBuilder commandBuilderPackageIDSearch = new MySqlCommandBuilder(PackageIDSearchdataAdapter);
                 DataTable PackageIDSearchDatatable = new DataTable();
                 PackageIDSearchdataAdapter.Fill(PackageIDSearchDatatable);
@@ -146,10 +144,8 @@ namespace Origins_Editor
         {
             try
             {
-                MySqlConnection connection3 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
                 // Create a new data adapter based on the specified query.
-                this.NPCTemplatedataAdapter = new MySqlDataAdapter(selectCommand, connection3);
+                this.NPCTemplatedataAdapter = new MySqlDataAdapter(selectCommand, connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -170,10 +166,8 @@ namespace Origins_Editor
         {
             try
             {
-                MySqlConnection connection3 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
                 // Create a new data adapter based on the specified query.
-                NPCTemplateTranslationdataAdapter = new MySqlDataAdapter("select * from languagenpc where translationid = '" + this.TranslationIDtextBox.Text + "'", connection3);
+                NPCTemplateTranslationdataAdapter = new MySqlDataAdapter("select * from languagenpc where translationid = '" + this.TranslationIDtextBox.Text + "'", connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -311,10 +305,9 @@ namespace Origins_Editor
                 {
                     // user clicked yes
                     MySqlDataAdapter NewNPCTemplateVerifdataAdapter = new MySqlDataAdapter();
-                    MySqlConnection connection15 = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
                     string selectCommand = "select * from npctemplate  where templateid = '" + TemplateIDtextBox.Text.ToString() + "'";
                     // Create a new data adapter based on the specified query.
-                    NewNPCTemplateVerifdataAdapter = new MySqlDataAdapter(selectCommand, connection15);
+                    NewNPCTemplateVerifdataAdapter = new MySqlDataAdapter(selectCommand, connection);
                     // Create a command builder to generate SQL update, insert, and 
                     // delete commands based on selectCommand. These are used to 
                     // update the database.
@@ -1170,7 +1163,7 @@ namespace Origins_Editor
             else
             {
 
-                MobsModelChoice fm = new MobsModelChoice(ModeltextBox);
+                MobsModelChoice fm = new MobsModelChoice(this, ModeltextBox);
                 MobsChoiceOpen = fm;
                 fm.Show();
             }

@@ -70,6 +70,7 @@ namespace Origins_Editor
 
             if (this.ServerIPtextBox.Text != DolEditor.Properties.Settings.Default.ServerIP)
                 DolEditor.Properties.Settings.Default.ServerIP = this.ServerIPtextBox.Text;
+
             if (this.serverporttextBox.Text != DolEditor.Properties.Settings.Default.PortNumber.ToString())
             {
                 int port = Convert.ToInt16(serverporttextBox.Text);
@@ -80,14 +81,16 @@ namespace Origins_Editor
             }
             if (this.DatabaseNametextBox.Text != DolEditor.Properties.Settings.Default.DatabaseName)
                 DolEditor.Properties.Settings.Default.DatabaseName = this.DatabaseNametextBox.Text;
+
             if (this.DatabaseUsertextBox.Text != DolEditor.Properties.Settings.Default.Username)
                 DolEditor.Properties.Settings.Default.Username = this.DatabaseUsertextBox.Text;
+
             if (this.DatabasePWDtextBox.Text != DolEditor.Properties.Settings.Default.Password)
                 DolEditor.Properties.Settings.Default.Password = this.DatabasePWDtextBox.Text;
 
             DolEditor.Properties.Settings.Default.Save();
+
             this.Close();
         }
-
     }
 }

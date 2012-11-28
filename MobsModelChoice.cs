@@ -32,11 +32,13 @@ namespace Origins_Editor
     public partial class MobsModelChoice : Form
     {
         private TextBox form;
-
+        private LoadNPCTemplate loadNPCTemplateWindow= null;
         private DataGridView dataGridView1;
-        public MobsModelChoice(TextBox Form)
+
+        public MobsModelChoice(LoadNPCTemplate NPCTemplateWindow, TextBox Form)
         {
             form = Form;
+            loadNPCTemplateWindow = NPCTemplateWindow;
             InitializeComponent();
         }
         
@@ -67,7 +69,7 @@ namespace Origins_Editor
 
                 if (form.Text.Contains(rowvalue))
                 {
-                    MessageBox.Show("The NPCTemplate contains this model.");
+                    MessageBox.Show("The NPCTemplate already contains this model.");
                     return;
                 }
                 string value = "";
@@ -80,6 +82,14 @@ namespace Origins_Editor
             }
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            loadNPCTemplateWindow.MobsChoiceOpen = null;
+
+            base.OnFormClosing(e);
+
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+        }
     }
 
 }
