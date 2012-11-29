@@ -302,6 +302,15 @@ namespace Origins_Editor
                 MobCommand.CommandText = "update Mob set name='" + ChangedNametextBox.Text.Replace("'", "''") + "' where name ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                 MobrowsAffected = MobCommand.ExecuteNonQuery();
 
+                //Update Mob Name combobox value
+                foreach (DataRow myRow in MobNameDatatable.Rows)
+                {
+                    if (myRow["name"].ToString() == MobNamecomboBox.Text.ToString())
+                        myRow["name"] = ChangedNametextBox.Text;
+                }
+
+                MobNamecomboBox.SelectedText = ChangedNametextBox.Text;
+
                 if (UpdateMobxAmbientBehaviourcheckBox.Checked)
                 {
 
@@ -348,6 +357,13 @@ namespace Origins_Editor
                     NPCTemplateCommand.CommandText = "update npctemplate set name='" + ChangedNametextBox.Text.Replace("'", "''") + "' where name ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     NPCTemplaterowsAffected = NPCTemplateCommand.ExecuteNonQuery();
 
+                    //Update NPCTemplate Name combobox value
+                    foreach (DataRow myRow in NPCTemplateDatatable.Rows)
+                    {
+                        if (myRow["name"].ToString() == MobNamecomboBox.Text.ToString())
+                            myRow["name"] = ChangedNametextBox.Text;
+                    }
+
                 }
 
                 if (UpdateInventoryCreatorcheckBox.Checked)
@@ -393,30 +409,11 @@ namespace Origins_Editor
                     LootGeneratorAffected = LootGeneratorCommand.ExecuteNonQuery();
                 }
 
-
                 connection.Close();
             }
             catch (MySqlException s)
             {
                 MessageBox.Show(s.Message);
-            }
-
-            //Update combobox value
-            foreach (DataRow myRow in MobNameDatatable.Rows)
-            {
-                if (myRow["name"].ToString() == MobNamecomboBox.Text.ToString())
-                    myRow["name"] = ChangedNametextBox.Text;
-            }
-
-            MobNamecomboBox.SelectedText = ChangedNametextBox.Text;
-
-            if (UpdateNPCTemplatecheckBox.Checked)
-            {
-                foreach (DataRow myRow in NPCTemplateDatatable.Rows)
-                {
-                    if (myRow["name"].ToString() == MobNamecomboBox.Text.ToString())
-                        myRow["name"] = ChangedNametextBox.Text;
-                }
             }
 
             MessageBox.Show(string.Format(" Table Mob rows affected: {0}\n Table MobxAmbientBehaviour rows affected: {1}\n Table Dataquest rows affected: {2}\n Table DropTemplateXItemTemplate rows affected: {3}\n Table MobDropTemplate rows affected: {4}\n Table NPCTemplate rows affected: {5}\n Table Inventory rows affected: {6}\n Table LootTemplate rows affected: {7}\n Table MobXLootTemplate rows affected: {8}\n Table LootOTD rows affected: {9}\n Table LootGenerator rows affected: {10}\n ", 

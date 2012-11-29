@@ -211,7 +211,6 @@ namespace Origins_Editor
                 this.StyleListingButton.Visible = true;
                 this.StyleAddButton.Visible = true;
 
-               // GetStyleXSpellData("SELECT * FROM stylexspell WHERE styleid ='" + this.StyleIDtextBox.Text + "' and (classid = '0' or classid ='" + this.ClassIDtextBox.Text + "')");
             }
         }
 
@@ -649,8 +648,6 @@ namespace Origins_Editor
                 {
                     MessageBox.Show(s.Message);
                 }
-
-                GetStyleXSpellData("SELECT * FROM stylexspell WHERE styleid ='" + this.StyleIDtextBox.Text + "' and (classid = '0' or classid ='" + Util.ClassNameToID(this.ClassIDcomboBox.Text) + "')");
             }
         }
 
@@ -721,8 +718,6 @@ namespace Origins_Editor
                 {
                     MessageBox.Show(s.Message);
                 }
-
-                GetLanguageStyleData("SELECT * FROM languagestyle WHERE TranslationId ='" + this.TranslationIDtextBox.Text + "'");
             }
         }
 

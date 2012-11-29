@@ -733,56 +733,6 @@ namespace Origins_Editor
                         this.SaveNewbutton.Hide();
                         this.tabControl1.Hide();
                         this.dataGridSpell.Show();
-
-                        string select = "SELECT * FROM spell";
-                        bool add = false; ;
-                        if (this.SearchSpellIDtextBox.Text != "")
-                        {
-                            select += " where spellid='" + this.SearchSpellIDtextBox.Text + "'";
-                            add = true;
-                        }
-
-                        if (this.SearchBySpellNametextBox.Text != "")
-                        {
-                            if (add)
-                                select += " and Name like '%" + this.SearchBySpellNametextBox.Text + "%'";
-                            else
-                            {
-                                select += " where Name like '%" + this.SearchBySpellNametextBox.Text + "%'";
-                                add = true;
-                            }
-                        }
-                        string SpellHandler = " All";
-                        if (this.SpellHandlerSearchcomboBox.Text != null)
-                            SpellHandler = this.SpellHandlerSearchcomboBox.Text.ToString(); //SpellHandler
-
-                        if (SpellHandler != " All")
-                        {
-                            if (add)
-                                select += " and type='" + SpellHandler + "'";
-                            else
-                            {
-                                select += " where type='" + SpellHandler + "'";
-                                add = true;
-                            }
-                        }
-                        string LineID = " All";
-                        if (LineNameSpellSearchcomboBox.Text != null)
-                            LineID = this.LineNameSpellSearchcomboBox.Text.ToString(); //Spec Key Name
-
-                        if (LineID != " All")
-                        {
-                            if (add)
-                                select += " and spell.spellid IN (SELECT spellid FROM linexspell WHERE linename='" + LineID + "')";
-                            else
-                            {
-                                select += " where spell.spellid IN (SELECT spellid FROM linexspell WHERE linename='" + LineID + "')";
-                                add = true;
-                            }
-                        }
-
-                        GetData(select);
-
                     }
                 }
                 catch (MySqlException s)
@@ -861,8 +811,6 @@ namespace Origins_Editor
                 {
                     MessageBox.Show(s.Message);
                 }
-
-                GetLineXSpellData("select * from linexspell where spellid='" + spellIDtextBox.Text.ToString() + "'");
             }
         }
 
@@ -983,7 +931,6 @@ namespace Origins_Editor
                     MessageBox.Show(s.Message);
                 }
             }
-            GetLanguageSpellData("select * from languagespell where translationid='" + TranslationIDtextBox.Text.ToString() + "'");
         }
 
         private void LanguageSpellbindingNavigatorDeleteItem_Click(object sender, EventArgs e)

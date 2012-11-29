@@ -275,58 +275,6 @@ namespace Origins_Editor
                 this.AddZoneButton.Visible = true;
                 this.ZoneListingButton.Visible = false;
                 this.SaveNewbutton.Hide();
-
-                string select = "SELECT * FROM zones";
-                bool add = false; ;
-                if (this.SearchZoneIDtextBox.Text != "")
-                {
-                    select += " where zoneid='" + this.SearchZoneIDtextBox.Text + "'";
-                    add = true;
-                }
-
-                if (this.SearchByZoneNametextBox.Text != "")
-                {
-                    if (add)
-                        select += " and Name like '%" + this.SearchByZoneNametextBox.Text + "%'";
-                    else
-                    {
-                        select += " where Name like '%" + this.SearchByZoneNametextBox.Text + "%'";
-                        add = true;
-                    }
-                }
-
-                int RealmID = 0;
-                if (ZoneRealmSearchcomboBox.Text != null)
-                {
-                    switch (ZoneRealmSearchcomboBox.Text)
-                    {
-                        case " All":
-                            break;
-                        case "Albion":
-                            RealmID = 1;
-                            break;
-                        case "Midgard":
-                            RealmID = 2;
-                            break;
-                        case "Hibernia":
-                            RealmID = 3;
-                            break;
-                    }
-
-                }
-
-                if (RealmID != 0)
-                {
-                    if (add)
-                        select += " and realm='" + RealmID + "'";
-                    else
-                    {
-                        select += " where realm='" + RealmID + "'";
-                        add = true;
-                    }
-                }
-
-                GetData(select);
             }
         }
 

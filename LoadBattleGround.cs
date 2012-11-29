@@ -245,7 +245,6 @@ namespace Origins_Editor
                 this.SaveNewbutton.Hide();
                 this.tabControl1.Hide();
                 this.BattlegrounddataGridView.Show();
-                this.GetData("select * from battleground");
             }
         }
 

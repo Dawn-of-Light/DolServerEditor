@@ -445,55 +445,6 @@ namespace Origins_Editor
                         this.SaveNewbutton.Hide();
                         this.flags = 0X00;
                         loaded = false;
-
-                        string select = "SELECT * FROM npctemplate";
-                        bool add = false; ;
-                        if (this.SearchNPCTemplateIDtextBox.Text != "")
-                        {
-                            select += " where Templateid='" + this.SearchNPCTemplateIDtextBox.Text + "'";
-                            add = true;
-                        }
-
-                        if (this.SearchByNPCTemplateNametextBox.Text != "")
-                        {
-                            if (add)
-                                select += " and Name like '%" + this.SearchByNPCTemplateNametextBox.Text + "%'";
-                            else
-                            {
-                                select += " where Name like '%" + this.SearchByNPCTemplateNametextBox.Text + "%'";
-                                add = true;
-                            }
-                        }
-                        string PackageID = " All";
-                        if (this.PackageIDSearchcomboBox.Text != null)
-                            PackageID = this.PackageIDSearchcomboBox.Text.ToString(); //PackageID
-
-                        if (PackageID != " All")
-                        {
-                            if (add)
-                                select += " and packageid='" + PackageID + "'";
-                            else
-                            {
-                                select += " where packageid='" + PackageID + "'";
-                                add = true;
-                            }
-                        }
-                        string ClassType = " All";
-                        if (ClassTypeSearchcomboBox.Text != null)
-                            ClassType = this.ClassTypeSearchcomboBox.Text.ToString(); //ClassType
-
-                        if (ClassType != " All")
-                        {
-                            if (add)
-                                select += " and classtype='" + ClassType + "')";
-                            else
-                            {
-                                select += " where classtype='" + ClassType + "')";
-                                add = true;
-                            }
-                        }
-
-                        GetNPCTemplateItemData(select);
                     }
 
                 }
