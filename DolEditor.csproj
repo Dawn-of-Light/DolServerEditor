@@ -170,6 +170,18 @@
     <Compile Include="LoadFaction.Designer.cs">
       <DependentUpon>LoadFaction.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoadLootOTD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadLootOTD.Designer.cs">
+      <DependentUpon>LoadLootOTD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadMob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadMob.Designer.cs">
+      <DependentUpon>LoadMob.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoadNPCTemplate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +247,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoadFaction.resx">
       <DependentUpon>LoadFaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadLootOTD.resx">
+      <DependentUpon>LoadLootOTD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadMob.resx">
+      <DependentUpon>LoadMob.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoadNPCTemplate.resx">
       <DependentUpon>LoadNPCTemplate.cs</DependentUpon>

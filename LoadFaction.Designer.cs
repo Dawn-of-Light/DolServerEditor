@@ -150,6 +150,7 @@
             // 
             // FactionNameSearchcomboBox
             // 
+            this.FactionNameSearchcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FactionNameSearchcomboBox.FormattingEnabled = true;
             this.FactionNameSearchcomboBox.Location = new System.Drawing.Point(83, 13);
             this.FactionNameSearchcomboBox.Name = "FactionNameSearchcomboBox";
@@ -308,7 +309,7 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Location = new System.Drawing.Point(463, 59);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(261, 135);
+            this.groupBox2.Size = new System.Drawing.Size(247, 135);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Linked Faction Add";
@@ -317,10 +318,11 @@
             // 
             this.FactionIDLinkedFactioncomboBox.DataSource = this.FactionbindingSource;
             this.FactionIDLinkedFactioncomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.FactionIDLinkedFactioncomboBox.Enabled = false;
             this.FactionIDLinkedFactioncomboBox.FormattingEnabled = true;
-            this.FactionIDLinkedFactioncomboBox.Location = new System.Drawing.Point(98, 25);
+            this.FactionIDLinkedFactioncomboBox.Location = new System.Drawing.Point(89, 25);
             this.FactionIDLinkedFactioncomboBox.Name = "FactionIDLinkedFactioncomboBox";
-            this.FactionIDLinkedFactioncomboBox.Size = new System.Drawing.Size(157, 21);
+            this.FactionIDLinkedFactioncomboBox.Size = new System.Drawing.Size(156, 21);
             this.FactionIDLinkedFactioncomboBox.TabIndex = 48;
             // 
             // LinkedFactionIDcomboBox
@@ -328,9 +330,9 @@
             this.LinkedFactionIDcomboBox.DataSource = this.FactionbindingSource;
             this.LinkedFactionIDcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.LinkedFactionIDcomboBox.FormattingEnabled = true;
-            this.LinkedFactionIDcomboBox.Location = new System.Drawing.Point(98, 53);
+            this.LinkedFactionIDcomboBox.Location = new System.Drawing.Point(89, 53);
             this.LinkedFactionIDcomboBox.Name = "LinkedFactionIDcomboBox";
-            this.LinkedFactionIDcomboBox.Size = new System.Drawing.Size(157, 21);
+            this.LinkedFactionIDcomboBox.Size = new System.Drawing.Size(156, 21);
             this.LinkedFactionIDcomboBox.TabIndex = 47;
             // 
             // IsFriendcomboBox
@@ -340,10 +342,10 @@
             this.IsFriendcomboBox.Items.AddRange(new object[] {
             "False",
             "True"});
-            this.IsFriendcomboBox.Location = new System.Drawing.Point(98, 81);
+            this.IsFriendcomboBox.Location = new System.Drawing.Point(89, 81);
             this.IsFriendcomboBox.Name = "IsFriendcomboBox";
             this.IsFriendcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.IsFriendcomboBox.Size = new System.Drawing.Size(62, 21);
+            this.IsFriendcomboBox.Size = new System.Drawing.Size(45, 21);
             this.IsFriendcomboBox.TabIndex = 46;
             // 
             // SaveLinkedFactionbutton
@@ -395,7 +397,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(6, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(718, 53);
+            this.groupBox1.Size = new System.Drawing.Size(704, 53);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Faction Add";
@@ -419,7 +421,7 @@
             // 
             // BaseAggroLevelnumericUpDown
             // 
-            this.BaseAggroLevelnumericUpDown.Location = new System.Drawing.Point(425, 20);
+            this.BaseAggroLevelnumericUpDown.Location = new System.Drawing.Point(419, 20);
             this.BaseAggroLevelnumericUpDown.Maximum = new decimal(new int[] {
             125,
             0,
@@ -432,23 +434,23 @@
             // 
             // FactionNametextBox
             // 
-            this.FactionNametextBox.Location = new System.Drawing.Point(121, 19);
+            this.FactionNametextBox.Location = new System.Drawing.Point(118, 19);
             this.FactionNametextBox.Name = "FactionNametextBox";
             this.FactionNametextBox.Size = new System.Drawing.Size(210, 20);
             this.FactionNametextBox.TabIndex = 9;
             // 
             // TranslationIDtextBox
             // 
-            this.TranslationIDtextBox.Location = new System.Drawing.Point(552, 20);
+            this.TranslationIDtextBox.Location = new System.Drawing.Point(546, 20);
             this.TranslationIDtextBox.Name = "TranslationIDtextBox";
-            this.TranslationIDtextBox.Size = new System.Drawing.Size(158, 20);
+            this.TranslationIDtextBox.Size = new System.Drawing.Size(156, 20);
             this.TranslationIDtextBox.TabIndex = 7;
             this.TranslationIDtextBox.Visible = false;
             // 
             // TranslationIDlabel
             // 
             this.TranslationIDlabel.AutoSize = true;
-            this.TranslationIDlabel.Location = new System.Drawing.Point(479, 23);
+            this.TranslationIDlabel.Location = new System.Drawing.Point(473, 23);
             this.TranslationIDlabel.Name = "TranslationIDlabel";
             this.TranslationIDlabel.Size = new System.Drawing.Size(70, 13);
             this.TranslationIDlabel.TabIndex = 2;
@@ -458,7 +460,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(337, 22);
+            this.label2.Location = new System.Drawing.Point(331, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 13);
             this.label2.TabIndex = 1;
@@ -467,7 +469,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(80, 22);
+            this.label1.Location = new System.Drawing.Point(77, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 0;
@@ -604,10 +606,12 @@
             this.FactiondataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.FactiondataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.FactiondataGridView.DataSource = this.FactionbindingSource;
-            this.FactiondataGridView.Location = new System.Drawing.Point(1, 80);
+            this.FactiondataGridView.Location = new System.Drawing.Point(5, 80);
             this.FactiondataGridView.MultiSelect = false;
             this.FactiondataGridView.Name = "FactiondataGridView";
-            this.FactiondataGridView.Size = new System.Drawing.Size(740, 383);
+            this.FactiondataGridView.ReadOnly = true;
+            this.FactiondataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.FactiondataGridView.Size = new System.Drawing.Size(723, 383);
             this.FactiondataGridView.TabIndex = 9;
             this.FactiondataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.FactiondataGridView_CellContentClick);
             // 
@@ -624,7 +628,7 @@
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Location = new System.Drawing.Point(466, 9);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(247, 137);
+            this.groupBox4.Size = new System.Drawing.Size(232, 137);
             this.groupBox4.TabIndex = 15;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Translation Add";
@@ -633,7 +637,7 @@
             // 
             this.NameTranslationAddtextBox.Location = new System.Drawing.Point(95, 64);
             this.NameTranslationAddtextBox.Name = "NameTranslationAddtextBox";
-            this.NameTranslationAddtextBox.Size = new System.Drawing.Size(143, 20);
+            this.NameTranslationAddtextBox.Size = new System.Drawing.Size(127, 20);
             this.NameTranslationAddtextBox.TabIndex = 38;
             this.NameTranslationAddtextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -650,7 +654,7 @@
             // 
             this.TagtextBox.Location = new System.Drawing.Point(95, 89);
             this.TagtextBox.Name = "TagtextBox";
-            this.TagtextBox.Size = new System.Drawing.Size(143, 20);
+            this.TagtextBox.Size = new System.Drawing.Size(127, 20);
             this.TagtextBox.TabIndex = 36;
             this.TagtextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -679,7 +683,7 @@
             // 
             this.TranslationIDAddtextBox.Location = new System.Drawing.Point(94, 39);
             this.TranslationIDAddtextBox.Name = "TranslationIDAddtextBox";
-            this.TranslationIDAddtextBox.Size = new System.Drawing.Size(144, 20);
+            this.TranslationIDAddtextBox.Size = new System.Drawing.Size(128, 20);
             this.TranslationIDAddtextBox.TabIndex = 33;
             this.TranslationIDAddtextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -840,7 +844,7 @@
             this.TranslationgroupBox.Controls.Add(this.TranslationdataGridView);
             this.TranslationgroupBox.Location = new System.Drawing.Point(6, 200);
             this.TranslationgroupBox.Name = "TranslationgroupBox";
-            this.TranslationgroupBox.Size = new System.Drawing.Size(723, 151);
+            this.TranslationgroupBox.Size = new System.Drawing.Size(704, 151);
             this.TranslationgroupBox.TabIndex = 18;
             this.TranslationgroupBox.TabStop = false;
             this.TranslationgroupBox.Visible = false;
@@ -853,13 +857,13 @@
             this.groupBox5.Controls.Add(this.Savebutton);
             this.groupBox5.Location = new System.Drawing.Point(483, 2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(254, 72);
+            this.groupBox5.Size = new System.Drawing.Size(241, 72);
             this.groupBox5.TabIndex = 23;
             this.groupBox5.TabStop = false;
             // 
             // SaveNewbutton
             // 
-            this.SaveNewbutton.Location = new System.Drawing.Point(31, 14);
+            this.SaveNewbutton.Location = new System.Drawing.Point(23, 15);
             this.SaveNewbutton.Name = "SaveNewbutton";
             this.SaveNewbutton.Size = new System.Drawing.Size(109, 23);
             this.SaveNewbutton.TabIndex = 21;
@@ -869,7 +873,7 @@
             // 
             // AddFactionButton
             // 
-            this.AddFactionButton.Location = new System.Drawing.Point(31, 14);
+            this.AddFactionButton.Location = new System.Drawing.Point(23, 14);
             this.AddFactionButton.Name = "AddFactionButton";
             this.AddFactionButton.Size = new System.Drawing.Size(109, 23);
             this.AddFactionButton.TabIndex = 23;
@@ -879,9 +883,9 @@
             // 
             // FactionListingButton
             // 
-            this.FactionListingButton.Location = new System.Drawing.Point(146, 15);
+            this.FactionListingButton.Location = new System.Drawing.Point(138, 14);
             this.FactionListingButton.Name = "FactionListingButton";
-            this.FactionListingButton.Size = new System.Drawing.Size(84, 23);
+            this.FactionListingButton.Size = new System.Drawing.Size(84, 24);
             this.FactionListingButton.TabIndex = 22;
             this.FactionListingButton.Text = "Faction Listing";
             this.FactionListingButton.UseVisualStyleBackColor = true;
@@ -889,7 +893,7 @@
             // 
             // Savebutton
             // 
-            this.Savebutton.Location = new System.Drawing.Point(79, 43);
+            this.Savebutton.Location = new System.Drawing.Point(66, 43);
             this.Savebutton.Name = "Savebutton";
             this.Savebutton.Size = new System.Drawing.Size(117, 23);
             this.Savebutton.TabIndex = 20;
@@ -900,10 +904,10 @@
             // EditFactionControl
             // 
             this.EditFactionControl.Controls.Add(this.tabPage1);
-            this.EditFactionControl.Location = new System.Drawing.Point(1, 83);
+            this.EditFactionControl.Location = new System.Drawing.Point(5, 83);
             this.EditFactionControl.Name = "EditFactionControl";
             this.EditFactionControl.SelectedIndex = 0;
-            this.EditFactionControl.Size = new System.Drawing.Size(740, 380);
+            this.EditFactionControl.Size = new System.Drawing.Size(723, 380);
             this.EditFactionControl.TabIndex = 24;
             // 
             // tabPage1
@@ -916,7 +920,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(732, 354);
+            this.tabPage1.Size = new System.Drawing.Size(715, 354);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Faction Editor";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -925,13 +929,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(740, 464);
+            this.ClientSize = new System.Drawing.Size(729, 464);
             this.Controls.Add(this.FactiondataGridView);
             this.Controls.Add(this.EditFactionControl);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.ControlMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoadFaction";
-            this.Text = "LoadFaction";
+            this.Text = "Faction Editor";
             this.ControlMenu.ResumeLayout(false);
             this.ControlMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FactionbindingNavigator)).EndInit();

@@ -73,6 +73,7 @@ namespace Origins_Editor
             this.label5 = new System.Windows.Forms.Label();
             this.SearchBySpellNametextBox = new System.Windows.Forms.TextBox();
             this.ControlMenu = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.SpellbindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.SpellbindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -224,7 +225,6 @@ namespace Origins_Editor
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.AddNewSpellButton = new System.Windows.Forms.Button();
             this.SpellListingButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.ControlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SpellbindingNavigator)).BeginInit();
             this.SpellbindingNavigator.SuspendLayout();
@@ -708,6 +708,16 @@ namespace Origins_Editor
             this.ControlMenu.Size = new System.Drawing.Size(772, 67);
             this.ControlMenu.TabIndex = 17;
             this.ControlMenu.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(691, 14);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(59, 23);
+            this.button2.TabIndex = 22;
+            this.button2.Text = "Search";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Searchbutton_Click);
             // 
             // SpellbindingNavigator
             // 
@@ -2571,16 +2581,6 @@ namespace Origins_Editor
             this.SpellListingButton.UseVisualStyleBackColor = true;
             this.SpellListingButton.Click += new System.EventHandler(this.SpellListing_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(691, 14);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(59, 23);
-            this.button2.TabIndex = 22;
-            this.button2.Text = "Search";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Searchbutton_Click);
-            // 
             // LoadSpell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2594,7 +2594,7 @@ namespace Origins_Editor
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoadSpell";
-            this.Text = "Spells Editor";
+            this.Text = "Spell Editor";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ControlMenu.ResumeLayout(false);
             this.ControlMenu.PerformLayout();

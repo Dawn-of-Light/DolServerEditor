@@ -252,47 +252,45 @@ namespace Origins_Editor
 
         private void FactionbindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
+
+            if (MessageBox.Show("Delete this Faction?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                this.Validate();
+                this.FactionbindingSource.EndEdit();
 
-                if (MessageBox.Show("Delete this Faction?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                try
                 {
-                    this.Validate();
-                    this.FactionbindingSource.EndEdit();
-
-                    try
-                    {
-                        this.FactiondataAdapter.Update(FactionDatatable);
-                    }
-                    catch (MySqlException s)
-                    {
-                        MessageBox.Show(s.Message);
-                    }
+                    this.FactiondataAdapter.Update(FactionDatatable);
                 }
-
-                string select = "SELECT * FROM faction";
-                bool add = false; ;
-                if (!Util.IsEmpty(this.FactionIDSearchtextBox.Text))
+                catch (MySqlException s)
                 {
-                    select += " where id='" + this.FactionIDSearchtextBox.Text + "'";
+                    MessageBox.Show(s.Message);
+                }
+            }
+
+            string select = "SELECT * FROM faction";
+            bool add = false; ;
+            if (!Util.IsEmpty(this.FactionIDSearchtextBox.Text))
+            {
+                select += " where id='" + this.FactionIDSearchtextBox.Text + "'";
+                add = true;
+            }
+
+            string FactionID = "All";
+            if (this.FactionNameSearchcomboBox.Text != null && this.FactionNameSearchcomboBox.Text != "All")
+                FactionID = this.FactionNameSearchcomboBox.SelectedValue.ToString();
+
+            if (FactionID != "All")
+            {
+                if (add)
+                    select += " and id='" + FactionID + "'";
+                else
+                {
+                    select += " where id='" + FactionID + "'";
                     add = true;
                 }
-
-                string FactionID = "All";
-                if (this.FactionNameSearchcomboBox.Text != null && this.FactionNameSearchcomboBox.Text != "All")
-                    FactionID = this.FactionNameSearchcomboBox.SelectedValue.ToString();
-
-                if (FactionID != "All")
-                {
-                    if (add)
-                        select += " and id='" + FactionID + "'";
-                    else
-                    {
-                        select += " where id='" + FactionID + "'";
-                        add = true;
-                    }
-                }
-                GetFactionData(select);
             }
+            GetFactionData(select);
         }
 
         private void LinkedFactionbindingNavigatorDeleteItem_Click(object sender, EventArgs e)
@@ -389,6 +387,13 @@ namespace Origins_Editor
             this.ControlMenu.Visible = true;
             this.EditFactionControl.Hide();
             this.FactiondataGridView.Show();
+
+            //Enable add languagefaction and linked faction add
+            this.groupBox2.Visible = true;
+            this.LinkedFactionbindingNavigator.Visible = true;
+            this.LinkedFactiondataGridView.Visible = true;
+            if (DolEditor.Properties.Settings.Default.OriginsSettings)
+                this.TranslationgroupBox.Visible = true;
         }
 
         private void SaveNewbutton_Click(object sender, EventArgs e)
@@ -473,6 +478,12 @@ namespace Origins_Editor
                         this.SaveNewbutton.Hide();
                         this.EditFactionControl.Hide();
                         this.FactiondataGridView.Show();
+                        //Enable add languagefaction and linked facation add
+                        this.groupBox2.Visible = true;
+                        this.LinkedFactionbindingNavigator.Visible = true;
+                        this.LinkedFactiondataGridView.Visible = true;
+                        if (DolEditor.Properties.Settings.Default.OriginsSettings)
+                            this.TranslationgroupBox.Visible = true;
                 }
                 catch (MySqlException s)
                 {
@@ -512,6 +523,12 @@ namespace Origins_Editor
                 this.FactionListingButton.Visible = true;
                 this.AddFactionButton.Visible = false;
                 this.ControlMenu.Visible = false;
+
+                //Disable add languagefaction and linked facation add
+                this.groupBox2.Visible = false;
+                this.LinkedFactionbindingNavigator.Visible = false;
+                this.LinkedFactiondataGridView.Visible = false;
+                this.TranslationgroupBox.Visible = false;
             }
         }
 

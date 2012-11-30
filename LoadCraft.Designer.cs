@@ -104,6 +104,7 @@ namespace Origins_Editor
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.CraftingLevelSearchtextBox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.Id_nbSearchtextBox = new System.Windows.Forms.TextBox();
@@ -113,7 +114,6 @@ namespace Origins_Editor
             this.CraftingSkillTypeSearchcomboBox = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CraftedItembindingNavigator)).BeginInit();
             this.CraftedItembindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CraftedItembindingSource)).BeginInit();
@@ -233,7 +233,7 @@ namespace Origins_Editor
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // FactiondataGridView
+            // CraftedItemdataGridView
             // 
             this.CraftedItemdataGridView.AllowUserToAddRows = false;
             this.CraftedItemdataGridView.AllowUserToOrderColumns = true;
@@ -355,7 +355,7 @@ namespace Origins_Editor
             this.bindingNavigatorSeparator5.Name = "bindingNavigatorSeparator5";
             this.bindingNavigatorSeparator5.Size = new System.Drawing.Size(6, 25);
             // 
-            // LinkedFactiondataGridView
+            // CraftedXItemdataGridView
             // 
             this.CraftedXItemdataGridView.AllowUserToAddRows = false;
             this.CraftedXItemdataGridView.AllowUserToOrderColumns = true;
@@ -596,6 +596,16 @@ namespace Origins_Editor
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Filters";
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(768, 12);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(59, 23);
+            this.button4.TabIndex = 24;
+            this.button4.Text = "Search";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.Searchbutton_Click);
+            // 
             // CraftingLevelSearchtextBox
             // 
             this.CraftingLevelSearchtextBox.Location = new System.Drawing.Point(668, 14);
@@ -688,16 +698,6 @@ namespace Origins_Editor
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.LoadCraftedXitem_Click);
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(768, 12);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(59, 23);
-            this.button4.TabIndex = 24;
-            this.button4.Text = "Search";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.Searchbutton_Click);
-            // 
             // LoadCraft
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -711,6 +711,7 @@ namespace Origins_Editor
             this.Controls.Add(this.CraftedXitembindingNavigator);
             this.Controls.Add(this.CraftedItemdataGridView);
             this.Controls.Add(this.CraftedItembindingNavigator);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoadCraft";
             this.Text = "Craft Editor";

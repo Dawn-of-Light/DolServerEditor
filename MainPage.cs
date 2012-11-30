@@ -27,7 +27,7 @@ namespace Origins_Editor
 
     public partial class MainPageEditor : Form
     {
-        public MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
+        private MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
         private DataTable MobNameDatatable = new DataTable();
         private DataTable NPCTemplateDatatable = new DataTable();
 
@@ -576,6 +576,18 @@ namespace Origins_Editor
         private void factionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LoadFaction fm = new LoadFaction();
+            fm.Show();
+        }
+
+        private void lootOTDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadLootOTD fm = new LoadLootOTD();
+            fm.Show();
+        }
+
+        private void mobToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadMob fm = new LoadMob();
             fm.Show();
         }
     }
