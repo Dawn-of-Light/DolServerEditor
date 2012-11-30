@@ -31,10 +31,10 @@ namespace Origins_Editor
 {
     public partial class LoadStyle : Form
     {
-        MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder();
-        MySqlDataAdapter dataAdapterbindingsource1;
-        MySqlDataAdapter dataAdapterbindingsource2;
-        MySqlDataAdapter LanguageStyledataAdapter;
+        private MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder();
+        private MySqlDataAdapter dataAdapterbindingsource1;
+        private MySqlDataAdapter dataAdapterbindingsource2;
+        private MySqlDataAdapter LanguageStyledataAdapter;
         private MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
            
         public LoadStyle()

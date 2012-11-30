@@ -164,6 +164,12 @@
     <Compile Include="LoadCraft.Designer.cs">
       <DependentUpon>LoadCraft.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoadFaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadFaction.Designer.cs">
+      <DependentUpon>LoadFaction.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoadNPCTemplate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,6 +233,9 @@
     <EmbeddedResource Include="LoadCraft.resx">
       <DependentUpon>LoadCraft.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoadFaction.resx">
+      <DependentUpon>LoadFaction.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoadNPCTemplate.resx">
       <DependentUpon>LoadNPCTemplate.cs</DependentUpon>
     </EmbeddedResource>
@@ -252,7 +261,9 @@
     <EmbeddedResource Include="MobsModelChoice.resx">
       <DependentUpon>MobsModelChoice.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\app.manifest">
       <SubType>Designer</SubType>
     </None>

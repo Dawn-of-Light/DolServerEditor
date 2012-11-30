@@ -233,7 +233,7 @@ namespace Origins_Editor
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // CraftedItemdataGridView
+            // FactiondataGridView
             // 
             this.CraftedItemdataGridView.AllowUserToAddRows = false;
             this.CraftedItemdataGridView.AllowUserToOrderColumns = true;
@@ -355,7 +355,7 @@ namespace Origins_Editor
             this.bindingNavigatorSeparator5.Name = "bindingNavigatorSeparator5";
             this.bindingNavigatorSeparator5.Size = new System.Drawing.Size(6, 25);
             // 
-            // CraftedXItemdataGridView
+            // LinkedFactiondataGridView
             // 
             this.CraftedXItemdataGridView.AllowUserToAddRows = false;
             this.CraftedXItemdataGridView.AllowUserToOrderColumns = true;

@@ -31,9 +31,9 @@ namespace Origins_Editor
 {
     public partial class LoadCraft : Form
     {
-        MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder();
-        MySqlDataAdapter CraftedItemdataAdapter;
-        MySqlDataAdapter CraftedXItemdataAdapter;
+        private MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder();
+        private MySqlDataAdapter CraftedItemdataAdapter;
+        private MySqlDataAdapter CraftedXItemdataAdapter;
         private MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
            
         public LoadCraft()

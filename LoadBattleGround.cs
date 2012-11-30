@@ -31,9 +31,9 @@ namespace Origins_Editor
 {
     public partial class LoadBattleGround : Form
     {
-        MySqlDataAdapter BattleGrounddataAdapter = new MySqlDataAdapter();
-        MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder();
-        DataTable BattlegroundDatatable = new DataTable();
+        private MySqlDataAdapter BattleGrounddataAdapter = new MySqlDataAdapter();
+        private MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder();
+        private DataTable BattlegroundDatatable = new DataTable();
         private MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
            
         public LoadBattleGround()

@@ -72,6 +72,7 @@ namespace Origins_Editor
             this.label5 = new System.Windows.Forms.Label();
             this.SearchByStyleNametextBox = new System.Windows.Forms.TextBox();
             this.ControlMenu = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -168,7 +169,6 @@ namespace Origins_Editor
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.StyleListingButton = new System.Windows.Forms.Button();
             this.StyleAddButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.ControlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
@@ -380,6 +380,16 @@ namespace Origins_Editor
             this.ControlMenu.Size = new System.Drawing.Size(705, 67);
             this.ControlMenu.TabIndex = 17;
             this.ControlMenu.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(628, 13);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(59, 23);
+            this.button2.TabIndex = 21;
+            this.button2.Text = "Search";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Searchbutton_Click);
             // 
             // bindingNavigator1
             // 
@@ -1465,16 +1475,6 @@ namespace Origins_Editor
             this.StyleAddButton.Text = "Add new style";
             this.StyleAddButton.UseVisualStyleBackColor = true;
             this.StyleAddButton.Click += new System.EventHandler(this.AddNewStyle_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(628, 13);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(59, 23);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "Search";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Searchbutton_Click);
             // 
             // LoadStyle
             // 

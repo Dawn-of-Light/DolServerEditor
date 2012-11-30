@@ -572,5 +572,11 @@ namespace Origins_Editor
 
             MessageBox.Show(string.Format(" Table Mob rows affected: {0}", MobrowsAffected));
         }
+
+        private void factionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadFaction fm = new LoadFaction();
+            fm.Show();
+        }
     }
 }

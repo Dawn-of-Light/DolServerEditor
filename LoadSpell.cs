@@ -31,10 +31,10 @@ namespace Origins_Editor
 {
     public partial class LoadSpell : Form
     {
-        MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder();
-        MySqlDataAdapter SpelldataAdapter;
-        MySqlDataAdapter LineXSpelldataAdapter;
-        MySqlDataAdapter LanguageSpelldataAdapter;
+        private MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder();
+        private MySqlDataAdapter SpelldataAdapter;
+        private MySqlDataAdapter LineXSpelldataAdapter;
+        private MySqlDataAdapter LanguageSpelldataAdapter;
         private MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
            
         public LoadSpell()

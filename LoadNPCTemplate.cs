@@ -28,15 +28,16 @@ namespace Origins_Editor
 {
     public partial class LoadNPCTemplate : Form
     {
-        MySqlDataAdapter NPCTemplateTranslationdataAdapter = new MySqlDataAdapter();
-        MySqlDataAdapter NPCTemplatedataAdapter = new MySqlDataAdapter();
-        MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder();
-        DataTable RaceDatatable = new DataTable();
-        DataTable TranslationDatatable = new DataTable();
-        public MobsModelChoice MobsChoiceOpen = null;
+        private MySqlDataAdapter NPCTemplateTranslationdataAdapter = new MySqlDataAdapter();
+        private MySqlDataAdapter NPCTemplatedataAdapter = new MySqlDataAdapter();
+        private MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder();
+        private DataTable RaceDatatable = new DataTable();
+        private DataTable TranslationDatatable = new DataTable();
         private bool loaded;
         private MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-           
+
+        public MobsModelChoice MobsChoiceOpen = null;
+
         public LoadNPCTemplate()
         {
             InitializeComponent();

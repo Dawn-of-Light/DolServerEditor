@@ -27,10 +27,10 @@ namespace Origins_Editor
 {
     public partial class LoadArea : Form
     {
-        MySqlDataAdapter AreadataAdapter = new MySqlDataAdapter();
-        MySqlCommandBuilder AreacommandBuilder = new MySqlCommandBuilder();
-        MySqlDataAdapter AreaLanguagedataAdapter = new MySqlDataAdapter();
-        MySqlCommandBuilder AreaLanguagecommandBuilder = new MySqlCommandBuilder();
+        private MySqlDataAdapter AreadataAdapter = new MySqlDataAdapter();
+        private MySqlCommandBuilder AreacommandBuilder = new MySqlCommandBuilder();
+        private MySqlDataAdapter AreaLanguagedataAdapter = new MySqlDataAdapter();
+        private MySqlCommandBuilder AreaLanguagecommandBuilder = new MySqlCommandBuilder();
         private MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
            
         public LoadArea()

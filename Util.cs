@@ -559,6 +559,35 @@ public static class Util
         return id_retenu;
     }
 
+    public static int Find_Free_FactionID()
+    {
+        MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
+
+        MySqlDataAdapter FindFreeIDdataAdapter = new MySqlDataAdapter("select distinct id from faction ORDER BY id ASC", connection);
+        MySqlCommandBuilder commandBuilderSpellIDDatatable = new MySqlCommandBuilder(FindFreeIDdataAdapter);
+        DataTable SpellIDDatatable = new DataTable();
+        FindFreeIDdataAdapter.Fill(SpellIDDatatable);
+        int id_retenu = 1;
+        int oldid = 0;
+        foreach (DataRow foundRows in SpellIDDatatable.Rows)
+        {
+            string idstr = foundRows["ID"].ToString();
+            if (idstr == id_retenu.ToString())
+            {
+                oldid = id_retenu;
+                id_retenu++;
+            }
+            else
+            {
+                if (id_retenu == oldid)
+                    continue;
+                else
+                    break;
+            }
+        }
+        return id_retenu;
+    }
+
     public static int Find_Free_Region_ID()
     {
         MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");

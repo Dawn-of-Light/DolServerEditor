@@ -153,6 +153,7 @@ namespace Origins_Editor
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.menuStrip1.Size = new System.Drawing.Size(699, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
@@ -301,25 +302,26 @@ namespace Origins_Editor
             // factionToolStripMenuItem
             // 
             this.factionToolStripMenuItem.Name = "factionToolStripMenuItem";
-            this.factionToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.factionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.factionToolStripMenuItem.Text = "Faction";
+            this.factionToolStripMenuItem.Click += new System.EventHandler(this.factionToolStripMenuItem_Click);
             // 
             // lootOTDToolStripMenuItem
             // 
             this.lootOTDToolStripMenuItem.Name = "lootOTDToolStripMenuItem";
-            this.lootOTDToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.lootOTDToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.lootOTDToolStripMenuItem.Text = "Loot OTD";
             // 
             // mobToolStripMenuItem
             // 
             this.mobToolStripMenuItem.Name = "mobToolStripMenuItem";
-            this.mobToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.mobToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.mobToolStripMenuItem.Text = "Mob";
             // 
             // nPCTemplateToolStripMenuItem
             // 
             this.nPCTemplateToolStripMenuItem.Name = "nPCTemplateToolStripMenuItem";
-            this.nPCTemplateToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.nPCTemplateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.nPCTemplateToolStripMenuItem.Text = "NPC Template";
             this.nPCTemplateToolStripMenuItem.Click += new System.EventHandler(this.NPCTemplateToolStripMenuItem_Click);
             // 
@@ -337,28 +339,28 @@ namespace Origins_Editor
             // areaToolStripMenuItem
             // 
             this.areaToolStripMenuItem.Name = "areaToolStripMenuItem";
-            this.areaToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.areaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.areaToolStripMenuItem.Text = "Area";
             this.areaToolStripMenuItem.Click += new System.EventHandler(this.areaToolStripMenuItem_Click);
             // 
             // battleGroundToolStripMenuItem
             // 
             this.battleGroundToolStripMenuItem.Name = "battleGroundToolStripMenuItem";
-            this.battleGroundToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.battleGroundToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.battleGroundToolStripMenuItem.Text = "BattleGround";
             this.battleGroundToolStripMenuItem.Click += new System.EventHandler(this.battleGroundToolStripMenuItem_Click);
             // 
             // regionToolStripMenuItem
             // 
             this.regionToolStripMenuItem.Name = "regionToolStripMenuItem";
-            this.regionToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.regionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.regionToolStripMenuItem.Text = "Region";
             this.regionToolStripMenuItem.Click += new System.EventHandler(this.regionToolStripMenuItem_Click);
             // 
             // zoneToolStripMenuItem
             // 
             this.zoneToolStripMenuItem.Name = "zoneToolStripMenuItem";
-            this.zoneToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.zoneToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.zoneToolStripMenuItem.Text = "Zone";
             this.zoneToolStripMenuItem.Click += new System.EventHandler(this.zoneToolStripMenuItem_Click);
             // 
@@ -373,7 +375,7 @@ namespace Origins_Editor
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 

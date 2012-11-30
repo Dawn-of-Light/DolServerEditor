@@ -31,8 +31,8 @@ namespace Origins_Editor
 {
     public partial class LoadRegion : Form
     {
-        MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder();
-        MySqlDataAdapter RegiondataAdapter;
+        private MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder();
+        private MySqlDataAdapter RegiondataAdapter;
         private MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
            
         public LoadRegion()
