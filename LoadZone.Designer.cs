@@ -67,6 +67,7 @@ namespace Origins_Editor
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.ControlMenu = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ZoneRealmSearchcomboBox = new System.Windows.Forms.ComboBox();
@@ -114,7 +115,6 @@ namespace Origins_Editor
             this.AddZoneButton = new System.Windows.Forms.Button();
             this.ZoneListingButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ZonebindingNavigator)).BeginInit();
             this.ZonebindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ZonebindingSource)).BeginInit();
@@ -247,6 +247,16 @@ namespace Origins_Editor
             this.ControlMenu.Size = new System.Drawing.Size(483, 69);
             this.ControlMenu.TabIndex = 18;
             this.ControlMenu.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(418, 13);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(59, 23);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Search";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Searchbutton_Click);
             // 
             // label3
             // 
@@ -706,16 +716,6 @@ namespace Origins_Editor
             this.groupBox2.Size = new System.Drawing.Size(175, 68);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(418, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(59, 23);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Searchbutton_Click);
             // 
             // LoadZone
             // 

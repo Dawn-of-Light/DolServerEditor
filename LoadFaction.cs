@@ -11,7 +11,6 @@ namespace Origins_Editor
         private MySqlDataAdapter FactiondataAdapter;
         private MySqlDataAdapter LinkedFactiondataAdapter;
         private MySqlDataAdapter LanguageFactiondataAdapter;
-        private MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
         private DataTable FactionDatatable = new DataTable();
         private DataTable LinkedFactionDatatable = new DataTable();
         private DataTable LanguageFactionDatatable = new DataTable();
@@ -54,10 +53,10 @@ namespace Origins_Editor
 
             try
             {
-                connection.Open();
+                Util.Connection.Open();
 
                 //Name ComboBox Datatable
-                MySqlDataAdapter FactionNamedataAdapter = new MySqlDataAdapter("select * from faction ORDER BY name ASC", connection);
+                MySqlDataAdapter FactionNamedataAdapter = new MySqlDataAdapter("select * from faction ORDER BY name ASC", Util.Connection);
                 MySqlCommandBuilder FactionNameDatacommandBuilder = new MySqlCommandBuilder(FactionNamedataAdapter);
                 
                 LinkedFactionData = new DataTable();
@@ -87,7 +86,7 @@ namespace Origins_Editor
                 SearchFactionData.Rows.Add(datarow);
                 SearchFactionData.DefaultView.Sort = "Name ASC";
                 this.FactionNameSearchcomboBox.Text = "All";
-                connection.Close();
+                Util.Connection.Close();
 
             }
             catch (MySqlException s)
@@ -102,7 +101,7 @@ namespace Origins_Editor
             try
             {
                 // Create a new data adapter based on the specified query.
-                this.FactiondataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                this.FactiondataAdapter = new MySqlDataAdapter(selectCommand, Util.Connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -124,7 +123,7 @@ namespace Origins_Editor
             try
             {
                 // Create a new data adapter based on the specified query.
-                this.LinkedFactiondataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                this.LinkedFactiondataAdapter = new MySqlDataAdapter(selectCommand, Util.Connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -150,7 +149,7 @@ namespace Origins_Editor
             try
             {
                 // Create a new data adapter based on the specified query.
-                this.LanguageFactiondataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                this.LanguageFactiondataAdapter = new MySqlDataAdapter(selectCommand, Util.Connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.

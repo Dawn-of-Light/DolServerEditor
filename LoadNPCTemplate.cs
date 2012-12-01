@@ -34,7 +34,6 @@ namespace Origins_Editor
         private DataTable RaceDatatable = new DataTable();
         private DataTable TranslationDatatable = new DataTable();
         private bool loaded;
-        private MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
 
         public MobsModelChoice MobsChoiceOpen = null;
 
@@ -90,7 +89,7 @@ namespace Origins_Editor
             try
             {
 
-                MySqlDataAdapter RacedataAdapter = new MySqlDataAdapter("select * from race ORDER BY name ASC", connection);
+                MySqlDataAdapter RacedataAdapter = new MySqlDataAdapter("select * from race ORDER BY name ASC", Util.Connection);
                 MySqlCommandBuilder commandBuilderRace = new MySqlCommandBuilder(RacedataAdapter);
                 DataTable RaceDatatable = new DataTable();
                 RacedataAdapter.Fill(RaceDatatable);
@@ -102,7 +101,7 @@ namespace Origins_Editor
                 this.RacecomboBox.ValueMember = "ID";
                 this.RacecomboBox.DisplayMember = "Name";
 
-                MySqlDataAdapter ClassTypeSearchdataAdapter = new MySqlDataAdapter("select distinct classtype from npctemplate ORDER BY classtype ASC", connection);
+                MySqlDataAdapter ClassTypeSearchdataAdapter = new MySqlDataAdapter("select distinct classtype from npctemplate ORDER BY classtype ASC", Util.Connection);
                 MySqlCommandBuilder commandBuilderClassTypeSearch = new MySqlCommandBuilder(ClassTypeSearchdataAdapter);
                 DataTable ClassTypeSearchDatatable = new DataTable();
                 ClassTypeSearchdataAdapter.Fill(ClassTypeSearchDatatable);
@@ -124,7 +123,7 @@ namespace Origins_Editor
                 this.ClassTypecomboBox.DisplayMember = "ClassType";
 
 
-                MySqlDataAdapter PackageIDSearchdataAdapter = new MySqlDataAdapter("select distinct packageid from npctemplate ORDER BY packageid ASC", connection);
+                MySqlDataAdapter PackageIDSearchdataAdapter = new MySqlDataAdapter("select distinct packageid from npctemplate ORDER BY packageid ASC", Util.Connection);
                 MySqlCommandBuilder commandBuilderPackageIDSearch = new MySqlCommandBuilder(PackageIDSearchdataAdapter);
                 DataTable PackageIDSearchDatatable = new DataTable();
                 PackageIDSearchdataAdapter.Fill(PackageIDSearchDatatable);
@@ -149,7 +148,7 @@ namespace Origins_Editor
             try
             {
                 // Create a new data adapter based on the specified query.
-                this.NPCTemplatedataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                this.NPCTemplatedataAdapter = new MySqlDataAdapter(selectCommand, Util.Connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -171,7 +170,7 @@ namespace Origins_Editor
             try
             {
                 // Create a new data adapter based on the specified query.
-                NPCTemplateTranslationdataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                NPCTemplateTranslationdataAdapter = new MySqlDataAdapter(selectCommand, Util.Connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -311,7 +310,7 @@ namespace Origins_Editor
                     MySqlDataAdapter NewNPCTemplateVerifdataAdapter = new MySqlDataAdapter();
                     string selectCommand = "select * from npctemplate  where templateid = '" + TemplateIDtextBox.Text.ToString() + "'";
                     // Create a new data adapter based on the specified query.
-                    NewNPCTemplateVerifdataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                    NewNPCTemplateVerifdataAdapter = new MySqlDataAdapter(selectCommand, Util.Connection);
                     // Create a command builder to generate SQL update, insert, and 
                     // delete commands based on selectCommand. These are used to 
                     // update the database.

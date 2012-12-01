@@ -7,7 +7,6 @@ namespace Origins_Editor
 {
     public partial class LoadLootOTD : Form
     {
-        private MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
         private DataTable LootOTDDatatable = new DataTable();
         private MySqlDataAdapter LootOTDdataAdapter;
 
@@ -19,7 +18,9 @@ namespace Origins_Editor
             for (int i = 0; i < 62; i++)
             {
                 string classname = Util.ClassIDToName(i.ToString());
-                AllowedClasslistView.Items.Add(classname);
+
+                if (classname != "unknow class name")
+                    AllowedClasslistView.Items.Add(classname);
             }
             AllowedClasslistView.Items.Add(" All");
             //Remove the first string ""
@@ -44,7 +45,7 @@ namespace Origins_Editor
         {
             try
             {
-                LootOTDdataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                LootOTDdataAdapter = new MySqlDataAdapter(selectCommand, Util.Connection);
                 MySqlCommandBuilder commandBuilderLootOTD = new MySqlCommandBuilder(LootOTDdataAdapter);
                 LootOTDDatatable = new DataTable();
                 LootOTDDatatable.Clear();

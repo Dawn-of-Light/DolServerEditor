@@ -123,7 +123,6 @@ namespace Origins_Editor
             this.LineNameAddLineXSpellcomboBox = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.LinexSpellAddLeveltextBox = new System.Windows.Forms.TextBox();
             this.label54 = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
             this.LineXSpellbindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
@@ -201,7 +200,6 @@ namespace Origins_Editor
             this.RadiustextBox = new System.Windows.Forms.TextBox();
             this.FrequencytextBox = new System.Windows.Forms.TextBox();
             this.DurationtextBox = new System.Windows.Forms.TextBox();
-            this.DamageTypetextBox = new System.Windows.Forms.TextBox();
             this.RangetextBox = new System.Windows.Forms.TextBox();
             this.PowertextBox = new System.Windows.Forms.TextBox();
             this.DamagetextBox = new System.Windows.Forms.TextBox();
@@ -225,6 +223,8 @@ namespace Origins_Editor
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.AddNewSpellButton = new System.Windows.Forms.Button();
             this.SpellListingButton = new System.Windows.Forms.Button();
+            this.DamageTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.LinexSpellAddLevelNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.ControlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SpellbindingNavigator)).BeginInit();
             this.SpellbindingNavigator.SuspendLayout();
@@ -249,6 +249,7 @@ namespace Origins_Editor
             this.groupBox10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSpell)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LinexSpellAddLevelNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // LineNameSpellSearchcomboBox
@@ -1149,11 +1150,11 @@ namespace Origins_Editor
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.LinexSpellAddLevelNumericUpDown);
             this.groupBox4.Controls.Add(this.PackageIDAddLineXSpellcomboBox);
             this.groupBox4.Controls.Add(this.LineNameAddLineXSpellcomboBox);
             this.groupBox4.Controls.Add(this.label27);
             this.groupBox4.Controls.Add(this.button3);
-            this.groupBox4.Controls.Add(this.LinexSpellAddLeveltextBox);
             this.groupBox4.Controls.Add(this.label54);
             this.groupBox4.Controls.Add(this.label55);
             this.groupBox4.Controls.Add(this.LineXSpellbindingNavigator);
@@ -1340,14 +1341,6 @@ namespace Origins_Editor
             this.button3.Text = "Add LineXSpell";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.AddLineXSpell_Click);
-            // 
-            // LinexSpellAddLeveltextBox
-            // 
-            this.LinexSpellAddLeveltextBox.Location = new System.Drawing.Point(65, 53);
-            this.LinexSpellAddLeveltextBox.Name = "LinexSpellAddLeveltextBox";
-            this.LinexSpellAddLeveltextBox.Size = new System.Drawing.Size(54, 20);
-            this.LinexSpellAddLeveltextBox.TabIndex = 27;
-            this.LinexSpellAddLeveltextBox.Text = "50";
             // 
             // label54
             // 
@@ -1808,6 +1801,7 @@ namespace Origins_Editor
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.DamageTypeComboBox);
             this.groupBox8.Controls.Add(this.TargetcomboBox);
             this.groupBox8.Controls.Add(this.SpellTypecomboBox);
             this.groupBox8.Controls.Add(this.label26);
@@ -1839,7 +1833,6 @@ namespace Origins_Editor
             this.groupBox8.Controls.Add(this.RadiustextBox);
             this.groupBox8.Controls.Add(this.FrequencytextBox);
             this.groupBox8.Controls.Add(this.DurationtextBox);
-            this.groupBox8.Controls.Add(this.DamageTypetextBox);
             this.groupBox8.Controls.Add(this.RangetextBox);
             this.groupBox8.Controls.Add(this.PowertextBox);
             this.groupBox8.Controls.Add(this.DamagetextBox);
@@ -2360,14 +2353,6 @@ namespace Origins_Editor
             this.DurationtextBox.TabIndex = 11;
             this.DurationtextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // DamageTypetextBox
-            // 
-            this.DamageTypetextBox.Location = new System.Drawing.Point(80, 150);
-            this.DamageTypetextBox.Name = "DamageTypetextBox";
-            this.DamageTypetextBox.Size = new System.Drawing.Size(59, 20);
-            this.DamageTypetextBox.TabIndex = 10;
-            this.DamageTypetextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // RangetextBox
             // 
             this.RangetextBox.Location = new System.Drawing.Point(80, 46);
@@ -2527,12 +2512,12 @@ namespace Origins_Editor
             this.dataGridSpell.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridSpell.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridSpell.DataSource = this.SpellbindingSource;
-            this.dataGridSpell.Location = new System.Drawing.Point(7, 74);
+            this.dataGridSpell.Location = new System.Drawing.Point(7, 72);
             this.dataGridSpell.MultiSelect = false;
             this.dataGridSpell.Name = "dataGridSpell";
             this.dataGridSpell.ReadOnly = true;
             this.dataGridSpell.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridSpell.Size = new System.Drawing.Size(973, 695);
+            this.dataGridSpell.Size = new System.Drawing.Size(973, 697);
             this.dataGridSpell.TabIndex = 19;
             this.dataGridSpell.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridSpell_CellContentClick);
             // 
@@ -2580,6 +2565,44 @@ namespace Origins_Editor
             this.SpellListingButton.Text = "Spell Listing";
             this.SpellListingButton.UseVisualStyleBackColor = true;
             this.SpellListingButton.Click += new System.EventHandler(this.SpellListing_Click);
+            // 
+            // DamageTypeComboBox
+            // 
+            this.DamageTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DamageTypeComboBox.FormattingEnabled = true;
+            this.DamageTypeComboBox.Items.AddRange(new object[] {
+            "Natural",
+            "Crush",
+            "Slash",
+            "Thrust",
+            "Body",
+            "Cold",
+            "Energy",
+            "Heat",
+            "Matter",
+            "Spirit"});
+            this.DamageTypeComboBox.Location = new System.Drawing.Point(80, 147);
+            this.DamageTypeComboBox.Name = "DamageTypeComboBox";
+            this.DamageTypeComboBox.Size = new System.Drawing.Size(86, 21);
+            this.DamageTypeComboBox.TabIndex = 49;
+            // 
+            // LinexSpellAddLevelNumericUpDown
+            // 
+            this.LinexSpellAddLevelNumericUpDown.Increment = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.LinexSpellAddLevelNumericUpDown.Location = new System.Drawing.Point(65, 53);
+            this.LinexSpellAddLevelNumericUpDown.Maximum = new decimal(new int[] {
+            51,
+            0,
+            0,
+            0});
+            this.LinexSpellAddLevelNumericUpDown.Name = "LinexSpellAddLevelNumericUpDown";
+            this.LinexSpellAddLevelNumericUpDown.ReadOnly = true;
+            this.LinexSpellAddLevelNumericUpDown.Size = new System.Drawing.Size(58, 20);
+            this.LinexSpellAddLevelNumericUpDown.TabIndex = 39;
             // 
             // LoadSpell
             // 
@@ -2633,6 +2656,7 @@ namespace Origins_Editor
             this.groupBox10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSpell)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.LinexSpellAddLevelNumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2681,7 +2705,6 @@ namespace Origins_Editor
         private TextBox RadiustextBox;
         private TextBox FrequencytextBox;
         private TextBox DurationtextBox;
-        private TextBox DamageTypetextBox;
         private TextBox RangetextBox;
         private TextBox PowertextBox;
         private TextBox DamagetextBox;
@@ -2772,7 +2795,6 @@ namespace Origins_Editor
         private ToolStripSeparator bindingNavigatorSeparator2;
         private ToolStripButton bindingNavigatorDeleteItem;
         private BindingNavigator SpellbindingNavigator;
-        private TextBox LinexSpellAddLeveltextBox;
         private Button button3;
         private ComboBox PackageIDAddLineXSpellcomboBox;
         private ComboBox LineNameAddLineXSpellcomboBox;
@@ -2805,6 +2827,8 @@ namespace Origins_Editor
         private Button AddNewSpellButton;
         private Button SpellListingButton;
         private Button button2;
+        private ComboBox DamageTypeComboBox;
+        private NumericUpDown LinexSpellAddLevelNumericUpDown;
 
     }
 }

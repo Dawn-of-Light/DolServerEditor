@@ -87,7 +87,6 @@ namespace Origins_Editor
             this.button2 = new System.Windows.Forms.Button();
             this.CraftedItemIDtextBox = new System.Windows.Forms.TextBox();
             this.id_nbtextBox = new System.Windows.Forms.TextBox();
-            this.CraftingLeveltextBox = new System.Windows.Forms.TextBox();
             this.CraftingSkillTypecomboBox = new System.Windows.Forms.ComboBox();
             this.MakeTemplatedcomboBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -99,7 +98,6 @@ namespace Origins_Editor
             this.button3 = new System.Windows.Forms.Button();
             this.CraftedItemId_nbtextBox = new System.Windows.Forms.TextBox();
             this.IngredientId_nbtextBox = new System.Windows.Forms.TextBox();
-            this.CounttextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -114,6 +112,8 @@ namespace Origins_Editor
             this.CraftingSkillTypeSearchcomboBox = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.CountNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.CraftingLevelNumericUpDown = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.CraftedItembindingNavigator)).BeginInit();
             this.CraftedItembindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CraftedItembindingSource)).BeginInit();
@@ -125,6 +125,8 @@ namespace Origins_Editor
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CountNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CraftingLevelNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // CraftedItembindingNavigator
@@ -373,10 +375,10 @@ namespace Origins_Editor
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.CraftingLevelNumericUpDown);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.CraftedItemIDtextBox);
             this.groupBox1.Controls.Add(this.id_nbtextBox);
-            this.groupBox1.Controls.Add(this.CraftingLeveltextBox);
             this.groupBox1.Controls.Add(this.CraftingSkillTypecomboBox);
             this.groupBox1.Controls.Add(this.MakeTemplatedcomboBox);
             this.groupBox1.Controls.Add(this.label5);
@@ -414,13 +416,6 @@ namespace Origins_Editor
             this.id_nbtextBox.Name = "id_nbtextBox";
             this.id_nbtextBox.Size = new System.Drawing.Size(158, 20);
             this.id_nbtextBox.TabIndex = 8;
-            // 
-            // CraftingLeveltextBox
-            // 
-            this.CraftingLeveltextBox.Location = new System.Drawing.Point(99, 87);
-            this.CraftingLeveltextBox.Name = "CraftingLeveltextBox";
-            this.CraftingLeveltextBox.Size = new System.Drawing.Size(158, 20);
-            this.CraftingLeveltextBox.TabIndex = 7;
             // 
             // CraftingSkillTypecomboBox
             // 
@@ -506,10 +501,10 @@ namespace Origins_Editor
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.CountNumericUpDown);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.CraftedItemId_nbtextBox);
             this.groupBox2.Controls.Add(this.IngredientId_nbtextBox);
-            this.groupBox2.Controls.Add(this.CounttextBox);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
@@ -543,13 +538,6 @@ namespace Origins_Editor
             this.IngredientId_nbtextBox.Name = "IngredientId_nbtextBox";
             this.IngredientId_nbtextBox.Size = new System.Drawing.Size(158, 20);
             this.IngredientId_nbtextBox.TabIndex = 11;
-            // 
-            // CounttextBox
-            // 
-            this.CounttextBox.Location = new System.Drawing.Point(99, 98);
-            this.CounttextBox.Name = "CounttextBox";
-            this.CounttextBox.Size = new System.Drawing.Size(53, 20);
-            this.CounttextBox.TabIndex = 10;
             // 
             // label8
             // 
@@ -698,6 +686,46 @@ namespace Origins_Editor
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.LoadCraftedXitem_Click);
             // 
+            // CountNumericUpDown
+            // 
+            this.CountNumericUpDown.Location = new System.Drawing.Point(98, 99);
+            this.CountNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.CountNumericUpDown.Name = "CountNumericUpDown";
+            this.CountNumericUpDown.ReadOnly = true;
+            this.CountNumericUpDown.Size = new System.Drawing.Size(54, 20);
+            this.CountNumericUpDown.TabIndex = 7;
+            this.CountNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // CraftingLevelNumericUpDown
+            // 
+            this.CraftingLevelNumericUpDown.Location = new System.Drawing.Point(99, 88);
+            this.CraftingLevelNumericUpDown.Maximum = new decimal(new int[] {
+            1500,
+            0,
+            0,
+            0});
+            this.CraftingLevelNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.CraftingLevelNumericUpDown.Name = "CraftingLevelNumericUpDown";
+            this.CraftingLevelNumericUpDown.Size = new System.Drawing.Size(61, 20);
+            this.CraftingLevelNumericUpDown.TabIndex = 11;
+            this.CraftingLevelNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // LoadCraft
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -731,6 +759,8 @@ namespace Origins_Editor
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CountNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CraftingLevelNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -771,7 +801,6 @@ namespace Origins_Editor
         private Button button2;
         private TextBox CraftedItemIDtextBox;
         private TextBox id_nbtextBox;
-        private TextBox CraftingLeveltextBox;
         private ComboBox CraftingSkillTypecomboBox;
         private ComboBox MakeTemplatedcomboBox;
         private Label label5;
@@ -782,7 +811,6 @@ namespace Origins_Editor
         private Button button3;
         private TextBox CraftedItemId_nbtextBox;
         private TextBox IngredientId_nbtextBox;
-        private TextBox CounttextBox;
         private Label label8;
         private Label label7;
         private Label label6;
@@ -795,5 +823,7 @@ namespace Origins_Editor
         private TextBox CraftedItemIDSearchtextBox;
         private Label label11;
         private Button button4;
+        private NumericUpDown CountNumericUpDown;
+        private NumericUpDown CraftingLevelNumericUpDown;
     }
 }

@@ -117,6 +117,7 @@ namespace Origins_Editor
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ControlMenu = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.SearchByRegionNametextBox = new System.Windows.Forms.TextBox();
             this.Classlabel = new System.Windows.Forms.Label();
@@ -130,7 +131,6 @@ namespace Origins_Editor
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.RegionListingButton = new System.Windows.Forms.Button();
             this.AddRegionButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.EditRegionControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.Translationgroupbox.SuspendLayout();
@@ -785,6 +785,16 @@ namespace Origins_Editor
             this.ControlMenu.TabIndex = 18;
             this.ControlMenu.TabStop = false;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(456, 11);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(59, 23);
+            this.button2.TabIndex = 23;
+            this.button2.Text = "Search";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Searchbutton_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -916,16 +926,6 @@ namespace Origins_Editor
             this.AddRegionButton.Text = "Add new region";
             this.AddRegionButton.UseVisualStyleBackColor = true;
             this.AddRegionButton.Click += new System.EventHandler(this.AddNewRegion_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(456, 11);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(59, 23);
-            this.button2.TabIndex = 23;
-            this.button2.Text = "Search";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Searchbutton_Click);
             // 
             // LoadRegion
             // 

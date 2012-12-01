@@ -35,8 +35,7 @@ namespace Origins_Editor
         private MySqlDataAdapter dataAdapterbindingsource1;
         private MySqlDataAdapter dataAdapterbindingsource2;
         private MySqlDataAdapter LanguageStyledataAdapter;
-        private MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-           
+ 
         public LoadStyle()
         {
             InitializeComponent();
@@ -52,7 +51,7 @@ namespace Origins_Editor
                     return;
                 LanguageStyledataAdapter = new MySqlDataAdapter();
                 // Create a new data adapter based on the specified query.
-                LanguageStyledataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                LanguageStyledataAdapter = new MySqlDataAdapter(selectCommand, Util.Connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -78,7 +77,7 @@ namespace Origins_Editor
             try
             {
                 // Create a new data adapter based on the specified query.
-                dataAdapterbindingsource2 = new MySqlDataAdapter(selectCommand, connection);
+                dataAdapterbindingsource2 = new MySqlDataAdapter(selectCommand, Util.Connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -103,7 +102,7 @@ namespace Origins_Editor
             try
             {
                 // Create a new data adapter based on the specified query.
-                MySqlDataAdapter dataAdapterbindingsourceStyleRequirement = new MySqlDataAdapter(selectCommand, connection);
+                MySqlDataAdapter dataAdapterbindingsourceStyleRequirement = new MySqlDataAdapter(selectCommand, Util.Connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -128,7 +127,7 @@ namespace Origins_Editor
             {
                 dataAdapterbindingsource1 = new MySqlDataAdapter();
                 // Create a new data adapter based on the specified query.
-                dataAdapterbindingsource1 = new MySqlDataAdapter(selectCommand, connection);
+                dataAdapterbindingsource1 = new MySqlDataAdapter(selectCommand, Util.Connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.

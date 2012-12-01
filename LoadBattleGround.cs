@@ -34,8 +34,7 @@ namespace Origins_Editor
         private MySqlDataAdapter BattleGrounddataAdapter = new MySqlDataAdapter();
         private MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder();
         private DataTable BattlegroundDatatable = new DataTable();
-        private MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-           
+ 
         public LoadBattleGround()
         {
             InitializeComponent();
@@ -60,7 +59,7 @@ namespace Origins_Editor
             try
             {
                 // Create a new data adapter based on the specified query.
-                this.BattleGrounddataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                this.BattleGrounddataAdapter = new MySqlDataAdapter(selectCommand, Util.Connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -111,9 +110,9 @@ namespace Origins_Editor
                 this.BattlegrounddataGridView.Hide();
 
                 this.RegionIDtextBox.Text = this.BattlegrounddataGridView.Rows[BattlegrounddataGridView.CurrentCell.RowIndex].Cells["RegionID"].Value.ToString();
-                this.MinLeveltextBox.Text = this.BattlegrounddataGridView.Rows[BattlegrounddataGridView.CurrentCell.RowIndex].Cells["MinLevel"].Value.ToString();
-                this.MaxLeveltextBox.Text = this.BattlegrounddataGridView.Rows[BattlegrounddataGridView.CurrentCell.RowIndex].Cells["MaxLevel"].Value.ToString();
-                this.MaxRealmLeveltextBox.Text = this.BattlegrounddataGridView.Rows[BattlegrounddataGridView.CurrentCell.RowIndex].Cells["MaxRealmLevel"].Value.ToString();
+                this.MinLevelNumericUpDown.Text = this.BattlegrounddataGridView.Rows[BattlegrounddataGridView.CurrentCell.RowIndex].Cells["MinLevel"].Value.ToString();
+                this.MaxLevelNumericUpDown.Text = this.BattlegrounddataGridView.Rows[BattlegrounddataGridView.CurrentCell.RowIndex].Cells["MaxLevel"].Value.ToString();
+                this.MaxRealmLevelNumericUpDown.Text = this.BattlegrounddataGridView.Rows[BattlegrounddataGridView.CurrentCell.RowIndex].Cells["MaxRealmLevel"].Value.ToString();
 
                 this.SaveNewbutton.Hide();
                 this.Savebutton.Show();
@@ -140,63 +139,6 @@ namespace Origins_Editor
                     return false;
                 }
             }
-
-            if (Util.IsEmpty(MinLeveltextBox.Text))
-            {
-                MessageBox.Show("WARNING: You need to provide a Minimum Level value.");
-                return false;
-            }
-            else
-            {
-                byte MinLevel;
-                try
-                {
-                    MinLevel = Convert.ToByte(MinLeveltextBox.Text);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show(" WARNING: Minimum value is not suitable.");
-                    return false;
-                }
-            }
-
-            if (Util.IsEmpty(MaxLeveltextBox.Text))
-            {
-                MessageBox.Show("WARNING: You need to provide a Maximum Level value.");
-                return false;
-            }
-            else
-            {
-                byte MaxLevel;
-                try
-                {
-                    MaxLevel = Convert.ToByte(MaxLeveltextBox.Text);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show(" WARNING: MaxLevel value is not suitable.");
-                    return false;
-                }
-            }
-
-            if (Util.IsEmpty(MaxRealmLeveltextBox.Text))
-            {
-                MessageBox.Show("WARNING: You need to provide a Maximum Realm Level value.");
-                return false;
-            }
-            else
-            {
-                byte MaxRealmLevel;
-                try
-                {
-                    MaxRealmLevel = Convert.ToByte(MaxRealmLeveltextBox.Text);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show(" WARNING: MaxRealmLevel value is not suitable.");
-                    return false;
-                }
-            }
             return true;
         }
 
@@ -220,9 +162,9 @@ namespace Origins_Editor
 
                 datarow["Battleground_ID"] = str;
                 datarow["RegionID"] = this.RegionIDtextBox.Text;
-                datarow["MinLevel"] = this.MinLeveltextBox.Text;
-                datarow["MaxLevel"] = this.MaxLeveltextBox.Text;
-                datarow["MaxRealmLevel"] = this.MaxRealmLeveltextBox.Text;
+                datarow["MinLevel"] = this.MinLevelNumericUpDown.Value;
+                datarow["MaxLevel"] = this.MaxLevelNumericUpDown.Value;
+                datarow["MaxRealmLevel"] = this.MaxRealmLevelNumericUpDown.Value;
 
                 this.BattlegroundDatatable.Rows.Add(datarow);
 
@@ -258,9 +200,9 @@ namespace Origins_Editor
                 // user clicked yes
                 this.BattlegrounddataGridView.ReadOnly = false;
                 this.BattlegrounddataGridView.Rows[BattlegrounddataGridView.CurrentCell.RowIndex].Cells["RegionID"].Value = this.RegionIDtextBox.Text;
-                this.BattlegrounddataGridView.Rows[BattlegrounddataGridView.CurrentCell.RowIndex].Cells["MinLevel"].Value = this.MinLeveltextBox.Text;
-                this.BattlegrounddataGridView.Rows[BattlegrounddataGridView.CurrentCell.RowIndex].Cells["MaxLevel"].Value = this.MaxLeveltextBox.Text;
-                this.BattlegrounddataGridView.Rows[BattlegrounddataGridView.CurrentCell.RowIndex].Cells["MaxRealmLevel"].Value = this.MaxRealmLeveltextBox.Text;
+                this.BattlegrounddataGridView.Rows[BattlegrounddataGridView.CurrentCell.RowIndex].Cells["MinLevel"].Value = this.MinLevelNumericUpDown.Value;
+                this.BattlegrounddataGridView.Rows[BattlegrounddataGridView.CurrentCell.RowIndex].Cells["MaxLevel"].Value = this.MaxLevelNumericUpDown.Value;
+                this.BattlegrounddataGridView.Rows[BattlegrounddataGridView.CurrentCell.RowIndex].Cells["MaxRealmLevel"].Value = this.MaxRealmLevelNumericUpDown.Value;
 
                 this.Validate();
                 this.BattleGroundbindingSource.EndEdit();

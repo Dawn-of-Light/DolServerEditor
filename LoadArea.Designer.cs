@@ -114,6 +114,7 @@ namespace Origins_Editor
             this.SaveNewbutton = new System.Windows.Forms.Button();
             this.EditAreaControl = new System.Windows.Forms.TabControl();
             this.ControlMenu = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.SearchByDescriptiontextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -121,7 +122,6 @@ namespace Origins_Editor
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.AddAreaButton = new System.Windows.Forms.Button();
             this.AreaListingButton = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AreabindingNavigator)).BeginInit();
             this.AreabindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AreabindingSource)).BeginInit();
@@ -704,6 +704,16 @@ namespace Origins_Editor
             this.ControlMenu.TabIndex = 23;
             this.ControlMenu.TabStop = false;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(574, 11);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(59, 23);
+            this.button4.TabIndex = 27;
+            this.button4.Text = "Search";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.Searchbutton_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -776,16 +786,6 @@ namespace Origins_Editor
             this.AreaListingButton.Text = "Area Listing";
             this.AreaListingButton.UseVisualStyleBackColor = true;
             this.AreaListingButton.Click += new System.EventHandler(this.ZoneListing_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(574, 11);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(59, 23);
-            this.button4.TabIndex = 27;
-            this.button4.Text = "Search";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.Searchbutton_Click);
             // 
             // LoadArea
             // 

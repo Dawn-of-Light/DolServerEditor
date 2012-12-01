@@ -33,8 +33,7 @@ namespace Origins_Editor
     {
         private MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder();
         private MySqlDataAdapter RegiondataAdapter;
-        private MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-           
+
         public LoadRegion()
         {
             InitializeComponent();
@@ -46,7 +45,7 @@ namespace Origins_Editor
             try
             {
                 // Create a new data adapter based on the specified query.
-                RegiondataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                RegiondataAdapter = new MySqlDataAdapter(selectCommand, Util.Connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -86,8 +85,8 @@ namespace Origins_Editor
 
             try
             {
-                connection.Open();
-                MySqlDataAdapter ClassTypeAdddataAdapter = new MySqlDataAdapter("select distinct ClassType from regions ORDER BY ClassType ASC", connection);
+                Util.Connection.Open();
+                MySqlDataAdapter ClassTypeAdddataAdapter = new MySqlDataAdapter("select distinct ClassType from regions ORDER BY ClassType ASC", Util.Connection);
                 MySqlCommandBuilder ClassTypeDatacommandBuilder = new MySqlCommandBuilder(ClassTypeAdddataAdapter);
                 DataTable ClassTypeComboData = new DataTable();
                 ClassTypeAdddataAdapter.Fill(ClassTypeComboData);
@@ -101,7 +100,7 @@ namespace Origins_Editor
 
 
                 this.ClassTypeSearchcomboBox.Text = " All";
-                connection.Close();
+                Util.Connection.Close();
 
             }
             catch (MySqlException s)

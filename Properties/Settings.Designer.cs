@@ -73,18 +73,6 @@ namespace DolEditor.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3306")]
-        public int PortNumber {
-            get {
-                return ((int)(this["PortNumber"]));
-            }
-            set {
-                this["PortNumber"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool OriginsSettings {
             get {
@@ -104,6 +92,18 @@ namespace DolEditor.Properties {
             }
             set {
                 this["Password"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3306")]
+        public int PortNumber {
+            get {
+                return ((int)(this["PortNumber"]));
+            }
+            set {
+                this["PortNumber"] = value;
             }
         }
     }

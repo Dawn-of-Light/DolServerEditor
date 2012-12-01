@@ -35,8 +35,7 @@ namespace Origins_Editor
         private MySqlDataAdapter SpelldataAdapter;
         private MySqlDataAdapter LineXSpelldataAdapter;
         private MySqlDataAdapter LanguageSpelldataAdapter;
-        private MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-           
+
         public LoadSpell()
         {
             InitializeComponent();
@@ -50,7 +49,7 @@ namespace Origins_Editor
                 if (!DolEditor.Properties.Settings.Default.OriginsSettings)
                     return;
                 // Create a new data adapter based on the specified query.
-                LanguageSpelldataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                LanguageSpelldataAdapter = new MySqlDataAdapter(selectCommand, Util.Connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -77,7 +76,7 @@ namespace Origins_Editor
             try
             {
                 // Create a new data adapter based on the specified query.
-                LineXSpelldataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                LineXSpelldataAdapter = new MySqlDataAdapter(selectCommand, Util.Connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -103,7 +102,7 @@ namespace Origins_Editor
             try
             {
                 // Create a new data adapter based on the specified query.
-                SpelldataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                SpelldataAdapter = new MySqlDataAdapter(selectCommand, Util.Connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -148,10 +147,10 @@ namespace Origins_Editor
 
             try
             {
-                connection.Open();
+                Util.Connection.Open();
 
                 //PackageID Datatable
-                MySqlDataAdapter PackageIDdataAdapter = new MySqlDataAdapter("select distinct packageid from spell ORDER BY packageid ASC", connection);
+                MySqlDataAdapter PackageIDdataAdapter = new MySqlDataAdapter("select distinct packageid from spell ORDER BY packageid ASC", Util.Connection);
                 MySqlCommandBuilder PackageIDDatacommandBuilder = new MySqlCommandBuilder(PackageIDdataAdapter);
                 DataTable PackageIDData = new DataTable();
                 PackageIDdataAdapter.Fill(PackageIDData);
@@ -163,7 +162,7 @@ namespace Origins_Editor
                 this.PackageIDAddLineXSpellcomboBox.DisplayMember = "PackageID";
                 this.PackageIDAddLineXSpellcomboBox.DataSource = PackageIDLineXSpellAddData;
 
-                connection.Close();
+                Util.Connection.Close();
 
             }
             catch (MySqlException s)
@@ -245,17 +244,6 @@ namespace Origins_Editor
             if (!Int32.TryParse(DamagetextBox.Text.ToString(), out Damage))
             {
                 MessageBox.Show("You need to specify a numeric value for Damage.");
-                return false;
-            }
-
-            if (Util.IsEmpty(DamageTypetextBox.Text))
-            {
-                DamageTypetextBox.Text = "0";
-            }
-            int DamageType;
-            if (!Int32.TryParse(DamageTypetextBox.Text.ToString(), out DamageType))
-            {
-                MessageBox.Show("You need to specify a numeric value for DamageType.");
                 return false;
             }
 
@@ -508,7 +496,7 @@ namespace Origins_Editor
                 this.PowertextBox.Text = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["Power"].Value.ToString();
                 this.CastTimetextBox.Text = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["CastTime"].Value.ToString();
                 this.DamagetextBox.Text = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["Damage"].Value.ToString();
-                this.DamageTypetextBox.Text = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["DamageType"].Value.ToString();
+                this.DamageTypeComboBox.Text = Util.Find_DamageType_String_Value(this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["DamageType"].Value.ToString());
                 this.SpellTypecomboBox.Text = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["Type"].Value.ToString();
                 this.DurationtextBox.Text = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["Duration"].Value.ToString();
                 this.FrequencytextBox.Text = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["Frequency"].Value.ToString();
@@ -569,7 +557,7 @@ namespace Origins_Editor
                 this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["Power"].Value = PowertextBox.Text;
                 this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["CastTime"].Value = CastTimetextBox.Text;
                 this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["Damage"].Value = DamagetextBox.Text;
-                this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["DamageType"].Value = DamageTypetextBox.Text;
+                this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["DamageType"].Value = Util.Find_DamageType_Value(DamageTypeComboBox.Text);
 
                 this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["Type"].Value = SpellTypecomboBox.Text;
                 this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["Duration"].Value = DurationtextBox.Text;
@@ -646,7 +634,7 @@ namespace Origins_Editor
                     MySqlDataAdapter NewSpellVerifdataAdapter = new MySqlDataAdapter();
                     string selectCommand = "select * from spell  where spellid = '" + spellIDtextBox.Text.ToString() + "'";
                     // Create a new data adapter based on the specified query.
-                    NewSpellVerifdataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                    NewSpellVerifdataAdapter = new MySqlDataAdapter(selectCommand, Util.Connection);
                     // Create a command builder to generate SQL update, insert, and 
                     // delete commands based on selectCommand. These are used to 
                     // update the database.
@@ -686,7 +674,7 @@ namespace Origins_Editor
                         datarow["Power"] = PowertextBox.Text;
                         datarow["CastTime"] = CastTimetextBox.Text;
                         datarow["Damage"] = DamagetextBox.Text;
-                        datarow["DamageType"] = DamageTypetextBox.Text;
+                        datarow["DamageType"] = Util.Find_DamageType_Value(DamageTypeComboBox.Text);
                         datarow["Type"] = SpellTypecomboBox.Text;
                         datarow["Duration"] = DurationtextBox.Text;
                         datarow["Frequency"] = FrequencytextBox.Text;
@@ -755,23 +743,6 @@ namespace Origins_Editor
                 MessageBox.Show("You need to specify a SpellID on the selected spell.");
                 return false;
             }
-
-            if (Util.IsEmpty(LinexSpellAddLeveltextBox.Text))
-            {
-                MessageBox.Show("You need to specify a Level for this LineXSpell.");
-                return false;
-            }
-            int level = -1;
-            if (!Int32.TryParse(LinexSpellAddLeveltextBox.Text.ToString(), out level))
-            {
-                MessageBox.Show("You need to specify a numeric value for level.");
-                return false;
-            }
-            if (level > 50 || level < 0)
-            {
-                MessageBox.Show("Level value need to be between 1-50.");
-                return false;
-            }
             return true;
         }
 
@@ -795,7 +766,7 @@ namespace Origins_Editor
                 datarow["LineXSpell_ID"] = str;
                 datarow["LineName"] = LineNameAddLineXSpellcomboBox.Text;//.Replace("'", "''");
                 datarow["SpellID"] = spellIDtextBox.Text;
-                datarow["Level"] = LinexSpellAddLeveltextBox.Text;
+                datarow["Level"] = LinexSpellAddLevelNumericUpDown.Value;
                 datarow["PackageID"] = PackageIDAddLineXSpellcomboBox.Text;
 
                 linexspell.Rows.Add(datarow);

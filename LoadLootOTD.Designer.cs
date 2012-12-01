@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoadLootOTD));
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
             this.id_nbSearchtextBox = new System.Windows.Forms.TextBox();
@@ -266,7 +266,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(164, 118);
+            this.button1.Location = new System.Drawing.Point(394, 71);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(68, 23);
             this.button1.TabIndex = 8;
@@ -276,7 +276,7 @@
             // 
             // MobNametextBox
             // 
-            this.MobNametextBox.Location = new System.Drawing.Point(20, 74);
+            this.MobNametextBox.Location = new System.Drawing.Point(5, 74);
             this.MobNametextBox.Name = "MobNametextBox";
             this.MobNametextBox.Size = new System.Drawing.Size(214, 20);
             this.MobNametextBox.TabIndex = 7;
@@ -289,14 +289,14 @@
             this.AllowedClasslistView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ClassNamecolumnHeader});
             this.AllowedClasslistView.GridLines = true;
-            listViewItem2.StateImageIndex = 0;
+            listViewItem1.StateImageIndex = 0;
             this.AllowedClasslistView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
-            this.AllowedClasslistView.Location = new System.Drawing.Point(255, 16);
+            listViewItem1});
+            this.AllowedClasslistView.Location = new System.Drawing.Point(225, 16);
             this.AllowedClasslistView.MultiSelect = false;
             this.AllowedClasslistView.Name = "AllowedClasslistView";
             this.AllowedClasslistView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.AllowedClasslistView.Size = new System.Drawing.Size(208, 132);
+            this.AllowedClasslistView.Size = new System.Drawing.Size(164, 132);
             this.AllowedClasslistView.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.AllowedClasslistView.TabIndex = 6;
             this.AllowedClasslistView.UseCompatibleStateImageBehavior = false;
@@ -306,18 +306,18 @@
             // ClassNamecolumnHeader
             // 
             this.ClassNamecolumnHeader.Text = "Allowed Class";
-            this.ClassNamecolumnHeader.Width = 164;
+            this.ClassNamecolumnHeader.Width = 128;
             // 
             // id_nbAddtextBox
             // 
-            this.id_nbAddtextBox.Location = new System.Drawing.Point(20, 35);
+            this.id_nbAddtextBox.Location = new System.Drawing.Point(5, 35);
             this.id_nbAddtextBox.Name = "id_nbAddtextBox";
             this.id_nbAddtextBox.Size = new System.Drawing.Size(214, 20);
             this.id_nbAddtextBox.TabIndex = 5;
             // 
             // MinLevelnumericUpDown
             // 
-            this.MinLevelnumericUpDown.Location = new System.Drawing.Point(104, 119);
+            this.MinLevelnumericUpDown.Location = new System.Drawing.Point(89, 119);
             this.MinLevelnumericUpDown.Maximum = new decimal(new int[] {
             50,
             0,
@@ -330,7 +330,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(95, 58);
+            this.label3.Location = new System.Drawing.Point(80, 58);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 2;
@@ -339,7 +339,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(96, 102);
+            this.label2.Location = new System.Drawing.Point(81, 102);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 1;
@@ -348,7 +348,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(73, 16);
+            this.label1.Location = new System.Drawing.Point(58, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 13);
             this.label1.TabIndex = 0;

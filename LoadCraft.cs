@@ -34,8 +34,7 @@ namespace Origins_Editor
         private MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder();
         private MySqlDataAdapter CraftedItemdataAdapter;
         private MySqlDataAdapter CraftedXItemdataAdapter;
-        private MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-           
+
         public LoadCraft()
         {
             InitializeComponent();
@@ -63,7 +62,7 @@ namespace Origins_Editor
             try
             {
                 // Create a new data adapter based on the specified query.
-                this.CraftedItemdataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                this.CraftedItemdataAdapter = new MySqlDataAdapter(selectCommand, Util.Connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -85,7 +84,7 @@ namespace Origins_Editor
             try
             {
                 // Create a new data adapter based on the specified query.
-                this.CraftedXItemdataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                this.CraftedXItemdataAdapter = new MySqlDataAdapter(selectCommand, Util.Connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -136,7 +135,7 @@ namespace Origins_Editor
                     MySqlDataAdapter CraftedItemIDdataAdapter = new MySqlDataAdapter();
                     string selectCommand = "select * from crafteditem  where crafteditemid = '" + CraftedItemIDtextBox.Text.ToString() + "'";
                     // Create a new data adapter based on the specified query.
-                    CraftedItemIDdataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                    CraftedItemIDdataAdapter = new MySqlDataAdapter(selectCommand, Util.Connection);
                     // Create a command builder to generate SQL update, insert, and 
                     // delete commands based on selectCommand. These are used to 
                     // update the database.
@@ -164,29 +163,6 @@ namespace Origins_Editor
                 MessageBox.Show("You need to specify a id_nbt for this crafteditem.");
                 return false;
             }
-
-            int CraftingLevel;
-
-            try
-            {
-                if (Util.IsEmpty(this.CraftingLeveltextBox.Text))
-                {
-                    MessageBox.Show("You need to specify a Crafting Level for this crafteditem.");
-                    return false;
-                }
-
-                CraftingLevel = Convert.ToInt32(this.CraftingLeveltextBox.Text);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show(" WARNING: CraftingLevel value is not suitable.");
-                return false;
-            }
-            if (Util.IsEmpty(this.CraftingSkillTypecomboBox.Text))
-            {
-                MessageBox.Show("You need to specify a CraftingSkill Type for this crafteditem.");
-                return false;
-            }
             return true;
         }
 
@@ -210,7 +186,7 @@ namespace Origins_Editor
                 datarow["CraftedItem_ID"] = str;
                 datarow["CraftedItemID"] = this.CraftedItemIDtextBox.Text;
                 datarow["Id_nb"] = this.id_nbtextBox.Text;
-                datarow["CraftingLevel"] = this.CraftingLeveltextBox.Text;
+                datarow["CraftingLevel"] = this.CraftingLevelNumericUpDown.Value;
                 datarow["CraftingSkillType"] = Util.CraftNameToID(this.CraftingSkillTypecomboBox.Text);
                 datarow["MakeTemplated"] = Util.Find_Bool_Value(this.MakeTemplatedcomboBox.Text);
 
@@ -244,23 +220,6 @@ namespace Origins_Editor
                 MessageBox.Show("You need to specify a IngredientId_nb for this craftedxitem.");
                 return false;
             }
-            if (this.CounttextBox.Text == null || this.CounttextBox.Text == "")
-            {
-                MessageBox.Show("You need to specify a count for this craftedxitem.");
-                return false;
-            }
-
-            int RawMaterialsCount;
-
-            try
-            {
-                RawMaterialsCount = Convert.ToInt32(this.CounttextBox.Text);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show(" WARNING: Count value is not suitable.");
-                return false;
-            }
             return true;
         }
 
@@ -284,7 +243,7 @@ namespace Origins_Editor
                 datarow["CraftedXItem_ID"] = str;
                 datarow["CraftedItemId_nb"] = this.CraftedItemId_nbtextBox.Text;
                 datarow["IngredientId_nb"] = this.IngredientId_nbtextBox.Text;
-                datarow["Count"] = this.CounttextBox.Text;
+                datarow["Count"] = this.CountNumericUpDown.Value;
 
                 this.CraftedXItemDatatable.Rows.Add(datarow);
 

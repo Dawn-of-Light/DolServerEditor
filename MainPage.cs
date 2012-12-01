@@ -27,7 +27,6 @@ namespace Origins_Editor
 
     public partial class MainPageEditor : Form
     {
-        private MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
         private DataTable MobNameDatatable = new DataTable();
         private DataTable NPCTemplateDatatable = new DataTable();
 
@@ -40,7 +39,7 @@ namespace Origins_Editor
 
             try
             {
-                using (MySqlConnection con = connection)
+                using (MySqlConnection con = Util.Connection)
                 {
                     con.Open();
                 }
@@ -85,7 +84,7 @@ namespace Origins_Editor
             try
             {
 
-                MySqlDataAdapter MobNamedataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                MySqlDataAdapter MobNamedataAdapter = new MySqlDataAdapter(selectCommand, Util.Connection);
                 MySqlCommandBuilder commandBuilderMobName = new MySqlCommandBuilder(MobNamedataAdapter);
                 MobNameDatatable = new DataTable();
                 MobNameDatatable.Clear();
@@ -107,7 +106,7 @@ namespace Origins_Editor
             try
             {
 
-                MySqlDataAdapter NPCTemplatedataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                MySqlDataAdapter NPCTemplatedataAdapter = new MySqlDataAdapter(selectCommand, Util.Connection);
                 MySqlCommandBuilder commandBuilderNPCTemplate = new MySqlCommandBuilder(NPCTemplatedataAdapter);
                 NPCTemplateDatatable = new DataTable();
                 NPCTemplateDatatable.Clear();
@@ -135,7 +134,7 @@ namespace Origins_Editor
         {
             try
             {
-                MySqlDataAdapter FactiondataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                MySqlDataAdapter FactiondataAdapter = new MySqlDataAdapter(selectCommand, Util.Connection);
                 MySqlCommandBuilder commandBuilderRace = new MySqlCommandBuilder(FactiondataAdapter);
                 DataTable FactionDatatable = new DataTable();
                 FactiondataAdapter.Fill(FactionDatatable);
@@ -162,7 +161,7 @@ namespace Origins_Editor
         {
             try
             {
-                MySqlDataAdapter RacedataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                MySqlDataAdapter RacedataAdapter = new MySqlDataAdapter(selectCommand, Util.Connection);
                 MySqlCommandBuilder commandBuilderRace = new MySqlCommandBuilder(RacedataAdapter);
                 DataTable RaceDatatable = new DataTable();
                 RacedataAdapter.Fill(RaceDatatable);
@@ -272,12 +271,12 @@ namespace Origins_Editor
 
             try
             {
-                connection.Open();
+                Util.Connection.Open();
 
                 MySqlDataAdapter MobNameVerifdataAdapter = new MySqlDataAdapter();
                 string selectCommand = "select * from mob  where name = '" + ChangedNametextBox.Text.Replace("'", "''") + "'";
                 // Create a new data adapter based on the specified query.
-                MobNameVerifdataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                MobNameVerifdataAdapter = new MySqlDataAdapter(selectCommand, Util.Connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -292,12 +291,12 @@ namespace Origins_Editor
                 {
                     if (MessageBox.Show(MobNameVerifData.Rows.Count + " Mobs already have this name. Ignore and rename it?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                     {
-                        connection.Close();
+                        Util.Connection.Close();
                         return;
                     }
                 }
 
-                MySqlCommand MobCommand = connection.CreateCommand();
+                MySqlCommand MobCommand = Util.Connection.CreateCommand();
 
                 MobCommand.CommandText = "update Mob set name='" + ChangedNametextBox.Text.Replace("'", "''") + "' where name ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                 MobrowsAffected = MobCommand.ExecuteNonQuery();
@@ -314,7 +313,7 @@ namespace Origins_Editor
                 if (UpdateMobxAmbientBehaviourcheckBox.Checked)
                 {
 
-                    MySqlCommand MobxAmbientBehaviourCommand = connection.CreateCommand();
+                    MySqlCommand MobxAmbientBehaviourCommand = Util.Connection.CreateCommand();
 
                     MobxAmbientBehaviourCommand.CommandText = "update MobxAmbientBehaviour set source='" + ChangedNametextBox.Text.Replace("'", "''") + "' where source ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     MobxAmbientBehaviourrowsAffected = MobxAmbientBehaviourCommand.ExecuteNonQuery();
@@ -323,7 +322,7 @@ namespace Origins_Editor
                 if (UpdateDataquestcheckBox.Checked)
                 {
 
-                    MySqlCommand DataquestCommand = connection.CreateCommand();
+                    MySqlCommand DataquestCommand = Util.Connection.CreateCommand();
 
                     DataquestCommand.CommandText = "update dataquest set startname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where startname ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     DataquestrowsAffected = DataquestCommand.ExecuteNonQuery();
@@ -333,17 +332,17 @@ namespace Origins_Editor
 
                 if (UpdateDropTemplateXItemTemplatecheckBox.Checked)
                 {
-                    MySqlCommand DropTemplateXItemTemplateCommand = connection.CreateCommand();
+                    MySqlCommand DropTemplateXItemTemplateCommand = Util.Connection.CreateCommand();
 
                     DropTemplateXItemTemplateCommand.CommandText = "update DropTemplateXItemTemplate set templatename='" + ChangedNametextBox.Text.Replace("'", "''") + "' where templatename ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     DropTemplateXItemTemplaterowsAffected = DropTemplateXItemTemplateCommand.ExecuteNonQuery();
 
-                    MySqlCommand MobDropTemplateCommand = connection.CreateCommand();
+                    MySqlCommand MobDropTemplateCommand = Util.Connection.CreateCommand();
 
                     MobDropTemplateCommand.CommandText = "update MobDropTemplate set mobname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where mobname ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     MobDropTemplaterowsAffected = MobDropTemplateCommand.ExecuteNonQuery();
 
-                    MySqlCommand MobDropTemplateCommand2 = connection.CreateCommand();
+                    MySqlCommand MobDropTemplateCommand2 = Util.Connection.CreateCommand();
 
                     MobDropTemplateCommand2.CommandText = "update MobDropTemplate set loottemplatename='" + ChangedNametextBox.Text.Replace("'", "''") + "' where loottemplatename ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     MobDropTemplateCommand2.ExecuteNonQuery();
@@ -352,7 +351,7 @@ namespace Origins_Editor
 
                 if (UpdateNPCTemplatecheckBox.Checked)
                 {
-                    MySqlCommand NPCTemplateCommand = connection.CreateCommand();
+                    MySqlCommand NPCTemplateCommand = Util.Connection.CreateCommand();
 
                     NPCTemplateCommand.CommandText = "update npctemplate set name='" + ChangedNametextBox.Text.Replace("'", "''") + "' where name ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     NPCTemplaterowsAffected = NPCTemplateCommand.ExecuteNonQuery();
@@ -369,7 +368,7 @@ namespace Origins_Editor
                 if (UpdateInventoryCreatorcheckBox.Checked)
                 {
 
-                    MySqlCommand InventoryCreatorCommand = connection.CreateCommand();
+                    MySqlCommand InventoryCreatorCommand = Util.Connection.CreateCommand();
 
                     InventoryCreatorCommand.CommandText = "update inventory set creator='" + ChangedNametextBox.Text.Replace("'", "''") + "' where creator ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     InventoryCreatorrowsAffected = InventoryCreatorCommand.ExecuteNonQuery();
@@ -377,17 +376,17 @@ namespace Origins_Editor
 
                 if (UpdateMobXLootTemplatecheckBox.Checked)
                 {
-                    MySqlCommand DropTemplateXItemTemplateCommand = connection.CreateCommand();
+                    MySqlCommand DropTemplateXItemTemplateCommand = Util.Connection.CreateCommand();
 
                     DropTemplateXItemTemplateCommand.CommandText = "update loottemplate set templatename='" + ChangedNametextBox.Text.Replace("'", "''") + "' where templatename ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     LootTemplaterowsAffected = DropTemplateXItemTemplateCommand.ExecuteNonQuery();
 
-                    MySqlCommand MobXLootTemplateCommand = connection.CreateCommand();
+                    MySqlCommand MobXLootTemplateCommand = Util.Connection.CreateCommand();
 
                     MobXLootTemplateCommand.CommandText = "update MobXLootTemplate set mobname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where mobname ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     MobXLootTemplaterowsAffected = MobXLootTemplateCommand.ExecuteNonQuery();
 
-                    MySqlCommand MobXLootTemplateCommand2 = connection.CreateCommand();
+                    MySqlCommand MobXLootTemplateCommand2 = Util.Connection.CreateCommand();
 
                     MobXLootTemplateCommand2.CommandText = "update MobXLootTemplate set loottemplatename='" + ChangedNametextBox.Text.Replace("'", "''") + "' where loottemplatename ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     MobXLootTemplateCommand2.ExecuteNonQuery();
@@ -395,7 +394,7 @@ namespace Origins_Editor
 
                 if (UpdateLootOTDcheckBox.Checked)
                 {
-                    MySqlCommand LootOTDCommand = connection.CreateCommand();
+                    MySqlCommand LootOTDCommand = Util.Connection.CreateCommand();
 
                     LootOTDCommand.CommandText = "update loototd set mobname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where mobname ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     LootOTDrowsAffected = LootOTDCommand.ExecuteNonQuery();
@@ -403,13 +402,13 @@ namespace Origins_Editor
 
                 if (UpdateLootGeneratorcheckBox.Checked)
                 {
-                    MySqlCommand LootGeneratorCommand = connection.CreateCommand();
+                    MySqlCommand LootGeneratorCommand = Util.Connection.CreateCommand();
 
                     LootGeneratorCommand.CommandText = "update lootgenerator set mobname='" + ChangedNametextBox.Text.Replace("'", "''") + "' where mobname ='" + MobNamecomboBox.Text.Replace("'", "''") + "'";
                     LootGeneratorAffected = LootGeneratorCommand.ExecuteNonQuery();
                 }
 
-                connection.Close();
+                Util.Connection.Close();
             }
             catch (MySqlException s)
             {
@@ -434,16 +433,16 @@ namespace Origins_Editor
 
             try
             {
-                connection.Open();
+                Util.Connection.Open();
 
-                MySqlCommand MobCommand = connection.CreateCommand();
+                MySqlCommand MobCommand = Util.Connection.CreateCommand();
 
                 MobCommand.CommandText = "update Mob set factionid='" + FactioncomboBox.SelectedValue + "' where name ='" + MobNameMassFactiontextBox.Text.Replace("'", "''") + "'";
                 MobrowsAffected = MobCommand.ExecuteNonQuery();
 
                 if (SetAggroLevelto0checkBox.Checked)
                 {
-                    MySqlCommand FactionNPCtemplateAggroCommand = connection.CreateCommand();
+                    MySqlCommand FactionNPCtemplateAggroCommand = Util.Connection.CreateCommand();
 
                     FactionNPCtemplateAggroCommand.CommandText = "update npctemplate set aggrolevel='0' where name ='" + MobNameMassFactiontextBox.Text.Replace("'", "''") + "'";
                     FactionAggroNPCTemplaterowsAffected = FactionNPCtemplateAggroCommand.ExecuteNonQuery();
@@ -452,13 +451,13 @@ namespace Origins_Editor
 
                 if (SetAggroLevelto0checkBox.Checked)
                 {
-                    MySqlCommand FactionMobAggroCommand = connection.CreateCommand();
+                    MySqlCommand FactionMobAggroCommand = Util.Connection.CreateCommand();
 
                     FactionMobAggroCommand.CommandText = "update mob set aggrolevel='0' where name ='" + MobNameMassFactiontextBox.Text.Replace("'", "''") + "'";
                     FactionAggroMobrowsAffected = FactionMobAggroCommand.ExecuteNonQuery();
 
                 }
-                connection.Close();
+                Util.Connection.Close();
             }
             catch (MySqlException s)
             {
@@ -482,22 +481,22 @@ namespace Origins_Editor
 
             try
             {
-                connection.Open();
+                Util.Connection.Open();
 
-                MySqlCommand MobCommand = connection.CreateCommand();
+                MySqlCommand MobCommand = Util.Connection.CreateCommand();
 
                 MobCommand.CommandText = "update Mob set race='" + RacecomboBox.SelectedValue + "' where name ='" + MobNameMassRacetextBox.Text.Replace("'", "''") + "'";
                 MobrowsAffected = MobCommand.ExecuteNonQuery();
 
                 if (UpdateMassRaceNPCTemplatecheckBox.Checked)
                 {
-                    MySqlCommand RaceCommand = connection.CreateCommand();
+                    MySqlCommand RaceCommand = Util.Connection.CreateCommand();
 
                     RaceCommand.CommandText = "update npctemplate set race='" + RacecomboBox.SelectedValue + "' where name ='" + MobNameMassRacetextBox.Text.Replace("'", "''") + "'";
                     NPCTemplaterowsAffected = RaceCommand.ExecuteNonQuery();
 
                 }
-                connection.Close();
+                Util.Connection.Close();
             }
             catch (MySqlException s)
             {
@@ -520,22 +519,22 @@ namespace Origins_Editor
 
             try
             {
-                connection.Open();
+                Util.Connection.Open();
 
-                MySqlCommand MobCommand = connection.CreateCommand();
+                MySqlCommand MobCommand = Util.Connection.CreateCommand();
 
                 MobCommand.CommandText = "update Mob set bodytype='" + Util.Find_BodyType_Value(BodyTypecomboBox.Text) + "' where name ='" + MobNameUpdateMassBodyTypetextBox.Text.Replace("'", "''") + "'";
                 MobrowsAffected = MobCommand.ExecuteNonQuery();
 
                 if (UpdateMassNPCTemplateBodyTypecheckBox.Checked)
                 {
-                    MySqlCommand RaceCommand = connection.CreateCommand();
+                    MySqlCommand RaceCommand = Util.Connection.CreateCommand();
 
                     RaceCommand.CommandText = "update npctemplate set bodytype='" + Util.Find_BodyType_Value(BodyTypecomboBox.Text) + "' where name ='" + MobNameUpdateMassBodyTypetextBox.Text.Replace("'", "''") + "'";
                     NPCTemplaterowsAffected = RaceCommand.ExecuteNonQuery();
 
                 }
-                connection.Close();
+                Util.Connection.Close();
             }
             catch (MySqlException s)
             {
@@ -557,13 +556,13 @@ namespace Origins_Editor
 
             try
             {
-                connection.Open();
-                MySqlCommand MobCommand = connection.CreateCommand();
+                Util.Connection.Open();
+                MySqlCommand MobCommand = Util.Connection.CreateCommand();
 
                 MobCommand.CommandText = "update Mob set npctemplateid='" + NPCTemplatecomboBox.SelectedValue + "' where name ='" + MobNameMassNPCTemplatetextBox.Text.Replace("'", "''") + "'";
                 MobrowsAffected = MobCommand.ExecuteNonQuery();
 
-                connection.Close();
+                Util.Connection.Close();
             }
             catch (MySqlException s)
             {

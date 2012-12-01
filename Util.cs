@@ -31,6 +31,8 @@ using MySql.Data.MySqlClient;
     /// </summary>
 public static class Util
 {
+    public static MySqlConnection Connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";port= " + DolEditor.Properties.Settings.Default.PortNumber + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
+           
     /// <summary>
     /// Holds the random number generator instance
     /// </summary>
@@ -73,39 +75,6 @@ public static class Util
     {
         return RandomGen.Next(min, max + 1);
     }
-
-    /// <summary>
-    /// Generates a random number between 0.0 and 1.0.
-    /// </summary>
-    /// <returns>
-    /// A double-precision floating point number greater than
-    /// or equal to 0.0, and less than 1.0.
-    /// </returns>
-    public static double RandomDouble()
-    {
-        return RandomGen.NextDouble();
-    }
-
-    /// <summary>
-    /// returns in chancePercent% cases true
-    /// </summary>
-    /// <param name="chancePercent">0 .. 100</param>
-    /// <returns></returns>
-    public static bool Chance(int chancePercent)
-    {
-        return chancePercent >= Random(1, 100);
-    }
-
-    /// <summary>
-    /// returns in chancePercent% cases true
-    /// </summary>
-    /// <param name="chancePercent">0.0 .. 1.0</param>
-    /// <returns></returns>
-    public static bool ChanceDouble(double chancePercent)
-    {
-        return chancePercent > RandomGen.NextDouble();
-    }
-
 
     public static string Find_Bool_String_Value(string text)
     {
@@ -340,7 +309,7 @@ public static class Util
             case "62":
                 return "Mauler_Hib";
         }
-        return "unknown class name";
+        return "unknow class name";
     }
 
     public static string ClassNameToID(string objectTypeID)
@@ -934,26 +903,6 @@ public static class Util
     }
 
     /// <summary>
-    /// Make a sentence, first letter uppercase and replace all parameters
-    /// </summary>
-    /// <param name="message"></param>
-    /// <param name="args"></param>
-    /// <returns></returns>
-    public static string MakeSentence(string message, params string[] args)
-    {
-        if (string.IsNullOrEmpty(message))
-            return message;
-
-        string res = string.Format(message, args);
-        if (res.Length > 0 && char.IsLower(res[0]))
-        {
-            res = char.ToUpper(res[0]) + res.Substring(1);
-        }
-
-        return res;
-    }
-
-    /// <summary>
     /// Checks wether string is empty.
     /// empty means either null or ""
     /// </summary>
@@ -974,88 +923,6 @@ public static class Util
 
         return false;
     }
-
-    /// <summary>
-    /// Gets the stacktrace of a thread
-    /// </summary>
-    /// <remarks>
-    /// The use of the deprecated Suspend and Resume methods is necessary to get the StackTrace.
-    /// Suspend/Resume are not being used for thread synchronization (very bad).
-    /// It may be possible to get the StackTrace some other way, but this works for now
-    /// So, the related warning is disabled
-    /// </remarks>
-    /// <param name="thread">Thread</param>
-    /// <returns>The thread's stacktrace</returns>
-    public static StackTrace GetThreadStack(Thread thread)
-    {
-#pragma warning disable 0618
-        thread.Suspend();
-        StackTrace trace;
-
-        try
-        {
-            trace = new StackTrace(thread, true);
-        }
-        finally
-        {
-            thread.Resume();
-        }
-#pragma warning restore 0618
-
-        return trace;
-    }
-
-    /// <summary>
-    /// Formats the stacktrace
-    /// </summary>
-    /// <param name="trace">The stacktrace to format</param>
-    /// <returns>The fromatted string of stacktrace object</returns>
-    public static string FormatStackTrace(StackTrace trace)
-    {
-        var str = new StringBuilder(128);
-
-        if (trace == null)
-        {
-            str.Append("(null)");
-        }
-        else
-        {
-            for (int i = 0; i < trace.FrameCount; i++)
-            {
-                StackFrame frame = trace.GetFrame(i);
-                Type declType = frame.GetMethod().DeclaringType;
-                str.Append("   at ")
-                    .Append(declType == null ? "(null)" : declType.FullName).Append('.')
-                    .Append(frame.GetMethod().Name).Append(" in ")
-                    .Append(frame.GetFileName())
-                    .Append("  line:").Append(frame.GetFileLineNumber())
-                    .Append(" col:").Append(frame.GetFileColumnNumber())
-                    .Append("\n");
-            }
-        }
-
-        return str.ToString();
-    }
-
-    public static string FormatTime(long seconds)
-    {
-        var str = new StringBuilder(10);
-
-        long minutes = seconds / 60;
-        if (minutes > 0)
-        {
-            str.Append(minutes)
-                .Append(":")
-                .Append((seconds - (minutes * 60)).ToString("D2"))
-                .Append(" min");
-        }
-        else
-            str.Append(seconds)
-                .Append(" sec");
-
-        return str.ToString();
-    }
-
 
     public static void AddRange<T>(this IList<T> list, IList<T> addList)
     {

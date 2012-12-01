@@ -59,6 +59,8 @@ namespace Origins_Editor
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoadPreferences));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.PortNumbertextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.OriginsDatabaseSettingscheckBox = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.DatabasePWDtextBox = new System.Windows.Forms.TextBox();
@@ -78,6 +80,8 @@ namespace Origins_Editor
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.PortNumbertextBox);
+            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.OriginsDatabaseSettingscheckBox);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.DatabasePWDtextBox);
@@ -90,15 +94,32 @@ namespace Origins_Editor
             this.groupBox2.Controls.Add(this.serveriplabel);
             this.groupBox2.Location = new System.Drawing.Point(7, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(209, 145);
+            this.groupBox2.Size = new System.Drawing.Size(209, 175);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Server connection";
             // 
+            // PortNumbertextBox
+            // 
+            this.PortNumbertextBox.Location = new System.Drawing.Point(93, 49);
+            this.PortNumbertextBox.Name = "PortNumbertextBox";
+            this.PortNumbertextBox.Size = new System.Drawing.Size(110, 20);
+            this.PortNumbertextBox.TabIndex = 22;
+            this.PortNumbertextBox.Text = global::DolEditor.Properties.Settings.Default.PortNumber.ToString();
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 52);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 13);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Port Number";
+            // 
             // OriginsDatabaseSettingscheckBox
             // 
             this.OriginsDatabaseSettingscheckBox.AutoSize = true;
-            this.OriginsDatabaseSettingscheckBox.Location = new System.Drawing.Point(147, 121);
+            this.OriginsDatabaseSettingscheckBox.Location = new System.Drawing.Point(147, 150);
             this.OriginsDatabaseSettingscheckBox.Name = "OriginsDatabaseSettingscheckBox";
             this.OriginsDatabaseSettingscheckBox.Size = new System.Drawing.Size(15, 14);
             this.OriginsDatabaseSettingscheckBox.TabIndex = 20;
@@ -107,7 +128,7 @@ namespace Origins_Editor
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 123);
+            this.label1.Location = new System.Drawing.Point(12, 152);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(132, 13);
             this.label1.TabIndex = 19;
@@ -115,7 +136,7 @@ namespace Origins_Editor
             // 
             // DatabasePWDtextBox
             // 
-            this.DatabasePWDtextBox.Location = new System.Drawing.Point(93, 97);
+            this.DatabasePWDtextBox.Location = new System.Drawing.Point(93, 126);
             this.DatabasePWDtextBox.Name = "DatabasePWDtextBox";
             this.DatabasePWDtextBox.Size = new System.Drawing.Size(110, 20);
             this.DatabasePWDtextBox.TabIndex = 18;
@@ -124,7 +145,7 @@ namespace Origins_Editor
             // 
             // DatabaseUsertextBox
             // 
-            this.DatabaseUsertextBox.Location = new System.Drawing.Point(93, 73);
+            this.DatabaseUsertextBox.Location = new System.Drawing.Point(93, 102);
             this.DatabaseUsertextBox.Name = "DatabaseUsertextBox";
             this.DatabaseUsertextBox.Size = new System.Drawing.Size(110, 20);
             this.DatabaseUsertextBox.TabIndex = 17;
@@ -132,7 +153,7 @@ namespace Origins_Editor
             // 
             // DatabaseNametextBox
             // 
-            this.DatabaseNametextBox.Location = new System.Drawing.Point(93, 47);
+            this.DatabaseNametextBox.Location = new System.Drawing.Point(93, 76);
             this.DatabaseNametextBox.Name = "DatabaseNametextBox";
             this.DatabaseNametextBox.Size = new System.Drawing.Size(110, 20);
             this.DatabaseNametextBox.TabIndex = 16;
@@ -141,7 +162,7 @@ namespace Origins_Editor
             // DatabaseUserlabel
             // 
             this.DatabaseUserlabel.AutoSize = true;
-            this.DatabaseUserlabel.Location = new System.Drawing.Point(12, 76);
+            this.DatabaseUserlabel.Location = new System.Drawing.Point(12, 105);
             this.DatabaseUserlabel.Name = "DatabaseUserlabel";
             this.DatabaseUserlabel.Size = new System.Drawing.Size(81, 13);
             this.DatabaseUserlabel.TabIndex = 15;
@@ -150,7 +171,7 @@ namespace Origins_Editor
             // DatabaseUserPWDlabel
             // 
             this.DatabaseUserPWDlabel.AutoSize = true;
-            this.DatabaseUserPWDlabel.Location = new System.Drawing.Point(12, 100);
+            this.DatabaseUserPWDlabel.Location = new System.Drawing.Point(12, 129);
             this.DatabaseUserPWDlabel.Name = "DatabaseUserPWDlabel";
             this.DatabaseUserPWDlabel.Size = new System.Drawing.Size(81, 13);
             this.DatabaseUserPWDlabel.TabIndex = 14;
@@ -159,7 +180,7 @@ namespace Origins_Editor
             // DatabaseNamelabel
             // 
             this.DatabaseNamelabel.AutoSize = true;
-            this.DatabaseNamelabel.Location = new System.Drawing.Point(6, 50);
+            this.DatabaseNamelabel.Location = new System.Drawing.Point(6, 79);
             this.DatabaseNamelabel.Name = "DatabaseNamelabel";
             this.DatabaseNamelabel.Size = new System.Drawing.Size(87, 13);
             this.DatabaseNamelabel.TabIndex = 13;
@@ -184,7 +205,7 @@ namespace Origins_Editor
             // 
             // saveconfigurationbutton
             // 
-            this.saveconfigurationbutton.Location = new System.Drawing.Point(109, 162);
+            this.saveconfigurationbutton.Location = new System.Drawing.Point(109, 193);
             this.saveconfigurationbutton.Name = "saveconfigurationbutton";
             this.saveconfigurationbutton.Size = new System.Drawing.Size(107, 23);
             this.saveconfigurationbutton.TabIndex = 3;
@@ -194,7 +215,7 @@ namespace Origins_Editor
             // 
             // TestConnectionbutton
             // 
-            this.TestConnectionbutton.Location = new System.Drawing.Point(7, 162);
+            this.TestConnectionbutton.Location = new System.Drawing.Point(7, 193);
             this.TestConnectionbutton.Name = "TestConnectionbutton";
             this.TestConnectionbutton.Size = new System.Drawing.Size(96, 23);
             this.TestConnectionbutton.TabIndex = 4;
@@ -207,7 +228,7 @@ namespace Origins_Editor
             this.AcceptButton = this.saveconfigurationbutton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(224, 191);
+            this.ClientSize = new System.Drawing.Size(224, 221);
             this.Controls.Add(this.TestConnectionbutton);
             this.Controls.Add(this.saveconfigurationbutton);
             this.Controls.Add(this.groupBox2);
@@ -237,5 +258,7 @@ namespace Origins_Editor
         private Button TestConnectionbutton;
         private CheckBox OriginsDatabaseSettingscheckBox;
         private Label label1;
+        private TextBox PortNumbertextBox;
+        private Label label2;
     }
 }

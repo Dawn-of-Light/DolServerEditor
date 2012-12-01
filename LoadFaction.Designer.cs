@@ -171,7 +171,7 @@
             // 
             this.FactionIDSearchtextBox.Location = new System.Drawing.Point(333, 14);
             this.FactionIDSearchtextBox.Name = "FactionIDSearchtextBox";
-            this.FactionIDSearchtextBox.Size = new System.Drawing.Size(76, 20);
+            this.FactionIDSearchtextBox.Size = new System.Drawing.Size(61, 20);
             this.FactionIDSearchtextBox.TabIndex = 19;
             // 
             // label11
@@ -345,7 +345,7 @@
             this.IsFriendcomboBox.Location = new System.Drawing.Point(89, 81);
             this.IsFriendcomboBox.Name = "IsFriendcomboBox";
             this.IsFriendcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.IsFriendcomboBox.Size = new System.Drawing.Size(45, 21);
+            this.IsFriendcomboBox.Size = new System.Drawing.Size(58, 21);
             this.IsFriendcomboBox.TabIndex = 46;
             // 
             // SaveLinkedFactionbutton

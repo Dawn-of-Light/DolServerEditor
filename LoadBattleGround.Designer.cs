@@ -68,9 +68,6 @@ namespace Origins_Editor
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.MaxLeveltextBox = new System.Windows.Forms.TextBox();
-            this.MinLeveltextBox = new System.Windows.Forms.TextBox();
-            this.MaxRealmLeveltextBox = new System.Windows.Forms.TextBox();
             this.RegionIDtextBox = new System.Windows.Forms.TextBox();
             this.SaveNewbutton = new System.Windows.Forms.Button();
             this.Savebutton = new System.Windows.Forms.Button();
@@ -78,6 +75,9 @@ namespace Origins_Editor
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.AddBattleGroundButton = new System.Windows.Forms.Button();
             this.ZoneListingButton = new System.Windows.Forms.Button();
+            this.MaxRealmLevelNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.MaxLevelNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.MinLevelNumericUpDown = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.BattlegrounddataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BattleGroundbindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BattleGroundbindingNavigator)).BeginInit();
@@ -86,6 +86,9 @@ namespace Origins_Editor
             this.tabPage1.SuspendLayout();
             this.ControlMenu.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MaxRealmLevelNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaxLevelNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MinLevelNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // BattlegrounddataGridView
@@ -102,7 +105,7 @@ namespace Origins_Editor
             this.BattlegrounddataGridView.Name = "BattlegrounddataGridView";
             this.BattlegrounddataGridView.ReadOnly = true;
             this.BattlegrounddataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.BattlegrounddataGridView.Size = new System.Drawing.Size(625, 148);
+            this.BattlegrounddataGridView.Size = new System.Drawing.Size(625, 137);
             this.BattlegrounddataGridView.TabIndex = 0;
             this.BattlegrounddataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BattlegrounddataGridView_CellContentClick);
             // 
@@ -215,7 +218,7 @@ namespace Origins_Editor
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Location = new System.Drawing.Point(7, 83);
+            this.tabControl1.Location = new System.Drawing.Point(7, 72);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(625, 138);
@@ -223,13 +226,13 @@ namespace Origins_Editor
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.MaxRealmLevelNumericUpDown);
+            this.tabPage1.Controls.Add(this.MaxLevelNumericUpDown);
+            this.tabPage1.Controls.Add(this.MinLevelNumericUpDown);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.MaxLeveltextBox);
-            this.tabPage1.Controls.Add(this.MinLeveltextBox);
-            this.tabPage1.Controls.Add(this.MaxRealmLeveltextBox);
             this.tabPage1.Controls.Add(this.RegionIDtextBox);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -274,27 +277,6 @@ namespace Origins_Editor
             this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "RegionID";
-            // 
-            // MaxLeveltextBox
-            // 
-            this.MaxLeveltextBox.Location = new System.Drawing.Point(360, 8);
-            this.MaxLeveltextBox.Name = "MaxLeveltextBox";
-            this.MaxLeveltextBox.Size = new System.Drawing.Size(66, 20);
-            this.MaxLeveltextBox.TabIndex = 3;
-            // 
-            // MinLeveltextBox
-            // 
-            this.MinLeveltextBox.Location = new System.Drawing.Point(203, 8);
-            this.MinLeveltextBox.Name = "MinLeveltextBox";
-            this.MinLeveltextBox.Size = new System.Drawing.Size(66, 20);
-            this.MinLeveltextBox.TabIndex = 2;
-            // 
-            // MaxRealmLeveltextBox
-            // 
-            this.MaxRealmLeveltextBox.Location = new System.Drawing.Point(549, 8);
-            this.MaxRealmLeveltextBox.Name = "MaxRealmLeveltextBox";
-            this.MaxRealmLeveltextBox.Size = new System.Drawing.Size(51, 20);
-            this.MaxRealmLeveltextBox.TabIndex = 1;
             // 
             // RegionIDtextBox
             // 
@@ -364,11 +346,50 @@ namespace Origins_Editor
             this.ZoneListingButton.UseVisualStyleBackColor = true;
             this.ZoneListingButton.Click += new System.EventHandler(this.BattleGroundListing_Click);
             // 
+            // MaxRealmLevelNumericUpDown
+            // 
+            this.MaxRealmLevelNumericUpDown.Location = new System.Drawing.Point(545, 9);
+            this.MaxRealmLevelNumericUpDown.Maximum = new decimal(new int[] {
+            51,
+            0,
+            0,
+            0});
+            this.MaxRealmLevelNumericUpDown.Name = "MaxRealmLevelNumericUpDown";
+            this.MaxRealmLevelNumericUpDown.ReadOnly = true;
+            this.MaxRealmLevelNumericUpDown.Size = new System.Drawing.Size(47, 20);
+            this.MaxRealmLevelNumericUpDown.TabIndex = 26;
+            // 
+            // MaxLevelNumericUpDown
+            // 
+            this.MaxLevelNumericUpDown.Location = new System.Drawing.Point(363, 9);
+            this.MaxLevelNumericUpDown.Maximum = new decimal(new int[] {
+            51,
+            0,
+            0,
+            0});
+            this.MaxLevelNumericUpDown.Name = "MaxLevelNumericUpDown";
+            this.MaxLevelNumericUpDown.ReadOnly = true;
+            this.MaxLevelNumericUpDown.Size = new System.Drawing.Size(49, 20);
+            this.MaxLevelNumericUpDown.TabIndex = 27;
+            // 
+            // MinLevelNumericUpDown
+            // 
+            this.MinLevelNumericUpDown.Location = new System.Drawing.Point(203, 8);
+            this.MinLevelNumericUpDown.Maximum = new decimal(new int[] {
+            51,
+            0,
+            0,
+            0});
+            this.MinLevelNumericUpDown.Name = "MinLevelNumericUpDown";
+            this.MinLevelNumericUpDown.ReadOnly = true;
+            this.MinLevelNumericUpDown.Size = new System.Drawing.Size(49, 20);
+            this.MinLevelNumericUpDown.TabIndex = 28;
+            // 
             // LoadBattleGround
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(638, 228);
+            this.ClientSize = new System.Drawing.Size(638, 217);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.ControlMenu);
             this.Controls.Add(this.BattlegrounddataGridView);
@@ -388,6 +409,9 @@ namespace Origins_Editor
             this.ControlMenu.ResumeLayout(false);
             this.ControlMenu.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.MaxRealmLevelNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaxLevelNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MinLevelNumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -413,9 +437,6 @@ namespace Origins_Editor
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox MaxLeveltextBox;
-        private System.Windows.Forms.TextBox MinLeveltextBox;
-        private System.Windows.Forms.TextBox MaxRealmLeveltextBox;
         private System.Windows.Forms.TextBox RegionIDtextBox;
         private System.Windows.Forms.Button SaveNewbutton;
         private System.Windows.Forms.Button Savebutton;
@@ -423,5 +444,8 @@ namespace Origins_Editor
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button AddBattleGroundButton;
         private System.Windows.Forms.Button ZoneListingButton;
+        private System.Windows.Forms.NumericUpDown MaxRealmLevelNumericUpDown;
+        private System.Windows.Forms.NumericUpDown MaxLevelNumericUpDown;
+        private System.Windows.Forms.NumericUpDown MinLevelNumericUpDown;
     }
 }

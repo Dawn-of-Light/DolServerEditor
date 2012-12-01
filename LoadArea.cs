@@ -31,8 +31,7 @@ namespace Origins_Editor
         private MySqlCommandBuilder AreacommandBuilder = new MySqlCommandBuilder();
         private MySqlDataAdapter AreaLanguagedataAdapter = new MySqlDataAdapter();
         private MySqlCommandBuilder AreaLanguagecommandBuilder = new MySqlCommandBuilder();
-        private MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-           
+
         public LoadArea()
         {
             InitializeComponent();
@@ -71,7 +70,7 @@ namespace Origins_Editor
             try
             {
                 // Create a new data adapter based on the specified query.
-                this.AreadataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                this.AreadataAdapter = new MySqlDataAdapter(selectCommand, Util.Connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
@@ -94,7 +93,7 @@ namespace Origins_Editor
             try
             {
                 // Create a new data adapter based on the specified query.
-                this.AreaLanguagedataAdapter = new MySqlDataAdapter(selectCommand, connection);
+                this.AreaLanguagedataAdapter = new MySqlDataAdapter(selectCommand, Util.Connection);
                 // Create a command builder to generate SQL update, insert, and 
                 // delete commands based on selectCommand. These are used to 
                 // update the database.
