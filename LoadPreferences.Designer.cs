@@ -103,18 +103,18 @@ namespace Origins_Editor
             // 
             this.PortNumbertextBox.Location = new System.Drawing.Point(93, 49);
             this.PortNumbertextBox.Name = "PortNumbertextBox";
-            this.PortNumbertextBox.Size = new System.Drawing.Size(110, 20);
+            this.PortNumbertextBox.Size = new System.Drawing.Size(94, 20);
             this.PortNumbertextBox.TabIndex = 22;
-            this.PortNumbertextBox.Text = global::DolEditor.Properties.Settings.Default.PortNumber.ToString();
+            this.PortNumbertextBox.Text = "3306";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 52);
+            this.label2.Location = new System.Drawing.Point(24, 52);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 13);
+            this.label2.Size = new System.Drawing.Size(69, 13);
             this.label2.TabIndex = 21;
-            this.label2.Text = "Port Number";
+            this.label2.Text = "Port Number:";
             // 
             // OriginsDatabaseSettingscheckBox
             // 
@@ -138,7 +138,7 @@ namespace Origins_Editor
             // 
             this.DatabasePWDtextBox.Location = new System.Drawing.Point(93, 126);
             this.DatabasePWDtextBox.Name = "DatabasePWDtextBox";
-            this.DatabasePWDtextBox.Size = new System.Drawing.Size(110, 20);
+            this.DatabasePWDtextBox.Size = new System.Drawing.Size(94, 20);
             this.DatabasePWDtextBox.TabIndex = 18;
             this.DatabasePWDtextBox.Text = global::DolEditor.Properties.Settings.Default.Password;
             this.DatabasePWDtextBox.UseSystemPasswordChar = true;
@@ -147,7 +147,7 @@ namespace Origins_Editor
             // 
             this.DatabaseUsertextBox.Location = new System.Drawing.Point(93, 102);
             this.DatabaseUsertextBox.Name = "DatabaseUsertextBox";
-            this.DatabaseUsertextBox.Size = new System.Drawing.Size(110, 20);
+            this.DatabaseUsertextBox.Size = new System.Drawing.Size(94, 20);
             this.DatabaseUsertextBox.TabIndex = 17;
             this.DatabaseUsertextBox.Text = global::DolEditor.Properties.Settings.Default.Username;
             // 
@@ -155,7 +155,7 @@ namespace Origins_Editor
             // 
             this.DatabaseNametextBox.Location = new System.Drawing.Point(93, 76);
             this.DatabaseNametextBox.Name = "DatabaseNametextBox";
-            this.DatabaseNametextBox.Size = new System.Drawing.Size(110, 20);
+            this.DatabaseNametextBox.Size = new System.Drawing.Size(94, 20);
             this.DatabaseNametextBox.TabIndex = 16;
             this.DatabaseNametextBox.Text = global::DolEditor.Properties.Settings.Default.DatabaseName;
             // 
@@ -190,7 +190,7 @@ namespace Origins_Editor
             // 
             this.ServerIPtextBox.Location = new System.Drawing.Point(93, 23);
             this.ServerIPtextBox.Name = "ServerIPtextBox";
-            this.ServerIPtextBox.Size = new System.Drawing.Size(110, 20);
+            this.ServerIPtextBox.Size = new System.Drawing.Size(94, 20);
             this.ServerIPtextBox.TabIndex = 11;
             this.ServerIPtextBox.Text = global::DolEditor.Properties.Settings.Default.ServerIP;
             // 

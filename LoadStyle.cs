@@ -231,7 +231,7 @@ namespace Origins_Editor
                 this.dataGridStyle.Rows[dataGridStyle.CurrentCell.RowIndex].Cells["EnduranceCost"].Value = this.EnduranceCosttextBox.Text;
                 this.dataGridStyle.Rows[dataGridStyle.CurrentCell.RowIndex].Cells["StealthRequirement"].Value = this.StealthRequirementcomboBox.Text;
                 this.dataGridStyle.Rows[dataGridStyle.CurrentCell.RowIndex].Cells["OpeningRequirementType"].Value = this.OpeningRequirementTypecomboBox.SelectedIndex;
-                this.dataGridStyle.Rows[dataGridStyle.CurrentCell.RowIndex].Cells["OpeningRequirementValue"].Value = this.OpeningRequirementValuecomboBox.ValueMember;
+                this.dataGridStyle.Rows[dataGridStyle.CurrentCell.RowIndex].Cells["OpeningRequirementValue"].Value = this.OpeningRequirementValuecomboBox.SelectedValue;
                 this.dataGridStyle.Rows[dataGridStyle.CurrentCell.RowIndex].Cells["AttackResultRequirement"].Value = this.AttackResultRequirementcomboBox.SelectedIndex;
                 this.dataGridStyle.Rows[dataGridStyle.CurrentCell.RowIndex].Cells["WeaponTypeRequirement"].Value = Util.ObjectNameToID(this.WeaponTypeRequirementcomboBox.Text);
                 this.dataGridStyle.Rows[dataGridStyle.CurrentCell.RowIndex].Cells["GrowthRate"].Value = this.GrowthratetextBox.Text;
@@ -451,7 +451,7 @@ namespace Origins_Editor
                 datarow["EnduranceCost"] = EnduranceCosttextBox.Text;
                 datarow["StealthRequirement"] = Util.Find_Bool_Value(StealthRequirementcomboBox.Text);
                 datarow["OpeningRequirementType"] = OpeningRequirementTypecomboBox.SelectedIndex;
-                datarow["OpeningRequirementValue"] = OpeningRequirementValuecomboBox.ValueMember;
+                datarow["OpeningRequirementValue"] = OpeningRequirementValuecomboBox.SelectedValue;
                 datarow["AttackResultRequirement"] = AttackResultRequirementcomboBox.SelectedIndex;
 
                 datarow["WeaponTypeRequirement"] = Util.ObjectNameToID(WeaponTypeRequirementcomboBox.Text);

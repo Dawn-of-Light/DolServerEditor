@@ -51,7 +51,7 @@ namespace Origins_Editor
             bool Flag = false;
             try
             {
-                using (MySqlConnection con = new MySqlConnection("server=" + ServerIPtextBox.Text + ";port= " + PortNumbertextBox.Text + ";uid=" + DatabaseUsertextBox.Text + ";pwd=" + DatabasePWDtextBox.Text + ";database=" + DatabaseNametextBox.Text + ""))
+                using (MySqlConnection con = new MySqlConnection("server=" + ServerIPtextBox.Text + ";port=" + PortNumbertextBox.Text + ";uid=" + DatabaseUsertextBox.Text + ";pwd=" + DatabasePWDtextBox.Text + ";database=" + DatabaseNametextBox.Text + ""))
                 {
                     con.Open();
                 }
@@ -85,8 +85,8 @@ namespace Origins_Editor
             if (this.ServerIPtextBox.Text != DolEditor.Properties.Settings.Default.ServerIP)
                 DolEditor.Properties.Settings.Default.ServerIP = this.ServerIPtextBox.Text;
 
-                if (Convert.ToInt32(this.PortNumbertextBox.Text) != DolEditor.Properties.Settings.Default.PortNumber)
-                    DolEditor.Properties.Settings.Default.PortNumber = Convert.ToInt32(this.PortNumbertextBox.Text);
+            if (Convert.ToInt32(this.PortNumbertextBox.Text) != DolEditor.Properties.Settings.Default.PortNumber)
+                DolEditor.Properties.Settings.Default.PortNumber = Convert.ToInt32(this.PortNumbertextBox.Text);
 
             if (this.DatabaseNametextBox.Text != DolEditor.Properties.Settings.Default.DatabaseName)
                 DolEditor.Properties.Settings.Default.DatabaseName = this.DatabaseNametextBox.Text;
