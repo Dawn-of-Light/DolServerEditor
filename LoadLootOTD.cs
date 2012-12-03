@@ -79,17 +79,17 @@ namespace Origins_Editor
             bool add = false; ;
             if (!Util.IsEmpty(this.MobNameSearchtextBox.Text))
             {
-                select += " where id='" + this.MobNameSearchtextBox.Text.Replace("'", "''") + "'";
+                select += " where MobName='" + this.MobNameSearchtextBox.Text.Replace("'", "''") + "'";
                 add = true;
             }
 
             if (!Util.IsEmpty(this.id_nbSearchtextBox.Text))
             {
                 if (add)
-                    select += " and id='" + id_nbSearchtextBox.Text + "'";
+                    select += " and ItemTemplateID='" + id_nbSearchtextBox.Text + "'";
                 else
                 {
-                    select += " where id='" + id_nbSearchtextBox.Text + "'";
+                    select += " where ItemTemplateID='" + id_nbSearchtextBox.Text + "'";
                     add = true;
                 }
             }
@@ -186,17 +186,17 @@ namespace Origins_Editor
             bool add = false; ;
             if (!Util.IsEmpty(this.MobNameSearchtextBox.Text))
             {
-                select += " where id='" + this.MobNameSearchtextBox.Text.Replace("'", "''") + "'";
+                select += " where MobName='" + this.MobNameSearchtextBox.Text.Replace("'", "''") + "'";
                 add = true;
             }
 
             if (!Util.IsEmpty(this.id_nbSearchtextBox.Text))
             {
                 if (add)
-                    select += " and id='" + id_nbSearchtextBox.Text + "'";
+                    select += " and ItemTemplateID='" + id_nbSearchtextBox.Text + "'";
                 else
                 {
-                    select += " where id='" + id_nbSearchtextBox.Text + "'";
+                    select += " where ItemTemplateID='" + id_nbSearchtextBox.Text + "'";
                     add = true;
                 }
             }

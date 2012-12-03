@@ -428,47 +428,9 @@ namespace Origins_Editor
 
                         FactionDatatable.Rows.Add(datarow);
 
-                        DataRow ComboBoxLinkedFactiondatarow = LinkedFactionData.NewRow();
-
-                        datarow["Faction_ID"] = str;
-                        datarow["ID"] = id;
-                        datarow["Name"] = FactionNametextBox.Text;
-                        datarow["BaseAggroLevel"] = BaseAggroLevelnumericUpDown.Value;
-
-                        if (DolEditor.Properties.Settings.Default.OriginsSettings)
-                            datarow["TranslationId"] = TranslationIDtextBox.Text;
-
-                        LinkedFactionData.Rows.Add(ComboBoxLinkedFactiondatarow);
-
-
-                        DataRow ComboBoxFactiondatarow = FactionData.NewRow();
-
-                        datarow["Faction_ID"] = str;
-                        datarow["ID"] = id;
-                        datarow["Name"] = FactionNametextBox.Text;
-                        datarow["BaseAggroLevel"] = BaseAggroLevelnumericUpDown.Value;
-
-                        if (DolEditor.Properties.Settings.Default.OriginsSettings)
-                            datarow["TranslationId"] = TranslationIDtextBox.Text;
-
-                        FactionData.Rows.Add(ComboBoxFactiondatarow);
-
-
-                        DataRow ComboBoxSearchFactiondatarow = SearchFactionData.NewRow();
-
-                        datarow["Faction_ID"] = str;
-                        datarow["ID"] = id;
-                        datarow["Name"] = FactionNametextBox.Text;
-                        datarow["BaseAggroLevel"] = BaseAggroLevelnumericUpDown.Value;
-
-                        if (DolEditor.Properties.Settings.Default.OriginsSettings)
-                            datarow["TranslationId"] = TranslationIDtextBox.Text;
-
-                        SearchFactionData.Rows.Add(ComboBoxSearchFactiondatarow);
-
                         this.Validate();
                         this.FactionbindingSource.EndEdit();
-                        this.FactiondataAdapter.Update(FactionDatatable);
+                        this.FactiondataAdapter.Update(this.FactionDatatable);
 
                         this.FactionListingButton.Visible = false;
                         this.AddFactionButton.Visible = true;
@@ -484,7 +446,7 @@ namespace Origins_Editor
                         if (DolEditor.Properties.Settings.Default.OriginsSettings)
                             this.TranslationgroupBox.Visible = true;
                 }
-                catch (MySqlException s)
+                catch (Exception s)
                 {
                     MessageBox.Show(s.Message);
                 }
@@ -553,7 +515,7 @@ namespace Origins_Editor
                 {
                     FactiondataAdapter.Update(FactionDatatable);
                 }
-                catch (MySqlException s)
+                catch (Exception s)
                 {
                     MessageBox.Show(s.Message);
                 }

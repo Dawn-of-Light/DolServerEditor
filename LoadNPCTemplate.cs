@@ -437,6 +437,15 @@ namespace Origins_Editor
                         this.Validate();
                         this.NPCTemplatebindingSource.EndEdit();
 
+                        try
+                        {
+                            NPCTemplatedataAdapter.Update(this.NPCTemplateDatatable);
+                        }
+                        catch (Exception s)
+                        {
+                            MessageBox.Show(s.Message);
+                        }
+
                         this.ControlEditor.Hide();
                         this.NPCTemplatedataGridView.Show();
                         this.ControlMenu.Visible = true;
