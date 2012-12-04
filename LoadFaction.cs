@@ -21,7 +21,7 @@ namespace Origins_Editor
         public LoadFaction()
         {
             InitializeComponent();
-            this.Load += new EventHandler(Form1_Load);
+            this.Load += new EventHandler(this.Form1_Load);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -46,54 +46,55 @@ namespace Origins_Editor
 
             if (DolEditor.Properties.Settings.Default.OriginsSettings)
             {
-                TranslationIDtextBox.Visible = true;
-                TranslationIDlabel.Visible = true;
-                TranslationgroupBox.Visible = true;
+                this.TranslationIDtextBox.Visible = true;
+                this.TranslationIDlabel.Visible = true;
+                this.TranslationgroupBox.Visible = true;
             }
 
+            this.UpdateComboBox();
+        }
+
+        private void UpdateComboBox()
+        {
             try
             {
                 Util.Connection.Open();
 
-                //Name ComboBox Datatable
-                MySqlDataAdapter FactionNamedataAdapter = new MySqlDataAdapter("select * from faction ORDER BY name ASC", Util.Connection);
-                MySqlCommandBuilder FactionNameDatacommandBuilder = new MySqlCommandBuilder(FactionNamedataAdapter);
-                
-                LinkedFactionData = new DataTable();
+                this.SearchFactionData = new DataTable();
 
-                FactionNamedataAdapter.Fill(LinkedFactionData);
-                this.FactionIDLinkedFactioncomboBox.DisplayMember = "Name";
-                this.FactionIDLinkedFactioncomboBox.ValueMember = "ID";
-                this.FactionIDLinkedFactioncomboBox.DataSource = LinkedFactionData;
+                this.SearchFactionData = this.FactionDatatable.Copy();
 
-                FactionData = new DataTable();
-
-                FactionNamedataAdapter.Fill(FactionData);
-                this.LinkedFactionIDcomboBox.DisplayMember = "Name";
-                this.LinkedFactionIDcomboBox.ValueMember = "ID";
-                this.LinkedFactionIDcomboBox.DataSource = FactionData;
-
-                SearchFactionData = new DataTable();
-
-                FactionNamedataAdapter.Fill(SearchFactionData);
                 this.FactionNameSearchcomboBox.DisplayMember = "Name";
                 this.FactionNameSearchcomboBox.ValueMember = "ID";
-                this.FactionNameSearchcomboBox.DataSource = SearchFactionData;
+                this.FactionNameSearchcomboBox.DataSource = this.SearchFactionData;
+                this.SearchFactionData.DefaultView.Sort = "Name ASC";
 
-
-                DataRow datarow = SearchFactionData.NewRow();
+                //Add datarow All to Search ComboBox
+                DataRow datarow = this.SearchFactionData.NewRow();
                 datarow["Name"] = "All";
-                SearchFactionData.Rows.Add(datarow);
-                SearchFactionData.DefaultView.Sort = "Name ASC";
+                this.SearchFactionData.Rows.Add(datarow);
                 this.FactionNameSearchcomboBox.Text = "All";
+
+                this.LinkedFactionData = new DataTable();
+                this.LinkedFactionData = this.FactionDatatable.Copy();
+                this.FactionIDLinkedFactioncomboBox.DisplayMember = "Name";
+                this.FactionIDLinkedFactioncomboBox.ValueMember = "ID";
+                this.FactionIDLinkedFactioncomboBox.DataSource = this.LinkedFactionData;
+                this.LinkedFactionData.DefaultView.Sort = "Name ASC";
+
+                this.FactionData = new DataTable();
+                this.FactionData = this.FactionDatatable.Copy();
+                this.LinkedFactionIDcomboBox.DisplayMember = "Name";
+                this.LinkedFactionIDcomboBox.ValueMember = "ID";
+                this.LinkedFactionIDcomboBox.DataSource = this.FactionData;
+                this.FactionData.DefaultView.Sort = "Name ASC";
+
                 Util.Connection.Close();
-
             }
-            catch (MySqlException s)
+            catch (MySqlException ex)
             {
-                MessageBox.Show(s.Message);
+                MessageBox.Show("Error " + ex.Message);
             }
-
         }
 
         private void GetFactionData(string selectCommand)
@@ -246,7 +247,7 @@ namespace Origins_Editor
                     add = true;
                 }
             }
-            GetFactionData(select);
+            this.GetFactionData(select);
         }
 
         private void FactionbindingNavigatorDeleteItem_Click(object sender, EventArgs e)
@@ -259,7 +260,7 @@ namespace Origins_Editor
 
                 try
                 {
-                    this.FactiondataAdapter.Update(FactionDatatable);
+                    this.FactiondataAdapter.Update(this.FactionDatatable);
                 }
                 catch (MySqlException s)
                 {
@@ -289,7 +290,7 @@ namespace Origins_Editor
                     add = true;
                 }
             }
-            GetFactionData(select);
+            this.GetFactionData(select);
         }
 
         private void LinkedFactionbindingNavigatorDeleteItem_Click(object sender, EventArgs e)
@@ -327,7 +328,7 @@ namespace Origins_Editor
 
                 try
                 {
-                    this.LanguageFactiondataAdapter.Update(LanguageFactionDatatable);
+                    this.LanguageFactiondataAdapter.Update(this.LanguageFactionDatatable);
                 }
                 catch (MySqlException s)
                 {
@@ -350,12 +351,12 @@ namespace Origins_Editor
                     this.FactiondataGridView.Hide();
 
                     string factionid = this.FactiondataGridView.Rows[this.FactiondataGridView.CurrentCell.RowIndex].Cells["id"].Value.ToString();
-                    FactionIDtextBox.Text = factionid;
+                    this.FactionIDtextBox.Text = factionid;
 
 
-                    FactionNametextBox.Text = this.FactiondataGridView.Rows[this.FactiondataGridView.CurrentCell.RowIndex].Cells["Name"].Value.ToString();
-                    TranslationIDtextBox.Text = this.FactiondataGridView.Rows[this.FactiondataGridView.CurrentCell.RowIndex].Cells["Translationid"].Value.ToString();
-                    BaseAggroLevelnumericUpDown.Value = Convert.ToInt16(this.FactiondataGridView.Rows[this.FactiondataGridView.CurrentCell.RowIndex].Cells["baseaggrolevel"].Value);
+                    this.FactionNametextBox.Text = this.FactiondataGridView.Rows[this.FactiondataGridView.CurrentCell.RowIndex].Cells["Name"].Value.ToString();
+                    this.TranslationIDtextBox.Text = this.FactiondataGridView.Rows[this.FactiondataGridView.CurrentCell.RowIndex].Cells["Translationid"].Value.ToString();
+                    this.BaseAggroLevelnumericUpDown.Value = Convert.ToInt16(this.FactiondataGridView.Rows[this.FactiondataGridView.CurrentCell.RowIndex].Cells["baseaggrolevel"].Value);
 
                     this.GetLinkedFactionData("select * from linkedfaction where factionId='" + factionid + "'");
                     if (DolEditor.Properties.Settings.Default.OriginsSettings)
@@ -397,7 +398,7 @@ namespace Origins_Editor
 
         private void SaveNewbutton_Click(object sender, EventArgs e)
         {
-            if (!ValidFactionData())
+            if (!this.ValidFactionData())
                 return;
 
             if (MessageBox.Show("Save this new faction?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -415,22 +416,24 @@ namespace Origins_Editor
 
                         string str = "Dol_Server_Editor_" + i.ToString();
 
-                        DataRow datarow = FactionDatatable.NewRow();
+                        DataRow datarow = this.FactionDatatable.NewRow();
                         int id = Util.Find_Free_FactionID();
 
                         datarow["Faction_ID"] = id;
-                        datarow["ID"] = FactionIDtextBox.Text;
-                        datarow["Name"] = FactionNametextBox.Text;
-                        datarow["BaseAggroLevel"] = BaseAggroLevelnumericUpDown.Value;
+                        datarow["ID"] = this.FactionIDtextBox.Text;
+                        datarow["Name"] = this.FactionNametextBox.Text;
+                        datarow["BaseAggroLevel"] = this.BaseAggroLevelnumericUpDown.Value;
 
                         if (DolEditor.Properties.Settings.Default.OriginsSettings)
-                            datarow["TranslationId"] = TranslationIDtextBox.Text;
+                            datarow["TranslationId"] = this.TranslationIDtextBox.Text;
 
-                        FactionDatatable.Rows.Add(datarow);
+                        this.FactionDatatable.Rows.Add(datarow);
 
                         this.Validate();
                         this.FactionbindingSource.EndEdit();
                         this.FactiondataAdapter.Update(this.FactionDatatable);
+
+                        this.UpdateComboBox();
 
                         this.FactionListingButton.Visible = false;
                         this.AddFactionButton.Visible = true;
@@ -456,7 +459,7 @@ namespace Origins_Editor
         private bool ValidFactionData()
         {
 
-            if (Util.IsEmpty(FactionNametextBox.Text))
+            if (Util.IsEmpty(this.FactionNametextBox.Text))
             {
                 MessageBox.Show("You need to set a Name for this faction.");
                 return false; ;
@@ -495,30 +498,32 @@ namespace Origins_Editor
 
         private void SaveLoadedFaction_Click(object sender, EventArgs e)
         {
-            if (!ValidFactionData())
+            if (!this.ValidFactionData())
                 return;
 
             if (MessageBox.Show("Save your modifications?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 // user clicked yes
                 this.FactiondataGridView.ReadOnly = false;
-                this.FactiondataGridView.Rows[FactiondataGridView.CurrentCell.RowIndex].Cells["Name"].Value = FactionNametextBox.Text;
-                this.FactiondataGridView.Rows[FactiondataGridView.CurrentCell.RowIndex].Cells["baseaggrolevel"].Value = BaseAggroLevelnumericUpDown.Value;
+                this.FactiondataGridView.Rows[FactiondataGridView.CurrentCell.RowIndex].Cells["Name"].Value = this.FactionNametextBox.Text;
+                this.FactiondataGridView.Rows[FactiondataGridView.CurrentCell.RowIndex].Cells["baseaggrolevel"].Value = this.BaseAggroLevelnumericUpDown.Value;
 
                 if (DolEditor.Properties.Settings.Default.OriginsSettings)
-                    this.FactiondataGridView.Rows[FactiondataGridView.CurrentCell.RowIndex].Cells["TranslationID"].Value = TranslationIDtextBox.Text;
+                    this.FactiondataGridView.Rows[FactiondataGridView.CurrentCell.RowIndex].Cells["TranslationID"].Value = this.TranslationIDtextBox.Text;
 
                 this.Validate();
                 this.FactionbindingSource.EndEdit();
 
                 try
                 {
-                    FactiondataAdapter.Update(FactionDatatable);
+                    this.FactiondataAdapter.Update(this.FactionDatatable);
                 }
                 catch (Exception s)
                 {
                     MessageBox.Show(s.Message);
                 }
+
+                this.UpdateComboBox();
 
                 this.FactiondataGridView.ReadOnly = true;
                 this.Savebutton.Hide();
@@ -538,7 +543,7 @@ namespace Origins_Editor
 
         private void SaveLinkedFactionbutton_Click(object sender, EventArgs e)
         {
-            if (!ValidLinkedFactionData())
+            if (!this.ValidLinkedFactionData())
                 return;
 
             if (MessageBox.Show("Save your Linked faction?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -551,21 +556,21 @@ namespace Origins_Editor
                 i -= DateTime.Now.Ticks;
                 string str = "Dol_Server_Editor_" + i.ToString();
 
-                DataRow LinkedFactiondatarow = LinkedFactionDatatable.NewRow();
+                DataRow LinkedFactiondatarow = this.LinkedFactionDatatable.NewRow();
 
                 LinkedFactiondatarow["Linkedfaction_id"] = str;
-                LinkedFactiondatarow["factionid"] = FactionIDLinkedFactioncomboBox.SelectedValue;
-                LinkedFactiondatarow["linkedfactionid"] = LinkedFactionIDcomboBox.SelectedValue;
-                LinkedFactiondatarow["isfriend"] = Util.Find_Bool_Value(IsFriendcomboBox.Text);
+                LinkedFactiondatarow["factionid"] = this.FactionIDLinkedFactioncomboBox.SelectedValue;
+                LinkedFactiondatarow["linkedfactionid"] = this.LinkedFactionIDcomboBox.SelectedValue;
+                LinkedFactiondatarow["isfriend"] = Util.Find_Bool_Value(this.IsFriendcomboBox.Text);
 
-                LinkedFactionDatatable.Rows.Add(LinkedFactiondatarow);
+                this.LinkedFactionDatatable.Rows.Add(LinkedFactiondatarow);
 
                 this.Validate();
                 this.LinkedFactionbindingSource.EndEdit();
 
                 try
                 {
-                    LinkedFactiondataAdapter.Update(LinkedFactionDatatable);
+                    this.LinkedFactiondataAdapter.Update(this.LinkedFactionDatatable);
                 }
                 catch (MySqlException s)
                 {
@@ -577,12 +582,12 @@ namespace Origins_Editor
         private bool ValidFactionLanguageData()
         {
 
-            if (Util.IsEmpty(TranslationIDAddtextBox.Text))
+            if (Util.IsEmpty(this.TranslationIDAddtextBox.Text))
             {
                 MessageBox.Show("You need to set a TranslationID for this faction language.");
                 return false;
             }
-            if (Util.IsEmpty(NameTranslationAddtextBox.Text))
+            if (Util.IsEmpty(this.NameTranslationAddtextBox.Text))
             {
                 MessageBox.Show("You need to set a Name for this faction language.");
                 return false;
@@ -592,7 +597,7 @@ namespace Origins_Editor
 
         private void SaveTranslationbutton_Click(object sender, EventArgs e)
         {
-            if (!ValidFactionLanguageData())
+            if (!this.ValidFactionLanguageData())
                 return;
 
             if (MessageBox.Show("Save your faction translation?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -605,26 +610,26 @@ namespace Origins_Editor
                 i -= DateTime.Now.Ticks;
                 string str = "Dol_Server_Editor_" + i.ToString();
 
-                DataRow LanguageFactiondatarow = LanguageFactionDatatable.NewRow();
+                DataRow LanguageFactiondatarow = this.LanguageFactionDatatable.NewRow();
 
                 LanguageFactiondatarow["LanguageFaction_ID"] = str;
-                LanguageFactiondatarow["language"] = LanguageChoicecomboBox.Text;
+                LanguageFactiondatarow["language"] = this.LanguageChoicecomboBox.Text;
 
                 if (DolEditor.Properties.Settings.Default.OriginsSettings)
-                    LanguageFactiondatarow["TranslationId"] = TranslationIDAddtextBox.Text;
+                    LanguageFactiondatarow["TranslationId"] = this.TranslationIDAddtextBox.Text;
 
-                LanguageFactiondatarow["Name"] = NameTranslationAddtextBox.Text;
-                LanguageFactiondatarow["Tag"] = TagtextBox.Text;
+                LanguageFactiondatarow["Name"] = this.NameTranslationAddtextBox.Text;
+                LanguageFactiondatarow["Tag"] = this.TagtextBox.Text;
 
 
-                LanguageFactionDatatable.Rows.Add(LanguageFactiondatarow);
+                this.LanguageFactionDatatable.Rows.Add(LanguageFactiondatarow);
 
                 this.Validate();
                 this.TranslationbindingSource.EndEdit();
 
                 try
                 {
-                    LanguageFactiondataAdapter.Update(LanguageFactionDatatable);
+                    this.LanguageFactiondataAdapter.Update(this.LanguageFactionDatatable);
                 }
                 catch (MySqlException s)
                 {

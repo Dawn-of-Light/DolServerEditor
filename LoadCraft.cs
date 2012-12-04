@@ -105,11 +105,14 @@ namespace Origins_Editor
 
         private void LoadCraftedXitem_Click(object sender, EventArgs e)
         {
-            if (this.CraftedItemdataGridView.Rows[this.CraftedItemdataGridView.CurrentCell.RowIndex] != null)
+            if (this.CraftedItemdataGridView.CurrentCell != null)
             {
-                string id_nb = this.CraftedItemdataGridView.Rows[this.CraftedItemdataGridView.CurrentCell.RowIndex].Cells["id_nb"].Value.ToString();
+                if (this.CraftedItemdataGridView.Rows[this.CraftedItemdataGridView.CurrentCell.RowIndex] != null)
+                {
+                    string id_nb = this.CraftedItemdataGridView.Rows[this.CraftedItemdataGridView.CurrentCell.RowIndex].Cells["id_nb"].Value.ToString();
 
-                this.GetCraftedXItemData("select * from craftedxitem where CraftedItemId_nb='" + id_nb + "'");
+                    this.GetCraftedXItemData("select * from craftedxitem where CraftedItemId_nb='" + id_nb + "'");
+                }
             }
             else
                 MessageBox.Show("Select a CraftedItem first");
