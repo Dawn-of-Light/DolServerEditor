@@ -31,14 +31,24 @@ namespace Origins_Editor
 {
     public partial class MobsModelChoice : Form
     {
-        private TextBox form;
+        private TextBox NPCTemplateModelTextBox;
+        private TextBox  MobModelTextBox;
         private LoadNPCTemplate loadNPCTemplateWindow= null;
+        private LoadMob loadMobWindow = null;
         private DataGridView dataGridView1;
 
-        public MobsModelChoice(LoadNPCTemplate NPCTemplateWindow, TextBox Form)
+        public MobsModelChoice(Form Window, TextBox Form)
         {
-            form = Form;
-            loadNPCTemplateWindow = NPCTemplateWindow;
+            if (Window.GetType() == typeof(LoadNPCTemplate))
+            {
+                loadNPCTemplateWindow = Window as LoadNPCTemplate;
+                NPCTemplateModelTextBox = Form;
+            }
+            else if (Window.GetType() == typeof(LoadMob))
+            {
+                loadMobWindow = Window as LoadMob;
+                MobModelTextBox = Form;
+            }
             InitializeComponent();
         }
         
@@ -66,32 +76,59 @@ namespace Origins_Editor
             if (MessageBox.Show("Add this model?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 string rowvalue = this.dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells["ID"].Value.ToString();
-
-                var split = Util.SplitCSV(loadNPCTemplateWindow.ModeltextBox.Text.ToString(), false); ;
-                foreach (var spl in split)
+                if (NPCTemplateModelTextBox != null)
                 {
-                    int id = 0;
-                    int.TryParse(spl, out id);
-                    if (id.ToString() == rowvalue)
+                    var split = Util.SplitCSV(loadNPCTemplateWindow.ModeltextBox.Text.ToString(), false); ;
+                    foreach (var spl in split)
                     {
-                        MessageBox.Show("The NPCTemplate already contains this model.");
-                        return;
+                        int id = 0;
+                        int.TryParse(spl, out id);
+                        if (id.ToString() == rowvalue)
+                        {
+                            MessageBox.Show("The NPCTemplate already contains this model.");
+                            return;
+                        }
+                    }
+                    string value = "";
+                    if (NPCTemplateModelTextBox.Text != "")
+                        value += ";" + rowvalue;
+                    else
+                        value = rowvalue;
+
+                    NPCTemplateModelTextBox.Text += value;
+                }
+                else
+                {
+                    if (MobModelTextBox != null)
+                    {
+                        string value = rowvalue;
+                        if (MobModelTextBox.Text.ToString() == rowvalue)
+                        {
+                            MessageBox.Show("The Mob already have this model defined.");
+                            return;
+                        }
+
+                        MobModelTextBox.Text = value;
                     }
                 }
-                string value = "";
-                if (loadNPCTemplateWindow.ModeltextBox.Text != null && loadNPCTemplateWindow.ModeltextBox.Text != "")
-                    value += ";" + rowvalue;
-                else
-                    value = rowvalue;
-
-                loadNPCTemplateWindow.ModeltextBox.Text += value;
             }
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            loadNPCTemplateWindow.MobsChoiceOpen = null;
-
+            if (loadNPCTemplateWindow != null)
+            {
+                if (loadNPCTemplateWindow.MobsChoiceOpen != null)
+                    loadNPCTemplateWindow.MobsChoiceOpen = null;
+            }
+            else
+            {
+                if (loadMobWindow != null)
+                {
+                    if (loadMobWindow.MobsChoiceOpen != null)
+                        loadMobWindow.MobsChoiceOpen = null;
+                }
+            }
             base.OnFormClosing(e);
 
             if (e.CloseReason == CloseReason.WindowsShutDown) return;

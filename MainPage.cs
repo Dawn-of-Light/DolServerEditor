@@ -28,7 +28,7 @@ namespace Origins_Editor
     public partial class MainPageEditor : Form
     {
         private DataTable MobNameDatatable = new DataTable();
-        private DataTable NPCTemplateDatatable = new DataTable();
+        public DataTable NPCTemplateDatatable = new DataTable();
 
         public MainPageEditor()
         {
@@ -234,7 +234,7 @@ namespace Origins_Editor
 
         private void NPCTemplateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LoadNPCTemplate fm = new LoadNPCTemplate();
+            LoadNPCTemplate fm = new LoadNPCTemplate(this);
             fm.Show();
         }
 
@@ -586,7 +586,7 @@ namespace Origins_Editor
 
         private void mobToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LoadMob fm = new LoadMob();
+            LoadMob fm = new LoadMob(this);
             fm.Show();
         }
     }

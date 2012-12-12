@@ -94,7 +94,7 @@ namespace Origins_Editor
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.UpdateMassRaceNPCTemplatecheckBox = new System.Windows.Forms.CheckBox();
             this.RacecomboBox = new System.Windows.Forms.ComboBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.UpdateMassRacebutton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.MobNameMassRacetextBox = new System.Windows.Forms.TextBox();
@@ -184,7 +184,7 @@ namespace Origins_Editor
             // craftyedItemToolStripMenuItem
             // 
             this.craftyedItemToolStripMenuItem.Name = "craftyedItemToolStripMenuItem";
-            this.craftyedItemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.craftyedItemToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.craftyedItemToolStripMenuItem.Text = "Crafted Item";
             this.craftyedItemToolStripMenuItem.Click += new System.EventHandler(this.CraftedItemToolStripMenuItem_Click);
             // 
@@ -201,19 +201,19 @@ namespace Origins_Editor
             // accountToolStripMenuItem
             // 
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.accountToolStripMenuItem.Text = "Account";
             // 
             // charactersToolStripMenuItem
             // 
             this.charactersToolStripMenuItem.Name = "charactersToolStripMenuItem";
-            this.charactersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.charactersToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.charactersToolStripMenuItem.Text = "Characters";
             // 
             // guildToolStripMenuItem
             // 
             this.guildToolStripMenuItem.Name = "guildToolStripMenuItem";
-            this.guildToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.guildToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.guildToolStripMenuItem.Text = "Guild";
             // 
             // gameComponentsModificationsToolStripMenuItem
@@ -302,28 +302,28 @@ namespace Origins_Editor
             // factionToolStripMenuItem
             // 
             this.factionToolStripMenuItem.Name = "factionToolStripMenuItem";
-            this.factionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.factionToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.factionToolStripMenuItem.Text = "Faction";
             this.factionToolStripMenuItem.Click += new System.EventHandler(this.factionToolStripMenuItem_Click);
             // 
             // lootOTDToolStripMenuItem
             // 
             this.lootOTDToolStripMenuItem.Name = "lootOTDToolStripMenuItem";
-            this.lootOTDToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.lootOTDToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.lootOTDToolStripMenuItem.Text = "Loot OTD";
             this.lootOTDToolStripMenuItem.Click += new System.EventHandler(this.lootOTDToolStripMenuItem_Click);
             // 
             // mobToolStripMenuItem
             // 
             this.mobToolStripMenuItem.Name = "mobToolStripMenuItem";
-            this.mobToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mobToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.mobToolStripMenuItem.Text = "Mob";
             this.mobToolStripMenuItem.Click += new System.EventHandler(this.mobToolStripMenuItem_Click);
             // 
             // nPCTemplateToolStripMenuItem
             // 
             this.nPCTemplateToolStripMenuItem.Name = "nPCTemplateToolStripMenuItem";
-            this.nPCTemplateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nPCTemplateToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.nPCTemplateToolStripMenuItem.Text = "NPC Template";
             this.nPCTemplateToolStripMenuItem.Click += new System.EventHandler(this.NPCTemplateToolStripMenuItem_Click);
             // 
@@ -434,6 +434,7 @@ namespace Origins_Editor
             this.UpdateMassBodyTypebutton.TabIndex = 5;
             this.UpdateMassBodyTypebutton.Text = "Update Database";
             this.UpdateMassBodyTypebutton.UseVisualStyleBackColor = true;
+            this.UpdateMassBodyTypebutton.Click += new System.EventHandler(this.UpdateMassBodyTypebutton_Click);
             // 
             // MobNameUpdateMassBodyTypetextBox
             // 
@@ -487,7 +488,7 @@ namespace Origins_Editor
             this.groupBox4.BackColor = System.Drawing.Color.Silver;
             this.groupBox4.Controls.Add(this.UpdateMassRaceNPCTemplatecheckBox);
             this.groupBox4.Controls.Add(this.RacecomboBox);
-            this.groupBox4.Controls.Add(this.button4);
+            this.groupBox4.Controls.Add(this.UpdateMassRacebutton);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.MobNameMassRacetextBox);
@@ -520,15 +521,16 @@ namespace Origins_Editor
             this.RacecomboBox.Size = new System.Drawing.Size(203, 21);
             this.RacecomboBox.TabIndex = 7;
             // 
-            // button4
+            // UpdateMassRacebutton
             // 
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(601, 11);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 38);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Update Database";
-            this.button4.UseVisualStyleBackColor = true;
+            this.UpdateMassRacebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateMassRacebutton.Location = new System.Drawing.Point(601, 11);
+            this.UpdateMassRacebutton.Name = "UpdateMassRacebutton";
+            this.UpdateMassRacebutton.Size = new System.Drawing.Size(75, 38);
+            this.UpdateMassRacebutton.TabIndex = 6;
+            this.UpdateMassRacebutton.Text = "Update Database";
+            this.UpdateMassRacebutton.UseVisualStyleBackColor = true;
+            this.UpdateMassRacebutton.Click += new System.EventHandler(this.RaceMassUpdatebutton_Click);
             // 
             // label7
             // 
@@ -717,6 +719,7 @@ namespace Origins_Editor
             this.button1.TabIndex = 0;
             this.button1.Text = "Update Database";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.UpdateMobNameButton_Click);
             // 
             // groupBox3
             // 
@@ -815,6 +818,7 @@ namespace Origins_Editor
             this.UpdateMassFactionbutton.TabIndex = 5;
             this.UpdateMassFactionbutton.Text = "Update Database";
             this.UpdateMassFactionbutton.UseVisualStyleBackColor = true;
+            this.UpdateMassFactionbutton.Click += new System.EventHandler(this.UpdateMassFactionbutton_Click);
             // 
             // MobNameMassFactiontextBox
             // 
@@ -949,7 +953,7 @@ namespace Origins_Editor
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.CheckBox UpdateMassRaceNPCTemplatecheckBox;
         private System.Windows.Forms.ComboBox RacecomboBox;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button UpdateMassRacebutton;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox MobNameMassRacetextBox;

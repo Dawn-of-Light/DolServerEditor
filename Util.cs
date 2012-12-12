@@ -104,16 +104,14 @@ public static class Util
 
     public static string Find_Realm_String_Value(string text)
     {
-        if (text.ToLower() == "0")
-            return "None";
-        else if (text.ToLower() == "1")
+        if (text.ToLower() == "1")
             return "Albion";
         else if (text.ToLower() == "2")
             return "Midgard";
         else if (text.ToLower() == "3")
             return "Hibernia";
 
-        return "Unknow Realm";
+        return "None";
     }
 
     public static string Find_OpeningRequirementType_String_Value(string text)
@@ -659,6 +657,14 @@ public static class Util
         SWIMMING = 0x100
     }
 
+    public static string Find_Gender_Value(string text)
+    {
+        if (text.ToLower() == "1")
+            return "Male";
+        if (text.ToLower() == "2")
+            return "Female";
+        return "Neutral";
+    }
 
     public static byte Find_DamageType_Value(string text)
     {

@@ -172,7 +172,7 @@ namespace Origins_Editor
         }
 
         /// <summary>
-        /// Load a style with confirmation in editing form.
+        /// Load a style with confirmation in editing NPCTemplateModelTextBox.
         /// </summary>
         private void StyledataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

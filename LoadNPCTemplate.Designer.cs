@@ -368,7 +368,7 @@ namespace Origins_Editor
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // NPCTemplatedataGridView
+            // MobdataGridView
             // 
             this.NPCTemplatedataGridView.AllowUserToAddRows = false;
             this.NPCTemplatedataGridView.AllowUserToOrderColumns = true;
@@ -512,7 +512,7 @@ namespace Origins_Editor
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             // 
-            // AddNPCTemplateButton
+            // AddMobButton
             // 
             this.AddNPCTemplateButton.Location = new System.Drawing.Point(11, 10);
             this.AddNPCTemplateButton.Name = "AddNPCTemplateButton";
@@ -522,7 +522,7 @@ namespace Origins_Editor
             this.AddNPCTemplateButton.UseVisualStyleBackColor = true;
             this.AddNPCTemplateButton.Click += new System.EventHandler(this.AddNewNPCTemplate_Click);
             // 
-            // NPCTemplateListingButton
+            // MobListingButton
             // 
             this.NPCTemplateListingButton.Location = new System.Drawing.Point(155, 10);
             this.NPCTemplateListingButton.Name = "NPCTemplateListingButton";

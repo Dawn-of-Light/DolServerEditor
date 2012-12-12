@@ -291,6 +291,9 @@ namespace Origins_Editor
                 }
             }
             this.GetFactionData(select);
+
+            //Update ComboBox
+            this.UpdateComboBox();
         }
 
         private void LinkedFactionbindingNavigatorDeleteItem_Click(object sender, EventArgs e)
@@ -488,7 +491,7 @@ namespace Origins_Editor
                 this.AddFactionButton.Visible = false;
                 this.ControlMenu.Visible = false;
 
-                //Disable add languagefaction and linked facation add
+                //Disable add languagefaction and linked faction add
                 this.groupBox2.Visible = false;
                 this.LinkedFactionbindingNavigator.Visible = false;
                 this.LinkedFactiondataGridView.Visible = false;

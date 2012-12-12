@@ -34,12 +34,14 @@ namespace Origins_Editor
         private DataTable RaceDatatable = new DataTable();
         private DataTable TranslationDatatable = new DataTable();
         private bool loaded;
-
+        private MainPageEditor mainpage = null;
         public MobsModelChoice MobsChoiceOpen = null;
 
-        public LoadNPCTemplate()
+        public LoadNPCTemplate(MainPageEditor form)
         {
             InitializeComponent();
+            //Assign the Main Page
+            mainpage = form;
 
             this.Load += new EventHandler(Form1_Load);
 
