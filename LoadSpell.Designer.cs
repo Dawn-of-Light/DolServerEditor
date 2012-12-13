@@ -119,6 +119,7 @@ namespace Origins_Editor
             this.LanguageSpellTagtextBox = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.LinexSpellAddLevelNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.PackageIDAddLineXSpellcomboBox = new System.Windows.Forms.ComboBox();
             this.LineNameAddLineXSpellcomboBox = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
@@ -169,6 +170,7 @@ namespace Origins_Editor
             this.Message1richTextBox = new System.Windows.Forms.RichTextBox();
             this.textBox39 = new System.Windows.Forms.TextBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.DamageTypeComboBox = new System.Windows.Forms.ComboBox();
             this.TargetcomboBox = new System.Windows.Forms.ComboBox();
             this.SpellTypecomboBox = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
@@ -223,8 +225,6 @@ namespace Origins_Editor
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.AddNewSpellButton = new System.Windows.Forms.Button();
             this.SpellListingButton = new System.Windows.Forms.Button();
-            this.DamageTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.LinexSpellAddLevelNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.ControlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SpellbindingNavigator)).BeginInit();
             this.SpellbindingNavigator.SuspendLayout();
@@ -237,6 +237,7 @@ namespace Origins_Editor
             ((System.ComponentModel.ISupportInitialize)(this.SpellLanguagebindingNavigator)).BeginInit();
             this.SpellLanguagebindingNavigator.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LinexSpellAddLevelNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LineXSpellbindingNavigator)).BeginInit();
             this.LineXSpellbindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LineXSpellbindingSource)).BeginInit();
@@ -249,7 +250,6 @@ namespace Origins_Editor
             this.groupBox10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSpell)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LinexSpellAddLevelNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // LineNameSpellSearchcomboBox
@@ -398,6 +398,7 @@ namespace Origins_Editor
             this.LineNameSpellSearchcomboBox.Location = new System.Drawing.Point(60, 13);
             this.LineNameSpellSearchcomboBox.MaxDropDownItems = 15;
             this.LineNameSpellSearchcomboBox.Name = "LineNameSpellSearchcomboBox";
+            this.LineNameSpellSearchcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LineNameSpellSearchcomboBox.Size = new System.Drawing.Size(121, 21);
             this.LineNameSpellSearchcomboBox.Sorted = true;
             this.LineNameSpellSearchcomboBox.TabIndex = 3;
@@ -647,6 +648,7 @@ namespace Origins_Editor
             this.SpellHandlerSearchcomboBox.Location = new System.Drawing.Point(250, 13);
             this.SpellHandlerSearchcomboBox.MaxDropDownItems = 15;
             this.SpellHandlerSearchcomboBox.Name = "SpellHandlerSearchcomboBox";
+            this.SpellHandlerSearchcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.SpellHandlerSearchcomboBox.Size = new System.Drawing.Size(112, 21);
             this.SpellHandlerSearchcomboBox.Sorted = true;
             this.SpellHandlerSearchcomboBox.TabIndex = 8;
@@ -1128,6 +1130,7 @@ namespace Origins_Editor
             "DE"});
             this.LanguageSpellLAnguageChoicecomboBox.Location = new System.Drawing.Point(61, 35);
             this.LanguageSpellLAnguageChoicecomboBox.Name = "LanguageSpellLAnguageChoicecomboBox";
+            this.LanguageSpellLAnguageChoicecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LanguageSpellLAnguageChoicecomboBox.Size = new System.Drawing.Size(44, 21);
             this.LanguageSpellLAnguageChoicecomboBox.TabIndex = 31;
             // 
@@ -1166,12 +1169,32 @@ namespace Origins_Editor
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "LineXSpell of this Spell";
             // 
+            // LinexSpellAddLevelNumericUpDown
+            // 
+            this.LinexSpellAddLevelNumericUpDown.Increment = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.LinexSpellAddLevelNumericUpDown.Location = new System.Drawing.Point(65, 53);
+            this.LinexSpellAddLevelNumericUpDown.Maximum = new decimal(new int[] {
+            51,
+            0,
+            0,
+            0});
+            this.LinexSpellAddLevelNumericUpDown.Name = "LinexSpellAddLevelNumericUpDown";
+            this.LinexSpellAddLevelNumericUpDown.ReadOnly = true;
+            this.LinexSpellAddLevelNumericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.LinexSpellAddLevelNumericUpDown.Size = new System.Drawing.Size(58, 20);
+            this.LinexSpellAddLevelNumericUpDown.TabIndex = 39;
+            // 
             // PackageIDAddLineXSpellcomboBox
             // 
             this.PackageIDAddLineXSpellcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PackageIDAddLineXSpellcomboBox.FormattingEnabled = true;
             this.PackageIDAddLineXSpellcomboBox.Location = new System.Drawing.Point(65, 78);
             this.PackageIDAddLineXSpellcomboBox.Name = "PackageIDAddLineXSpellcomboBox";
+            this.PackageIDAddLineXSpellcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.PackageIDAddLineXSpellcomboBox.Size = new System.Drawing.Size(106, 21);
             this.PackageIDAddLineXSpellcomboBox.TabIndex = 33;
             // 
@@ -1319,6 +1342,7 @@ namespace Origins_Editor
             "Witchcraft"});
             this.LineNameAddLineXSpellcomboBox.Location = new System.Drawing.Point(65, 26);
             this.LineNameAddLineXSpellcomboBox.Name = "LineNameAddLineXSpellcomboBox";
+            this.LineNameAddLineXSpellcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LineNameAddLineXSpellcomboBox.Size = new System.Drawing.Size(136, 21);
             this.LineNameAddLineXSpellcomboBox.Sorted = true;
             this.LineNameAddLineXSpellcomboBox.TabIndex = 32;
@@ -1448,6 +1472,7 @@ namespace Origins_Editor
             "True"});
             this.IsFocuscomboBox.Location = new System.Drawing.Point(300, 149);
             this.IsFocuscomboBox.Name = "IsFocuscomboBox";
+            this.IsFocuscomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.IsFocuscomboBox.Size = new System.Drawing.Size(60, 21);
             this.IsFocuscomboBox.TabIndex = 49;
             // 
@@ -1460,6 +1485,7 @@ namespace Origins_Editor
             "True"});
             this.AllowBoltcomboBox.Location = new System.Drawing.Point(300, 98);
             this.AllowBoltcomboBox.Name = "AllowBoltcomboBox";
+            this.AllowBoltcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.AllowBoltcomboBox.Size = new System.Drawing.Size(60, 21);
             this.AllowBoltcomboBox.TabIndex = 48;
             // 
@@ -1472,6 +1498,7 @@ namespace Origins_Editor
             "True"});
             this.IsSecondarycomboBox.Location = new System.Drawing.Point(300, 71);
             this.IsSecondarycomboBox.Name = "IsSecondarycomboBox";
+            this.IsSecondarycomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.IsSecondarycomboBox.Size = new System.Drawing.Size(60, 21);
             this.IsSecondarycomboBox.TabIndex = 47;
             // 
@@ -1484,6 +1511,7 @@ namespace Origins_Editor
             "True"});
             this.IsPrimarycomboBox.Location = new System.Drawing.Point(300, 46);
             this.IsPrimarycomboBox.Name = "IsPrimarycomboBox";
+            this.IsPrimarycomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.IsPrimarycomboBox.Size = new System.Drawing.Size(60, 21);
             this.IsPrimarycomboBox.TabIndex = 46;
             // 
@@ -1496,6 +1524,7 @@ namespace Origins_Editor
             "True"});
             this.UninterruptiblecomboBox.Location = new System.Drawing.Point(300, 19);
             this.UninterruptiblecomboBox.Name = "UninterruptiblecomboBox";
+            this.UninterruptiblecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.UninterruptiblecomboBox.Size = new System.Drawing.Size(60, 21);
             this.UninterruptiblecomboBox.TabIndex = 45;
             // 
@@ -1508,6 +1537,7 @@ namespace Origins_Editor
             "True"});
             this.MoveCastcomboBox.Location = new System.Drawing.Point(300, 124);
             this.MoveCastcomboBox.Name = "MoveCastcomboBox";
+            this.MoveCastcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MoveCastcomboBox.Size = new System.Drawing.Size(60, 21);
             this.MoveCastcomboBox.TabIndex = 44;
             // 
@@ -1685,6 +1715,7 @@ namespace Origins_Editor
             this.PackageIDcomboBox.FormattingEnabled = true;
             this.PackageIDcomboBox.Location = new System.Drawing.Point(9, 41);
             this.PackageIDcomboBox.Name = "PackageIDcomboBox";
+            this.PackageIDcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.PackageIDcomboBox.Size = new System.Drawing.Size(108, 21);
             this.PackageIDcomboBox.TabIndex = 20;
             // 
@@ -1843,6 +1874,27 @@ namespace Origins_Editor
             this.groupBox8.TabIndex = 6;
             this.groupBox8.TabStop = false;
             // 
+            // DamageTypeComboBox
+            // 
+            this.DamageTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DamageTypeComboBox.FormattingEnabled = true;
+            this.DamageTypeComboBox.Items.AddRange(new object[] {
+            "Natural",
+            "Crush",
+            "Slash",
+            "Thrust",
+            "Body",
+            "Cold",
+            "Energy",
+            "Heat",
+            "Matter",
+            "Spirit"});
+            this.DamageTypeComboBox.Location = new System.Drawing.Point(80, 147);
+            this.DamageTypeComboBox.Name = "DamageTypeComboBox";
+            this.DamageTypeComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.DamageTypeComboBox.Size = new System.Drawing.Size(86, 21);
+            this.DamageTypeComboBox.TabIndex = 49;
+            // 
             // TargetcomboBox
             // 
             this.TargetcomboBox.DisplayMember = "Target";
@@ -1861,6 +1913,7 @@ namespace Origins_Editor
             "Target"});
             this.TargetcomboBox.Location = new System.Drawing.Point(80, 18);
             this.TargetcomboBox.Name = "TargetcomboBox";
+            this.TargetcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TargetcomboBox.Size = new System.Drawing.Size(59, 21);
             this.TargetcomboBox.Sorted = true;
             this.TargetcomboBox.TabIndex = 44;
@@ -2099,6 +2152,7 @@ namespace Origins_Editor
             "WeaponSkillBuff"});
             this.SpellTypecomboBox.Location = new System.Drawing.Point(256, 19);
             this.SpellTypecomboBox.Name = "SpellTypecomboBox";
+            this.SpellTypecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.SpellTypecomboBox.Size = new System.Drawing.Size(134, 21);
             this.SpellTypecomboBox.Sorted = true;
             this.SpellTypecomboBox.TabIndex = 43;
@@ -2566,44 +2620,6 @@ namespace Origins_Editor
             this.SpellListingButton.UseVisualStyleBackColor = true;
             this.SpellListingButton.Click += new System.EventHandler(this.SpellListing_Click);
             // 
-            // DamageTypeComboBox
-            // 
-            this.DamageTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.DamageTypeComboBox.FormattingEnabled = true;
-            this.DamageTypeComboBox.Items.AddRange(new object[] {
-            "Natural",
-            "Crush",
-            "Slash",
-            "Thrust",
-            "Body",
-            "Cold",
-            "Energy",
-            "Heat",
-            "Matter",
-            "Spirit"});
-            this.DamageTypeComboBox.Location = new System.Drawing.Point(80, 147);
-            this.DamageTypeComboBox.Name = "DamageTypeComboBox";
-            this.DamageTypeComboBox.Size = new System.Drawing.Size(86, 21);
-            this.DamageTypeComboBox.TabIndex = 49;
-            // 
-            // LinexSpellAddLevelNumericUpDown
-            // 
-            this.LinexSpellAddLevelNumericUpDown.Increment = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.LinexSpellAddLevelNumericUpDown.Location = new System.Drawing.Point(65, 53);
-            this.LinexSpellAddLevelNumericUpDown.Maximum = new decimal(new int[] {
-            51,
-            0,
-            0,
-            0});
-            this.LinexSpellAddLevelNumericUpDown.Name = "LinexSpellAddLevelNumericUpDown";
-            this.LinexSpellAddLevelNumericUpDown.ReadOnly = true;
-            this.LinexSpellAddLevelNumericUpDown.Size = new System.Drawing.Size(58, 20);
-            this.LinexSpellAddLevelNumericUpDown.TabIndex = 39;
-            // 
             // LoadSpell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2637,6 +2653,7 @@ namespace Origins_Editor
             this.SpellLanguagebindingNavigator.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LinexSpellAddLevelNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LineXSpellbindingNavigator)).EndInit();
             this.LineXSpellbindingNavigator.ResumeLayout(false);
             this.LineXSpellbindingNavigator.PerformLayout();
@@ -2656,7 +2673,6 @@ namespace Origins_Editor
             this.groupBox10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSpell)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.LinexSpellAddLevelNumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }

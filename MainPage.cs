@@ -589,5 +589,11 @@ namespace Origins_Editor
             LoadMob fm = new LoadMob(this);
             fm.Show();
         }
+
+        private void AbilityToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            LoadAbility fm = new LoadAbility();
+            fm.Show();
+        }
     }
 }

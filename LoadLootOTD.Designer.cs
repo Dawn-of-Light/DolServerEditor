@@ -317,14 +317,15 @@
             // 
             // MinLevelnumericUpDown
             // 
-            this.MinLevelnumericUpDown.Location = new System.Drawing.Point(89, 119);
+            this.MinLevelnumericUpDown.Location = new System.Drawing.Point(83, 119);
             this.MinLevelnumericUpDown.Maximum = new decimal(new int[] {
             50,
             0,
             0,
             0});
             this.MinLevelnumericUpDown.Name = "MinLevelnumericUpDown";
-            this.MinLevelnumericUpDown.Size = new System.Drawing.Size(39, 20);
+            this.MinLevelnumericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.MinLevelnumericUpDown.Size = new System.Drawing.Size(45, 20);
             this.MinLevelnumericUpDown.TabIndex = 4;
             // 
             // label3

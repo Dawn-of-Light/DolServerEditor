@@ -382,10 +382,10 @@ namespace Origins_Editor
 
                         datarow["Flags"] = flagsToSet;
                         datarow["MeleeDamageType"] = Util.Find_DamageType_Value(MeleeDamageTypecomboBox.Text);
-                        datarow["ParryChance"] = ParryChancetextBox.Text;
-                        datarow["EvadeChance"] = EvadeChancetextBox.Text;
-                        datarow["BlockChance"] = BlockChancetextBox.Text;
-                        datarow["LeftHandSwingChance"] = LeftHandSwingChancetextBox.Text;
+                        datarow["ParryChance"] = ParryChanceNumericUpDown.Value;
+                        datarow["EvadeChance"] = EvadeChanceNumericUpDown.Value;
+                        datarow["BlockChance"] = BlockChanceNumericUpDown.Value;
+                        datarow["LeftHandSwingChance"] = LeftHandSwingChanceNumericUpDown.Value;
                         datarow["Spells"] = SpellsrichTextBox.Text;
                         datarow["Styles"] = StylesrichTextBox.Text;
                         datarow["Strength"] = StrengthtextBox.Text;
@@ -520,9 +520,10 @@ namespace Origins_Editor
 
                 this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Flags"].Value = flagsToSet;
                 this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["MeleeDamageType"].Value = Util.Find_DamageType_Value(MeleeDamageTypecomboBox.Text);
-                this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["ParryChance"].Value = ParryChancetextBox.Text;
-                this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["EvadeChance"].Value = EvadeChancetextBox.Text;
-                this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["BlockChance"].Value = BlockChancetextBox.Text;
+                this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["ParryChance"].Value = ParryChanceNumericUpDown.Value;
+                this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["EvadeChance"].Value = EvadeChanceNumericUpDown.Value;
+                this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["BlockChance"].Value = BlockChanceNumericUpDown.Value;
+                this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["LeftHandSwingCount"].Value = LeftHandSwingChanceNumericUpDown.Value;
                 this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Spells"].Value = SpellsrichTextBox.Text;
                 this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Styles"].Value = StylesrichTextBox.Text;
                 this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Strength"].Value = StrengthtextBox.Text;
@@ -778,70 +779,6 @@ namespace Origins_Editor
                 return false;
             }
 
-            if (Util.IsEmpty(ParryChancetextBox.Text))
-                ParryChancetextBox.Text = "0";
-            else
-            {
-                byte parryChance;
-                try
-                {
-                    parryChance = Convert.ToByte(ParryChancetextBox.Text);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show(" WARNING: ParryChance value is not suitable.");
-                    return false;
-                }
-            }
-
-            if (Util.IsEmpty(EvadeChancetextBox.Text))
-                EvadeChancetextBox.Text = "0";
-            else
-            {
-                byte evadeChance;
-                try
-                {
-                    evadeChance = Convert.ToByte(EvadeChancetextBox.Text);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show(" WARNING: EvadeChance value is not suitable.");
-                    return false;
-                }
-            }
-
-            if (Util.IsEmpty(BlockChancetextBox.Text))
-                BlockChancetextBox.Text = "0";
-            else
-            {
-                byte blockChance;
-                try
-                {
-                    blockChance = Convert.ToByte(BlockChancetextBox.Text);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show(" WARNING: BlockChance value is not suitable.");
-                    return false;
-                }
-            }
-
-            if (Util.IsEmpty(LeftHandSwingChancetextBox.Text))
-                LeftHandSwingChancetextBox.Text = "0";
-            else
-            {
-                byte laftHandSwingChance;
-                try
-                {
-                    laftHandSwingChance = Convert.ToByte(LeftHandSwingChancetextBox.Text);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show(" WARNING: LeftHandSwingChance value is not suitable.");
-                    return false;
-                }
-            }
-
             if (RacecomboBox.SelectedValue == null)
                 RacecomboBox.SelectedValue = 0;
             else
@@ -991,10 +928,23 @@ namespace Origins_Editor
                     TorchcheckBox.Checked = false;
 
                 this.MeleeDamageTypecomboBox.Text = Util.Find_DamageType_String_Value(this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["MeleeDamageType"].Value.ToString());
-                this.ParryChancetextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["ParryChance"].Value.ToString();
-                this.EvadeChancetextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["EvadeChance"].Value.ToString();
-                this.BlockChancetextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["BlockChance"].Value.ToString();
-                this.LeftHandSwingChancetextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["LeftHandSwingChance"].Value.ToString();
+
+                int parryChance = 0;
+                int.TryParse(this.NPCTemplatedataGridView.Rows[this.NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["ParryChance"].Value.ToString(), out parryChance);
+
+                int evadeChance = 0;
+                int.TryParse(this.NPCTemplatedataGridView.Rows[this.NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["EvadeChance"].Value.ToString(), out evadeChance);
+
+                int blockChance = 0;
+                int.TryParse(this.NPCTemplatedataGridView.Rows[this.NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["BlockChance"].Value.ToString(), out blockChance);
+
+                int leftHandSwingChance = 0;
+                int.TryParse(this.NPCTemplatedataGridView.Rows[this.NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["LeftHandSwingChance"].Value.ToString(), out leftHandSwingChance);
+
+                this.ParryChanceNumericUpDown.Value = parryChance;
+                this.EvadeChanceNumericUpDown.Value = evadeChance;
+                this.BlockChanceNumericUpDown.Value = blockChance;
+                this.LeftHandSwingChanceNumericUpDown.Value = leftHandSwingChance;
                 this.SpellsrichTextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Spells"].Value.ToString();
                 this.StylesrichTextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Styles"].Value.ToString();
                 this.StrengthtextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Strength"].Value.ToString();

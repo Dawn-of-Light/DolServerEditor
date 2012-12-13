@@ -593,6 +593,7 @@ namespace Origins_Editor
             // 
             this.SpeedtextBox.Location = new System.Drawing.Point(94, 149);
             this.SpeedtextBox.Name = "SpeedtextBox";
+            this.SpeedtextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.SpeedtextBox.Size = new System.Drawing.Size(57, 20);
             this.SpeedtextBox.TabIndex = 22;
             // 
@@ -600,6 +601,7 @@ namespace Origins_Editor
             // 
             this.RegiontextBox.Location = new System.Drawing.Point(94, 104);
             this.RegiontextBox.Name = "RegiontextBox";
+            this.RegiontextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RegiontextBox.Size = new System.Drawing.Size(57, 20);
             this.RegiontextBox.TabIndex = 41;
             // 
@@ -616,6 +618,7 @@ namespace Origins_Editor
             // 
             this.HeadingtextBox.Location = new System.Drawing.Point(94, 82);
             this.HeadingtextBox.Name = "HeadingtextBox";
+            this.HeadingtextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.HeadingtextBox.Size = new System.Drawing.Size(57, 20);
             this.HeadingtextBox.TabIndex = 40;
             // 
@@ -623,6 +626,7 @@ namespace Origins_Editor
             // 
             this.ZtextBox.Location = new System.Drawing.Point(94, 61);
             this.ZtextBox.Name = "ZtextBox";
+            this.ZtextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ZtextBox.Size = new System.Drawing.Size(57, 20);
             this.ZtextBox.TabIndex = 39;
             // 
@@ -630,6 +634,7 @@ namespace Origins_Editor
             // 
             this.YtextBox.Location = new System.Drawing.Point(94, 39);
             this.YtextBox.Name = "YtextBox";
+            this.YtextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.YtextBox.Size = new System.Drawing.Size(57, 20);
             this.YtextBox.TabIndex = 38;
             // 
@@ -637,6 +642,7 @@ namespace Origins_Editor
             // 
             this.XtextBox.Location = new System.Drawing.Point(94, 18);
             this.XtextBox.Name = "XtextBox";
+            this.XtextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.XtextBox.Size = new System.Drawing.Size(57, 20);
             this.XtextBox.TabIndex = 37;
             // 
@@ -662,6 +668,7 @@ namespace Origins_Editor
             // 
             this.MaxDistancetextBox.Location = new System.Drawing.Point(94, 126);
             this.MaxDistancetextBox.Name = "MaxDistancetextBox";
+            this.MaxDistancetextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MaxDistancetextBox.Size = new System.Drawing.Size(57, 20);
             this.MaxDistancetextBox.TabIndex = 39;
             // 
@@ -1197,6 +1204,7 @@ namespace Origins_Editor
             0,
             -2147483648});
             this.RoamingnumericUpDown.Name = "RoamingnumericUpDown";
+            this.RoamingnumericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RoamingnumericUpDown.Size = new System.Drawing.Size(59, 20);
             this.RoamingnumericUpDown.TabIndex = 59;
             this.RoamingnumericUpDown.Value = new decimal(new int[] {
@@ -1233,6 +1241,7 @@ namespace Origins_Editor
             0,
             -2147483648});
             this.RespawnIntervalnumericUpDown.Name = "RespawnIntervalnumericUpDown";
+            this.RespawnIntervalnumericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RespawnIntervalnumericUpDown.Size = new System.Drawing.Size(59, 20);
             this.RespawnIntervalnumericUpDown.TabIndex = 57;
             this.RespawnIntervalnumericUpDown.Value = new decimal(new int[] {
@@ -1269,6 +1278,7 @@ namespace Origins_Editor
             0,
             -2147483648});
             this.AggroRangeNumericUpDown.Name = "AggroRangeNumericUpDown";
+            this.AggroRangeNumericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.AggroRangeNumericUpDown.Size = new System.Drawing.Size(59, 20);
             this.AggroRangeNumericUpDown.TabIndex = 54;
             this.AggroRangeNumericUpDown.Value = new decimal(new int[] {
@@ -1296,6 +1306,7 @@ namespace Origins_Editor
             0,
             -2147483648});
             this.AggroLevelUpDown.Name = "AggroLevelUpDown";
+            this.AggroLevelUpDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.AggroLevelUpDown.Size = new System.Drawing.Size(59, 20);
             this.AggroLevelUpDown.TabIndex = 49;
             this.AggroLevelUpDown.Value = new decimal(new int[] {
@@ -1312,12 +1323,8 @@ namespace Origins_Editor
             0,
             0,
             0});
-            this.LevelnumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.LevelnumericUpDown.Name = "LevelnumericUpDown";
+            this.LevelnumericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LevelnumericUpDown.Size = new System.Drawing.Size(59, 20);
             this.LevelnumericUpDown.TabIndex = 53;
             this.LevelnumericUpDown.Value = new decimal(new int[] {
@@ -1363,6 +1370,7 @@ namespace Origins_Editor
             0,
             0});
             this.SizenumericUpDown.Name = "SizenumericUpDown";
+            this.SizenumericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.SizenumericUpDown.Size = new System.Drawing.Size(59, 20);
             this.SizenumericUpDown.TabIndex = 51;
             this.SizenumericUpDown.Value = new decimal(new int[] {
@@ -1483,6 +1491,7 @@ namespace Origins_Editor
             // 
             this.OwnerIDtextBox.Location = new System.Drawing.Point(117, 130);
             this.OwnerIDtextBox.Name = "OwnerIDtextBox";
+            this.OwnerIDtextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.OwnerIDtextBox.Size = new System.Drawing.Size(141, 20);
             this.OwnerIDtextBox.TabIndex = 55;
             // 
@@ -1499,6 +1508,7 @@ namespace Origins_Editor
             // 
             this.PathIDtextBox.Location = new System.Drawing.Point(117, 107);
             this.PathIDtextBox.Name = "PathIDtextBox";
+            this.PathIDtextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.PathIDtextBox.Size = new System.Drawing.Size(141, 20);
             this.PathIDtextBox.TabIndex = 53;
             // 
@@ -1516,6 +1526,7 @@ namespace Origins_Editor
             this.BraincomboBox.FormattingEnabled = true;
             this.BraincomboBox.Location = new System.Drawing.Point(72, 35);
             this.BraincomboBox.Name = "BraincomboBox";
+            this.BraincomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BraincomboBox.Size = new System.Drawing.Size(186, 21);
             this.BraincomboBox.Sorted = true;
             this.BraincomboBox.TabIndex = 51;
@@ -1533,6 +1544,7 @@ namespace Origins_Editor
             // 
             this.HouseNumbertextBox.Location = new System.Drawing.Point(117, 84);
             this.HouseNumbertextBox.Name = "HouseNumbertextBox";
+            this.HouseNumbertextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.HouseNumbertextBox.Size = new System.Drawing.Size(141, 20);
             this.HouseNumbertextBox.TabIndex = 49;
             // 
@@ -1550,6 +1562,7 @@ namespace Origins_Editor
             this.ClassTypecomboBox.FormattingEnabled = true;
             this.ClassTypecomboBox.Location = new System.Drawing.Point(72, 11);
             this.ClassTypecomboBox.Name = "ClassTypecomboBox";
+            this.ClassTypecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ClassTypecomboBox.Size = new System.Drawing.Size(186, 21);
             this.ClassTypecomboBox.Sorted = true;
             this.ClassTypecomboBox.TabIndex = 47;
@@ -1558,6 +1571,7 @@ namespace Origins_Editor
             // 
             this.ItemsListTemplateIDtextBox.Location = new System.Drawing.Point(117, 200);
             this.ItemsListTemplateIDtextBox.Name = "ItemsListTemplateIDtextBox";
+            this.ItemsListTemplateIDtextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ItemsListTemplateIDtextBox.Size = new System.Drawing.Size(141, 20);
             this.ItemsListTemplateIDtextBox.TabIndex = 46;
             // 
@@ -1565,6 +1579,7 @@ namespace Origins_Editor
             // 
             this.TranslationIDtextBox.Location = new System.Drawing.Point(117, 224);
             this.TranslationIDtextBox.Name = "TranslationIDtextBox";
+            this.TranslationIDtextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TranslationIDtextBox.Size = new System.Drawing.Size(141, 20);
             this.TranslationIDtextBox.TabIndex = 45;
             this.TranslationIDtextBox.TextChanged += new System.EventHandler(this.TranslationID_TextChanged);
@@ -1573,6 +1588,7 @@ namespace Origins_Editor
             // 
             this.EquipmentTemplateIDtextBox.Location = new System.Drawing.Point(117, 153);
             this.EquipmentTemplateIDtextBox.Name = "EquipmentTemplateIDtextBox";
+            this.EquipmentTemplateIDtextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.EquipmentTemplateIDtextBox.Size = new System.Drawing.Size(141, 20);
             this.EquipmentTemplateIDtextBox.TabIndex = 44;
             // 
@@ -1580,6 +1596,7 @@ namespace Origins_Editor
             // 
             this.VisibleWeaponSlotstextBox.Location = new System.Drawing.Point(117, 60);
             this.VisibleWeaponSlotstextBox.Name = "VisibleWeaponSlotstextBox";
+            this.VisibleWeaponSlotstextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.VisibleWeaponSlotstextBox.Size = new System.Drawing.Size(67, 20);
             this.VisibleWeaponSlotstextBox.TabIndex = 42;
             // 
@@ -1587,6 +1604,7 @@ namespace Origins_Editor
             // 
             this.PackageIDtextBox.Location = new System.Drawing.Point(117, 177);
             this.PackageIDtextBox.Name = "PackageIDtextBox";
+            this.PackageIDtextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.PackageIDtextBox.Size = new System.Drawing.Size(141, 20);
             this.PackageIDtextBox.TabIndex = 41;
             // 
@@ -1651,18 +1669,18 @@ namespace Origins_Editor
             this.groupBox7.Controls.Add(this.IsCloakHoodUpcomboBox);
             this.groupBox7.Controls.Add(this.label62);
             this.groupBox7.Controls.Add(this.NPCTemplatecomboBox);
-            this.groupBox7.Controls.Add(this.label31);
             this.groupBox7.Controls.Add(this.FactioncomboBox);
-            this.groupBox7.Controls.Add(this.label20);
-            this.groupBox7.Controls.Add(this.RacecomboBox);
+            this.groupBox7.Controls.Add(this.label31);
             this.groupBox7.Controls.Add(this.RealmcomboBox);
-            this.groupBox7.Controls.Add(this.label39);
             this.groupBox7.Controls.Add(this.button1);
+            this.groupBox7.Controls.Add(this.label20);
             this.groupBox7.Controls.Add(this.MeleeDamageTypecomboBox);
             this.groupBox7.Controls.Add(this.label17);
+            this.groupBox7.Controls.Add(this.RacecomboBox);
             this.groupBox7.Controls.Add(this.ModeltextBox);
             this.groupBox7.Controls.Add(this.IsCharmablecomboBox);
             this.groupBox7.Controls.Add(this.IsCharmablelabel);
+            this.groupBox7.Controls.Add(this.label39);
             this.groupBox7.Controls.Add(this.label8);
             this.groupBox7.Controls.Add(this.label13);
             this.groupBox7.Controls.Add(this.BodyTypecomboBox);
@@ -1681,9 +1699,10 @@ namespace Origins_Editor
             "Neutral",
             "Male",
             "Female"});
-            this.GendercomboBox.Location = new System.Drawing.Point(108, 204);
+            this.GendercomboBox.Location = new System.Drawing.Point(126, 204);
             this.GendercomboBox.Name = "GendercomboBox";
-            this.GendercomboBox.Size = new System.Drawing.Size(86, 21);
+            this.GendercomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.GendercomboBox.Size = new System.Drawing.Size(68, 21);
             this.GendercomboBox.TabIndex = 63;
             // 
             // label63
@@ -1702,9 +1721,10 @@ namespace Origins_Editor
             this.IsCloakHoodUpcomboBox.Items.AddRange(new object[] {
             "False",
             "True"});
-            this.IsCloakHoodUpcomboBox.Location = new System.Drawing.Point(108, 180);
+            this.IsCloakHoodUpcomboBox.Location = new System.Drawing.Point(126, 180);
             this.IsCloakHoodUpcomboBox.Name = "IsCloakHoodUpcomboBox";
-            this.IsCloakHoodUpcomboBox.Size = new System.Drawing.Size(86, 21);
+            this.IsCloakHoodUpcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.IsCloakHoodUpcomboBox.Size = new System.Drawing.Size(68, 21);
             this.IsCloakHoodUpcomboBox.TabIndex = 61;
             // 
             // label62
@@ -1721,15 +1741,16 @@ namespace Origins_Editor
             this.NPCTemplatecomboBox.DataSource = this.NPCTemplatebindingSource;
             this.NPCTemplatecomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.NPCTemplatecomboBox.FormattingEnabled = true;
-            this.NPCTemplatecomboBox.Location = new System.Drawing.Point(72, 156);
+            this.NPCTemplatecomboBox.Location = new System.Drawing.Point(72, 60);
             this.NPCTemplatecomboBox.Name = "NPCTemplatecomboBox";
+            this.NPCTemplatecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.NPCTemplatecomboBox.Size = new System.Drawing.Size(122, 21);
             this.NPCTemplatecomboBox.TabIndex = 59;
             // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(1, 159);
+            this.label31.Location = new System.Drawing.Point(-2, 63);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(73, 13);
             this.label31.TabIndex = 58;
@@ -1740,15 +1761,16 @@ namespace Origins_Editor
             this.FactioncomboBox.DataSource = this.FactionbindingSource;
             this.FactioncomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FactioncomboBox.FormattingEnabled = true;
-            this.FactioncomboBox.Location = new System.Drawing.Point(45, 132);
+            this.FactioncomboBox.Location = new System.Drawing.Point(51, 36);
             this.FactioncomboBox.Name = "FactioncomboBox";
-            this.FactioncomboBox.Size = new System.Drawing.Size(149, 21);
+            this.FactioncomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.FactioncomboBox.Size = new System.Drawing.Size(143, 21);
             this.FactioncomboBox.TabIndex = 57;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(5, 135);
+            this.label20.Location = new System.Drawing.Point(5, 39);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(42, 13);
             this.label20.TabIndex = 56;
@@ -1759,9 +1781,10 @@ namespace Origins_Editor
             this.RacecomboBox.DataSource = this.RacebindingSource;
             this.RacecomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.RacecomboBox.FormattingEnabled = true;
-            this.RacecomboBox.Location = new System.Drawing.Point(45, 108);
+            this.RacecomboBox.Location = new System.Drawing.Point(51, 12);
             this.RacecomboBox.Name = "RacecomboBox";
-            this.RacecomboBox.Size = new System.Drawing.Size(149, 21);
+            this.RacecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.RacecomboBox.Size = new System.Drawing.Size(143, 21);
             this.RacecomboBox.TabIndex = 43;
             // 
             // RealmcomboBox
@@ -1773,15 +1796,16 @@ namespace Origins_Editor
             "Albion",
             "Midgard",
             "Hibernia"});
-            this.RealmcomboBox.Location = new System.Drawing.Point(83, 84);
+            this.RealmcomboBox.Location = new System.Drawing.Point(83, 108);
             this.RealmcomboBox.Name = "RealmcomboBox";
+            this.RealmcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RealmcomboBox.Size = new System.Drawing.Size(111, 21);
             this.RealmcomboBox.TabIndex = 55;
             // 
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(14, 111);
+            this.label39.Location = new System.Drawing.Point(14, 15);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(33, 13);
             this.label39.TabIndex = 38;
@@ -1812,15 +1836,16 @@ namespace Origins_Editor
             "Heat",
             "Matter",
             "Spirit"});
-            this.MeleeDamageTypecomboBox.Location = new System.Drawing.Point(102, 12);
+            this.MeleeDamageTypecomboBox.Location = new System.Drawing.Point(110, 133);
             this.MeleeDamageTypecomboBox.Name = "MeleeDamageTypecomboBox";
-            this.MeleeDamageTypecomboBox.Size = new System.Drawing.Size(92, 21);
+            this.MeleeDamageTypecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.MeleeDamageTypecomboBox.Size = new System.Drawing.Size(84, 21);
             this.MeleeDamageTypecomboBox.TabIndex = 48;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(42, 87);
+            this.label17.Location = new System.Drawing.Point(42, 111);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(37, 13);
             this.label17.TabIndex = 54;
@@ -1840,16 +1865,17 @@ namespace Origins_Editor
             this.IsCharmablecomboBox.Items.AddRange(new object[] {
             "False",
             "True"});
-            this.IsCharmablecomboBox.Location = new System.Drawing.Point(83, 36);
+            this.IsCharmablecomboBox.Location = new System.Drawing.Point(126, 156);
             this.IsCharmablecomboBox.Name = "IsCharmablecomboBox";
-            this.IsCharmablecomboBox.Size = new System.Drawing.Size(111, 21);
+            this.IsCharmablecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.IsCharmablecomboBox.Size = new System.Drawing.Size(68, 21);
             this.IsCharmablecomboBox.TabIndex = 47;
             this.IsCharmablecomboBox.Visible = false;
             // 
             // IsCharmablelabel
             // 
             this.IsCharmablelabel.AutoSize = true;
-            this.IsCharmablelabel.Location = new System.Drawing.Point(17, 40);
+            this.IsCharmablelabel.Location = new System.Drawing.Point(37, 160);
             this.IsCharmablelabel.Name = "IsCharmablelabel";
             this.IsCharmablelabel.Size = new System.Drawing.Size(65, 13);
             this.IsCharmablelabel.TabIndex = 46;
@@ -1859,7 +1885,7 @@ namespace Origins_Editor
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(2, 15);
+            this.label8.Location = new System.Drawing.Point(2, 135);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(100, 13);
             this.label8.TabIndex = 45;
@@ -1891,15 +1917,16 @@ namespace Origins_Editor
             "Reptile",
             "Plant",
             "Undead"});
-            this.BodyTypecomboBox.Location = new System.Drawing.Point(83, 60);
+            this.BodyTypecomboBox.Location = new System.Drawing.Point(83, 84);
             this.BodyTypecomboBox.Name = "BodyTypecomboBox";
+            this.BodyTypecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BodyTypecomboBox.Size = new System.Drawing.Size(111, 21);
             this.BodyTypecomboBox.TabIndex = 44;
             // 
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(26, 64);
+            this.label38.Location = new System.Drawing.Point(26, 88);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(55, 13);
             this.label38.TabIndex = 37;
@@ -1934,6 +1961,7 @@ namespace Origins_Editor
             // 
             this.CharismatextBox.Location = new System.Drawing.Point(91, 160);
             this.CharismatextBox.Name = "CharismatextBox";
+            this.CharismatextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.CharismatextBox.Size = new System.Drawing.Size(57, 20);
             this.CharismatextBox.TabIndex = 34;
             // 
@@ -1941,6 +1969,7 @@ namespace Origins_Editor
             // 
             this.EmpathytextBox.Location = new System.Drawing.Point(91, 138);
             this.EmpathytextBox.Name = "EmpathytextBox";
+            this.EmpathytextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.EmpathytextBox.Size = new System.Drawing.Size(57, 20);
             this.EmpathytextBox.TabIndex = 33;
             // 
@@ -1948,6 +1977,7 @@ namespace Origins_Editor
             // 
             this.PietytextBox.Location = new System.Drawing.Point(91, 116);
             this.PietytextBox.Name = "PietytextBox";
+            this.PietytextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.PietytextBox.Size = new System.Drawing.Size(57, 20);
             this.PietytextBox.TabIndex = 32;
             // 
@@ -1955,6 +1985,7 @@ namespace Origins_Editor
             // 
             this.IntelligencetextBox.Location = new System.Drawing.Point(91, 94);
             this.IntelligencetextBox.Name = "IntelligencetextBox";
+            this.IntelligencetextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.IntelligencetextBox.Size = new System.Drawing.Size(57, 20);
             this.IntelligencetextBox.TabIndex = 31;
             // 
@@ -1962,6 +1993,7 @@ namespace Origins_Editor
             // 
             this.QuicknesstextBox.Location = new System.Drawing.Point(91, 73);
             this.QuicknesstextBox.Name = "QuicknesstextBox";
+            this.QuicknesstextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.QuicknesstextBox.Size = new System.Drawing.Size(57, 20);
             this.QuicknesstextBox.TabIndex = 30;
             // 
@@ -1969,6 +2001,7 @@ namespace Origins_Editor
             // 
             this.DexteritytextBox.Location = new System.Drawing.Point(91, 52);
             this.DexteritytextBox.Name = "DexteritytextBox";
+            this.DexteritytextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.DexteritytextBox.Size = new System.Drawing.Size(57, 20);
             this.DexteritytextBox.TabIndex = 29;
             // 
@@ -1976,6 +2009,7 @@ namespace Origins_Editor
             // 
             this.ConstitutiontextBox.Location = new System.Drawing.Point(91, 31);
             this.ConstitutiontextBox.Name = "ConstitutiontextBox";
+            this.ConstitutiontextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ConstitutiontextBox.Size = new System.Drawing.Size(57, 20);
             this.ConstitutiontextBox.TabIndex = 28;
             // 
@@ -1983,6 +2017,7 @@ namespace Origins_Editor
             // 
             this.StrengthtextBox.Location = new System.Drawing.Point(91, 10);
             this.StrengthtextBox.Name = "StrengthtextBox";
+            this.StrengthtextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StrengthtextBox.Size = new System.Drawing.Size(57, 20);
             this.StrengthtextBox.TabIndex = 27;
             // 

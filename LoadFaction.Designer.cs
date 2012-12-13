@@ -154,6 +154,7 @@
             this.FactionNameSearchcomboBox.FormattingEnabled = true;
             this.FactionNameSearchcomboBox.Location = new System.Drawing.Point(83, 13);
             this.FactionNameSearchcomboBox.Name = "FactionNameSearchcomboBox";
+            this.FactionNameSearchcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.FactionNameSearchcomboBox.Size = new System.Drawing.Size(171, 21);
             this.FactionNameSearchcomboBox.TabIndex = 25;
             // 
@@ -322,6 +323,7 @@
             this.FactionIDLinkedFactioncomboBox.FormattingEnabled = true;
             this.FactionIDLinkedFactioncomboBox.Location = new System.Drawing.Point(89, 25);
             this.FactionIDLinkedFactioncomboBox.Name = "FactionIDLinkedFactioncomboBox";
+            this.FactionIDLinkedFactioncomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.FactionIDLinkedFactioncomboBox.Size = new System.Drawing.Size(156, 21);
             this.FactionIDLinkedFactioncomboBox.TabIndex = 48;
             // 
@@ -332,6 +334,7 @@
             this.LinkedFactionIDcomboBox.FormattingEnabled = true;
             this.LinkedFactionIDcomboBox.Location = new System.Drawing.Point(89, 53);
             this.LinkedFactionIDcomboBox.Name = "LinkedFactionIDcomboBox";
+            this.LinkedFactionIDcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LinkedFactionIDcomboBox.Size = new System.Drawing.Size(156, 21);
             this.LinkedFactionIDcomboBox.TabIndex = 47;
             // 
@@ -428,7 +431,7 @@
             0,
             0});
             this.BaseAggroLevelnumericUpDown.Name = "BaseAggroLevelnumericUpDown";
-            this.BaseAggroLevelnumericUpDown.ReadOnly = true;
+            this.BaseAggroLevelnumericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BaseAggroLevelnumericUpDown.Size = new System.Drawing.Size(52, 20);
             this.BaseAggroLevelnumericUpDown.TabIndex = 11;
             // 
@@ -667,6 +670,7 @@
             "DE"});
             this.LanguageChoicecomboBox.Location = new System.Drawing.Point(94, 14);
             this.LanguageChoicecomboBox.Name = "LanguageChoicecomboBox";
+            this.LanguageChoicecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LanguageChoicecomboBox.Size = new System.Drawing.Size(44, 21);
             this.LanguageChoicecomboBox.TabIndex = 35;
             // 

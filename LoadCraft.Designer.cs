@@ -84,6 +84,7 @@ namespace Origins_Editor
             this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.CraftedXItemdataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CraftingLevelNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.button2 = new System.Windows.Forms.Button();
             this.CraftedItemIDtextBox = new System.Windows.Forms.TextBox();
             this.id_nbtextBox = new System.Windows.Forms.TextBox();
@@ -95,6 +96,7 @@ namespace Origins_Editor
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.CountNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.button3 = new System.Windows.Forms.Button();
             this.CraftedItemId_nbtextBox = new System.Windows.Forms.TextBox();
             this.IngredientId_nbtextBox = new System.Windows.Forms.TextBox();
@@ -112,8 +114,6 @@ namespace Origins_Editor
             this.CraftingSkillTypeSearchcomboBox = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.CountNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.CraftingLevelNumericUpDown = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.CraftedItembindingNavigator)).BeginInit();
             this.CraftedItembindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CraftedItembindingSource)).BeginInit();
@@ -123,10 +123,10 @@ namespace Origins_Editor
             ((System.ComponentModel.ISupportInitialize)(this.CraftedXItembindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CraftedXItemdataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CountNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CraftingLevelNumericUpDown)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CountNumericUpDown)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // CraftedItembindingNavigator
@@ -393,6 +393,29 @@ namespace Origins_Editor
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CraftedItem Add";
             // 
+            // CraftingLevelNumericUpDown
+            // 
+            this.CraftingLevelNumericUpDown.Location = new System.Drawing.Point(99, 88);
+            this.CraftingLevelNumericUpDown.Maximum = new decimal(new int[] {
+            1500,
+            0,
+            0,
+            0});
+            this.CraftingLevelNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.CraftingLevelNumericUpDown.Name = "CraftingLevelNumericUpDown";
+            this.CraftingLevelNumericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.CraftingLevelNumericUpDown.Size = new System.Drawing.Size(61, 20);
+            this.CraftingLevelNumericUpDown.TabIndex = 11;
+            this.CraftingLevelNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(87, 182);
@@ -438,6 +461,7 @@ namespace Origins_Editor
             "WoodWorking"});
             this.CraftingSkillTypecomboBox.Location = new System.Drawing.Point(99, 120);
             this.CraftingSkillTypecomboBox.Name = "CraftingSkillTypecomboBox";
+            this.CraftingSkillTypecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.CraftingSkillTypecomboBox.Size = new System.Drawing.Size(158, 21);
             this.CraftingSkillTypecomboBox.Sorted = true;
             this.CraftingSkillTypecomboBox.TabIndex = 6;
@@ -451,6 +475,7 @@ namespace Origins_Editor
             "True"});
             this.MakeTemplatedcomboBox.Location = new System.Drawing.Point(99, 150);
             this.MakeTemplatedcomboBox.Name = "MakeTemplatedcomboBox";
+            this.MakeTemplatedcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MakeTemplatedcomboBox.Size = new System.Drawing.Size(53, 21);
             this.MakeTemplatedcomboBox.TabIndex = 5;
             // 
@@ -514,6 +539,25 @@ namespace Origins_Editor
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "CraftedXItem Add";
+            // 
+            // CountNumericUpDown
+            // 
+            this.CountNumericUpDown.Location = new System.Drawing.Point(98, 99);
+            this.CountNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.CountNumericUpDown.Name = "CountNumericUpDown";
+            this.CountNumericUpDown.ReadOnly = true;
+            this.CountNumericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.CountNumericUpDown.Size = new System.Drawing.Size(54, 20);
+            this.CountNumericUpDown.TabIndex = 7;
+            this.CountNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // button3
             // 
@@ -663,6 +707,7 @@ namespace Origins_Editor
             "WeaponCrafting"});
             this.CraftingSkillTypeSearchcomboBox.Location = new System.Drawing.Point(91, 13);
             this.CraftingSkillTypeSearchcomboBox.Name = "CraftingSkillTypeSearchcomboBox";
+            this.CraftingSkillTypeSearchcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.CraftingSkillTypeSearchcomboBox.Size = new System.Drawing.Size(158, 21);
             this.CraftingSkillTypeSearchcomboBox.Sorted = true;
             this.CraftingSkillTypeSearchcomboBox.TabIndex = 8;
@@ -685,46 +730,6 @@ namespace Origins_Editor
             this.button1.Text = "Load selected crafteditem Ingredients";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.LoadCraftedXitem_Click);
-            // 
-            // CountNumericUpDown
-            // 
-            this.CountNumericUpDown.Location = new System.Drawing.Point(98, 99);
-            this.CountNumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.CountNumericUpDown.Name = "CountNumericUpDown";
-            this.CountNumericUpDown.ReadOnly = true;
-            this.CountNumericUpDown.Size = new System.Drawing.Size(54, 20);
-            this.CountNumericUpDown.TabIndex = 7;
-            this.CountNumericUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // CraftingLevelNumericUpDown
-            // 
-            this.CraftingLevelNumericUpDown.Location = new System.Drawing.Point(99, 88);
-            this.CraftingLevelNumericUpDown.Maximum = new decimal(new int[] {
-            1500,
-            0,
-            0,
-            0});
-            this.CraftingLevelNumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.CraftingLevelNumericUpDown.Name = "CraftingLevelNumericUpDown";
-            this.CraftingLevelNumericUpDown.Size = new System.Drawing.Size(61, 20);
-            this.CraftingLevelNumericUpDown.TabIndex = 11;
-            this.CraftingLevelNumericUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // LoadCraft
             // 
@@ -755,12 +760,12 @@ namespace Origins_Editor
             ((System.ComponentModel.ISupportInitialize)(this.CraftedXItemdataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CraftingLevelNumericUpDown)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CountNumericUpDown)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CountNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CraftingLevelNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

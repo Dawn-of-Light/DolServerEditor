@@ -333,6 +333,7 @@ namespace Origins_Editor
             "DE"});
             this.LanguagecomboBox.Location = new System.Drawing.Point(126, 12);
             this.LanguagecomboBox.Name = "LanguagecomboBox";
+            this.LanguagecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LanguagecomboBox.Size = new System.Drawing.Size(46, 21);
             this.LanguagecomboBox.TabIndex = 12;
             // 
@@ -461,6 +462,7 @@ namespace Origins_Editor
             "DOL.GS.Keeps.KeepArea"});
             this.ClassTypecomboBox.Location = new System.Drawing.Point(540, 50);
             this.ClassTypecomboBox.Name = "ClassTypecomboBox";
+            this.ClassTypecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ClassTypecomboBox.Size = new System.Drawing.Size(142, 21);
             this.ClassTypecomboBox.Sorted = true;
             this.ClassTypecomboBox.TabIndex = 12;
@@ -474,6 +476,7 @@ namespace Origins_Editor
             "True"});
             this.CheckLoscomboBox.Location = new System.Drawing.Point(762, 53);
             this.CheckLoscomboBox.Name = "CheckLoscomboBox";
+            this.CheckLoscomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.CheckLoscomboBox.Size = new System.Drawing.Size(59, 21);
             this.CheckLoscomboBox.TabIndex = 13;
             // 
@@ -486,6 +489,7 @@ namespace Origins_Editor
             "True"});
             this.CanBroadCastcomboBox.Location = new System.Drawing.Point(762, 25);
             this.CanBroadCastcomboBox.Name = "CanBroadCastcomboBox";
+            this.CanBroadCastcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.CanBroadCastcomboBox.Size = new System.Drawing.Size(59, 21);
             this.CanBroadCastcomboBox.TabIndex = 14;
             // 
@@ -508,6 +512,7 @@ namespace Origins_Editor
             // 
             this.SoundtextBox.Location = new System.Drawing.Point(416, 51);
             this.SoundtextBox.Name = "SoundtextBox";
+            this.SoundtextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.SoundtextBox.Size = new System.Drawing.Size(50, 20);
             this.SoundtextBox.TabIndex = 12;
             // 
@@ -533,6 +538,7 @@ namespace Origins_Editor
             // 
             this.RadiustextBox.Location = new System.Drawing.Point(416, 25);
             this.RadiustextBox.Name = "RadiustextBox";
+            this.RadiustextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RadiustextBox.Size = new System.Drawing.Size(50, 20);
             this.RadiustextBox.TabIndex = 6;
             // 
@@ -540,6 +546,7 @@ namespace Origins_Editor
             // 
             this.RegiontextBox.Location = new System.Drawing.Point(303, 52);
             this.RegiontextBox.Name = "RegiontextBox";
+            this.RegiontextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RegiontextBox.Size = new System.Drawing.Size(52, 20);
             this.RegiontextBox.TabIndex = 7;
             // 
@@ -547,6 +554,7 @@ namespace Origins_Editor
             // 
             this.ZtextBox.Location = new System.Drawing.Point(303, 25);
             this.ZtextBox.Name = "ZtextBox";
+            this.ZtextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ZtextBox.Size = new System.Drawing.Size(52, 20);
             this.ZtextBox.TabIndex = 8;
             // 
@@ -554,6 +562,7 @@ namespace Origins_Editor
             // 
             this.YtextBox.Location = new System.Drawing.Point(192, 49);
             this.YtextBox.Name = "YtextBox";
+            this.YtextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.YtextBox.Size = new System.Drawing.Size(55, 20);
             this.YtextBox.TabIndex = 9;
             // 
@@ -571,6 +580,7 @@ namespace Origins_Editor
             this.Soundlabel.AutoSize = true;
             this.Soundlabel.Location = new System.Drawing.Point(370, 56);
             this.Soundlabel.Name = "Soundlabel";
+            this.Soundlabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Soundlabel.Size = new System.Drawing.Size(38, 13);
             this.Soundlabel.TabIndex = 8;
             this.Soundlabel.Text = "Sound";
@@ -597,6 +607,7 @@ namespace Origins_Editor
             // 
             this.XtextBox.Location = new System.Drawing.Point(192, 25);
             this.XtextBox.Name = "XtextBox";
+            this.XtextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.XtextBox.Size = new System.Drawing.Size(55, 20);
             this.XtextBox.TabIndex = 4;
             // 
@@ -612,6 +623,7 @@ namespace Origins_Editor
             this.Radiuslabel.AutoSize = true;
             this.Radiuslabel.Location = new System.Drawing.Point(370, 28);
             this.Radiuslabel.Name = "Radiuslabel";
+            this.Radiuslabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Radiuslabel.Size = new System.Drawing.Size(40, 13);
             this.Radiuslabel.TabIndex = 5;
             this.Radiuslabel.Text = "Radius";
@@ -621,6 +633,7 @@ namespace Origins_Editor
             this.Regionlabel.AutoSize = true;
             this.Regionlabel.Location = new System.Drawing.Point(257, 52);
             this.Regionlabel.Name = "Regionlabel";
+            this.Regionlabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Regionlabel.Size = new System.Drawing.Size(41, 13);
             this.Regionlabel.TabIndex = 4;
             this.Regionlabel.Text = "Region";
@@ -630,6 +643,7 @@ namespace Origins_Editor
             this.Zlabel.AutoSize = true;
             this.Zlabel.Location = new System.Drawing.Point(284, 28);
             this.Zlabel.Name = "Zlabel";
+            this.Zlabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Zlabel.Size = new System.Drawing.Size(14, 13);
             this.Zlabel.TabIndex = 3;
             this.Zlabel.Text = "Z";
@@ -751,6 +765,7 @@ namespace Origins_Editor
             this.ClassTypeSearchcomboBox.Location = new System.Drawing.Point(59, 13);
             this.ClassTypeSearchcomboBox.MaxDropDownItems = 15;
             this.ClassTypeSearchcomboBox.Name = "ClassTypeSearchcomboBox";
+            this.ClassTypeSearchcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ClassTypeSearchcomboBox.Size = new System.Drawing.Size(245, 21);
             this.ClassTypeSearchcomboBox.Sorted = true;
             this.ClassTypeSearchcomboBox.TabIndex = 23;

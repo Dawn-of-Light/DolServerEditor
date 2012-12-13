@@ -664,6 +664,7 @@ namespace Origins_Editor
             "DE"});
             this.LanguageChoicecomboBox.Location = new System.Drawing.Point(61, 22);
             this.LanguageChoicecomboBox.Name = "LanguageChoicecomboBox";
+            this.LanguageChoicecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LanguageChoicecomboBox.Size = new System.Drawing.Size(44, 21);
             this.LanguageChoicecomboBox.TabIndex = 31;
             // 

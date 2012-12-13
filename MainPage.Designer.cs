@@ -237,6 +237,7 @@ namespace Origins_Editor
             this.aBILITYToolStripMenuItem1.Name = "aBILITYToolStripMenuItem1";
             this.aBILITYToolStripMenuItem1.Size = new System.Drawing.Size(184, 22);
             this.aBILITYToolStripMenuItem1.Text = "Ability";
+            this.aBILITYToolStripMenuItem1.Click += new System.EventHandler(this.AbilityToolStripMenuItem1_Click);
             // 
             // championSpecsToolStripMenuItem1
             // 
@@ -480,6 +481,7 @@ namespace Origins_Editor
             "Undead"});
             this.BodyTypecomboBox.Location = new System.Drawing.Point(70, 19);
             this.BodyTypecomboBox.Name = "BodyTypecomboBox";
+            this.BodyTypecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BodyTypecomboBox.Size = new System.Drawing.Size(203, 21);
             this.BodyTypecomboBox.TabIndex = 0;
             // 
@@ -518,6 +520,7 @@ namespace Origins_Editor
             this.RacecomboBox.FormattingEnabled = true;
             this.RacecomboBox.Location = new System.Drawing.Point(70, 13);
             this.RacecomboBox.Name = "RacecomboBox";
+            this.RacecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RacecomboBox.Size = new System.Drawing.Size(203, 21);
             this.RacecomboBox.TabIndex = 7;
             // 
@@ -586,6 +589,7 @@ namespace Origins_Editor
             this.MobNamecomboBox.FormattingEnabled = true;
             this.MobNamecomboBox.Location = new System.Drawing.Point(70, 16);
             this.MobNamecomboBox.Name = "MobNamecomboBox";
+            this.MobNamecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MobNamecomboBox.Size = new System.Drawing.Size(203, 21);
             this.MobNamecomboBox.TabIndex = 14;
             // 
@@ -743,6 +747,7 @@ namespace Origins_Editor
             this.NPCTemplatecomboBox.FormattingEnabled = true;
             this.NPCTemplatecomboBox.Location = new System.Drawing.Point(70, 22);
             this.NPCTemplatecomboBox.Name = "NPCTemplatecomboBox";
+            this.NPCTemplatecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.NPCTemplatecomboBox.Size = new System.Drawing.Size(203, 21);
             this.NPCTemplatecomboBox.TabIndex = 7;
             // 
@@ -852,6 +857,7 @@ namespace Origins_Editor
             this.FactioncomboBox.FormattingEnabled = true;
             this.FactioncomboBox.Location = new System.Drawing.Point(70, 15);
             this.FactioncomboBox.Name = "FactioncomboBox";
+            this.FactioncomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.FactioncomboBox.Size = new System.Drawing.Size(203, 21);
             this.FactioncomboBox.TabIndex = 0;
             // 

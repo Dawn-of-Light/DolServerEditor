@@ -741,6 +741,99 @@ namespace Origins_Editor
                 }
             }
 
+            if (Util.IsEmpty(XtextBox.Text))
+            {
+                MessageBox.Show(" WARNING: X value is not suitable.");
+                return false;
+            }
+            else
+            {
+                int x;
+                try
+                {
+                    x = int.Parse(XtextBox.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(" WARNING: X value is not suitable.");
+                    return false;
+                }
+            }
+
+            if (Util.IsEmpty(YtextBox.Text))
+            {
+                MessageBox.Show(" WARNING: Y value is not suitable.");
+                return false;
+            }
+            else
+            {
+                int y;
+                try
+                {
+                    y = int.Parse(YtextBox.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(" WARNING: Y value is not suitable.");
+                    return false;
+                }
+            }
+
+            if (Util.IsEmpty(ZtextBox.Text))
+            {
+                MessageBox.Show(" WARNING: Z value is not suitable.");
+                return false;
+            }
+            else
+            {
+                int z;
+                try
+                {
+                    z = int.Parse(ZtextBox.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(" WARNING: Z value is not suitable.");
+                    return false;
+                }
+            }
+
+            if (Util.IsEmpty(HeadingtextBox.Text))
+            {
+                MessageBox.Show(" WARNING: Heading value is not suitable.");
+                return false;
+            }
+            else
+            {
+                int heading;
+                try
+                {
+                    heading = int.Parse(HeadingtextBox.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(" WARNING: Heading value is not suitable.");
+                    return false;
+                }
+            }
+            if (Util.IsEmpty(RegiontextBox.Text))
+            {
+                MessageBox.Show(" WARNING: Region value is not suitable.");
+                return false;
+            }
+            else
+            {
+                int region;
+                try
+                {
+                    region = int.Parse(RegiontextBox.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(" WARNING: Region value is not suitable.");
+                    return false;
+                }
+            }
             if (Util.IsEmpty(AggroLevelUpDown.Text))
                 AggroLevelUpDown.Text = "-1";
             else
@@ -864,7 +957,6 @@ namespace Origins_Editor
                 this.ClassTypecomboBox.Text = this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["ClassType"].Value.ToString();
 
                 this.NametextBox.Text = this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["Name"].Value.ToString();
-                this.FRNametextBox.Text = this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["FRName"].Value.ToString();
 
                 if (DolEditor.Properties.Settings.Default.OriginsSettings)
                     this.FRNametextBox.Text = this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["FRName"].Value.ToString();
@@ -888,10 +980,10 @@ namespace Origins_Editor
 
                 this.LevelnumericUpDown.Value = level;
 
-                if (!Util.IsEmpty(this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["Realm"].Value.ToString()))
-                    this.RealmcomboBox.Text = Util.Find_Realm_String_Value(this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["Realm"].Value.ToString());
-                else
+                if (Util.IsEmpty(this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["Realm"].Value.ToString()))
                     this.RealmcomboBox.Text = "None";
+                else
+                    this.RealmcomboBox.Text = Util.Find_Realm_String_Value(this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["Realm"].Value.ToString());
 
                  this.EquipmentTemplateIDtextBox.Text = this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["EquipmentTemplateID"].Value.ToString();
                  this.ItemsListTemplateIDtextBox.Text = this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["ItemsListTemplateID"].Value.ToString();
@@ -958,9 +1050,9 @@ namespace Origins_Editor
                 this.HouseNumbertextBox.Text = this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["HouseNumber"].Value.ToString();
 
                 if (Util.IsEmpty(this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["Brain"].Value.ToString()))
-                    this.BraincomboBox.SelectedText = "DOL.AI.StandardMobBrain";
+                    this.BraincomboBox.Text = "DOL.AI.Brain.StandardMobBrain";
                 else
-                    this.BraincomboBox.SelectedText = this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["Brain"].Value.ToString();
+                    this.BraincomboBox.Text = this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["Brain"].Value.ToString();
 
                 this.PathIDtextBox.Text = this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["PathID"].Value.ToString();
                 this.MaxDistancetextBox.Text = this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["MaxDistance"].Value.ToString();

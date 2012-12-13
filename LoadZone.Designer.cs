@@ -288,6 +288,7 @@ namespace Origins_Editor
             this.ZoneRealmSearchcomboBox.Location = new System.Drawing.Point(40, 12);
             this.ZoneRealmSearchcomboBox.MaxDropDownItems = 15;
             this.ZoneRealmSearchcomboBox.Name = "ZoneRealmSearchcomboBox";
+            this.ZoneRealmSearchcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ZoneRealmSearchcomboBox.Size = new System.Drawing.Size(89, 21);
             this.ZoneRealmSearchcomboBox.TabIndex = 3;
             // 
@@ -421,6 +422,7 @@ namespace Origins_Editor
             "True"});
             this.DivingFlagcomboBox.Location = new System.Drawing.Point(399, 55);
             this.DivingFlagcomboBox.Name = "DivingFlagcomboBox";
+            this.DivingFlagcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.DivingFlagcomboBox.Size = new System.Drawing.Size(74, 21);
             this.DivingFlagcomboBox.TabIndex = 31;
             // 
@@ -433,6 +435,7 @@ namespace Origins_Editor
             "True"});
             this.IsLavacomboBox.Location = new System.Drawing.Point(399, 79);
             this.IsLavacomboBox.Name = "IsLavacomboBox";
+            this.IsLavacomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.IsLavacomboBox.Size = new System.Drawing.Size(74, 21);
             this.IsLavacomboBox.TabIndex = 30;
             // 
@@ -447,6 +450,7 @@ namespace Origins_Editor
             "Hibernia"});
             this.RealmcomboBox.Location = new System.Drawing.Point(399, 102);
             this.RealmcomboBox.Name = "RealmcomboBox";
+            this.RealmcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RealmcomboBox.Size = new System.Drawing.Size(74, 21);
             this.RealmcomboBox.TabIndex = 29;
             // 

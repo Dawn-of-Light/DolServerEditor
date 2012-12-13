@@ -226,6 +226,7 @@ namespace Origins_Editor
             "DE"});
             this.LanguagecomboBox.Location = new System.Drawing.Point(493, 13);
             this.LanguagecomboBox.Name = "LanguagecomboBox";
+            this.LanguagecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LanguagecomboBox.Size = new System.Drawing.Size(46, 21);
             this.LanguagecomboBox.TabIndex = 25;
             // 
@@ -450,6 +451,7 @@ namespace Origins_Editor
             this.ClassTypecomboBox.FormattingEnabled = true;
             this.ClassTypecomboBox.Location = new System.Drawing.Point(550, 18);
             this.ClassTypecomboBox.Name = "ClassTypecomboBox";
+            this.ClassTypecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ClassTypecomboBox.Size = new System.Drawing.Size(142, 21);
             this.ClassTypecomboBox.Sorted = true;
             this.ClassTypecomboBox.TabIndex = 17;
@@ -468,6 +470,7 @@ namespace Origins_Editor
             "6"});
             this.ExpansioncomboBox.Location = new System.Drawing.Point(550, 43);
             this.ExpansioncomboBox.Name = "ExpansioncomboBox";
+            this.ExpansioncomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ExpansioncomboBox.Size = new System.Drawing.Size(38, 21);
             this.ExpansioncomboBox.Sorted = true;
             this.ExpansioncomboBox.TabIndex = 16;
@@ -524,6 +527,7 @@ namespace Origins_Editor
             "True"});
             this.HousingEnablecomboBox.Location = new System.Drawing.Point(422, 17);
             this.HousingEnablecomboBox.Name = "HousingEnablecomboBox";
+            this.HousingEnablecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.HousingEnablecomboBox.Size = new System.Drawing.Size(64, 21);
             this.HousingEnablecomboBox.TabIndex = 13;
             // 
@@ -536,6 +540,7 @@ namespace Origins_Editor
             "True"});
             this.DivingEnablecomboBox.Location = new System.Drawing.Point(422, 43);
             this.DivingEnablecomboBox.Name = "DivingEnablecomboBox";
+            this.DivingEnablecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.DivingEnablecomboBox.Size = new System.Drawing.Size(64, 21);
             this.DivingEnablecomboBox.TabIndex = 12;
             // 
@@ -548,6 +553,7 @@ namespace Origins_Editor
             "True"});
             this.IsFrontiercomboBox.Location = new System.Drawing.Point(422, 68);
             this.IsFrontiercomboBox.Name = "IsFrontiercomboBox";
+            this.IsFrontiercomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.IsFrontiercomboBox.Size = new System.Drawing.Size(64, 21);
             this.IsFrontiercomboBox.TabIndex = 11;
             // 

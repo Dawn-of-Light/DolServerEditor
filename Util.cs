@@ -110,6 +110,8 @@ public static class Util
             return "Midgard";
         else if (text.ToLower() == "3")
             return "Hibernia";
+        else if (text.ToLower() == "0")
+            return "None";
 
         return "None";
     }
