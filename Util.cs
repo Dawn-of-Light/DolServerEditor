@@ -503,7 +503,7 @@ public static class Util
     {
         MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
 
-        MySqlDataAdapter FindFreeIDdataAdapter = new MySqlDataAdapter("select distinct spellid from spell ORDER BY spellid ASC", connection);
+        MySqlDataAdapter FindFreeIDdataAdapter = new MySqlDataAdapter("select distinct spellid from spell ORDER BY spellid ASC", Util.Connection);
         MySqlCommandBuilder commandBuilderSpellIDDatatable = new MySqlCommandBuilder(FindFreeIDdataAdapter);
         DataTable SpellIDDatatable = new DataTable();
         FindFreeIDdataAdapter.Fill(SpellIDDatatable);
@@ -532,7 +532,7 @@ public static class Util
     {
         MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
 
-        MySqlDataAdapter FindFreeIDdataAdapter = new MySqlDataAdapter("select distinct id from faction ORDER BY id ASC", connection);
+        MySqlDataAdapter FindFreeIDdataAdapter = new MySqlDataAdapter("select distinct id from faction ORDER BY id ASC", Util.Connection);
         MySqlCommandBuilder commandBuilderSpellIDDatatable = new MySqlCommandBuilder(FindFreeIDdataAdapter);
         DataTable SpellIDDatatable = new DataTable();
         FindFreeIDdataAdapter.Fill(SpellIDDatatable);
@@ -561,7 +561,7 @@ public static class Util
     {
         MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
 
-        MySqlDataAdapter FindFreeIDdataAdapter = new MySqlDataAdapter("select distinct RegionID from regions ORDER BY RegionID ASC", connection);
+        MySqlDataAdapter FindFreeIDdataAdapter = new MySqlDataAdapter("select distinct RegionID from regions ORDER BY RegionID ASC", Util.Connection);
         MySqlCommandBuilder commandBuilderSpellIDDatatable = new MySqlCommandBuilder(FindFreeIDdataAdapter);
         DataTable SpellIDDatatable = new DataTable();
         FindFreeIDdataAdapter.Fill(SpellIDDatatable);
@@ -590,7 +590,7 @@ public static class Util
     {
         MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
 
-        MySqlDataAdapter FindFreeIDdataAdapter = new MySqlDataAdapter("select distinct zoneID from zones ORDER BY zoneID ASC", connection);
+        MySqlDataAdapter FindFreeIDdataAdapter = new MySqlDataAdapter("select distinct zoneID from zones ORDER BY zoneID ASC", Util.Connection);
         MySqlCommandBuilder commandBuilderSpellIDDatatable = new MySqlCommandBuilder(FindFreeIDdataAdapter);
         DataTable ZoneIDDatatable = new DataTable();
         FindFreeIDdataAdapter.Fill(ZoneIDDatatable);
@@ -780,7 +780,7 @@ public static class Util
     {
         MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
 
-        MySqlDataAdapter FindFreeIDdataAdapter = new MySqlDataAdapter("select distinct templateid from npctemplate ORDER BY templateid ASC", connection);
+        MySqlDataAdapter FindFreeIDdataAdapter = new MySqlDataAdapter("select distinct templateid from npctemplate ORDER BY templateid ASC", Util.Connection);
         MySqlCommandBuilder commandBuilderNPCTemplateIDDatatable = new MySqlCommandBuilder(FindFreeIDdataAdapter);
         DataTable NPCTemplateIDDatatable = new DataTable();
         FindFreeIDdataAdapter.Fill(NPCTemplateIDDatatable);
