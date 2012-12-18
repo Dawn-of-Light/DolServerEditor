@@ -24,7 +24,7 @@ using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Origins_Editor
+namespace DOL_Editor
 {
     public partial class LoadMob : Form
     {

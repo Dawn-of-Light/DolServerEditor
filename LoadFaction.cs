@@ -22,7 +22,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Data;
 
-namespace Origins_Editor
+namespace DOL_Editor
 {
     public partial class LoadFaction : Form
     {

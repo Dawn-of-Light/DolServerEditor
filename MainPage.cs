@@ -22,7 +22,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Data;
 
-namespace Origins_Editor
+namespace DOL_Editor
 {
 
     public partial class MainPageEditor : Form
@@ -44,9 +44,8 @@ namespace Origins_Editor
                     con.Open();
                 }
             }
-            catch (MySqlException s)
+            catch (MySqlException)
             {
-                //MessageBox.Show(s.Message);
                 Flag = true;
             }
             finally
@@ -182,66 +181,6 @@ namespace Origins_Editor
             {
                 MessageBox.Show(s.Message);
             }
-        }
-    
-        void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LoadPreferences fm = new LoadPreferences();
-            fm.Show();
-        }
-
-        private void areaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LoadArea fm = new LoadArea();
-            fm.Show();
-        }
-
-        private void spellToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            LoadSpell fm = new LoadSpell();
-            fm.Show();
-        }
-
-        private void styleToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            LoadStyle fm = new LoadStyle();
-            fm.Show();
-        }
-
-        private void battleGroundToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LoadBattleGround fm = new LoadBattleGround();
-            fm.Show();
-        }
-
-        private void regionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LoadRegion fm = new LoadRegion();
-            fm.Show();
-        }
-
-        private void zoneToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LoadZone fm = new LoadZone();
-            fm.Show();
-        }
-
-        private void CraftedItemToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LoadCraft fm = new LoadCraft();
-            fm.Show();
-        }
-
-        private void NPCTemplateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LoadNPCTemplate fm = new LoadNPCTemplate(this);
-            fm.Show();
-        }
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LoadAbout fm = new LoadAbout();
-            fm.Show();
         }
 
         private void UpdateMobNameButton_Click(object sender, EventArgs e)
@@ -572,6 +511,68 @@ namespace Origins_Editor
             MessageBox.Show(string.Format(" Table Mob rows affected: {0}", MobrowsAffected));
         }
 
+        #region Menu Click
+
+        void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadPreferences fm = new LoadPreferences();
+            fm.Show();
+        }
+
+        private void areaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadArea fm = new LoadArea();
+            fm.Show();
+        }
+
+        private void spellToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            LoadSpell fm = new LoadSpell();
+            fm.Show();
+        }
+
+        private void styleToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            LoadStyle fm = new LoadStyle();
+            fm.Show();
+        }
+
+        private void battleGroundToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadBattleGround fm = new LoadBattleGround();
+            fm.Show();
+        }
+
+        private void regionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadRegion fm = new LoadRegion();
+            fm.Show();
+        }
+
+        private void zoneToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadZone fm = new LoadZone();
+            fm.Show();
+        }
+
+        private void CraftedItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadCraft fm = new LoadCraft();
+            fm.Show();
+        }
+
+        private void NPCTemplateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadNPCTemplate fm = new LoadNPCTemplate(this);
+            fm.Show();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadAbout fm = new LoadAbout();
+            fm.Show();
+        }
+
         private void factionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LoadFaction fm = new LoadFaction();
@@ -595,5 +596,8 @@ namespace Origins_Editor
             LoadAbility fm = new LoadAbility();
             fm.Show();
         }
+
+        #endregion Menu Click
+
     }
 }

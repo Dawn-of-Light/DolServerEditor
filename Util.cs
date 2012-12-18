@@ -31,8 +31,13 @@ using MySql.Data.MySqlClient;
     /// </summary>
 public static class Util
 {
-    public static MySqlConnection Connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";port= " + DolEditor.Properties.Settings.Default.PortNumber + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-           
+    /// <summary>
+    /// Connection informations
+    /// </summary>
+    public static MySqlConnection Connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";port= " + DolEditor.Properties.Settings.Default.PortNumber + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + ";Persist Security Info=True" + "");
+
+    #region Random Utilities
+
     /// <summary>
     /// Holds the random number generator instance
     /// </summary>
@@ -76,6 +81,15 @@ public static class Util
         return RandomGen.Next(min, max + 1);
     }
 
+    #endregion Random Utilities
+
+    #region Bool Utilities
+
+    /// <summary>
+    /// Find Bool value (true false) with value number
+    /// </summary>
+    /// <param name="bool value as string"></param>
+    /// <returns></returns>
     public static string Find_Bool_String_Value(string text)
     {
         if (text.ToLower() == "0")
@@ -83,6 +97,11 @@ public static class Util
         return "True";
     }
 
+    /// <summary>
+    /// Find Bool value number with true or false
+    /// </summary>    
+    /// <param name="bool string value"></param>
+    /// <returns></returns>
     public static int Find_Bool_Value(string text)
     {
         if (text.ToLower() == "true")
@@ -90,6 +109,15 @@ public static class Util
         return 0;
     }
 
+    #endregion Bool Utilities
+
+    #region Realm Utilities
+
+    /// <summary>
+    /// Find Realm Id with realm name
+    /// </summary>    
+    /// <param name="realm name"></param>
+    /// <returns></returns>
     public static int Find_Realm_Value(string text)
     {
         if (text.ToLower() == "albion")
@@ -102,6 +130,11 @@ public static class Util
         return 0;
     }
 
+    /// <summary>
+    /// Find Realm name with realm ID
+    /// </summary>
+    /// <param name="realm ID as string"></param>
+    /// <returns></returns>
     public static string Find_Realm_String_Value(string text)
     {
         if (text.ToLower() == "1")
@@ -116,6 +149,15 @@ public static class Util
         return "None";
     }
 
+    #endregion Realm Utilities
+
+    #region Style Utilities
+
+    /// <summary>
+    /// Find OpeningRequirementType name with OpeningRequirementType Id
+    /// </summary>    
+    /// <param name="OpeningRequirementType ID as string"></param>
+    /// <returns></returns>
     public static string Find_OpeningRequirementType_String_Value(string text)
     {
         if (text.ToLower() == "0")
@@ -127,6 +169,11 @@ public static class Util
         return "Not Defined";
     }
 
+    /// <summary>
+    /// Find AttackResultRequirement name with AttackResultRequirement ID
+    /// </summary>    
+    /// <param name="AttackResultRequirement ID as string"></param>
+    /// <returns></returns>
     public static string Find_AttackResultRequirement_String_Value(string text)
     {
 
@@ -150,39 +197,18 @@ public static class Util
         return "Any";
     }
 
-    public static string ObjectIDToName(string objectTypeID)
-    {
-        switch (objectTypeID)
-        {
-            case "1": return "Generic";
-            case "2": return "Crushing";
-            case "3": return "Slashing";
-            case "4": return "Thrusting";
-            case "6": return "Twohanded";
-            case "7": return "Polearm";
-            case "8": return "Staff";
-            case "11": return "Sword";
-            case "12": return "Hammer";
-            case "13": return "Axe";
-            case "14": return "Spear";
-            case "17": return "Left axe";
-            case "19": return "Blades";
-            case "20": return "Blunt";
-            case "21": return "Piercing";
-            case "22": return "Large";
-            case "23": return "Celtic spear";
-            case "24": return "Flexible";
-            case "25": return "Hand to hand";
-            case "26": return "Scythe";
-            case "27": return "Fist wraps";
-            case "28": return "Mauler staff";
-        }
-        return "unknown (item)";
-    }
+    #endregion Style Utilities
 
-    public static string ClassIDToName(string objectTypeID)
+    #region Class Utilities
+
+    /// <summary>
+    /// Find Class Name with Class ID
+    /// </summary>    
+    /// <param name="class ID as string"></param>
+    /// <returns></returns>
+    public static string ClassIDToName(string classID)
     {
-        switch (objectTypeID)
+        switch (classID)
         {
             case "1":
                 return "Paladin";
@@ -312,9 +338,14 @@ public static class Util
         return "unknow class name";
     }
 
-    public static string ClassNameToID(string objectTypeID)
+    /// <summary>
+    /// Find Class ID with Class Name
+    /// </summary>    
+    /// <param name="Class name"></param>
+    /// <returns></returns>
+    public static string ClassNameToID(string classname)
     {
-        switch (objectTypeID)
+        switch (classname)
         {
             case " All":
                 return " All";
@@ -446,9 +477,53 @@ public static class Util
         return "unknown class name";
     }
 
-    public static string ObjectNameToID(string objectTypeID)
+    #endregion Class Utilities
+
+    #region Object Utilities
+
+    /// <summary>
+    /// Find ObjectType Name with ObjectType ID
+    /// </summary>    
+    /// <param name="objectType ID as string"></param>
+    /// <returns></returns>
+    public static string ObjectIDToName(string objectTypeID)
     {
         switch (objectTypeID)
+        {
+            case "1": return "Generic";
+            case "2": return "Crushing";
+            case "3": return "Slashing";
+            case "4": return "Thrusting";
+            case "6": return "Twohanded";
+            case "7": return "Polearm";
+            case "8": return "Staff";
+            case "11": return "Sword";
+            case "12": return "Hammer";
+            case "13": return "Axe";
+            case "14": return "Spear";
+            case "17": return "Left axe";
+            case "19": return "Blades";
+            case "20": return "Blunt";
+            case "21": return "Piercing";
+            case "22": return "Large";
+            case "23": return "Celtic spear";
+            case "24": return "Flexible";
+            case "25": return "Hand to hand";
+            case "26": return "Scythe";
+            case "27": return "Fist wraps";
+            case "28": return "Mauler staff";
+        }
+        return "unknown (item)";
+    }
+
+    /// <summary>
+    /// Find Object ID with Object Name
+    /// </summary>    
+    /// <param name="Object Name"></param>
+    /// <returns></returns>
+    public static string ObjectNameToID(string objectNametoID)
+    {
+        switch (objectNametoID)
         {
             case "Generic":
                 return "1";
@@ -498,12 +573,224 @@ public static class Util
         return "unknown (item)";
     }
 
+    #endregion Object Utilities
 
+    #region DamageType Utilities
+
+    /// <summary>
+    /// Find DamageType ID with DamageType name
+    /// </summary>    
+    /// <param name="DamageType name"></param>
+    /// <returns></returns>
+    public static byte Find_DamageType_Value(string text)
+    {
+        if (text.ToLower() == "natural")
+            return 0;
+        if (text.ToLower() == "crush")
+            return 1;
+        if (text.ToLower() == "slash")
+            return 2;
+        if (text.ToLower() == "thrust")
+            return 3;
+        if (text.ToLower() == "body")
+            return 10;
+        if (text.ToLower() == "cold")
+            return 11;
+        if (text.ToLower() == "energy")
+            return 12;
+        if (text.ToLower() == "heat")
+            return 13;
+        if (text.ToLower() == "matter")
+            return 14;
+        if (text.ToLower() == "spirit")
+            return 15;
+        return 0;
+    }
+
+    /// <summary>
+    /// Find DamageType name with DamageType ID
+    /// </summary>    
+    /// <param name="DamageType ID"></param>
+    /// <returns></returns>
+    public static string Find_DamageType_String_Value(string text)
+    {
+        if (text.ToLower() == "0")
+            return "Natural";
+        if (text.ToLower() == "1")
+            return "Crush";
+        if (text.ToLower() == "2")
+            return "Slash";
+        if (text.ToLower() == "3")
+            return "Thrust";
+        if (text.ToLower() == "10")
+            return "Body";
+        if (text.ToLower() == "11")
+            return "Cold";
+        if (text.ToLower() == "12")
+            return "Energy";
+        if (text.ToLower() == "13")
+            return "Heat";
+        if (text.ToLower() == "14")
+            return "Matter";
+        if (text.ToLower() == "15")
+            return "Spirit";
+        return "Not Defined";
+    }
+
+    #endregion DamageType Utilities
+
+    #region BodyType Utilities
+
+    /// <summary>
+    /// Find BodyType name with BodyType ID
+    /// </summary>    
+    /// <param name="BodyType ID"></param>
+    /// <returns></returns>
+    public static string Find_BodyType_String_Value(string text)
+    {
+        if (text.ToLower() == "0")
+            return "None";
+        if (text.ToLower() == "1")
+            return "Animal";
+        if (text.ToLower() == "2")
+            return "Demon";
+        if (text.ToLower() == "3")
+            return "Dragon";
+        if (text.ToLower() == "4")
+            return "Elemental";
+        if (text.ToLower() == "5")
+            return "Giant";
+        if (text.ToLower() == "6")
+            return "Humanoid";
+        if (text.ToLower() == "7")
+            return "Insect";
+        if (text.ToLower() == "8")
+            return "Magical";
+        if (text.ToLower() == "9")
+            return "Reptile";
+        if (text.ToLower() == "10")
+            return "Plant";
+        if (text.ToLower() == "11")
+            return "Undead";
+        return "Not Defined";
+    }
+
+    /// <summary>
+    /// Find BodyType ID with BodyType name
+    /// </summary>    
+    /// <param name="BodyType name"></param>
+    /// <returns></returns>
+    public static int Find_BodyType_Value(string text)
+    {
+        if (text.ToLower() == "none")
+            return 0;
+        if (text.ToLower() == "animal")
+            return 1;
+        if (text.ToLower() == "demon")
+            return 2;
+        if (text.ToLower() == "dragon")
+            return 3;
+        if (text.ToLower() == "elemental")
+            return 4;
+        if (text.ToLower() == "giant")
+            return 5;
+        if (text.ToLower() == "humanoid")
+            return 6;
+        if (text.ToLower() == "insect")
+            return 7;
+        if (text.ToLower() == "magical")
+            return 8;
+        if (text.ToLower() == "reptile")
+            return 9;
+        if (text.ToLower() == "plant")
+            return 10;
+        if (text.ToLower() == "undead")
+            return 11;
+        return 0;
+    }
+
+    #endregion BodyType Utilities
+
+    #region Craft Utilities
+
+    /// <summary>
+    /// Find Craft name with CraftID
+    /// </summary>    
+    /// <param name="Craft ID"></param>
+    /// <returns></returns>
+    public static string CraftIDToName(string craftID)
+    {
+        switch (craftID)
+        {
+            case "1": return "WeaponCrafting";
+            case "2": return "ArmorCrafting";
+            case "3": return "SiegeCrafting";
+            case "4": return "Alchemy";
+            case "6": return "MetalWorking";
+            case "7": return "LeatherCrafting";
+            case "8": return "ClothWorking";
+            case "9": return "GemCutting";
+            case "10": return "HerbalCrafting";
+            case "11": return "Tailoring";
+            case "12": return "Fletching";
+            case "13": return "SpellCrafting";
+            case "14": return "WoodWorking";
+            case "15": return "BasicCrafting";
+        }
+        return "unknown craftid";
+    }
+
+    /// <summary>
+    /// Find CrafID with Craft name
+    /// </summary>    
+    /// <param name="Craft name"></param>
+    /// <returns></returns>
+    public static string CraftNameToID(string craftName)
+    {
+        switch (craftName)
+        {
+            case "WeaponCrafting":
+                return "1";
+            case "ArmorCrafting":
+                return "2";
+            case "SiegeCrafting":
+                return "3";
+            case "Alchemy":
+                return "4";
+            case "MetalWorking":
+                return "6";
+            case "LeatherCrafting":
+                return "7";
+            case "ClothWorking":
+                return "8";
+            case "GemCutting":
+                return "9";
+            case "HerbalCrafting":
+                return "10";
+            case "Tailoring":
+                return "11";
+            case "Fletching":
+                return "12";
+            case "SpellCrafting":
+                return "13";
+            case "WoodWorking":
+                return "14";
+            case "BasicCrafting":
+                return "15";
+        }
+        return "unknown craftname";
+    }
+
+    #endregion Craft Utilities
+
+    #region Free ID Finder Utilities
+
+    /// <summary>
+    /// Find First Free Spell ID
+    /// </summary>
     public static int Find_Free_SpellID()
     {
-        MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
-        MySqlDataAdapter FindFreeIDdataAdapter = new MySqlDataAdapter("select distinct spellid from spell ORDER BY spellid ASC", Util.Connection);
+        MySqlDataAdapter FindFreeIDdataAdapter = new MySqlDataAdapter("select distinct spellid from spell ORDER BY spellid ASC", Connection);
         MySqlCommandBuilder commandBuilderSpellIDDatatable = new MySqlCommandBuilder(FindFreeIDdataAdapter);
         DataTable SpellIDDatatable = new DataTable();
         FindFreeIDdataAdapter.Fill(SpellIDDatatable);
@@ -528,11 +815,12 @@ public static class Util
         return id_retenu;
     }
 
+    /// <summary>
+    /// Find First Free Faction ID
+    /// </summary>
     public static int Find_Free_FactionID()
     {
-        MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
-        MySqlDataAdapter FindFreeIDdataAdapter = new MySqlDataAdapter("select distinct id from faction ORDER BY id ASC", Util.Connection);
+        MySqlDataAdapter FindFreeIDdataAdapter = new MySqlDataAdapter("select distinct id from faction ORDER BY id ASC", Connection);
         MySqlCommandBuilder commandBuilderSpellIDDatatable = new MySqlCommandBuilder(FindFreeIDdataAdapter);
         DataTable SpellIDDatatable = new DataTable();
         FindFreeIDdataAdapter.Fill(SpellIDDatatable);
@@ -557,11 +845,12 @@ public static class Util
         return id_retenu;
     }
 
+    /// <summary>
+    /// Find First Free Region ID
+    /// </summary>
     public static int Find_Free_Region_ID()
     {
-        MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
-        MySqlDataAdapter FindFreeIDdataAdapter = new MySqlDataAdapter("select distinct RegionID from regions ORDER BY RegionID ASC", Util.Connection);
+        MySqlDataAdapter FindFreeIDdataAdapter = new MySqlDataAdapter("select distinct RegionID from regions ORDER BY RegionID ASC", Connection);
         MySqlCommandBuilder commandBuilderSpellIDDatatable = new MySqlCommandBuilder(FindFreeIDdataAdapter);
         DataTable SpellIDDatatable = new DataTable();
         FindFreeIDdataAdapter.Fill(SpellIDDatatable);
@@ -586,11 +875,12 @@ public static class Util
         return id_retenu;
     }
 
+    /// <summary>
+    /// Find First Free Zone ID
+    /// </summary>
     public static int Find_Free_Zone_ID()
     {
-        MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
-        MySqlDataAdapter FindFreeIDdataAdapter = new MySqlDataAdapter("select distinct zoneID from zones ORDER BY zoneID ASC", Util.Connection);
+        MySqlDataAdapter FindFreeIDdataAdapter = new MySqlDataAdapter("select distinct zoneID from zones ORDER BY zoneID ASC", Connection);
         MySqlCommandBuilder commandBuilderSpellIDDatatable = new MySqlCommandBuilder(FindFreeIDdataAdapter);
         DataTable ZoneIDDatatable = new DataTable();
         FindFreeIDdataAdapter.Fill(ZoneIDDatatable);
@@ -614,6 +904,38 @@ public static class Util
         }
         return id_retenu;
     }
+
+    /// <summary>
+    /// Find First Free NPCTemplate ID
+    /// </summary>
+    public static int Find_Free_NPCTemplateID()
+    {
+        MySqlDataAdapter FindFreeIDdataAdapter = new MySqlDataAdapter("select distinct templateid from npctemplate ORDER BY templateid ASC", Connection);
+        MySqlCommandBuilder commandBuilderNPCTemplateIDDatatable = new MySqlCommandBuilder(FindFreeIDdataAdapter);
+        DataTable NPCTemplateIDDatatable = new DataTable();
+        FindFreeIDdataAdapter.Fill(NPCTemplateIDDatatable);
+        int id_retenu = 1;
+        int oldid = 0;
+        foreach (DataRow foundRows in NPCTemplateIDDatatable.Rows)
+        {
+            string idstr = foundRows["TemplateID"].ToString();
+            if (idstr == id_retenu.ToString())
+            {
+                oldid = id_retenu;
+                id_retenu++;
+            }
+            else
+            {
+                if (id_retenu == oldid)
+                    continue;
+                else
+                    break;
+            }
+        }
+        return id_retenu;
+    }
+
+    #endregion Free ID Finder Utilities
 
     /// <summary>
     /// Various flags for this npc
@@ -659,6 +981,11 @@ public static class Util
         SWIMMING = 0x100
     }
 
+    /// <summary>
+    /// Find Gender name with gender ID
+    /// </summary>    
+    /// <param name="Gender ID"></param>
+    /// <returns></returns>
     public static string Find_Gender_Value(string text)
     {
         if (text.ToLower() == "1")
@@ -666,202 +993,6 @@ public static class Util
         if (text.ToLower() == "2")
             return "Female";
         return "Neutral";
-    }
-
-    public static byte Find_DamageType_Value(string text)
-    {
-        if (text.ToLower() == "natural")
-            return 0;
-        if (text.ToLower() == "crush")
-            return 1;
-        if (text.ToLower() == "slash")
-            return 2;
-        if (text.ToLower() == "thrust")
-            return 3;
-        if (text.ToLower() == "body")
-            return 10;
-        if (text.ToLower() == "cold")
-            return 11;
-        if (text.ToLower() == "energy")
-            return 12;
-        if (text.ToLower() == "heat")
-            return 13;
-        if (text.ToLower() == "matter")
-            return 14;
-        if (text.ToLower() == "spirit")
-            return 15;
-        return 0;
-    }
-
-    public static string Find_DamageType_String_Value(string text)
-    {
-        if (text.ToLower() == "0")
-            return "Natural";
-        if (text.ToLower() == "1")
-            return "Crush";
-        if (text.ToLower() == "2")
-            return "Slash";
-        if (text.ToLower() == "3")
-            return "Thrust";
-        if (text.ToLower() == "10")
-            return "Body";
-        if (text.ToLower() == "11")
-            return "Cold";
-        if (text.ToLower() == "12")
-            return "Energy";
-        if (text.ToLower() == "13")
-            return "Heat";
-        if (text.ToLower() == "14")
-            return "Matter";
-        if (text.ToLower() == "15")
-            return "Spirit";
-        return "Not Defined";
-    }
-
-    public static string Find_BodyType_String_Value(string text)
-    {
-        if (text.ToLower() == "0")
-            return "None";
-        if (text.ToLower() == "1")
-            return "Animal";
-        if (text.ToLower() == "2")
-            return "Demon";
-        if (text.ToLower() == "3")
-            return "Dragon";
-        if (text.ToLower() == "4")
-            return "Elemental";
-        if (text.ToLower() == "5")
-            return "Giant";
-        if (text.ToLower() == "6")
-            return "Humanoid";
-        if (text.ToLower() == "7")
-            return "Insect";
-        if (text.ToLower() == "8")
-            return "Magical";
-        if (text.ToLower() == "9")
-            return "Reptile";
-        if (text.ToLower() == "10")
-            return "Plant";
-        if (text.ToLower() == "11")
-            return "Undead";
-        return "Not Defined";
-    }
-
-    public static int Find_BodyType_Value(string text)
-    {
-        if (text.ToLower() == "none")
-            return 0;
-        if (text.ToLower() == "animal")
-            return 1;
-        if (text.ToLower() == "demon")
-            return 2;
-        if (text.ToLower() == "dragon")
-            return 3;
-        if (text.ToLower() == "elemental")
-            return 4;
-        if (text.ToLower() == "giant")
-            return 5;
-        if (text.ToLower() == "humanoid")
-            return 6;
-        if (text.ToLower() == "insect")
-            return 7;
-        if (text.ToLower() == "magical")
-            return 8;
-        if (text.ToLower() == "reptile")
-            return 9;
-        if (text.ToLower() == "plant")
-            return 10;
-        if (text.ToLower() == "undead")
-            return 11;
-        return 0;
-    }
-
-    public static int Find_Free_NPCTemplateID()
-    {
-        MySqlConnection connection = new MySqlConnection("server=" + DolEditor.Properties.Settings.Default.ServerIP + ";uid=" + DolEditor.Properties.Settings.Default.Username + ";pwd=" + DolEditor.Properties.Settings.Default.Password + ";database=" + DolEditor.Properties.Settings.Default.DatabaseName + "");
-
-        MySqlDataAdapter FindFreeIDdataAdapter = new MySqlDataAdapter("select distinct templateid from npctemplate ORDER BY templateid ASC", Util.Connection);
-        MySqlCommandBuilder commandBuilderNPCTemplateIDDatatable = new MySqlCommandBuilder(FindFreeIDdataAdapter);
-        DataTable NPCTemplateIDDatatable = new DataTable();
-        FindFreeIDdataAdapter.Fill(NPCTemplateIDDatatable);
-        int id_retenu = 1;
-        int oldid = 0;
-        foreach (DataRow foundRows in NPCTemplateIDDatatable.Rows)
-        {
-            string idstr = foundRows["TemplateID"].ToString();
-            if (idstr == id_retenu.ToString())
-            {
-                oldid = id_retenu;
-                id_retenu++;
-            }
-            else
-            {
-                if (id_retenu == oldid)
-                    continue;
-                else
-                    break;
-            }
-        }
-        return id_retenu;
-    }
-
-    //Not Used
-    public static string CraftIDToName(string objectTypeID)
-    {
-        switch (objectTypeID)
-        {
-            case "1": return "WeaponCrafting";
-            case "2": return "ArmorCrafting";
-            case "3": return "SiegeCrafting";
-            case "4": return "Alchemy";
-            case "6": return "MetalWorking";
-            case "7": return "LeatherCrafting";
-            case "8": return "ClothWorking";
-            case "9": return "GemCutting";
-            case "10": return "HerbalCrafting";
-            case "11": return "Tailoring";
-            case "12": return "Fletching";
-            case "13": return "SpellCrafting";
-            case "14": return "WoodWorking";
-            case "15": return "BasicCrafting";
-        }
-        return "unknown craftid";
-    }
-
-    public static string CraftNameToID(string objectTypeID)
-    {
-        switch (objectTypeID)
-        {
-            case "WeaponCrafting":
-                return "1";
-            case "ArmorCrafting":
-                return "2";
-            case "SiegeCrafting":
-                return "3";
-            case "Alchemy":
-                return "4";
-            case "MetalWorking":
-                return "6";
-            case "LeatherCrafting":
-                return "7";
-            case "ClothWorking":
-                return "8";
-            case "GemCutting":
-                return "9";
-            case "HerbalCrafting":
-                return "10";
-            case "Tailoring":
-                return "11";
-            case "Fletching":
-                return "12";
-            case "SpellCrafting":
-                return "13";
-            case "WoodWorking":
-                return "14";
-            case "BasicCrafting":
-                return "15";
-        }
-        return "unknown craftname";
     }
 
     /// <summary>

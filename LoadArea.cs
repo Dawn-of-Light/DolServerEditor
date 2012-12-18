@@ -23,7 +23,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Drawing;
 
-namespace Origins_Editor
+namespace DOL_Editor
 {
     public partial class LoadArea : Form
     {
@@ -44,7 +44,6 @@ namespace Origins_Editor
             this.Savebutton.Hide();
             this.SaveNewbutton.Hide();
             this.EditAreaControl.Hide();
-
 
             this.LanguagecomboBox.SelectedIndex = 0;
             this.CanBroadCastcomboBox.SelectedIndex = 0;

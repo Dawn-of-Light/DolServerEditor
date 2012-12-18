@@ -24,7 +24,7 @@ using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Origins_Editor
+namespace DOL_Editor
 {
     public partial class LoadNPCTemplate : Form
     {
@@ -523,7 +523,7 @@ namespace Origins_Editor
                 this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["ParryChance"].Value = ParryChanceNumericUpDown.Value;
                 this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["EvadeChance"].Value = EvadeChanceNumericUpDown.Value;
                 this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["BlockChance"].Value = BlockChanceNumericUpDown.Value;
-                this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["LeftHandSwingCount"].Value = LeftHandSwingChanceNumericUpDown.Value;
+                this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["LeftHandSwingChance"].Value = LeftHandSwingChanceNumericUpDown.Value;
                 this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Spells"].Value = SpellsrichTextBox.Text;
                 this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Styles"].Value = StylesrichTextBox.Text;
                 this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Strength"].Value = StrengthtextBox.Text;
@@ -1028,10 +1028,6 @@ namespace Origins_Editor
             if (checkBox5.Checked == true && checkBox5.Name != cb.Name)
             {
                 checkBox5.Checked = false;
-            }
-            if (checkBox6.Checked == true && checkBox6.Name != cb.Name)
-            {
-                checkBox6.Checked = false;
             }
             if (checkBox7.Checked == true && checkBox7.Name != cb.Name)
             {

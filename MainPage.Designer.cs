@@ -17,7 +17,7 @@
 *
 */
 
-namespace Origins_Editor
+namespace DOL_Editor
 {
     partial class MainPageEditor
     {

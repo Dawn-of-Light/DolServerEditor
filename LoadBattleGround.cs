@@ -27,7 +27,7 @@ using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-namespace Origins_Editor
+namespace DOL_Editor
 {
     public partial class LoadBattleGround : Form
     {

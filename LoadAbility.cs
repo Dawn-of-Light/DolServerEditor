@@ -26,7 +26,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Origins_Editor
+namespace DOL_Editor
 {
     public partial class LoadAbility : Form
     {

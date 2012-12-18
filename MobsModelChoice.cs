@@ -27,7 +27,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
-namespace Origins_Editor
+namespace DOL_Editor
 {
     public partial class MobsModelChoice : Form
     {
@@ -43,11 +43,13 @@ namespace Origins_Editor
             {
                 loadNPCTemplateWindow = Window as LoadNPCTemplate;
                 NPCTemplateModelTextBox = Form;
+                this.Text = "NPCTemplate Models Chooser";
             }
             else if (Window.GetType() == typeof(LoadMob))
             {
                 loadMobWindow = Window as LoadMob;
                 MobModelTextBox = Form;
+                this.Text = "Mob Model Chooser";
             }
             InitializeComponent();
         }

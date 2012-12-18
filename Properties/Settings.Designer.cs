@@ -23,18 +23,6 @@ namespace DolEditor.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Id=DolEditor.Properties.Settings.Default.Username;password=DolEditor.Properties.S" +
-            "ettings.Default.Password;database=DolEditor.Properties.Settings.Default.Database" +
-            "Name;Persist Security Info=True")]
-        public string onlineConnectionString {
-            get {
-                return ((string)(this["onlineConnectionString"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("127.0.0.1")]
@@ -44,18 +32,6 @@ namespace DolEditor.Properties {
             }
             set {
                 this["ServerIP"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string DatabaseName {
-            get {
-                return ((string)(this["DatabaseName"]));
-            }
-            set {
-                this["DatabaseName"] = value;
             }
         }
         
@@ -104,6 +80,18 @@ namespace DolEditor.Properties {
             }
             set {
                 this["PortNumber"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("databasename")]
+        public string DatabaseName {
+            get {
+                return ((string)(this["DatabaseName"]));
+            }
+            set {
+                this["DatabaseName"] = value;
             }
         }
     }

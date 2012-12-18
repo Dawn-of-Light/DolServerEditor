@@ -22,7 +22,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Windows.Input;
 
-namespace Origins_Editor
+namespace DOL_Editor
 {
     partial class LoadSpell
     {

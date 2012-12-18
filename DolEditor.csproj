@@ -104,7 +104,7 @@
     </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Origins_Editor.Program</StartupObject>
+    <StartupObject>DOL_Editor.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>

@@ -22,7 +22,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Windows.Input;
 
-namespace Origins_Editor
+namespace DOL_Editor
 {
     partial class LoadNPCTemplate
     {
@@ -107,11 +107,9 @@ namespace Origins_Editor
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.label54 = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
@@ -155,17 +153,13 @@ namespace Origins_Editor
             this.label28 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.ReplaceMobValuescomboBox = new System.Windows.Forms.ComboBox();
             this.ClassTypecomboBox = new System.Windows.Forms.ComboBox();
             this.ItemsListTemplateIDtextBox = new System.Windows.Forms.TextBox();
             this.TranslationIDtextBox = new System.Windows.Forms.TextBox();
             this.EquipmentTemplateIDtextBox = new System.Windows.Forms.TextBox();
-            this.VisibleWeaponSlotstextBox = new System.Windows.Forms.TextBox();
             this.PackageIDtextBox = new System.Windows.Forms.TextBox();
             this.label41 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
@@ -208,6 +202,10 @@ namespace Origins_Editor
             this.label21 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.EvadeChanceNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.BlockChanceNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.LeftHandSwingChanceNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.ParryChanceNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.AbilitiesrichTextBox = new System.Windows.Forms.RichTextBox();
             this.StylesrichTextBox = new System.Windows.Forms.RichTextBox();
             this.SpellsrichTextBox = new System.Windows.Forms.RichTextBox();
@@ -227,10 +225,10 @@ namespace Origins_Editor
             this.FRNamelabel = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.ParryChanceNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.LeftHandSwingChanceNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.BlockChanceNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.EvadeChanceNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.ReplaceMobValuescomboBox = new System.Windows.Forms.ComboBox();
+            this.VisibleWeaponSlotstextBox = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.NPCTemplatebindingNavigator)).BeginInit();
             this.NPCTemplatebindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NPCTemplatebindingSource)).BeginInit();
@@ -259,11 +257,11 @@ namespace Origins_Editor
             ((System.ComponentModel.ISupportInitialize)(this.AggroLevelUpDown)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ParryChanceNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LeftHandSwingChanceNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BlockChanceNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EvadeChanceNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BlockChanceNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LeftHandSwingChanceNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ParryChanceNumericUpDown)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // NPCTemplatebindingNavigator
@@ -388,12 +386,12 @@ namespace Origins_Editor
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.NPCTemplatedataGridView.DefaultCellStyle = dataGridViewCellStyle1;
-            this.NPCTemplatedataGridView.Location = new System.Drawing.Point(0, 74);
+            this.NPCTemplatedataGridView.Location = new System.Drawing.Point(0, 69);
             this.NPCTemplatedataGridView.MultiSelect = false;
             this.NPCTemplatedataGridView.Name = "NPCTemplatedataGridView";
             this.NPCTemplatedataGridView.ReadOnly = true;
             this.NPCTemplatedataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.NPCTemplatedataGridView.Size = new System.Drawing.Size(848, 625);
+            this.NPCTemplatedataGridView.Size = new System.Drawing.Size(848, 630);
             this.NPCTemplatedataGridView.TabIndex = 1;
             this.NPCTemplatedataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.NPCTemplatedataGridView_CellContentClick);
             this.NPCTemplatedataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.TranslationdataGridView__CellValueChanged);
@@ -727,11 +725,9 @@ namespace Origins_Editor
             this.groupBox13.Controls.Add(this.checkBox3);
             this.groupBox13.Controls.Add(this.checkBox4);
             this.groupBox13.Controls.Add(this.checkBox5);
-            this.groupBox13.Controls.Add(this.checkBox6);
             this.groupBox13.Controls.Add(this.label54);
             this.groupBox13.Controls.Add(this.label55);
             this.groupBox13.Controls.Add(this.label56);
-            this.groupBox13.Controls.Add(this.label57);
             this.groupBox13.Controls.Add(this.label58);
             this.groupBox13.Controls.Add(this.label59);
             this.groupBox13.Enabled = false;
@@ -794,7 +790,7 @@ namespace Origins_Editor
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(85, 85);
+            this.checkBox4.Location = new System.Drawing.Point(85, 83);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(15, 14);
             this.checkBox4.TabIndex = 26;
@@ -804,22 +800,12 @@ namespace Origins_Editor
             // checkBox5
             // 
             this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(200, 114);
+            this.checkBox5.Location = new System.Drawing.Point(224, 84);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(15, 14);
             this.checkBox5.TabIndex = 25;
             this.checkBox5.UseVisualStyleBackColor = true;
             this.checkBox5.CheckedChanged += new System.EventHandler(this.VisibleWeaponSlots_CheckedChanged);
-            // 
-            // checkBox6
-            // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(225, 86);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(15, 14);
-            this.checkBox6.TabIndex = 24;
-            this.checkBox6.UseVisualStyleBackColor = true;
-            this.checkBox6.CheckedChanged += new System.EventHandler(this.VisibleWeaponSlots_CheckedChanged);
             // 
             // label54
             // 
@@ -833,7 +819,7 @@ namespace Origins_Editor
             // label55
             // 
             this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(13, 86);
+            this.label55.Location = new System.Drawing.Point(13, 84);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(54, 13);
             this.label55.TabIndex = 22;
@@ -848,23 +834,14 @@ namespace Origins_Editor
             this.label56.TabIndex = 21;
             this.label56.Text = "Distance";
             // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(165, 86);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(57, 13);
-            this.label57.TabIndex = 20;
-            this.label57.Text = "Two Hand";
-            // 
             // label58
             // 
             this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(57, 114);
+            this.label58.Location = new System.Drawing.Point(111, 84);
             this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(140, 13);
+            this.label58.Size = new System.Drawing.Size(111, 13);
             this.label58.TabIndex = 19;
-            this.label58.Text = "Left Hand and Two Handed";
+            this.label58.Text = "Left and Two Handed";
             // 
             // label59
             // 
@@ -905,7 +882,7 @@ namespace Origins_Editor
             // SwimmingcheckBox
             // 
             this.SwimmingcheckBox.AutoSize = true;
-            this.SwimmingcheckBox.Location = new System.Drawing.Point(173, 72);
+            this.SwimmingcheckBox.Location = new System.Drawing.Point(173, 70);
             this.SwimmingcheckBox.Name = "SwimmingcheckBox";
             this.SwimmingcheckBox.Size = new System.Drawing.Size(15, 14);
             this.SwimmingcheckBox.TabIndex = 17;
@@ -914,7 +891,7 @@ namespace Origins_Editor
             // TorchcheckBox
             // 
             this.TorchcheckBox.AutoSize = true;
-            this.TorchcheckBox.Location = new System.Drawing.Point(52, 71);
+            this.TorchcheckBox.Location = new System.Drawing.Point(52, 69);
             this.TorchcheckBox.Name = "TorchcheckBox";
             this.TorchcheckBox.Size = new System.Drawing.Size(15, 14);
             this.TorchcheckBox.TabIndex = 16;
@@ -923,7 +900,7 @@ namespace Origins_Editor
             // StatuecheckBox
             // 
             this.StatuecheckBox.AutoSize = true;
-            this.StatuecheckBox.Location = new System.Drawing.Point(256, 71);
+            this.StatuecheckBox.Location = new System.Drawing.Point(256, 69);
             this.StatuecheckBox.Name = "StatuecheckBox";
             this.StatuecheckBox.Size = new System.Drawing.Size(15, 14);
             this.StatuecheckBox.TabIndex = 15;
@@ -986,7 +963,7 @@ namespace Origins_Editor
             // label53
             // 
             this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(113, 72);
+            this.label53.Location = new System.Drawing.Point(113, 70);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(54, 13);
             this.label53.TabIndex = 8;
@@ -995,7 +972,7 @@ namespace Origins_Editor
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(206, 72);
+            this.label52.Location = new System.Drawing.Point(206, 70);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(38, 13);
             this.label52.TabIndex = 7;
@@ -1004,7 +981,7 @@ namespace Origins_Editor
             // label51
             // 
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(11, 72);
+            this.label51.Location = new System.Drawing.Point(11, 70);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(35, 13);
             this.label51.TabIndex = 6;
@@ -1098,7 +1075,7 @@ namespace Origins_Editor
             // label61
             // 
             this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(149, 34);
+            this.label61.Location = new System.Drawing.Point(149, 38);
             this.label61.Name = "label61";
             this.label61.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label61.Size = new System.Drawing.Size(60, 13);
@@ -1117,7 +1094,7 @@ namespace Origins_Editor
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(41, 34);
+            this.label15.Location = new System.Drawing.Point(41, 38);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(57, 13);
             this.label15.TabIndex = 48;
@@ -1173,7 +1150,7 @@ namespace Origins_Editor
             // 
             // HightSizenumericUpDown
             // 
-            this.HightSizenumericUpDown.Location = new System.Drawing.Point(209, 32);
+            this.HightSizenumericUpDown.Location = new System.Drawing.Point(209, 36);
             this.HightSizenumericUpDown.Maximum = new decimal(new int[] {
             255,
             0,
@@ -1197,7 +1174,7 @@ namespace Origins_Editor
             // 
             // LowSizenumericUpDown
             // 
-            this.LowSizenumericUpDown.Location = new System.Drawing.Point(104, 32);
+            this.LowSizenumericUpDown.Location = new System.Drawing.Point(104, 36);
             this.LowSizenumericUpDown.Maximum = new decimal(new int[] {
             255,
             0,
@@ -1221,7 +1198,7 @@ namespace Origins_Editor
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(220, 54);
+            this.button1.Location = new System.Drawing.Point(220, 60);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(38, 23);
             this.button1.TabIndex = 42;
@@ -1240,7 +1217,7 @@ namespace Origins_Editor
             // 
             // ModeltextBox
             // 
-            this.ModeltextBox.Location = new System.Drawing.Point(42, 54);
+            this.ModeltextBox.Location = new System.Drawing.Point(42, 60);
             this.ModeltextBox.Name = "ModeltextBox";
             this.ModeltextBox.Size = new System.Drawing.Size(172, 20);
             this.ModeltextBox.TabIndex = 20;
@@ -1248,7 +1225,7 @@ namespace Origins_Editor
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(8, 35);
+            this.label12.Location = new System.Drawing.Point(8, 38);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(27, 13);
             this.label12.TabIndex = 11;
@@ -1257,7 +1234,7 @@ namespace Origins_Editor
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 57);
+            this.label13.Location = new System.Drawing.Point(3, 63);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(36, 13);
             this.label13.TabIndex = 12;
@@ -1328,16 +1305,16 @@ namespace Origins_Editor
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.ReplaceMobValuescomboBox);
+            this.groupBox9.Controls.Add(this.VisibleWeaponSlotstextBox);
+            this.groupBox9.Controls.Add(this.label34);
+            this.groupBox9.Controls.Add(this.label33);
             this.groupBox9.Controls.Add(this.ClassTypecomboBox);
             this.groupBox9.Controls.Add(this.ItemsListTemplateIDtextBox);
             this.groupBox9.Controls.Add(this.TranslationIDtextBox);
             this.groupBox9.Controls.Add(this.EquipmentTemplateIDtextBox);
-            this.groupBox9.Controls.Add(this.VisibleWeaponSlotstextBox);
             this.groupBox9.Controls.Add(this.PackageIDtextBox);
             this.groupBox9.Controls.Add(this.label41);
             this.groupBox9.Controls.Add(this.label10);
-            this.groupBox9.Controls.Add(this.label34);
-            this.groupBox9.Controls.Add(this.label33);
             this.groupBox9.Controls.Add(this.label35);
             this.groupBox9.Controls.Add(this.label32);
             this.groupBox9.Controls.Add(this.label30);
@@ -1347,39 +1324,26 @@ namespace Origins_Editor
             this.groupBox9.TabIndex = 48;
             this.groupBox9.TabStop = false;
             // 
-            // ReplaceMobValuescomboBox
-            // 
-            this.ReplaceMobValuescomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ReplaceMobValuescomboBox.FormattingEnabled = true;
-            this.ReplaceMobValuescomboBox.Items.AddRange(new object[] {
-            "False",
-            "True"});
-            this.ReplaceMobValuescomboBox.Location = new System.Drawing.Point(117, 59);
-            this.ReplaceMobValuescomboBox.Name = "ReplaceMobValuescomboBox";
-            this.ReplaceMobValuescomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ReplaceMobValuescomboBox.Size = new System.Drawing.Size(67, 21);
-            this.ReplaceMobValuescomboBox.TabIndex = 48;
-            // 
             // ClassTypecomboBox
             // 
             this.ClassTypecomboBox.FormattingEnabled = true;
-            this.ClassTypecomboBox.Location = new System.Drawing.Point(117, 11);
+            this.ClassTypecomboBox.Location = new System.Drawing.Point(61, 11);
             this.ClassTypecomboBox.Name = "ClassTypecomboBox";
             this.ClassTypecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ClassTypecomboBox.Size = new System.Drawing.Size(141, 21);
+            this.ClassTypecomboBox.Size = new System.Drawing.Size(197, 21);
             this.ClassTypecomboBox.Sorted = true;
             this.ClassTypecomboBox.TabIndex = 47;
             // 
             // ItemsListTemplateIDtextBox
             // 
-            this.ItemsListTemplateIDtextBox.Location = new System.Drawing.Point(117, 133);
+            this.ItemsListTemplateIDtextBox.Location = new System.Drawing.Point(117, 89);
             this.ItemsListTemplateIDtextBox.Name = "ItemsListTemplateIDtextBox";
             this.ItemsListTemplateIDtextBox.Size = new System.Drawing.Size(141, 20);
             this.ItemsListTemplateIDtextBox.TabIndex = 46;
             // 
             // TranslationIDtextBox
             // 
-            this.TranslationIDtextBox.Location = new System.Drawing.Point(117, 159);
+            this.TranslationIDtextBox.Location = new System.Drawing.Point(117, 115);
             this.TranslationIDtextBox.Name = "TranslationIDtextBox";
             this.TranslationIDtextBox.Size = new System.Drawing.Size(141, 20);
             this.TranslationIDtextBox.TabIndex = 45;
@@ -1387,21 +1351,14 @@ namespace Origins_Editor
             // 
             // EquipmentTemplateIDtextBox
             // 
-            this.EquipmentTemplateIDtextBox.Location = new System.Drawing.Point(117, 83);
+            this.EquipmentTemplateIDtextBox.Location = new System.Drawing.Point(117, 39);
             this.EquipmentTemplateIDtextBox.Name = "EquipmentTemplateIDtextBox";
             this.EquipmentTemplateIDtextBox.Size = new System.Drawing.Size(141, 20);
             this.EquipmentTemplateIDtextBox.TabIndex = 44;
             // 
-            // VisibleWeaponSlotstextBox
-            // 
-            this.VisibleWeaponSlotstextBox.Location = new System.Drawing.Point(117, 36);
-            this.VisibleWeaponSlotstextBox.Name = "VisibleWeaponSlotstextBox";
-            this.VisibleWeaponSlotstextBox.Size = new System.Drawing.Size(67, 20);
-            this.VisibleWeaponSlotstextBox.TabIndex = 42;
-            // 
             // PackageIDtextBox
             // 
-            this.PackageIDtextBox.Location = new System.Drawing.Point(117, 109);
+            this.PackageIDtextBox.Location = new System.Drawing.Point(117, 65);
             this.PackageIDtextBox.Name = "PackageIDtextBox";
             this.PackageIDtextBox.Size = new System.Drawing.Size(141, 20);
             this.PackageIDtextBox.TabIndex = 41;
@@ -1409,7 +1366,7 @@ namespace Origins_Editor
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(62, 16);
+            this.label41.Location = new System.Drawing.Point(6, 16);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(56, 13);
             this.label41.TabIndex = 40;
@@ -1418,34 +1375,16 @@ namespace Origins_Editor
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 87);
+            this.label10.Location = new System.Drawing.Point(6, 43);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(112, 13);
             this.label10.TabIndex = 9;
             this.label10.Text = "EquipmentTemplateID";
             // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(17, 39);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(101, 13);
-            this.label34.TabIndex = 33;
-            this.label34.Text = "VisibleWeaponSlots";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(18, 63);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(100, 13);
-            this.label33.TabIndex = 32;
-            this.label33.Text = "ReplaceMobValues";
-            // 
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(57, 112);
+            this.label35.Location = new System.Drawing.Point(57, 68);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(61, 13);
             this.label35.TabIndex = 34;
@@ -1454,7 +1393,7 @@ namespace Origins_Editor
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(20, 136);
+            this.label32.Location = new System.Drawing.Point(20, 92);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(98, 13);
             this.label32.TabIndex = 31;
@@ -1463,7 +1402,7 @@ namespace Origins_Editor
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(48, 162);
+            this.label30.Location = new System.Drawing.Point(48, 118);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(70, 13);
             this.label30.TabIndex = 29;
@@ -1888,6 +1827,58 @@ namespace Origins_Editor
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tweaks";
             // 
+            // EvadeChanceNumericUpDown
+            // 
+            this.EvadeChanceNumericUpDown.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.EvadeChanceNumericUpDown.Location = new System.Drawing.Point(123, 38);
+            this.EvadeChanceNumericUpDown.Name = "EvadeChanceNumericUpDown";
+            this.EvadeChanceNumericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.EvadeChanceNumericUpDown.Size = new System.Drawing.Size(54, 20);
+            this.EvadeChanceNumericUpDown.TabIndex = 34;
+            // 
+            // BlockChanceNumericUpDown
+            // 
+            this.BlockChanceNumericUpDown.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.BlockChanceNumericUpDown.Location = new System.Drawing.Point(123, 65);
+            this.BlockChanceNumericUpDown.Name = "BlockChanceNumericUpDown";
+            this.BlockChanceNumericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.BlockChanceNumericUpDown.Size = new System.Drawing.Size(54, 20);
+            this.BlockChanceNumericUpDown.TabIndex = 33;
+            // 
+            // LeftHandSwingChanceNumericUpDown
+            // 
+            this.LeftHandSwingChanceNumericUpDown.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.LeftHandSwingChanceNumericUpDown.Location = new System.Drawing.Point(123, 89);
+            this.LeftHandSwingChanceNumericUpDown.Name = "LeftHandSwingChanceNumericUpDown";
+            this.LeftHandSwingChanceNumericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.LeftHandSwingChanceNumericUpDown.Size = new System.Drawing.Size(54, 20);
+            this.LeftHandSwingChanceNumericUpDown.TabIndex = 32;
+            // 
+            // ParryChanceNumericUpDown
+            // 
+            this.ParryChanceNumericUpDown.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.ParryChanceNumericUpDown.Location = new System.Drawing.Point(123, 14);
+            this.ParryChanceNumericUpDown.Name = "ParryChanceNumericUpDown";
+            this.ParryChanceNumericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ParryChanceNumericUpDown.Size = new System.Drawing.Size(54, 20);
+            this.ParryChanceNumericUpDown.TabIndex = 31;
+            // 
             // AbilitiesrichTextBox
             // 
             this.AbilitiesrichTextBox.Location = new System.Drawing.Point(8, 241);
@@ -2058,77 +2049,43 @@ namespace Origins_Editor
             this.label14.TabIndex = 13;
             this.label14.Text = "GuildName";
             // 
-            // ParryChanceNumericUpDown
+            // ReplaceMobValuescomboBox
             // 
-            this.ParryChanceNumericUpDown.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.ParryChanceNumericUpDown.Location = new System.Drawing.Point(123, 14);
-            this.ParryChanceNumericUpDown.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.ParryChanceNumericUpDown.Name = "ParryChanceNumericUpDown";
-            this.ParryChanceNumericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ParryChanceNumericUpDown.Size = new System.Drawing.Size(54, 20);
-            this.ParryChanceNumericUpDown.TabIndex = 31;
+            this.ReplaceMobValuescomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ReplaceMobValuescomboBox.FormattingEnabled = true;
+            this.ReplaceMobValuescomboBox.Items.AddRange(new object[] {
+            "False",
+            "True"});
+            this.ReplaceMobValuescomboBox.Location = new System.Drawing.Point(191, 164);
+            this.ReplaceMobValuescomboBox.Name = "ReplaceMobValuescomboBox";
+            this.ReplaceMobValuescomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ReplaceMobValuescomboBox.Size = new System.Drawing.Size(67, 21);
+            this.ReplaceMobValuescomboBox.TabIndex = 52;
             // 
-            // LeftHandSwingChanceNumericUpDown
+            // VisibleWeaponSlotstextBox
             // 
-            this.LeftHandSwingChanceNumericUpDown.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.LeftHandSwingChanceNumericUpDown.Location = new System.Drawing.Point(123, 89);
-            this.LeftHandSwingChanceNumericUpDown.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.LeftHandSwingChanceNumericUpDown.Name = "LeftHandSwingChanceNumericUpDown";
-            this.LeftHandSwingChanceNumericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LeftHandSwingChanceNumericUpDown.Size = new System.Drawing.Size(54, 20);
-            this.LeftHandSwingChanceNumericUpDown.TabIndex = 32;
+            this.VisibleWeaponSlotstextBox.Location = new System.Drawing.Point(191, 141);
+            this.VisibleWeaponSlotstextBox.Name = "VisibleWeaponSlotstextBox";
+            this.VisibleWeaponSlotstextBox.Size = new System.Drawing.Size(67, 20);
+            this.VisibleWeaponSlotstextBox.TabIndex = 51;
             // 
-            // BlockChanceNumericUpDown
+            // label34
             // 
-            this.BlockChanceNumericUpDown.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.BlockChanceNumericUpDown.Location = new System.Drawing.Point(123, 65);
-            this.BlockChanceNumericUpDown.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.BlockChanceNumericUpDown.Name = "BlockChanceNumericUpDown";
-            this.BlockChanceNumericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.BlockChanceNumericUpDown.Size = new System.Drawing.Size(54, 20);
-            this.BlockChanceNumericUpDown.TabIndex = 33;
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(91, 144);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(101, 13);
+            this.label34.TabIndex = 50;
+            this.label34.Text = "VisibleWeaponSlots";
             // 
-            // EvadeChanceNumericUpDown
+            // label33
             // 
-            this.EvadeChanceNumericUpDown.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.EvadeChanceNumericUpDown.Location = new System.Drawing.Point(123, 38);
-            this.EvadeChanceNumericUpDown.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.EvadeChanceNumericUpDown.Name = "EvadeChanceNumericUpDown";
-            this.EvadeChanceNumericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.EvadeChanceNumericUpDown.Size = new System.Drawing.Size(54, 20);
-            this.EvadeChanceNumericUpDown.TabIndex = 34;
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(92, 168);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(100, 13);
+            this.label33.TabIndex = 49;
+            this.label33.Text = "ReplaceMobValues";
             // 
             // LoadNPCTemplate
             // 
@@ -2184,12 +2141,12 @@ namespace Origins_Editor
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EvadeChanceNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BlockChanceNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LeftHandSwingChanceNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ParryChanceNumericUpDown)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ParryChanceNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LeftHandSwingChanceNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BlockChanceNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EvadeChanceNumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2243,11 +2200,8 @@ namespace Origins_Editor
         private TextBox ItemsListTemplateIDtextBox;
         private TextBox TranslationIDtextBox;
         private TextBox EquipmentTemplateIDtextBox;
-        private TextBox VisibleWeaponSlotstextBox;
         private TextBox PackageIDtextBox;
         private Label label41;
-        private Label label34;
-        private Label label33;
         private Label label35;
         private Label label32;
         private Label label30;
@@ -2287,7 +2241,6 @@ namespace Origins_Editor
         private TextBox FRNametextBox;
         private TextBox NametextBox;
         private TextBox TemplateIDtextBox;
-        private ComboBox ReplaceMobValuescomboBox;
         private GroupBox groupBox11;
         private Label Classlabel;
         private ComboBox ClassTypeSearchcomboBox;
@@ -2325,11 +2278,9 @@ namespace Origins_Editor
         private CheckBox checkBox3;
         private CheckBox checkBox4;
         private CheckBox checkBox5;
-        private CheckBox checkBox6;
         private Label label54;
         private Label label55;
         private Label label56;
-        private Label label57;
         private Label label58;
         private Label label59;
         private ComboBox RacecomboBox;
@@ -2373,5 +2324,9 @@ namespace Origins_Editor
         private NumericUpDown BlockChanceNumericUpDown;
         private NumericUpDown LeftHandSwingChanceNumericUpDown;
         private NumericUpDown ParryChanceNumericUpDown;
+        private ComboBox ReplaceMobValuescomboBox;
+        private TextBox VisibleWeaponSlotstextBox;
+        private Label label34;
+        private Label label33;
     }
 }

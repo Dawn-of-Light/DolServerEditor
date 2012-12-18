@@ -22,7 +22,7 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.Xml;
 
-namespace Origins_Editor
+namespace DOL_Editor
 {
     static class Program
     {
