@@ -1071,14 +1071,14 @@ namespace DOL_Editor
             this.dataGridViewLanguageSpell.AllowUserToOrderColumns = true;
             this.dataGridViewLanguageSpell.AutoGenerateColumns = false;
             this.dataGridViewLanguageSpell.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewLanguageSpell.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridViewLanguageSpell.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewLanguageSpell.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewLanguageSpell.DataSource = this.LanguageSpellbindingSource;
-            this.dataGridViewLanguageSpell.Location = new System.Drawing.Point(6, 106);
+            this.dataGridViewLanguageSpell.Location = new System.Drawing.Point(-2, -450);
             this.dataGridViewLanguageSpell.MultiSelect = false;
             this.dataGridViewLanguageSpell.Name = "dataGridViewLanguageSpell";
             this.dataGridViewLanguageSpell.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewLanguageSpell.Size = new System.Drawing.Size(938, 106);
+            this.dataGridViewLanguageSpell.Size = new System.Drawing.Size(946, 662);
             this.dataGridViewLanguageSpell.TabIndex = 20;
             this.dataGridViewLanguageSpell.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.LanguageSpelldataGridView_CellValueChanged);
             // 
@@ -2563,15 +2563,15 @@ namespace DOL_Editor
             this.dataGridSpell.AllowUserToAddRows = false;
             this.dataGridSpell.AllowUserToOrderColumns = true;
             this.dataGridSpell.AutoGenerateColumns = false;
-            this.dataGridSpell.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridSpell.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridSpell.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridSpell.DataSource = this.SpellbindingSource;
-            this.dataGridSpell.Location = new System.Drawing.Point(7, 72);
+            this.dataGridSpell.Location = new System.Drawing.Point(14, 99);
             this.dataGridSpell.MultiSelect = false;
             this.dataGridSpell.Name = "dataGridSpell";
             this.dataGridSpell.ReadOnly = true;
             this.dataGridSpell.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridSpell.Size = new System.Drawing.Size(973, 697);
+            this.dataGridSpell.Size = new System.Drawing.Size(959, 660);
             this.dataGridSpell.TabIndex = 19;
             this.dataGridSpell.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridSpell_CellContentClick);
             // 
@@ -2625,12 +2625,11 @@ namespace DOL_Editor
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(985, 778);
+            this.ClientSize = new System.Drawing.Size(984, 778);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridSpell);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.ControlMenu);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoadSpell";
             this.Text = "Spell Editor";

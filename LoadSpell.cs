@@ -229,10 +229,10 @@ namespace DOL_Editor
             {
                 CastTimetextBox.Text = "0";
             }
-            int CastTime;
-            if (!Int32.TryParse(CastTimetextBox.Text.ToString(), out CastTime))
+            double CastTime;
+            if (!Double.TryParse(CastTimetextBox.Text.ToString(), out CastTime))
             {
-                MessageBox.Show("You need to specify a numeric value for CastTime.");
+                MessageBox.Show("You need to specify a double value for CastTime.");
                 return false;
             }
 
@@ -240,10 +240,10 @@ namespace DOL_Editor
             {
                 DamagetextBox.Text = "0";
             }
-            int Damage;
-            if (!Int32.TryParse(DamagetextBox.Text.ToString(), out Damage))
+            double Damage;
+            if (!Double.TryParse(DamagetextBox.Text.ToString(), out Damage))
             {
-                MessageBox.Show("You need to specify a numeric value for Damage.");
+                MessageBox.Show("You need to specify a double value for Damage.");
                 return false;
             }
 
@@ -339,8 +339,8 @@ namespace DOL_Editor
             {
                 ValuetextBox.Text = "0";
             }
-            int Value;
-            if (!Int32.TryParse(ValuetextBox.Text.ToString(), out Value))
+            double Value;
+            if (!Double.TryParse(ValuetextBox.Text.ToString(), out Value))
             {
                 MessageBox.Show("You need to specify a numeric value for Value.");
                 return false;
@@ -514,13 +514,13 @@ namespace DOL_Editor
                 this.SpellGrouptextBox.Text = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["SpellGroup"].Value.ToString();
                 this.EffectGrouptextBox.Text = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["EffectGroup"].Value.ToString();
                 this.SubSpellIDtextBox.Text = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["SubSpellID"].Value.ToString();
-                this.MoveCastcomboBox.SelectedValue = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["MoveCast"].Value.ToString();
-                this.UninterruptiblecomboBox.SelectedValue = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["Uninterruptible"].Value.ToString();
-                this.IsPrimarycomboBox.SelectedValue = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["IsPrimary"].Value.ToString();
-                this.IsSecondarycomboBox.SelectedValue = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["IsSecondary"].Value.ToString();
-                this.AllowBoltcomboBox.SelectedValue = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["AllowBolt"].Value.ToString();
+                this.MoveCastcomboBox.Text = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["MoveCast"].Value.ToString();
+                this.UninterruptiblecomboBox.Text = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["Uninterruptible"].Value.ToString();
+                this.IsPrimarycomboBox.Text = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["IsPrimary"].Value.ToString();
+                this.IsSecondarycomboBox.Text = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["IsSecondary"].Value.ToString();
+                this.AllowBoltcomboBox.Text = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["AllowBolt"].Value.ToString();
                 this.SharedTimerGrouptextBox.Text = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["SharedTimerGroup"].Value.ToString();
-                this.IsFocuscomboBox.SelectedValue = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["IsFocus"].Value.ToString();
+                this.IsFocuscomboBox.SelectedItem = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["IsFocus"].Value.ToString();
                 this.Message1richTextBox.Text = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["Message1"].Value.ToString();
                 this.Message2richTextBox.Text = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["Message2"].Value.ToString();
                 this.Message3richTextBox.Text = this.dataGridSpell.Rows[dataGridSpell.CurrentCell.RowIndex].Cells["Message3"].Value.ToString();

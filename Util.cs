@@ -92,7 +92,7 @@ public static class Util
     /// <returns></returns>
     public static string Find_Bool_String_Value(string text)
     {
-        if (text.ToLower() == "0")
+        if (text.ToLower() == "0" || text.ToLower() == "" || text == null)
             return "False";
         return "True";
     }
