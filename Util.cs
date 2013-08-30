@@ -90,23 +90,42 @@ public static class Util
     /// </summary>
     /// <param name="bool value as string"></param>
     /// <returns></returns>
-    public static string Find_Bool_String_Value(string text)
+    public static string Find_Bool_Value(string text)
     {
         if (text.ToLower() == "0" || text.ToLower() == "" || text == null)
             return "False";
-        return "True";
+        if (text == "False" || text == "" || text == null)
+            return "0";
+        if (text == "True")
+            return "1";
+        if (text == "1")
+            return "True";
+
+        return "0";
     }
 
+
     /// <summary>
-    /// Find Bool value number with true or false
-    /// </summary>    
-    /// <param name="bool string value"></param>
+    /// Find Bool value (true false) with value number
+    /// </summary>
+    /// <param name="bool value as string"></param>
     /// <returns></returns>
-    public static int Find_Bool_Value(string text)
+    public static string Find_Gender_Value(string text)
     {
-        if (text.ToLower() == "true")
-            return 1;
-        return 0;
+        if (text == "0" || text == "" || text == null)
+            return "Neutral";
+        if (text == "Neutral")
+            return "0";
+        if (text == "1") 
+            return "Male";
+        if (text == "Male")
+            return "1";
+        if (text == "2")
+            return "Female";
+        if (text == "Female")
+            return "2";
+
+        return "0";
     }
 
     #endregion Bool Utilities
@@ -979,20 +998,6 @@ public static class Util
         /// npc is swimming
         /// </summary>
         SWIMMING = 0x100
-    }
-
-    /// <summary>
-    /// Find Gender name with gender ID
-    /// </summary>    
-    /// <param name="Gender ID"></param>
-    /// <returns></returns>
-    public static string Find_Gender_Value(string text)
-    {
-        if (text.ToLower() == "1")
-            return "Male";
-        if (text.ToLower() == "2")
-            return "Female";
-        return "Neutral";
     }
 
     /// <summary>

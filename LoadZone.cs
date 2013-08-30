@@ -157,7 +157,7 @@ namespace DOL_Editor
                 this.ZoneIDtextBox.Text = this.ZonedataGridView.Rows[ZonedataGridView.CurrentCell.RowIndex].Cells["ZoneID"].Value.ToString();
                 this.RegionIDtextBox.Text = this.ZonedataGridView.Rows[ZonedataGridView.CurrentCell.RowIndex].Cells["RegionID"].Value.ToString();
                 this.NametextBox.Text = this.ZonedataGridView.Rows[ZonedataGridView.CurrentCell.RowIndex].Cells["Name"].Value.ToString();
-                this.IsLavacomboBox.Text = Util.Find_Bool_String_Value(this.ZonedataGridView.Rows[ZonedataGridView.CurrentCell.RowIndex].Cells["IsLava"].Value.ToString());
+                this.IsLavacomboBox.Text = Util.Find_Bool_Value(this.ZonedataGridView.Rows[ZonedataGridView.CurrentCell.RowIndex].Cells["IsLava"].Value.ToString());
                 this.WaterLeveltextBox.Text = this.ZonedataGridView.Rows[ZonedataGridView.CurrentCell.RowIndex].Cells["WaterLevel"].Value.ToString();
                 this.OffSetYtextBox.Text = this.ZonedataGridView.Rows[ZonedataGridView.CurrentCell.RowIndex].Cells["OffsetY"].Value.ToString();
                 this.OffSetXtextBox.Text = this.ZonedataGridView.Rows[ZonedataGridView.CurrentCell.RowIndex].Cells["OffsetX"].Value.ToString();
@@ -167,7 +167,7 @@ namespace DOL_Editor
                 this.RealmPointstextBox.Text = this.ZonedataGridView.Rows[ZonedataGridView.CurrentCell.RowIndex].Cells["Realmpoints"].Value.ToString();
                 this.BountyPointstextBox.Text = this.ZonedataGridView.Rows[ZonedataGridView.CurrentCell.RowIndex].Cells["Bountypoints"].Value.ToString();
                 this.CointextBox.Text = this.ZonedataGridView.Rows[ZonedataGridView.CurrentCell.RowIndex].Cells["Coin"].Value.ToString();
-                this.DivingFlagcomboBox.Text = Util.Find_Bool_String_Value(this.ZonedataGridView.Rows[ZonedataGridView.CurrentCell.RowIndex].Cells["DivingFlag"].Value.ToString());
+                this.DivingFlagcomboBox.Text = Util.Find_Bool_Value(this.ZonedataGridView.Rows[ZonedataGridView.CurrentCell.RowIndex].Cells["DivingFlag"].Value.ToString());
                 this.RealmcomboBox.Text = Util.Find_Realm_String_Value(this.ZonedataGridView.Rows[ZonedataGridView.CurrentCell.RowIndex].Cells["Realm"].Value.ToString());
                 this.TranslationIDtextBox.Text = this.ZonedataGridView.Rows[ZonedataGridView.CurrentCell.RowIndex].Cells["TranslationId"].Value.ToString();
                 this.SaveNewbutton.Hide();

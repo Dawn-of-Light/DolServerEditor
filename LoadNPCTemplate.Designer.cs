@@ -153,6 +153,10 @@ namespace DOL_Editor
             this.label28 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.ReplaceMobValuescomboBox = new System.Windows.Forms.ComboBox();
+            this.VisibleWeaponSlotstextBox = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
             this.ClassTypecomboBox = new System.Windows.Forms.ComboBox();
             this.ItemsListTemplateIDtextBox = new System.Windows.Forms.TextBox();
             this.TranslationIDtextBox = new System.Windows.Forms.TextBox();
@@ -170,6 +174,8 @@ namespace DOL_Editor
             this.label11 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.GendercomboBox = new System.Windows.Forms.ComboBox();
+            this.label57 = new System.Windows.Forms.Label();
             this.AggroLevelUpDown = new System.Windows.Forms.NumericUpDown();
             this.MeleeDamageTypecomboBox = new System.Windows.Forms.ComboBox();
             this.IsCharmablecomboBox = new System.Windows.Forms.ComboBox();
@@ -225,10 +231,6 @@ namespace DOL_Editor
             this.FRNamelabel = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.ReplaceMobValuescomboBox = new System.Windows.Forms.ComboBox();
-            this.VisibleWeaponSlotstextBox = new System.Windows.Forms.TextBox();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.NPCTemplatebindingNavigator)).BeginInit();
             this.NPCTemplatebindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NPCTemplatebindingSource)).BeginInit();
@@ -386,12 +388,12 @@ namespace DOL_Editor
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.NPCTemplatedataGridView.DefaultCellStyle = dataGridViewCellStyle1;
-            this.NPCTemplatedataGridView.Location = new System.Drawing.Point(0, 69);
+            this.NPCTemplatedataGridView.Location = new System.Drawing.Point(0, 74);
             this.NPCTemplatedataGridView.MultiSelect = false;
             this.NPCTemplatedataGridView.Name = "NPCTemplatedataGridView";
             this.NPCTemplatedataGridView.ReadOnly = true;
             this.NPCTemplatedataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.NPCTemplatedataGridView.Size = new System.Drawing.Size(848, 630);
+            this.NPCTemplatedataGridView.Size = new System.Drawing.Size(848, 625);
             this.NPCTemplatedataGridView.TabIndex = 1;
             this.NPCTemplatedataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.NPCTemplatedataGridView_CellContentClick);
             this.NPCTemplatedataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.TranslationdataGridView__CellValueChanged);
@@ -427,7 +429,7 @@ namespace DOL_Editor
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(236, 18);
+            this.label45.Location = new System.Drawing.Point(256, 18);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(61, 13);
             this.label45.TabIndex = 20;
@@ -438,7 +440,7 @@ namespace DOL_Editor
             this.PackageIDSearchcomboBox.DisplayMember = "All";
             this.PackageIDSearchcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PackageIDSearchcomboBox.FormattingEnabled = true;
-            this.PackageIDSearchcomboBox.Location = new System.Drawing.Point(303, 14);
+            this.PackageIDSearchcomboBox.Location = new System.Drawing.Point(320, 13);
             this.PackageIDSearchcomboBox.MaxDropDownItems = 15;
             this.PackageIDSearchcomboBox.Name = "PackageIDSearchcomboBox";
             this.PackageIDSearchcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -498,7 +500,7 @@ namespace DOL_Editor
             this.ClassTypeSearchcomboBox.MaxDropDownItems = 15;
             this.ClassTypeSearchcomboBox.Name = "ClassTypeSearchcomboBox";
             this.ClassTypeSearchcomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ClassTypeSearchcomboBox.Size = new System.Drawing.Size(177, 21);
+            this.ClassTypeSearchcomboBox.Size = new System.Drawing.Size(192, 21);
             this.ClassTypeSearchcomboBox.Sorted = true;
             this.ClassTypeSearchcomboBox.TabIndex = 10;
             // 
@@ -1056,7 +1058,7 @@ namespace DOL_Editor
             this.groupBox11.Controls.Add(this.ModeltextBox);
             this.groupBox11.Controls.Add(this.label12);
             this.groupBox11.Controls.Add(this.label13);
-            this.groupBox11.Location = new System.Drawing.Point(3, 296);
+            this.groupBox11.Location = new System.Drawing.Point(3, 317);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.Size = new System.Drawing.Size(264, 90);
             this.groupBox11.TabIndex = 50;
@@ -1324,6 +1326,44 @@ namespace DOL_Editor
             this.groupBox9.TabIndex = 48;
             this.groupBox9.TabStop = false;
             // 
+            // ReplaceMobValuescomboBox
+            // 
+            this.ReplaceMobValuescomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ReplaceMobValuescomboBox.FormattingEnabled = true;
+            this.ReplaceMobValuescomboBox.Items.AddRange(new object[] {
+            "False",
+            "True"});
+            this.ReplaceMobValuescomboBox.Location = new System.Drawing.Point(191, 164);
+            this.ReplaceMobValuescomboBox.Name = "ReplaceMobValuescomboBox";
+            this.ReplaceMobValuescomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ReplaceMobValuescomboBox.Size = new System.Drawing.Size(67, 21);
+            this.ReplaceMobValuescomboBox.TabIndex = 52;
+            // 
+            // VisibleWeaponSlotstextBox
+            // 
+            this.VisibleWeaponSlotstextBox.Location = new System.Drawing.Point(191, 141);
+            this.VisibleWeaponSlotstextBox.Name = "VisibleWeaponSlotstextBox";
+            this.VisibleWeaponSlotstextBox.Size = new System.Drawing.Size(67, 20);
+            this.VisibleWeaponSlotstextBox.TabIndex = 51;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(91, 144);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(101, 13);
+            this.label34.TabIndex = 50;
+            this.label34.Text = "VisibleWeaponSlots";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(92, 168);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(100, 13);
+            this.label33.TabIndex = 49;
+            this.label33.Text = "ReplaceMobValues";
+            // 
             // ClassTypecomboBox
             // 
             this.ClassTypecomboBox.FormattingEnabled = true;
@@ -1459,6 +1499,8 @@ namespace DOL_Editor
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.GendercomboBox);
+            this.groupBox7.Controls.Add(this.label57);
             this.groupBox7.Controls.Add(this.AggroLevelUpDown);
             this.groupBox7.Controls.Add(this.MeleeDamageTypecomboBox);
             this.groupBox7.Controls.Add(this.IsCharmablecomboBox);
@@ -1473,15 +1515,38 @@ namespace DOL_Editor
             this.groupBox7.Controls.Add(this.label37);
             this.groupBox7.Controls.Add(this.label19);
             this.groupBox7.Controls.Add(this.label18);
-            this.groupBox7.Location = new System.Drawing.Point(3, 118);
+            this.groupBox7.Location = new System.Drawing.Point(3, 121);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(200, 178);
+            this.groupBox7.Size = new System.Drawing.Size(200, 197);
             this.groupBox7.TabIndex = 47;
             this.groupBox7.TabStop = false;
             // 
+            // GendercomboBox
+            // 
+            this.GendercomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.GendercomboBox.FormattingEnabled = true;
+            this.GendercomboBox.Items.AddRange(new object[] {
+            "Neutral",
+            "Male",
+            "Female"});
+            this.GendercomboBox.Location = new System.Drawing.Point(108, 84);
+            this.GendercomboBox.Name = "GendercomboBox";
+            this.GendercomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.GendercomboBox.Size = new System.Drawing.Size(86, 21);
+            this.GendercomboBox.TabIndex = 51;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(60, 87);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(42, 13);
+            this.label57.TabIndex = 50;
+            this.label57.Text = "Gender";
+            // 
             // AggroLevelUpDown
             // 
-            this.AggroLevelUpDown.Location = new System.Drawing.Point(108, 131);
+            this.AggroLevelUpDown.Location = new System.Drawing.Point(110, 154);
             this.AggroLevelUpDown.Minimum = new decimal(new int[] {
             1,
             0,
@@ -1525,7 +1590,7 @@ namespace DOL_Editor
             this.IsCharmablecomboBox.Items.AddRange(new object[] {
             "False",
             "True"});
-            this.IsCharmablecomboBox.Location = new System.Drawing.Point(108, 38);
+            this.IsCharmablecomboBox.Location = new System.Drawing.Point(108, 35);
             this.IsCharmablecomboBox.Name = "IsCharmablecomboBox";
             this.IsCharmablecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.IsCharmablecomboBox.Size = new System.Drawing.Size(86, 21);
@@ -1535,7 +1600,7 @@ namespace DOL_Editor
             // IsCharmablelabel
             // 
             this.IsCharmablelabel.AutoSize = true;
-            this.IsCharmablelabel.Location = new System.Drawing.Point(39, 42);
+            this.IsCharmablelabel.Location = new System.Drawing.Point(39, 39);
             this.IsCharmablelabel.Name = "IsCharmablelabel";
             this.IsCharmablelabel.Size = new System.Drawing.Size(65, 13);
             this.IsCharmablelabel.TabIndex = 46;
@@ -1568,7 +1633,7 @@ namespace DOL_Editor
             "Reptile",
             "Plant",
             "Undead"});
-            this.BodyTypecomboBox.Location = new System.Drawing.Point(108, 62);
+            this.BodyTypecomboBox.Location = new System.Drawing.Point(108, 59);
             this.BodyTypecomboBox.Name = "BodyTypecomboBox";
             this.BodyTypecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BodyTypecomboBox.Size = new System.Drawing.Size(86, 21);
@@ -1576,7 +1641,7 @@ namespace DOL_Editor
             // 
             // AggroRangetextBox
             // 
-            this.AggroRangetextBox.Location = new System.Drawing.Point(108, 152);
+            this.AggroRangetextBox.Location = new System.Drawing.Point(110, 175);
             this.AggroRangetextBox.Name = "AggroRangetextBox";
             this.AggroRangetextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.AggroRangetextBox.Size = new System.Drawing.Size(65, 20);
@@ -1584,7 +1649,7 @@ namespace DOL_Editor
             // 
             // TetherRangetextBox
             // 
-            this.TetherRangetextBox.Location = new System.Drawing.Point(108, 107);
+            this.TetherRangetextBox.Location = new System.Drawing.Point(110, 130);
             this.TetherRangetextBox.Name = "TetherRangetextBox";
             this.TetherRangetextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TetherRangetextBox.Size = new System.Drawing.Size(65, 20);
@@ -1592,7 +1657,7 @@ namespace DOL_Editor
             // 
             // MaxDistancetextBox
             // 
-            this.MaxDistancetextBox.Location = new System.Drawing.Point(108, 85);
+            this.MaxDistancetextBox.Location = new System.Drawing.Point(110, 108);
             this.MaxDistancetextBox.Name = "MaxDistancetextBox";
             this.MaxDistancetextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MaxDistancetextBox.Size = new System.Drawing.Size(65, 20);
@@ -1601,7 +1666,7 @@ namespace DOL_Editor
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(47, 66);
+            this.label38.Location = new System.Drawing.Point(47, 63);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(55, 13);
             this.label38.TabIndex = 37;
@@ -1610,7 +1675,7 @@ namespace DOL_Editor
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(32, 113);
+            this.label36.Location = new System.Drawing.Point(34, 136);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(70, 13);
             this.label36.TabIndex = 35;
@@ -1619,7 +1684,7 @@ namespace DOL_Editor
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(33, 89);
+            this.label37.Location = new System.Drawing.Point(35, 112);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(69, 13);
             this.label37.TabIndex = 36;
@@ -1628,7 +1693,7 @@ namespace DOL_Editor
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(40, 133);
+            this.label19.Location = new System.Drawing.Point(42, 156);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(61, 13);
             this.label19.TabIndex = 18;
@@ -1637,7 +1702,7 @@ namespace DOL_Editor
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(34, 157);
+            this.label18.Location = new System.Drawing.Point(36, 180);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(67, 13);
             this.label18.TabIndex = 17;
@@ -2049,44 +2114,6 @@ namespace DOL_Editor
             this.label14.TabIndex = 13;
             this.label14.Text = "GuildName";
             // 
-            // ReplaceMobValuescomboBox
-            // 
-            this.ReplaceMobValuescomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ReplaceMobValuescomboBox.FormattingEnabled = true;
-            this.ReplaceMobValuescomboBox.Items.AddRange(new object[] {
-            "False",
-            "True"});
-            this.ReplaceMobValuescomboBox.Location = new System.Drawing.Point(191, 164);
-            this.ReplaceMobValuescomboBox.Name = "ReplaceMobValuescomboBox";
-            this.ReplaceMobValuescomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ReplaceMobValuescomboBox.Size = new System.Drawing.Size(67, 21);
-            this.ReplaceMobValuescomboBox.TabIndex = 52;
-            // 
-            // VisibleWeaponSlotstextBox
-            // 
-            this.VisibleWeaponSlotstextBox.Location = new System.Drawing.Point(191, 141);
-            this.VisibleWeaponSlotstextBox.Name = "VisibleWeaponSlotstextBox";
-            this.VisibleWeaponSlotstextBox.Size = new System.Drawing.Size(67, 20);
-            this.VisibleWeaponSlotstextBox.TabIndex = 51;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(91, 144);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(101, 13);
-            this.label34.TabIndex = 50;
-            this.label34.Text = "VisibleWeaponSlots";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(92, 168);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(100, 13);
-            this.label33.TabIndex = 49;
-            this.label33.Text = "ReplaceMobValues";
-            // 
             // LoadNPCTemplate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2328,5 +2355,7 @@ namespace DOL_Editor
         private TextBox VisibleWeaponSlotstextBox;
         private Label label34;
         private Label label33;
+        private ComboBox GendercomboBox;
+        private Label label57;
     }
 }

@@ -427,6 +427,7 @@ namespace DOL_Editor
                         datarow["Suffix"] = SuffixtextBox.Text;
                         datarow["ExamineArticle"] = ExamineArticletextBox.Text;
                         datarow["MessageArticle"] = MessageArticletextBox.Text;
+                        datarow["Gender"] = Util.Find_Gender_Value(GendercomboBox.SelectedText);
 
                         this.NPCTemplateDatatable.Rows.Add(datarow);
 
@@ -566,7 +567,8 @@ namespace DOL_Editor
                 this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Suffix"].Value = SuffixtextBox.Text;
                 this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["ExamineArticle"].Value = ExamineArticletextBox.Text;
                 this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["MessageArticle"].Value = MessageArticletextBox.Text;
-                
+                this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Gender"].Value = Util.Find_Gender_Value(GendercomboBox.Text);
+
                 if (MobsChoiceOpen != null)
                 {
                     MobsChoiceOpen.Close();
@@ -998,7 +1000,7 @@ namespace DOL_Editor
                 this.SuffixtextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Suffix"].Value.ToString();
                 this.ExamineArticletextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["ExamineArticle"].Value.ToString();
                 this.MessageArticletextBox.Text = this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["MessageArticle"].Value.ToString();
-
+                this.GendercomboBox.Text = Util.Find_Gender_Value(this.NPCTemplatedataGridView.Rows[NPCTemplatedataGridView.CurrentCell.RowIndex].Cells["Gender"].Value.ToString());
                 loaded = true;
 
                 this.SaveNewbutton.Hide();

@@ -1069,13 +1069,13 @@ namespace DOL_Editor
 
                 this.PackageIDtextBox.Text = this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["PackageID"].Value.ToString();
                 this.RoamingnumericUpDown.Text = this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["RoamingRange"].Value.ToString();
-                this.IsCloakHoodUpcomboBox.Text = Util.Find_Bool_String_Value(this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["IsCloakHoodUp"].Value.ToString());
+                this.IsCloakHoodUpcomboBox.Text = Util.Find_Bool_Value(this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["IsCloakHoodUp"].Value.ToString());
                 this.GendercomboBox.Text = Util.Find_Gender_Value(this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["Gender"].Value.ToString());
                 
                 this.VisibleWeaponSlotstextBox.Text = this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["VisibleWeaponSlots"].Value.ToString();
 
                 if (DolEditor.Properties.Settings.Default.OriginsSettings)
-                    this.IsCharmablecomboBox.Text = Util.Find_Bool_String_Value(this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["IsCharmable"].Value.ToString());
+                    this.IsCharmablecomboBox.Text = Util.Find_Bool_Value(this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["IsCharmable"].Value.ToString());
 
                 this.TranslationIDtextBox.Text = this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["TranslationId"].Value.ToString();
                 this.SuffixtextBox.Text = this.MobdataGridView.Rows[MobdataGridView.CurrentCell.RowIndex].Cells["Suffix"].Value.ToString();
