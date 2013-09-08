@@ -938,6 +938,8 @@ public static class Util
         foreach (DataRow foundRows in NPCTemplateIDDatatable.Rows)
         {
             string idstr = foundRows["TemplateID"].ToString();
+            if (foundRows["TemplateID"].ToString() == "-1")
+                continue;
             if (idstr == id_retenu.ToString())
             {
                 oldid = id_retenu;
