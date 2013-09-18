@@ -226,7 +226,7 @@ namespace DOL_Editor
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -252,7 +252,7 @@ namespace DOL_Editor
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
