@@ -417,17 +417,17 @@ namespace DOL_Editor
                         datarow["TetherRange"] = TetherRangetextBox.Text;
                         datarow["PackageID"] = PackageIDtextBox.Text;
                         datarow["VisibleWeaponSlots"] = VisibleWeaponSlotstextBox.Text;
-                        datarow["ReplaceMobValues"] = Util.Find_Bool_Value(ReplaceMobValuescomboBox.Text);
+                        datarow["ReplaceMobValues"] = ReplaceMobValuescomboBox.Text;
                         datarow["ItemsListTemplateID"] = ItemsListTemplateIDtextBox.Text;
 
                         if (DolEditor.Properties.Settings.Default.OriginsSettings)
-                            datarow["IsCharmable"] = Util.Find_Bool_Value(IsCharmablecomboBox.Text);
+                            datarow["IsCharmable"] = IsCharmablecomboBox.Text;
 
                         datarow["TranslationId"] = TranslationIDtextBox.Text;
                         datarow["Suffix"] = SuffixtextBox.Text;
                         datarow["ExamineArticle"] = ExamineArticletextBox.Text;
                         datarow["MessageArticle"] = MessageArticletextBox.Text;
-                        datarow["Gender"] = Util.Find_Gender_Value(GendercomboBox.SelectedText);
+                        datarow["Gender"] = Util.Find_Gender_Value(GendercomboBox.Text);
 
                         this.NPCTemplateDatatable.Rows.Add(datarow);
 
